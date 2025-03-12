@@ -1,5 +1,26 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"],
+	"compilerOptions": {
+		"verbatimModuleSyntax": true,
+		"types": ["bun-types"],
+		"noEmit": true,
+		"strictNullChecks": true,
+		"allowJs": true,
+		"target": "esnext",
+		"allowImportingTsExtensions": true,
+		"moduleResolution": "Bundler",
+		"baseUrl": ".",
+		"jsx": "react-jsx",
+		"jsxImportSource": "@builder.io/qwik",
+		"paths": {
+			"@/*": ["src/*"],
+			"@styles/*": ["src/styles/*"],
+			"@img/*": ["src/assets/img/*"],
+			"@theme": ["src/styles/utils/theme.css.ts"],
+			"@fonts": ["public/fonts/*"],
+			"@images": ["public/images/*"]
+		}
+	}
 }

@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  link: string;
+}
+const { title, link } = Astro.props;
+import { buttonCallToAction, buttonCallToAction_icone } from "./HERO/hero.css";
+---
+
+<button
+  class={buttonCallToAction}
+  type="button"
+  aria-label="rendez-vous"
+  tabindex="0"
+  >
+  <a href={link}>{title}</a>
+  <span class={buttonCallToAction_icone}>↑</span>
+</button>

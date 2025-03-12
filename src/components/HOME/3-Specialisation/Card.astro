@@ -1,0 +1,16 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  text: string;
+}
+import { CardStyle } from "./spe.css";
+const { icon, title, text } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<div class={CardStyle.wrapper}>
+  <Icon class={CardStyle.icone} name={icon} />
+  <h3>{title}</h3>
+  <p>{text}</p>
+</div>

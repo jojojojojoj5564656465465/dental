@@ -1,0 +1,20 @@
+---
+import * as s from './footer.css'
+---
+
+<footer class={s.wrapper}>
+  <h2 class={s.slogan}>Photographe agréé Google</h2>
+  {
+    [
+      { icon: 'A', text: 'Paris,Ile de France' },
+      { icon: 'T', text: '06 70 75 50 94' }
+    ].map(({ icon, text }) => {
+      return (
+        <div class={s.itemWrapper}>
+          <span class={s.item}>{icon}</span>
+          <p class={s.text}>{text}</p>
+        </div>
+      )
+    })
+  }
+</footer>
