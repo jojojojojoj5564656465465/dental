@@ -1,14 +1,10 @@
-import { createGlobalVar, styleVariants } from '@vanilla-extract/css'
-import { style, globalStyle } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container } from '@theme'
-import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
-import { calc } from '@vanilla-extract/css-utils'
-
+import {createGlobalVar, createVar, globalStyle, style, styleVariants} from '@vanilla-extract/css'
+import {color, container, fontSize, media} from '@theme'
+import { calc } from '@vanilla-extract/css-utils';
 const liSizeMask = createGlobalVar('mask', {
   syntax: '<length>',
   inherits: false,
   initialValue: '16px',
-  
 })
 
 export const text = styleVariants({
@@ -56,12 +52,107 @@ export const text = styleVariants({
 export const wrapper = style([
   container.small,
   {
-    color:color.text.primary,
+    color: color.text.primary,
     maxInlineSize: 'calc(60rem / 2)',
     inlineSize: '100%',
     '@media': {
-      [media.retina]: {
-        
+      [media.retina]: {},
+    },
+  },
+])
+
+
+export const baseImage = style(
+    {
+      borderRadius: '10%',
+      border: '5px solid red',
+      aspectRatio: '1',
+      cursor: 'pointer',
+    },
+)
+
+
+export const imageVariant = styleVariants({
+  wrapper: {
+    // backgroundColor: 'pink',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(8, minmax(3rem, 3rem + 5vw))',
+    gridTemplateRows: 'repeat(8,minmax(3rem, 1fr))',
+    '@media': {
+      [media.md]: {
+        gridTemplateColumns: 'repeat(8, 4rem)',
+        gridTemplateRows: 'repeat(8,minmax(4rem, 1fr))',
+
+      }
+    }
+  },
+  one: [
+    baseImage,
+    {
+      backgroundColor: 'yellow',
+      gridArea: '2 / 2 / span 5 / span 4',
+      '@media': {
+        [media.md]: {
+          gridArea: '2 / 2 / span 5 / span 4',
+        }
+      }
+    },
+  ],
+  two: [
+    baseImage,
+    {
+      backgroundColor: 'blue',
+      gridArea: '4 / 3 / span 5 / span 4',
+
+      '@media': {
+        [media.tablet]: {
+          gridArea: '4 / 5 / span 5 / span 4',
+        },
+        [media.md]: {
+          gridArea: '5 / 4 / span 5 / span 4',
+        }
+      }
+    },
+  ],
+  circle: {
+    maxInlineSize: '100px',
+
+    maskImage: 'url("check.svg")', // Assurez-vous que l'URL est correcte
+    maskSize: 'contain', // Ajuste la taille du masque pour qu'il s'adapte à l'élément
+    maskRepeat: 'no-repeat', // Empêche la répétition du masque
+    maskPosition: 'center', // Centre le masque
+    background: 'linear-gradient(38deg, rgba(63,94,251,1) 0%, rgba(203,19,228,1) 100%)',
+    gridArea: '2 / 5 / span 3 / span 3',
+    transition:'background 1s 2s ease',
+    '@media': {
+      [media.md]: {
+        maxInlineSize: '11rem',
+        gridArea: '2 / 6 / span 3 / span 3',
+      }
+    }
+  },
+})
+
+globalStyle(`${imageVariant.two}:hover + ${imageVariant.circle}`, {
+  background: 'red',
+})
+globalStyle(`${imageVariant.one}:hover ~ ${imageVariant.circle}`, {
+  background: 'greenyellow',
+})
+
+
+export const wrapperIndex = style([
+  container.medium,
+  {
+    display: "block",
+    border: `${color.blue.dark} 5px solid`,
+    '@media': {
+      [media.md]: {
+        display: ['flex', 'grid'],
+        gridTemplateColumns: '1fr 1fr',
+      },
+      [media.lg]: {
+        gridTemplateColumns: '1fr 2fr',
       },
     },
   },

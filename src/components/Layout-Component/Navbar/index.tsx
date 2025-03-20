@@ -5,27 +5,13 @@ import MenuLinks from './menu.data'
 
 const SVG = component$(() => {
   return (
-    <svg
-      class={s.icon}
-      viewBox='0 0 540 540'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
+    <svg class={s.icon} viewBox='0 0 540 540' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <title>Company Logo</title>
       <g clip-path='url(#clip0_104_5)'>
         <rect width='590' height='382' fill='#14975E' />
-        <path
-          d='M270.275 505.914L3.80879 319.879L537.638 321.171L270.275 505.914Z'
-          fill='#14975E'
-        />
-        <path
-          d='M113 229.101L139.205 199.207L283.002 338.515L256.796 368.409L113 229.101Z'
-          fill='#F5F5F5'
-        />
-        <path
-          d='M546.848 -29L579 2.24162L256.54 369L224.388 337.758L546.848 -29Z'
-          fill='#F5F5F5'
-        />
+        <path d='M270.275 505.914L3.80879 319.879L537.638 321.171L270.275 505.914Z' fill='#14975E' />
+        <path d='M113 229.101L139.205 199.207L283.002 338.515L256.796 368.409L113 229.101Z' fill='#F5F5F5' />
+        <path d='M546.848 -29L579 2.24162L256.54 369L224.388 337.758L546.848 -29Z' fill='#F5F5F5' />
       </g>
       <defs>
         <clipPath id='clip0_104_5'>
@@ -75,24 +61,16 @@ export default component$(props => {
           width='36'
           height='36'
         >
-          <path
-            d={
-              !isMenuOpen.value
-                ? 'M4 6h16M4 12h16M4 18h16'
-                : 'M6 18 18 6M6 6l12 12'
-            }
-          />
+          <path d={!isMenuOpen.value ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18 18 6M6 6l12 12'} />
         </svg>
       </button>
-      <div
-        class={isMenuOpen.value ? s.menuState.open : s.menuState.close}
-        aria-hidden={!isMenuOpen.value}
-        role='menu'
-      >
+      <div class={isMenuOpen.value ? s.menuState.open : s.menuState.close} aria-hidden={!isMenuOpen.value} role='menu'>
         {MenuLinks.map((el, index) => {
           return (
-            <span  class={s.menuState.link} key={index}>
-              <a class={s.menuState.link} href={el.link}>{el.name}</a>
+            <span class={s.menuState.link} key={index}>
+              <a class={s.menuState.link} href={el.link}>
+                {el.name}
+              </a>
             </span>
           )
         })}

@@ -1,6 +1,6 @@
 import * as T from '@theme'
 // styles.css
-import {  style, styleVariants } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
 import { fluid, globalStyleTag } from '@/styles/utils'
 
@@ -93,8 +93,6 @@ const menuBase = style({
   },
 })
 
-
-
 export const menuState = styleVariants({
   open: [
     menuBase,
@@ -116,18 +114,15 @@ export const menuState = styleVariants({
       },
     },
   ],
-  link:{
-    color:T.color.text.light,
+  link: {
+    color: T.color.text.light,
     fontSize: T.fontSize.md,
     textAlign: 'center',
-  }
+  },
 })
-
-
 
 globalStyleTag(menuState.close, {
   span: {
-
     textAlign: 'center',
     marginBlock: 'center',
     fontSize: T.fontSize.lg,

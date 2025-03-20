@@ -1,7 +1,8 @@
-import { style, globalStyle, createContainer, createGlobalVar, assignVars, createVar } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container } from '@theme'
-import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
+import { createContainer, createGlobalVar, createVar, style } from '@vanilla-extract/css'
+import { color, container, fontSize, media } from '@theme'
+import { fluid, globalStyleTag } from '@styles/utils'
 import { calc } from '@vanilla-extract/css-utils'
+
 export const wrapper = style([
   container.full,
   {
@@ -21,13 +22,13 @@ export const h3 = style({
 
 export const h1 = style({
   fontSize: fontSize['3xl'],
-  textWrap: 'balance',
+  textWrap: ['balance', 'pretty'],
   marginInline: 'auto',
   textAlign: 'center',
 })
 export const p = style({
   maxInlineSize: 'min(90%,60rem)',
-  textWrap: 'balance',
+  textWrap: ['balance', 'pretty'],
   marginInline: 'auto',
   textAlign: 'center',
 })
@@ -45,11 +46,8 @@ export const bannerWrapper = style([
     gridTemplateColumns: 'minmax(22rem, 1fr)',
     alignItems: 'center',
     '@media': {
-      [media.tablet.portrait]: {
+      [media.tablet]: {
         gridTemplateColumns: 'minmax(20rem, 1fr) auto minmax(20rem, 1fr)',
-      },
-      [media.tablet.landscape]: {
-        gridTemplateColumns: 'minmax(20rem, 1fr) auto minmax(20rem, 1fr) 14rem',
       },
       [media.mobile.landscape]: {
         gridTemplateColumns: 'minmax(20rem, 1fr) auto minmax(20rem, 1fr)',
@@ -150,7 +148,7 @@ export const buttonCallToAction = style({
     inlineSize: '100%',
     blockSize: '100%',
     backgroundColor: color.blue.dark,
-    transition: 'left 0.4s ease',
+    transition: 'left 0.5s 0.4s ease',
     zIndex: -1,
     borderRadius: 90,
   },
@@ -168,7 +166,7 @@ export const buttonCallToAction = style({
       justifyContent: 'center',
       display: 'grid',
       placeItems: 'center',
-      backgroundColor: 'red',
+      backgroundColor: color.blue.light,
     },
   },
 })
@@ -178,7 +176,8 @@ const sizeFontSize = createVar({
   syntax: '<length>',
   initialValue: '1.6rem',
 })
-export const buttonCallToAction_icone = style({
+
+export const buttonCallToAction_icon = style({
   '@container': {
     [`${buttonContainer} (width < 11rem)`]: {
       display: 'none',

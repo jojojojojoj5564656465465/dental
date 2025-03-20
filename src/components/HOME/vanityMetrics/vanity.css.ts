@@ -1,5 +1,5 @@
 import { style, globalStyle, styleVariants, createVar } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container } from '@theme'
+import { fontFamily, color, fontSize, space, media, container, containerGrid } from '@theme'
 import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
 import { calc } from '@vanilla-extract/css-utils'
 
@@ -36,7 +36,7 @@ export const CardStyle = styleVariants({
             [nbCards]: '2',
           },
         },
-        [media.tablet.portrait]: {
+        [media.tablet]: {
           vars: {
             [nbCards]: '2',
           },

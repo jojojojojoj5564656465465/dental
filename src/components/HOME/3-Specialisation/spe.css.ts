@@ -1,7 +1,6 @@
-import { style, globalStyle, styleVariants } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container } from '@theme'
-import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
-
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import { color, container, containerGrid, media, space } from '@theme'
+import { fluid, globalStyleTag, hover } from '@styles/utils'
 
 export const wrapper = style([
   container.large,
@@ -19,8 +18,7 @@ export const cardsWrapper = style({
   flexWrap: 'wrap',
   justifyContent: 'space-evenly',
   alignContent: 'space-evenly',
-  gap: fluid(20,50),
-
+  gap: fluid(20, 50),
 })
 export const CardStyle = styleVariants({
   wrapper: [
@@ -56,7 +54,7 @@ export const CardStyle = styleVariants({
         zIndex: -1,
       },
       '@media': {
-        [media.tablet.landscape]: {
+        [media.tablet]: {
           minInlineSize: 'calc(70vw / 2)',
         },
         [media.mobile.portrait]: {
@@ -92,5 +90,62 @@ globalStyleTag(CardStyle.wrapper, {
   p: {
     color: color.text.light,
     textWrap: ['balance', 'pretty'],
+  },
+})
+
+export const text2Div = styleVariants({
+  wrapper: [containerGrid.small, { backgroundColor: 'whitesmoke', gridTemplateRows: 'repeat(6, minmax(50px, 1fr))' }],
+  A: {
+    backgroundColor: 'orange',
+
+    gridColumn: '1 / 3',
+    gridRow: '1',
+    '@media': {
+      [media.tablet]: {
+        gridColumnStart: '1',
+        gridColumnEnd: '4',
+        gridRow: '1 / -1',
+      },
+      [media.md]: {
+        gridColumnStart: '1',
+        gridColumnEnd: '4',
+        gridRow: '1 / -1',
+      },
+    },
+  },
+  title: {
+    gridColumnStart: 3,
+    gridColumnEnd: '-2',
+    gridRow: '1 / span 1',
+    backgroundColor: 'pink',
+    '@media': {
+      [media.tablet]: {
+        gridColumnStart: 4,
+        gridColumnEnd: '-',
+        gridRow: '1 / 2',
+      },
+      [media.md]: {
+        gridColumnStart: 4,
+        gridColumnEnd: '-6',
+        gridRow: '1 / 2',
+      },
+    },
+  },
+  text: {
+    gridColumn: '2 / -1',
+    backgroundColor: 'red',
+    gridRow: '2 / -1',
+    '@media': {
+      [media.tablet]: {
+        gridColumn: '6 / -2',
+        backgroundColor: 'red',
+        gridRow: '2 / -1',
+      },
+      [media.md]: {
+        gridColumn: '6 / -2',
+        backgroundColor: 'red',
+        gridRow: '2 / -1',
+      },
+    },
   },
 })

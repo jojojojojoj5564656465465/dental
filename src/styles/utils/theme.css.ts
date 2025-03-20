@@ -1,6 +1,6 @@
-import { createGlobalTheme, globalLayer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import { createGlobalTheme, createVar, globalLayer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import f from './fontFace.css'
-import { ld } from './utils'
+import { fluid } from './utils'
 
 globalLayer('reset')
 globalLayer('base')
@@ -17,11 +17,10 @@ const color = createGlobalTheme(':root', {
     dark: 'oklch(32.25% 0.0573 233.51)',
     accent: 'oklch(58.09% 0.1151 235.69)',
     light: 'oklch(97.44% 0.0134 240.95)',
-
   },
-  text:{
-    light:'oklch(53.36% 0.0445 230.26)',
-    primary:'#0E384C',
+  text: {
+    light: 'oklch(53.36% 0.0445 230.26)',
+    primary: '#0E384C',
     accent: 'oklch(58.09% 0.1151 235.69)',
   },
   divider: {
@@ -33,7 +32,6 @@ const color = createGlobalTheme(':root', {
     blue: 'oklch(97.44% 0.0134 240.95)',
   },
 })
-
 
 const space = {
   xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
@@ -67,18 +65,14 @@ Object.freeze(fontSize)
 const media = {
   mobile: {
     portrait: 'screen and (max-width: 26.875em)',
-    landscape: 'screen and (orientation: landscape) and (max-height: 26.875em)',
+    landscape: 'screen and (orientation: landscape) and (max-height: 31.875em)',
   },
-  tablet: {
-    portrait: 'screen and (orientation: portrait) and (27em <= width <= 52.02em)',
-    landscape: 'screen and (orientation: landscape) and (27em <= height <= 51em)',
-  },
-  md: 'screen and (hover: hover) and (min-width: 51em)',
+  tablet: 'screen and (min-width: 27em)',
+  md: 'screen and (hover: hover) and (min-width: 45em)',
   lg: 'screen and (min-width: 64em)',
   xl: 'screen and (min-width: 80em)',
   '2xl': 'screen and (min-width: 110em)',
   motionSafe: 'screen and (prefers-reduced-motion: no-preference)',
-  retina: '(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)',
   dark: 'screen and (prefers-color-scheme: dark)',
 } as const
 Object.freeze(media)
@@ -101,6 +95,7 @@ const maxInlineSizeFn = (x: keyof typeof containerSize): string => {
   // 1. 100% minus twice the value of the parameter x from the containerSize object
   // 2. The value of the parameter x from the containerSize object
   // 3. 130rem
+
   return `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${containerSize[x]}, 130rem)`
 }
 
@@ -112,7 +107,7 @@ const defaultContainer = style({
       boxSizing: 'border-box',
       marginBlockEnd: space.lg,
       '@media': {
-        [media.tablet.portrait]: {
+        [media.tablet]: {
           marginBlockEnd: space.md,
         },
       },
@@ -156,7 +151,12 @@ const container = styleVariants({
       maxInlineSize: maxInlineSizeFn('xxl'),
     },
   ],
-  full: [defaultContainer, { maxInlineSize: 'none' }],
+  full: {
+    marginInline: 'auto',
+    position: 'relative',
+    boxSizing: 'border-box',
+    maxInlineSize: 'none',
+  },
 })
 
 globalStyle(`${container.default} > *`, {
@@ -175,4 +175,60 @@ globalStyle(`${container.default} > ${container.xxl}`, {
 globalStyle(`${container.default} > ${container.full}`, {
   maxInlineSize: maxInlineSizeFn('full'),
 })
-export { fontFamily, color, fontSize, space, media, container }
+
+// Définition des variables avec @property
+const spaceLrVar = createVar({
+  syntax: '<length>',
+  inherits: false,
+  initialValue: '40px',
+})
+
+const spaceGapVar = createVar({
+  syntax: '<length>',
+  inherits: false,
+  initialValue: '20px',
+})
+
+const colCountVar = createVar({
+  syntax: '<integer>',
+  inherits: false,
+  initialValue: '3',
+})
+
+const gridWrapper = style({
+  // Valeurs initiales des variables
+  vars: {
+    [spaceLrVar]: fluid(40, 80),
+    [spaceGapVar]: fluid(20, 35),
+  },
+  display: 'grid',
+  gap: spaceGapVar,
+
+  '@media': {
+    '(min-width: 43.75em)': {
+      vars: {
+        [colCountVar]: '6',
+      },
+    },
+    '(min-width: 62.5em)': {
+      vars: {
+        [colCountVar]: '12',
+      },
+    },
+    '(min-width: 92.5em)': {
+      vars: {
+        [spaceGapVar]: '42px',
+      },
+    },
+  },
+})
+
+const containerGrid = styleVariants(containerSize, size => [
+  defaultContainer,
+  gridWrapper,
+  {
+    gridTemplateColumns: `[margin-start] 1fr repeat(${colCountVar}, calc((min(100% - ${spaceLrVar}, ${size}) - (${colCountVar} - 1) * ${spaceGapVar}) / ${colCountVar})) [margin-end] 1fr`,
+  },
+])
+
+export { fontFamily, color, fontSize, space, media, container, containerGrid }

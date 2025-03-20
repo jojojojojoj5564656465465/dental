@@ -1,4 +1,4 @@
-import { globalStyle,globalLayer } from '@vanilla-extract/css'
+import { globalStyle, globalLayer } from '@vanilla-extract/css'
 
 import * as v from 'valibot'
 import * as T from './theme.css'
@@ -129,7 +129,7 @@ const ValidObj = v.object({
 
 const responsiveFontSize: Record<string, v.InferInput<typeof ValidObj>> = {
   h1: {
-    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+    fontSize: 'clamp(2.5rem, 5vw + 0.5rem, 4rem)',
     color: T.color.text.primary,
     fontFamily: T.fontFamily.dancingScript,
   },

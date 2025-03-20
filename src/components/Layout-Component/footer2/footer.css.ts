@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css'
-import { color, container, fontFamily, fontSize, media } from '@theme'
-import { fluid } from '@styles/utils'
+import {style} from '@vanilla-extract/css'
+import {color, container, fontFamily, fontSize, media} from '@theme'
+import {fluid} from '@styles/utils'
 
 export const wrapper = style([
   container.full,
@@ -15,17 +15,16 @@ export const wrapper = style([
     '@media': {
       [media.md]: {
         justifyContent: 'stretch',
-        gridTemplateColumns: 'repeat(4,1fr)'
-      }
-    }
-  }
+        gridTemplateColumns: 'repeat(4,1fr)',
+      },
+    },
+  },
 ])
 
 export const slogan = style({
   gridColumn: 'span 2',
   fontSize: fontSize['3xl'],
   fontFamily: fontFamily.dancingScript,
-
 })
 
 export const itemWrapper = style([
@@ -33,8 +32,8 @@ export const itemWrapper = style([
     display: 'flex',
     gap: '0.5rem',
     color: color.text.primary,
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 ])
 
 export const item = style({
@@ -42,11 +41,11 @@ export const item = style({
   padding: 5,
   selectors: {
     [`${itemWrapper}:hover > &`]: {
-      backgroundColor: color.blue.light
-    }
-  }
+      backgroundColor: color.blue.light,
+    },
+  },
 })
 
 export const text = style({
-  verticalAlign: 'middle'
+  verticalAlign: 'middle',
 })

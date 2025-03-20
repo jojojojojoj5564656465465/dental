@@ -1,9 +1,9 @@
-import { type GlobalStyleRule, globalStyle, style } from '@vanilla-extract/css'
-import {media} from "./theme.css.ts"
+import {globalStyle, type GlobalStyleRule, style} from '@vanilla-extract/css'
+import {a} from '@arrirpc/schema';
 import {
-  type InferInput,
   array,
   description,
+  fallback,
   maxLength,
   maxValue,
   minLength,
@@ -11,6 +11,7 @@ import {
   number,
   object,
   optional,
+  parse,
   parser,
   partialCheck,
   pipe,
@@ -30,8 +31,8 @@ type hoverProps = {
 /**
  * @description Hover function to handle all focus activate states
  *
- * @param {hoverProps} props
  * @returns {*}
+ * @param obj
  */
 const hover = (obj: hoverProps) => {
   const vObjValidatorKeyValues = object({
@@ -65,7 +66,6 @@ const hover = (obj: hoverProps) => {
   })
 }
 
-
 /**
  * Description placeholder
  *
@@ -76,6 +76,7 @@ const hover = (obj: hoverProps) => {
  * MARK: FLEX
  */
 function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9) {
+  const $$flexNumber = a.int8();
   type PositionProps = Readonly<'start' | 'center' | 'end'>
   const positions = {
     1: ['start', 'start'],
@@ -88,7 +89,7 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
     8: ['center', 'end'],
     9: ['end', 'end'],
   } as const satisfies Record<typeof flexNumber, readonly [PositionProps, PositionProps]>
-  const [justify, align] = positions[flexNumber]
+  const [justify, align] = positions[a.validate($$flexNumber, flexNumber) ? flexNumber : 1]
   return style({
     display: 'flex',
     flexDirection: 'row',
@@ -108,7 +109,7 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
 const fluid = (minSize: number, maxSize: number) => {
   const numberConvertToRem = pipe(
     number(),
-    maxValue(190),
+      maxValue(390),
     minValue(1),
     transform(e => e / 16),
     description('convert to rem px'),
@@ -178,4 +179,31 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
         .join(', ')
     : ''
 }
-export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover }
+
+/**
+ * Crée un style CSS pour la propriété border-image avec un dégradé linéaire.
+ *
+ * @param colors - Tableau de couleurs au format string (ex: 'oklch(58.09% 0.1151 235.69 / 40%)').@param colors - Tableau de couleurs au format string (ex: 'oklch(58.09% 0.1151 235.69 / 40%)').
+ * @param deg {number}
+ *
+ * @returns Un objet contenant la propriété CSS 'borderImage'.
+ */
+const createBorderImageStyle = (deg = 0, ...colors: string[]) => {
+  // Vérifier que des couleurs ont été fournies
+  const ColorsShema = fallback(
+      pipe(
+          array(string('only string')),
+          minLength(2, 'give at leat 2 colors'),
+          transform(e => e.join(', ')),
+      ),
+      'red',
+  )
+  const degVal = a.int16()
+
+  const colorSting = parse(ColorsShema, colors)
+
+  // Retourner l'objet de style
+  return `linear-gradient(${a.parse(degVal, deg)}deg, ${colorSting}) fill 1`
+}
+
+export {boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, createBorderImageStyle}

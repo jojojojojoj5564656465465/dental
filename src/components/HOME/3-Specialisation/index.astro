@@ -1,9 +1,10 @@
 ---
-import Card from "./Card.astro";
-import * as s from "./spe.css";
+import Card from './Card.astro'
+import * as s from './spe.css'
+import { text2Div } from './spe.css'
 ---
 
-<section class={s.wrapper}>
+  <section class={s.wrapper}>
   <div class={s.cardsWrapper}>
     <Card
       title="hello"
@@ -26,4 +27,10 @@ import * as s from "./spe.css";
       icon="phone"
     />
   </div>
+</section>
+
+<section class={text2Div.wrapper}>
+  <div class={text2Div.A}>photo</div>
+  <div class={text2Div.title}>Title</div>
+  <div class={text2Div.text}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis nam vitae, optio quo aperiam aliquid?</div>
 </section>

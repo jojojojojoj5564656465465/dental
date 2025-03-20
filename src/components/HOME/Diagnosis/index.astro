@@ -1,0 +1,43 @@
+---
+import { image, element, title, description, logoIcon, gridContainer } from './diagnostic.css'
+
+const services = [
+  {
+    title: 'experienced doctor',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+  {
+    title: 'personalized care',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+  {
+    title: 'flexible payment options',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+  {
+    title: 'emergency services',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+  {
+    title: 'positive patient reviews',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+  {
+    title: 'latest technology',
+    description: 'The goal of our clinic is to provide friendly, caring dentistry and the.',
+  },
+]
+---
+
+<section class={gridContainer}>
+    <div class={image}>
+        IMAGE
+    </div>
+    {services.map(e => (
+            <div class={element}>
+                <h4 class={title}>{e.title}</h4>
+                <p class={description}>{e.description}</p>
+                <span class={logoIcon}>555</span>
+            </div>))}
+
+</section>

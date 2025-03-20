@@ -1,10 +1,10 @@
 ---
 interface Props {
-  title: string;
-  link: string;
+  title: string
+  link: string
 }
-const { title, link } = Astro.props;
-import { buttonCallToAction, buttonCallToAction_icone } from "./HERO/hero.css";
+const { title, link } = Astro.props
+import { buttonCallToAction, buttonCallToAction_icon } from './1-HERO/hero.css'
 ---
 
 <button
@@ -14,5 +14,5 @@ import { buttonCallToAction, buttonCallToAction_icone } from "./HERO/hero.css";
   tabindex="0"
   >
   <a href={link}>{title}</a>
-  <span class={buttonCallToAction_icone}>↑</span>
+  <span class={buttonCallToAction_icon}>↑</span>
 </button>

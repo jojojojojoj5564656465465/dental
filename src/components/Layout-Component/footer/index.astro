@@ -1,66 +1,62 @@
 ---
-import {
-  ContainerQuery,
-  DivSocialNetwork,
-  noShow
-} from './SocialNetwork/containerQuerry.css'
+import {ContainerQuery, DivSocialNetwork, noShow} from './SocialNetwork/containerQuerry.css'
 import { SocialNetworklink } from './SocialNetwork/socialNetworklink'
 import { Footer, address, eachDiv, footerDescription } from './index.css'
 ---
 
 <footer class={Footer}>
-  <div class={eachDiv.first}>
-    <h4>QB Restaurant</h4>
-    <p>
-      Restaurant Hallal de bistronomie Francaise & Italienne
-      <br /><br /><a href="tel:+33666060786">
-        Cliquez ici pour appeler le 06 66 60 07 86
-      </a><br />Email<br />
-      <!-- <span class={address}>123 Ontario Boulevard, Montréal, QC (H1K 3KS)</span> -->
-    </p>
-  </div>
-
-  <div class={eachDiv.third}>
-    <h4>Horraires d'ouvertures</h4>
-    <table class="max-w-120 w-full text-align-left">
-      <tr class="font-bold underline">
-        <th>Jour</th>
-        <th>Heures</th>
-      </tr>
-      <tr>
-        <td>Lundi au mercredi</td>
-        <td>
-          <time datetime="11:00+02:00">11h00</time>
-          -
-          <time datetime="21:00+02:00">21h00</time>
-        </td>
-      </tr>
-      <tr>
-        <td>Jeudi au dimanche</td>
-        <td>
-          <time datetime="11:00+02:00">11h00</time>
-          -
-          <time datetime="22:00+02:00">22h00</time>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <div class:list={eachDiv.third}>
-    <h4>Résaux sociaux</h4>
-    <div class={DivSocialNetwork}>
-      <SocialNetworklink
-        icon="whatsApp"
-        link="https://api.whatsapp.com/send?phone=+33623456789"
-      />
-      <SocialNetworklink
-        icon="instagram"
-        link="https://www.instagram.com/qbrestaurants/"
-      />
-      <SocialNetworklink
-        icon="tripAdvisor"
-        link="https://www.thefork.fr/restaurant/qb-restaurant-r816310"
-      />
+    <div class={eachDiv.first}>
+        <h4>QB Restaurant</h4>
+        <p>
+            Restaurant Hallal de bistronomie Francaise & Italienne
+            <br/><br/><a href="tel:+33666060786">
+            Cliquez ici pour appeler le 06 66 60 07 86
+        </a><br/>Email<br/>
+            <!-- <span class={address}>123 Ontario Boulevard, Montréal, QC (H1K 3KS)</span> -->
+        </p>
     </div>
-  </div>
+
+    <div class={eachDiv.third}>
+        <h4>Horraires d'ouvertures</h4>
+        <table class="max-w-120 w-full text-align-left">
+            <tr class="font-bold underline">
+                <th>Jour</th>
+                <th>Heures</th>
+            </tr>
+            <tr>
+                <td>Lundi au mercredi</td>
+                <td>
+                    <time datetime="11:00+02:00">11h00</time>
+                    -
+                    <time datetime="21:00+02:00">21h00</time>
+                </td>
+            </tr>
+            <tr>
+                <td>Jeudi au dimanche</td>
+                <td>
+                    <time datetime="11:00+02:00">11h00</time>
+                    -
+                    <time datetime="22:00+02:00">22h00</time>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class:list={eachDiv.third}>
+        <h4>Résaux sociaux</h4>
+        <div class={DivSocialNetwork}>
+            <SocialNetworklink
+                    icon="whatsApp"
+                    link="https://api.whatsapp.com/send?phone=+33623456789"
+            />
+            <SocialNetworklink
+                    icon="instagram"
+                    link="https://www.instagram.com/qbrestaurants/"
+            />
+            <SocialNetworklink
+                    icon="tripAdvisor"
+                    link="https://www.thefork.fr/restaurant/qb-restaurant-r816310"
+            />
+        </div>
+    </div>
 </footer>
