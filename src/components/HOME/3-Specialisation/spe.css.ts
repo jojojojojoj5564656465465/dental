@@ -57,12 +57,9 @@ export const CardStyle = styleVariants({
         [media.tablet]: {
           minInlineSize: 'calc(70vw / 2)',
         },
-        [media.mobile.portrait]: {
+        [media.mobile]: {
           blockSize: 'calc(100svh / 4 - 50px)',
           minBlockSize: '9rem',
-        },
-        [media.mobile.landscape]: {
-          minInlineSize: 'calc(100svw / 4)',
         },
       },
       selectors: {

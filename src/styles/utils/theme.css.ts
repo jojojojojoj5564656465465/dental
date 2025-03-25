@@ -1,6 +1,16 @@
-import { createGlobalTheme, createVar, globalLayer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import {
+  assignVars,
+  createGlobalTheme,
+  createTheme,
+  createThemeContract,
+  createVar,
+  globalLayer,
+  globalStyle,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css'
 import f from './fontFace.css'
-import { fluid } from './utils'
+import { fluid, ld } from './utils'
 
 globalLayer('reset')
 globalLayer('base')
@@ -31,6 +41,39 @@ const color = createGlobalTheme(':root', {
     white: 'oklch(100% 0 0)',
     blue: 'oklch(97.44% 0.0134 240.95)',
   },
+  ld: {
+    dark: ld('oklch(32.25% 0.0573 233.51)', 'oklch(78.19% 0.0573 233.51)'),
+    accent: 'light-dark(oklch(58.09% 0.1151 235.69),oklch(51.18% 0.0987 239.82))',
+    light: ld('oklch(97.44% 0.0134 240.95)', 'black'),
+    black: ld('oklch(25.88% 0.037 240.95)', 'oklch(97.44% 0.0134 240.95)'),
+    textLight: ld('oklch(53.36% 0.0445 230.26)', 'white'),
+  },
+})
+const col = createThemeContract({
+  background: null,
+  accent: null,
+  text: null,
+  divider: null,
+})
+export const light = createTheme(col, {
+  background: ld('oklch(97.44% 0.0134 240.95)', 'oklch(25.88% 0.037 240.95)'),
+  accent: 'oklch(58.09% 0.1151 235.69)',
+  text: ld('oklch(25.88% 0.037 240.95)', 'oklch(97.44% 0.0134 240.95)'),
+  divider: '#0E384C1A',
+})
+
+export const dark = createTheme(col, {
+  background: 'oklch(32.25% 0.0573 233.51)',
+  accent: 'oklch(58.09% 0.1151 235.69)',
+  text: 'oklch(97.44% 0.0134 240.95)',
+  divider: '#FFFFFF1F',
+})
+
+export const accent = createTheme(col, {
+  background: 'oklch(58.09% 0.1151 235.69)',
+  accent: 'oklch(32.25% 0.0573 233.51)',
+  text: 'oklch(97.44% 0.0134 240.95)',
+  divider: '#0E384C1A',
 })
 
 const space = {
@@ -62,17 +105,14 @@ const fontSize = {
 }
 Object.freeze(fontSize)
 
+/// ancien md = 45rem
 const media = {
-  mobile: {
-    portrait: 'screen and (max-width: 26.875em)',
-    landscape: 'screen and (orientation: landscape) and (max-height: 31.875em)',
-  },
-  tablet: 'screen and (min-width: 27em)',
-  md: 'screen and (hover: hover) and (min-width: 45em)',
-  lg: 'screen and (min-width: 64em)',
+  mobile: 'only screen and (orientation: portrait) and (max-width: 27rem)',
+  tablet: 'only screen and (27rem <= width)',
+  md: 'screen and (min-width: 59rem) and (orientation: landscape)',
+  lg: 'screen  and (hover: hover) and (min-width: 73em)',
   xl: 'screen and (min-width: 80em)',
   '2xl': 'screen and (min-width: 110em)',
-  motionSafe: 'screen and (prefers-reduced-motion: no-preference)',
   dark: 'screen and (prefers-color-scheme: dark)',
 } as const
 Object.freeze(media)
@@ -114,16 +154,6 @@ const defaultContainer = style({
     },
   },
 })
-
-/**
- * @deprecated
- */
-const cos = styleVariants(containerSize, x => [
-  defaultContainer,
-  {
-    maxInlineSize: `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${x}, 130rem)`,
-  },
-])
 
 const container = styleVariants({
   default: [defaultContainer],
@@ -189,36 +219,32 @@ const spaceGapVar = createVar({
   initialValue: '20px',
 })
 
-const colCountVar = createVar({
-  syntax: '<integer>',
-  inherits: false,
-  initialValue: '3',
-})
-
 const gridWrapper = style({
   // Valeurs initiales des variables
   vars: {
     [spaceLrVar]: fluid(40, 80),
     [spaceGapVar]: fluid(20, 35),
   },
-  display: 'grid',
   gap: spaceGapVar,
+})
 
+const vars = createThemeContract({
+  col: null,
+})
+const numberOfColumnTheme = style({
+  vars: assignVars(vars, {
+    col: '3',
+  }),
   '@media': {
-    '(min-width: 43.75em)': {
-      vars: {
-        [colCountVar]: '6',
-      },
+    [media.tablet]: {
+      vars: assignVars(vars, {
+        col: '6',
+      }),
     },
-    '(min-width: 62.5em)': {
-      vars: {
-        [colCountVar]: '12',
-      },
-    },
-    '(min-width: 92.5em)': {
-      vars: {
-        [spaceGapVar]: '42px',
-      },
+    [media.md]: {
+      vars: assignVars(vars, {
+        col: '12',
+      }),
     },
   },
 })
@@ -226,8 +252,10 @@ const gridWrapper = style({
 const containerGrid = styleVariants(containerSize, size => [
   defaultContainer,
   gridWrapper,
+  numberOfColumnTheme,
   {
-    gridTemplateColumns: `[margin-start] 1fr repeat(${colCountVar}, calc((min(100% - ${spaceLrVar}, ${size}) - (${colCountVar} - 1) * ${spaceGapVar}) / ${colCountVar})) [margin-end] 1fr`,
+    display: 'grid',
+    gridTemplateColumns: `[margin-start] 1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) [margin-end] 1fr`,
   },
 ])
 

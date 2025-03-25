@@ -55,9 +55,7 @@ export const wrapper = style([
     color: color.text.primary,
     maxInlineSize: 'calc(60rem / 2)',
     inlineSize: '100%',
-    '@media': {
-      [media.retina]: {},
-    },
+    
   },
 ])
 

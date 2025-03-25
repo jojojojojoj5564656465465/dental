@@ -31,11 +31,6 @@ export const CardStyle = styleVariants({
       color: color.text.primary,
 
       '@media': {
-        [media.mobile.landscape]: {
-          vars: {
-            [nbCards]: '2',
-          },
-        },
         [media.tablet]: {
           vars: {
             [nbCards]: '2',

@@ -1,5 +1,5 @@
-import {globalStyle, type GlobalStyleRule, style} from '@vanilla-extract/css'
-import {a} from '@arrirpc/schema';
+import { globalStyle, type GlobalStyleRule, style } from '@vanilla-extract/css'
+import { a } from '@arrirpc/schema'
 import {
   array,
   description,
@@ -76,7 +76,7 @@ const hover = (obj: hoverProps) => {
  * MARK: FLEX
  */
 function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9) {
-  const $$flexNumber = a.int8();
+  const $$flexNumber = a.int8()
   type PositionProps = Readonly<'start' | 'center' | 'end'>
   const positions = {
     1: ['start', 'start'],
@@ -109,7 +109,7 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
 const fluid = (minSize: number, maxSize: number) => {
   const numberConvertToRem = pipe(
     number(),
-      maxValue(390),
+    maxValue(390),
     minValue(1),
     transform(e => e / 16),
     description('convert to rem px'),
@@ -143,23 +143,24 @@ const fluid = (minSize: number, maxSize: number) => {
 const ld = (light: string, dark: string) => `light-dark(${light},${dark})`
 
 /**
- * ! ajouter un layer en plus
- */
-type HtmlP = Partial<Record<string, GlobalStyleRule>>
-/**
  * Applique des styles globaux à des éléments HTML donnés sous un parent spécifié.
  * @param parent - Le sélecteur parent pour les styles.
  * @param obj - Un objet de styles à appliquer aux éléments HTML.
  */
-const globalStyleTag = (parent: string, obj: HtmlP): void => {
-  const vObjValidatorKeyValues = record(string(), union([string(), number()]), 'Css Object not valid in globalStyleTag')
-  const checkCss = safeParser(vObjValidatorKeyValues)
+const globalStyleTag = (parent: string, obj: Record<string, GlobalStyleRule>): void => {
+  const regexParentStat = /^&(?<stateOfParent>:[a-z]+)\s+(?<htmlTag>\w+)/s
   for (const [key, value] of Object.entries(obj)) {
-    const result = checkCss(value)
-    if (result.success) {
-      globalStyle(`${parent} :is(${key})`, {
+    const match = key.match(regexParentStat)
+    if (match) {
+      globalStyle(`${parent}${match?.groups?.stateOfParent} > ${match?.groups?.htmlTag}`, {
         '@layer': {
-          custom: result.output,
+          custom: value,
+        },
+      })
+    } else {
+      globalStyle(`${parent} > ${key}`, {
+        '@layer': {
+          custom: value,
         },
       })
     }
@@ -191,12 +192,12 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
 const createBorderImageStyle = (deg = 0, ...colors: string[]) => {
   // Vérifier que des couleurs ont été fournies
   const ColorsShema = fallback(
-      pipe(
-          array(string('only string')),
-          minLength(2, 'give at leat 2 colors'),
-          transform(e => e.join(', ')),
-      ),
-      'red',
+    pipe(
+      array(string('only string')),
+      minLength(2, 'give at leat 2 colors'),
+      transform(e => e.join(', ')),
+    ),
+    'red',
   )
   const degVal = a.int16()
 
@@ -206,4 +207,4 @@ const createBorderImageStyle = (deg = 0, ...colors: string[]) => {
   return `linear-gradient(${a.parse(degVal, deg)}deg, ${colorSting}) fill 1`
 }
 
-export {boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, createBorderImageStyle}
+export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, createBorderImageStyle }

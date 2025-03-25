@@ -114,74 +114,67 @@ globalStyle('a:hover', {
 
 globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
   margin: 0,
+  textWrap: ['balance', 'pretty'],
 })
 
-/**
- * Font size reset
- * MARK: FONTS
- * @type {Record<string, string>}
- */
-const ValidObj = v.object({
-  fontSize: v.string(),
-  color: v.string(),
-  fontFamily: v.optional(v.string()),
-})
+// globalStyle('body', {
+//   '@layer': {
+//     base: {
+//       backgroundColor: `light-dark(${T.color.background.blue},#121212)`,
+//     },
+//   },
+// })
 
-const responsiveFontSize: Record<string, v.InferInput<typeof ValidObj>> = {
+interface FontSize {
+  fontSize: string
+  fontFamily?: string
+}
+const responsiveFontSize: Record<string, FontSize> = {
   h1: {
     fontSize: 'clamp(2.5rem, 5vw + 0.5rem, 4rem)',
-    color: T.color.text.primary,
     fontFamily: T.fontFamily.dancingScript,
   },
   h2: {
     fontSize: 'clamp(2rem, 4vw, 3rem)',
-    color: T.color.text.primary,
     fontFamily: T.fontFamily.dancingScript,
   },
   h3: {
     fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
-    color: T.color.text.primary,
     fontFamily: T.fontFamily.exo,
   },
   h4: {
     fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-    color: T.color.text.accent,
     fontFamily: T.fontFamily.exo,
   },
   h5: {
     fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-    color: T.color.text.accent,
+
     fontFamily: T.fontFamily.exo,
   },
   h6: {
     fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-    color: T.color.text.accent,
     fontFamily: T.fontFamily.exo,
   },
   p: {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-    color: T.color.text.light,
     fontFamily: T.fontFamily.numito,
   },
   span: {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-    color: T.color.text.light,
     fontFamily: T.fontFamily.numito,
   },
   li: {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-    color: T.color.text.light,
     fontFamily: T.fontFamily.numito,
   },
 } as const
 
 for (const [key, value] of Object.entries(responsiveFontSize)) {
-  const { color, fontSize, fontFamily } = v.parse(ValidObj, value)
+  const { fontSize, fontFamily } = value
   globalStyle(key, {
     '@layer': {
       custom: {
         fontSize,
-        color,
         fontFamily,
       },
     },
