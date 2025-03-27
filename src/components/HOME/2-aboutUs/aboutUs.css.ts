@@ -154,3 +154,30 @@ export const wrapperIndex = style([
     },
   },
 ])
+
+export const wwRaper = style({
+  '@media': {
+    [media.md]: {},
+  },
+  aspectRatio: '1',
+  inlineSize: 650,
+  position: 'relative',
+})
+const baseIm = style({
+  borderRadius: 40,
+})
+const ImagesV = styleVariants({
+  one: [
+    baseIm,
+    {
+      aspectRatio: '1',
+    },
+  ],
+  two: [
+    {
+      aspectRatio: '16/9',
+      position: 'absolute',
+    },
+    baseIm,
+  ],
+})
