@@ -1,5 +1,5 @@
-import { globalStyle, type GlobalStyleRule, style } from '@vanilla-extract/css'
 import { a } from '@arrirpc/schema'
+import { type GlobalStyleRule, globalStyle, style } from '@vanilla-extract/css'
 import {
   array,
   description,
@@ -148,7 +148,7 @@ const ld = (light: string, dark: string) => `light-dark(${light},${dark})`
  * @param obj - Un objet de styles à appliquer aux éléments HTML.
  */
 const globalStyleTag = (parent: string, obj: Record<string, GlobalStyleRule>): void => {
-  const regexParentStat = /^&(?<stateOfParent>:[a-z]+)\s+(?<htmlTag>\w+)/s
+  const regexParentStat = /^&(?<stateOfParent>:[a-z-]{4,})\s+(?<htmlTag>.+)/s
   for (const [key, value] of Object.entries(obj)) {
     const match = key.match(regexParentStat)
     if (match) {
@@ -189,22 +189,14 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
  *
  * @returns Un objet contenant la propriété CSS 'borderImage'.
  */
-const createBorderImageStyle = (deg = 0, ...colors: string[]) => {
-  // Vérifier que des couleurs ont été fournies
-  const ColorsShema = fallback(
-    pipe(
-      array(string('only string')),
-      minLength(2, 'give at leat 2 colors'),
-      transform(e => e.join(', ')),
-    ),
-    'red',
-  )
-  const degVal = a.int16()
+const createBorderImageStyleOld = (deg: number, colors: [string, string] | [string, string, string]) => {
+  const arrToString = colors.join(',')
+  return `linear-gradient(${deg}deg, ${arrToString}) fill 1`
+}
 
-  const colorSting = parse(ColorsShema, colors)
-
-  // Retourner l'objet de style
-  return `linear-gradient(${a.parse(degVal, deg)}deg, ${colorSting}) fill 1`
+const createBorderImageStyle = (deg: number, ...colors: string[]) => {
+  const gradient = `linear-gradient(${deg}deg, ${colors.join(', ')})`
+  return `${gradient} fill 1`
 }
 
 export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, createBorderImageStyle }

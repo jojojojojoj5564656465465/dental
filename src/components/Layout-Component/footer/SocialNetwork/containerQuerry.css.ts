@@ -18,9 +18,9 @@ export const DivSocialNetwork = style({
   display: 'grid',
   '@container': {
     [`${socialNetwork} (min-width:400px)`]: {
+      marginInline: '10',
       display: 'flex',
       flexDirection: 'row',
-      marginInline: '10',
     },
   },
 })

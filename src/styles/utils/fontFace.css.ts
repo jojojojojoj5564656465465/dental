@@ -2,9 +2,9 @@ import { fontFace } from '@vanilla-extract/css'
 
 const dancingScript = fontFace({
   src: 'url(@fonts/dancing/dancing.woff2) format("woff2")',
-  fontWeight: 'normal',
-  fontStyle: 'normal',
   fontDisplay: 'auto',
+  fontStyle: 'normal',
+  fontWeight: 'normal',
 })
 
 const nunito = fontFace([

@@ -1,39 +1,42 @@
 import * as T from '@theme'
-// styles.css
-import { style, styleVariants } from '@vanilla-extract/css'
+
+import { style, styleVariants, fallbackVar } from '@vanilla-extract/css'
 
 import { fluid, globalStyleTag } from '@/styles/utils'
 
 export const icon = style({
   width: 36,
-  display: 'inline-block',
   aspectRatio: '1',
+  display: 'inline-block',
 })
 
 export const buttonMobile = styleVariants({
-  wrapper: {
-    backgroundColor: T.color.text.light,
-    aspectRatio: '1',
-    color: 'yellow',
-    display: 'grid',
-    placeItems: 'center',
-    order: 2,
-    margin: 5,
-    minBlockSize: 36,
-    isolation: 'isolate',
-    '@media': {
-      [T.media.lg]: {
-        display: 'none',
-        order: 3,
+  wrapper: [
+    {
+      minBlockSize: 36,
+      margin: 5,
+      aspectRatio: '1',
+      display: 'grid',
+      isolation: 'isolate',
+      placeItems: 'center',
+      order: 2,
+      backgroundColor: T.color.theme.background,
+      color: 'yellow',
+      '@media': {
+        [T.media.lg]: {
+          display: 'none',
+          order: 3,
+        },
       },
     },
-  },
+    T.colorTheme.darkBlueBanner,
+  ],
   svg: {
-    display: 'block',
-    height: 36,
     width: 36,
-    color: T.color.text.light,
+    height: 36,
     zIndex: 1000,
+    display: 'block',
+    color: T.color.theme.text,
     strokeWidth: 2,
   },
 })
@@ -43,7 +46,7 @@ export const one = styleVariants({
     T.container.full,
     {
       cursor: 'pointer',
-      backgroundColor: T.color.blue.dark,
+      //backgroundColor: T.color.blue.dark,
       height: 'auto',
       minBlockSize: '70px',
       display: 'grid',
@@ -59,35 +62,35 @@ export const one = styleVariants({
     },
   ],
   logo: {
-    color: T.color.text.light,
-    marginInline: 20,
     fontFamily: T.fontFamily.dancingScript,
-    order: 1,
     fontSize: T.fontSize['2xl'],
+    marginInline: 20,
     display: 'flex',
     alignItems: 'center',
+    order: 1,
     gap: 10,
+    //color: T.color.text.light,
   },
 })
 
 const menuBase = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: 60,
-  backgroundColor: T.color.background.blue,
+  gridColumn: 'span 2',
   justifyContent: 'center',
   order: 3,
-  gridColumn: 'span 2',
-  overflow: 'hidden',
+  gap: 60,
   transition: 'max-height 0.3s ease-out, opacity 0.2s ease-out',
+  //backgroundColor: T.color.background.blue,
+  overflow: 'hidden',
   color: 'black',
   '@media': {
     [T.media.lg]: {
-      justifyContent: 'end',
-      flexDirection: 'row',
-      order: 2,
-      marginInlineStart: 'auto',
       maxHeight: 'none !important',
+      marginInlineStart: 'auto',
+      flexDirection: 'row',
+      justifyContent: 'end',
+      order: 2,
       opacity: '1 !important',
     },
   },
@@ -115,9 +118,9 @@ export const menuState = styleVariants({
     },
   ],
   link: {
-    color: T.color.text.light,
     fontSize: T.fontSize.md,
     textAlign: 'center',
+    //color: T.color.text.light,
   },
 })
 

@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url' // Import fileURLToPath from the url module
 import qwikdev from '@qwikdev/astro'
-import UnoCSS from "unocss/astro";
+
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'astro/config'
 import markdoc from '@astrojs/markdoc'
@@ -10,9 +10,9 @@ import markdoc from '@astrojs/markdoc'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
 
-import icon from "astro-icon";
+import icon from 'astro-icon'
 
 export default defineConfig({
   //output: 'static',
@@ -26,20 +26,20 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "src"),
-        "@styles": path.resolve(__dirname, "src/styles"),
-        "@fonts": path.resolve(__dirname, "public/fonts"),
-        "@images": path.resolve(__dirname, "public/images"),
-        "@theme": path.resolve(__dirname, "src/styles/utils"),
+        '@': path.resolve(__dirname, 'src'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@fonts': path.resolve(__dirname, 'public/fonts'),
+        '@images': path.resolve(__dirname, 'public/images'),
+        '@theme': path.resolve(__dirname, 'src/styles/utils'),
       },
     },
     css: {
-      transformer: "lightningcss",
+      transformer: 'lightningcss',
     },
     plugins: [
       vanillaExtractPlugin({
-        enabled: true,
-        identifiers: "short",
+        // enabled: true,
+        //identifiers: 'short',
       }),
       tailwindcss(),
     ],
@@ -48,7 +48,10 @@ export default defineConfig({
       //include: [] // Empty array instead of undefined
     },
   },
-  integrations: [qwikdev(), icon({ iconDir: 'src/assets/icons' }),
-  //robotsTxt()
-  markdoc()],
-});
+  integrations: [
+    qwikdev(),
+    icon({ iconDir: 'src/assets/icons' }),
+    //robotsTxt()
+    markdoc(),
+  ],
+})

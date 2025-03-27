@@ -1,59 +1,53 @@
-import { style, globalStyle, styleVariants, createVar } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container, containerGrid } from '@theme'
-import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
+import { colorTheme, containerGrid } from '@styles/utils'
+import { color, fontSize, media, space } from '@theme'
+import { createVar, fallbackVar, globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
 
 export const wrapper = style([
-  container.medium,
-  flex('row', 1),
+  colorTheme.whiteBg,
+  containerGrid.medium,
   {
-    flexWrap: 'wrap',
     marginInline: 'auto',
-
-    '@media': {
-      [media.md]: {
-        maxInlineSize: 6000,
-      },
-    },
+    gap: '1.5rem',
+    backgroundColor: color.theme.background,
   },
 ])
 
-export const nbCards = createVar({
-  syntax: '<number>',
-  inherits: false,
-  initialValue: '1',
-})
+export const Card = style({
+  color: fallbackVar(color.theme.primary, 'black'),
+  gridColumnEnd: '-2',
+  gridColumnStart: '2',
 
-export const CardStyle = styleVariants({
-  wrapper: [
-    flex('column', 1),
-    {
-      color: color.text.primary,
-
-      '@media': {
-        [media.tablet]: {
-          vars: {
-            [nbCards]: '2',
-          },
-        },
-        [media.md]: {
-          vars: {
-            [nbCards]: '4',
-          },
+  '@media': {
+    'only screen and (27rem <= width < 59rem)': {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'span 3',
+      ':first-of-type': { gridColumnStart: '2' },
+      selectors: {
+        '&:nth-of-type(odd)': {
+          gridColumnStart: '2',
         },
       },
-      inlineSize: calc.divide('100%', nbCards),
-      minInlineSize: 100,
     },
-  ],
+    [media.md]: {
+      gridColumnStart: 'auto',
+      gridColumnEnd: 'span 3',
+
+      ':first-of-type': { gridColumnStart: '2' },
+    },
+  },
+})
+export const Card_content = styleVariants({
   title: {
     fontSize: fontSize['2xl'],
   },
-  subtitle: { fontSize: fontSize.lg },
+  subtitle: { fontSize: fontSize.md },
   hr: {
-    blockSize: 2,
-    backgroundColor: color.divider.light,
+    blockSize: 4,
     marginBlock: space.sm,
+    backgroundColor: color.theme.divider,
   },
-  text: { color: color.text.light, textWrap: ['balance', 'pretty'] },
+  text: { color: color.theme.text },
 })
+
+//globalStyle(`${wrapper} > ${Card}:first-of-type`, { backgroundColor: 'red' })

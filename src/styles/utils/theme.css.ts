@@ -22,60 +22,90 @@ const fontFamily = createGlobalTheme(':root', {
   numito: `${f.nunito}, Arial, sans-serif`,
 })
 
-const color = createGlobalTheme(':root', {
-  blue: {
-    dark: 'oklch(32.25% 0.0573 233.51)',
-    accent: 'oklch(58.09% 0.1151 235.69)',
-    light: 'oklch(97.44% 0.0134 240.95)',
-  },
-  text: {
-    light: 'oklch(53.36% 0.0445 230.26)',
-    primary: '#0E384C',
-    accent: 'oklch(58.09% 0.1151 235.69)',
-  },
-  divider: {
-    light: '#FFFFFF1F',
-    dark: '#0E384C1A',
-  },
-  background: {
-    white: 'oklch(100% 0 0)',
-    blue: 'oklch(97.44% 0.0134 240.95)',
-  },
-  ld: {
-    dark: ld('oklch(32.25% 0.0573 233.51)', 'oklch(78.19% 0.0573 233.51)'),
-    accent: 'light-dark(oklch(58.09% 0.1151 235.69),oklch(51.18% 0.0987 239.82))',
-    light: ld('oklch(97.44% 0.0134 240.95)', 'black'),
-    black: ld('oklch(25.88% 0.037 240.95)', 'oklch(97.44% 0.0134 240.95)'),
-    textLight: ld('oklch(53.36% 0.0445 230.26)', 'white'),
-  },
+/**
+ * MARK: COLORS
+ */
+const variable = createGlobalTheme(':root', {
+  darkLight: 'oklch(32.25% 0.0573 233.51)',
+  darkDark: 'oklch(25.88% 0.037 240.95)',
+  accent: 'oklch(58.09% 0.1151 235.69)',
+  whiteBlue: 'oklch(97.44% 0.0134 240.95)',
+  whiteToBlack: ld('oklch(97.44% 0.0134 240.95)', 'black'),
+  blackToWhite: ld('black', 'oklch(97.44% 0.0134 240.95)'),
+  textLight: 'oklch(53.36% 0.0445 230.26)',
+  r: ld('orange', 'green'),
 })
-const col = createThemeContract({
+globalStyle('body', {
+  backgroundColor: variable.whiteBlue,
+})
+const theme = createThemeContract({
   background: null,
+  backgroundHover: null,
+  primary: null,
+  secondary: null,
   accent: null,
   text: null,
-  divider: null,
+  textHover: null,
+  divider: variable.darkDark,
 })
-export const light = createTheme(col, {
-  background: ld('oklch(97.44% 0.0134 240.95)', 'oklch(25.88% 0.037 240.95)'),
-  accent: 'oklch(58.09% 0.1151 235.69)',
-  text: ld('oklch(25.88% 0.037 240.95)', 'oklch(97.44% 0.0134 240.95)'),
+
+const accent = createTheme(theme, {
+  background: variable.accent,
+  backgroundHover: variable.darkLight,
+  primary: 'white',
+  secondary: 'null',
+  accent: variable.accent,
+  text: 'white',
+  textHover: variable.darkDark,
+  divider: '#0E384C1A',
+})
+const darkBlueBanner = createTheme(theme, {
+  background: 'light-dark(oklch(32.25% 0.0573 233.51),oklch(72.55% 0.0573 233.51))',
+  backgroundHover: 'light-dark(oklch(72.55% 0.0573 233.51),oklch(32.25% 0.0573 233.51))',
+  primary: 'white',
+  secondary: 'null',
+  accent: variable.accent,
+  text: ld('white', 'black'),
+  textHover: ld('black', 'white'),
   divider: '#0E384C1A',
 })
 
-export const dark = createTheme(col, {
-  background: 'oklch(32.25% 0.0573 233.51)',
-  accent: 'oklch(58.09% 0.1151 235.69)',
-  text: 'oklch(97.44% 0.0134 240.95)',
-  divider: '#FFFFFF1F',
-})
-
-export const accent = createTheme(col, {
-  background: 'oklch(58.09% 0.1151 235.69)',
-  accent: 'oklch(32.25% 0.0573 233.51)',
-  text: 'oklch(97.44% 0.0134 240.95)',
+const whiteBg = createTheme(theme, {
+  background: 'light-dark(white,oklch(79.97% 0 0))',
+  backgroundHover: variable.darkLight,
+  primary: variable.darkLight,
+  secondary: 'null',
+  accent: variable.accent,
+  text: 'oklch(53.36% 0.0445 230.26)',
+  textHover: 'white',
   divider: '#0E384C1A',
 })
 
+const blueLightBg = createTheme(theme, {
+  background: 'oklch(97.44% 0.0134 240.95)',
+  backgroundHover: '#0e384c',
+  primary: '#0e384c',
+  secondary: 'null',
+  accent: variable.accent,
+  text: 'oklch(53.36% 0.0445 230.26)',
+  textHover: 'white',
+  divider: '#0E384C1A',
+})
+
+export const colorTheme = {
+  accent,
+  darkBlueBanner,
+  whiteBg,
+  blueLightBg,
+  variable,
+}
+export const color = {
+  variable,
+  theme,
+}
+/**
+ * MARK: SPACES
+ */
 const space = {
   xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
   xxs: 'clamp(0.5625em, 0.5408em + 0.1087dvw, 0.625em)',
@@ -109,7 +139,7 @@ Object.freeze(fontSize)
 const media = {
   mobile: 'only screen and (orientation: portrait) and (max-width: 27rem)',
   tablet: 'only screen and (27rem <= width)',
-  md: 'screen and (min-width: 59rem) and (orientation: landscape)',
+  md: 'screen and (59rem <= width)',
   lg: 'screen  and (hover: hover) and (min-width: 73em)',
   xl: 'screen and (min-width: 80em)',
   '2xl': 'screen and (min-width: 110em)',
@@ -145,12 +175,6 @@ const defaultContainer = style({
       marginInline: 'auto',
       position: 'relative',
       boxSizing: 'border-box',
-      marginBlockEnd: space.lg,
-      '@media': {
-        [media.tablet]: {
-          marginBlockEnd: space.md,
-        },
-      },
     },
   },
 })
@@ -255,8 +279,8 @@ const containerGrid = styleVariants(containerSize, size => [
   numberOfColumnTheme,
   {
     display: 'grid',
-    gridTemplateColumns: `[margin-start] 1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) [margin-end] 1fr`,
+    gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
   },
 ])
 
-export { fontFamily, color, fontSize, space, media, container, containerGrid }
+export { fontFamily, fontSize, space, media, container, containerGrid }

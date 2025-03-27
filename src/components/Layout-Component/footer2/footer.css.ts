@@ -1,47 +1,48 @@
-import {style} from '@vanilla-extract/css'
-import {color, container, fontFamily, fontSize, media} from '@theme'
-import {fluid} from '@styles/utils'
+import { style } from '@vanilla-extract/css'
+import { color, colorTheme, container, fontFamily, fontSize, media } from '@theme'
+import { fluid } from '@styles/utils'
 
 export const wrapper = style([
   container.full,
+  colorTheme.darkBlueBanner,
   {
-    display: 'grid',
-    gap: '3rem',
-    borderTopColor: 'oklch(66% 0 313.41)',
     borderTopWidth: fluid(6, 10),
     borderTopStyle: 'double',
+    borderTopColor: 'oklch(66% 0 313.41)',
+    display: 'grid',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: '3rem',
     '@media': {
       [media.md]: {
-        justifyContent: 'stretch',
         gridTemplateColumns: 'repeat(4,1fr)',
+        justifyContent: 'stretch',
       },
     },
   },
 ])
 
 export const slogan = style({
-  gridColumn: 'span 2',
-  fontSize: fontSize['3xl'],
   fontFamily: fontFamily.dancingScript,
+  fontSize: fontSize['3xl'],
+  gridColumn: 'span 2',
 })
 
 export const itemWrapper = style([
   {
     display: 'flex',
     gap: '0.5rem',
-    color: color.text.primary,
     cursor: 'pointer',
+    color: color.theme.text,
   },
 ])
 
 export const item = style({
-  backgroundColor: color.blue.accent,
   padding: 5,
+  backgroundColor: color.theme.accent,
   selectors: {
     [`${itemWrapper}:hover > &`]: {
-      backgroundColor: color.blue.light,
+      backgroundColor: color.theme.backgroundHover,
     },
   },
 })

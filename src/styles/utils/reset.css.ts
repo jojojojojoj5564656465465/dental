@@ -1,6 +1,4 @@
-import { globalStyle, globalLayer } from '@vanilla-extract/css'
-
-import * as v from 'valibot'
+import { globalLayer, globalStyle } from '@vanilla-extract/css'
 import * as T from './theme.css'
 globalLayer('reset')
 globalLayer('base')
@@ -125,11 +123,7 @@ globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
 //   },
 // })
 
-interface FontSize {
-  fontSize: string
-  fontFamily?: string
-}
-const responsiveFontSize: Record<string, FontSize> = {
+const responsiveFontSize = {
   h1: {
     fontSize: 'clamp(2.5rem, 5vw + 0.5rem, 4rem)',
     fontFamily: T.fontFamily.dancingScript,
@@ -167,13 +161,13 @@ const responsiveFontSize: Record<string, FontSize> = {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
     fontFamily: T.fontFamily.numito,
   },
-} as const
+} as const satisfies Record<string, Record<'fontSize' | 'fontFamily', string>>
 
 for (const [key, value] of Object.entries(responsiveFontSize)) {
   const { fontSize, fontFamily } = value
   globalStyle(key, {
     '@layer': {
-      custom: {
+      base: {
         fontSize,
         fontFamily,
       },
