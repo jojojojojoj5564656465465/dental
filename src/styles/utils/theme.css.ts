@@ -282,5 +282,28 @@ const containerGrid = styleVariants(containerSize, size => [
     gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
   },
 ])
+const nbGridCol = styleVariants(
+  {
+    2: { tablet: 2, md: 2 },
+    4: { tablet: 2, md: 4 },
+    6: { tablet: 3, md: 6 },
+    8: { tablet: 4, md: 8 },
+    12: { tablet: 6, md: 12 },
+    24: { tablet: 12, md: 24 },
+  },
+  e => [
+    {
+      '@media': {
+        [media.tablet]: {
+          gridTemplateColumns: `repeat(${e.tablet},1fr)`,
+        },
+        [media.md]: {
+          gridTemplateColumns: `repeat(${e.md},1fr)`,
+        },
+      },
+    },
+    { display: 'grid', position: 'relative', gridTemplateColumns: '1fr' },
+  ],
+)
 
-export { fontFamily, fontSize, space, media, container, containerGrid }
+export { fontFamily, fontSize, space, media, container, containerGrid, nbGridCol }

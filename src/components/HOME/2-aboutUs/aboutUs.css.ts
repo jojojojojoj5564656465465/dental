@@ -1,15 +1,35 @@
+import { flex, nbGridCol } from '@styles/utils'
 import { color, colorTheme, container, fontFamily, fontSize, media } from '@theme'
 import { createGlobalVar, createVar, globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import { calc } from '@vanilla-extract/css-utils'
 
-export const wrapper = style([
-  container.small,
+/**
+ * WRAPPER DE LA PAGE INDEX
+ */
+export const wrapperIndex = style([
+  container.medium,
+  nbGridCol['2'],
   colorTheme.blueLightBg,
   {
-    inlineSize: '100%',
-    maxInlineSize: 'calc(60rem / 2)',
-    color: color.theme.primary,
+    // border: `${color.theme.primary} 5px solid`,
+
+    '@media': {
+      '(width< 846px)': {
+        gridTemplateColumns: '1fr',
+      },
+    },
   },
 ])
+
+/**
+ * Content File
+ */
+export const content__wrapper = style({
+  inlineSize: '100%',
+  minInlineSize: 400,
+  color: color.theme.primary,
+  zIndex: 2,
+})
 
 const liSizeMask = createGlobalVar('mask', {
   syntax: '<length>',
@@ -64,119 +84,81 @@ export const text = styleVariants({
   },
 })
 
-export const baseImage = style({
-  border: '5px solid red',
-  borderRadius: '10%',
-  aspectRatio: '1',
-  cursor: 'pointer',
+/**
+ * Composant de Gauche pour les images qui se overlape
+ * @MARK: IMAGES LEFT
+ */
+const sizeOfWrapperImage = createVar({
+  syntax: '<length>',
+  inherits: false,
+  initialValue: '500px',
 })
-
-export const imageVariant = styleVariants({
-  wrapper: {
-    // backgroundColor: 'pink',
-    display: 'grid',
-    gridTemplateRows: 'repeat(8,minmax(3rem, 1fr))',
-    gridTemplateColumns: 'repeat(8, minmax(3rem, 3rem + 5vw))',
-    '@media': {
-      [media.md]: {
-        gridTemplateRows: 'repeat(8,minmax(4rem, 1fr))',
-        gridTemplateColumns: 'repeat(8, 4rem)',
-      },
-    },
-  },
-  one: [
-    baseImage,
-    {
-      backgroundColor: 'yellow',
-      gridArea: '2 / 2 / span 5 / span 4',
-      '@media': {
-        [media.md]: {
-          gridArea: '2 / 2 / span 5 / span 4',
-        },
-      },
-    },
-  ],
-  two: [
-    baseImage,
-    {
-      backgroundColor: 'blue',
-      gridArea: '4 / 3 / span 5 / span 4',
-
-      '@media': {
-        [media.tablet]: {
-          gridArea: '4 / 5 / span 5 / span 4',
-        },
-        [media.md]: {
-          gridArea: '5 / 4 / span 5 / span 4',
-        },
-      },
-    },
-  ],
-  circle: {
-    maxInlineSize: '100px',
-
-    gridArea: '2 / 5 / span 3 / span 3', // Assurez-vous que l'URL est correcte
-    transition: 'background 1s 2s ease', // Ajuste la taille du masque pour qu'il s'adapte à l'élément
-    background: 'linear-gradient(38deg, rgba(63,94,251,1) 0%, rgba(203,19,228,1) 100%)', // Empêche la répétition du masque
-    maskImage: 'url("check.svg")', // Centre le masque
-    maskSize: 'contain',
-    maskRepeat: 'no-repeat',
-    maskPosition: 'center',
-    '@media': {
-      [media.md]: {
-        maxInlineSize: '11rem',
-        gridArea: '2 / 6 / span 3 / span 3',
-      },
-    },
-  },
-})
-
-globalStyle(`${imageVariant.two}:hover + ${imageVariant.circle}`, {
-  background: 'red',
-})
-globalStyle(`${imageVariant.one}:hover ~ ${imageVariant.circle}`, {
-  background: 'greenyellow',
-})
-
-export const wrapperIndex = style([
-  container.medium,
+export const ImageSide__wrapper = style([
   {
-    border: `${color.theme.primary} 5px solid`,
-    display: 'block',
     '@media': {
-      [media.md]: {
-        display: ['flex', 'grid'],
-        gridTemplateColumns: '1fr 1fr',
+      '(460px <= width <= 1040px)': {
+        vars: {
+          [sizeOfWrapperImage]: '68svw',
+        },
       },
-      [media.lg]: {
-        gridTemplateColumns: '1fr 2fr',
+      [media.mobile]: {
+        vars: {
+          [sizeOfWrapperImage]: '87svw',
+        },
+      },
+      [media.md]: {
+        aspectRatio: '17/16',
+
+        paddingBlockEnd: undefined,
       },
     },
+    aspectRatio: '17/14',
+    maxInlineSize: sizeOfWrapperImage,
+    position: 'relative',
+    paddingBlockEnd: 50,
+    //border: 'red 0.5rem solid',
   },
 ])
-
-export const wwRaper = style({
-  '@media': {
-    [media.md]: {},
-  },
-  aspectRatio: '1',
-  inlineSize: 650,
-  position: 'relative',
-})
 const baseIm = style({
   borderRadius: 40,
+  border: '10px solid white',
 })
-const ImagesV = styleVariants({
+export const ImagesV = styleVariants({
   one: [
     baseIm,
     {
+      maxInlineSize: calc.divide(sizeOfWrapperImage, 1.35),
+      backgroundColor: color.theme.accent,
       aspectRatio: '1',
+      '@media': {
+        '(width < 400px)': {
+          maxInlineSize: '80svw',
+        },
+      },
     },
   ],
   two: [
     {
+      inlineSize: calc.divide(sizeOfWrapperImage, 3),
+      backgroundColor: color.theme.primary,
       aspectRatio: '16/9',
       position: 'absolute',
+      content: '',
+      bottom: 0,
+      right: -20,
+      '@media': {
+        '(width < 400px)': {
+          //inlineSize: calc.divide(sizeOfWrapperImage, 3.1),
+          //right: 120,
+        },
+        [media.tablet]: {
+          // right: 150,
+          // bottom: 140,
+          //top: sizeOfWrapperImage,
+          inlineSize: calc.divide(sizeOfWrapperImage, 1.8),
+        },
+        [media.md]: { inlineSize: calc.divide(sizeOfWrapperImage, 1.6) },
+      },
     },
     baseIm,
   ],

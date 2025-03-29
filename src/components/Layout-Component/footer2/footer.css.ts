@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css'
-import { color, colorTheme, container, fontFamily, fontSize, media } from '@theme'
 import { fluid } from '@styles/utils'
+import { style } from '@vanilla-extract/css'
+import { color, colorTheme, container, fontFamily, fontSize, media } from 'src/styles/utils/theme.css.ts'
 
 export const wrapper = style([
   container.full,
@@ -13,6 +13,7 @@ export const wrapper = style([
     alignItems: 'center',
     justifyContent: 'center',
     gap: '3rem',
+    marginTop: '200px', //// trouver une solution
     '@media': {
       [media.md]: {
         gridTemplateColumns: 'repeat(4,1fr)',

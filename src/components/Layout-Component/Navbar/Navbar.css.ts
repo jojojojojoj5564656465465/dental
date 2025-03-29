@@ -1,8 +1,8 @@
-import * as T from '@theme'
+import * as T from 'src/styles/utils/theme.css.ts'
 
-import { style, styleVariants, fallbackVar } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
-import { fluid, globalStyleTag } from '@/styles/utils'
+import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 
 export const icon = style({
   width: 36,
