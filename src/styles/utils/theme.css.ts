@@ -9,9 +9,9 @@ import {
   style,
   styleVariants,
 } from '@vanilla-extract/css'
+import { recipe } from '@vanilla-extract/recipes'
 import f from './fontFace.css'
 import { fluid, ld } from './utils'
-
 globalLayer('reset')
 globalLayer('base')
 globalLayer('custom')
@@ -217,18 +217,16 @@ globalStyle(`${container.default} > *`, {
   marginInline: 'auto',
   maxInlineSize: maxInlineSizeFn('default'),
 })
-globalStyle(`${container.default} > ${container.medium}`, {
-  maxInlineSize: maxInlineSizeFn('medium'),
-})
-globalStyle(`${container.default} > ${container.large}`, {
-  maxInlineSize: maxInlineSizeFn('large'),
-})
-globalStyle(`${container.default} > ${container.xxl}`, {
-  maxInlineSize: maxInlineSizeFn('xxl'),
-})
-globalStyle(`${container.default} > ${container.full}`, {
-  maxInlineSize: maxInlineSizeFn('full'),
-})
+
+const sizes = Object.keys(container).filter(key =>
+  ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
+) as (keyof typeof container)[]
+
+for (const size of sizes) {
+  globalStyle(`${container.default} > ${container[size]}`, {
+    maxInlineSize: maxInlineSizeFn(size),
+  })
+}
 
 // Définition des variables avec @property
 const spaceLrVar = createVar({
@@ -282,28 +280,80 @@ const containerGrid = styleVariants(containerSize, size => [
     gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
   },
 ])
-const nbGridCol = styleVariants(
-  {
-    2: { tablet: 2, md: 2 },
-    4: { tablet: 2, md: 4 },
-    6: { tablet: 3, md: 6 },
-    8: { tablet: 4, md: 8 },
-    12: { tablet: 6, md: 12 },
-    24: { tablet: 12, md: 24 },
+
+const containerGridCol = recipe({
+  base: {
+    marginInline: 'auto',
+    position: 'relative',
+    boxSizing: 'border-box',
+    display: 'grid',
+    gridTemplateColumns: '1fr',
   },
-  e => [
-    {
-      '@media': {
-        [media.tablet]: {
-          gridTemplateColumns: `repeat(${e.tablet},1fr)`,
+  variants: {
+    size: {
+      default: { maxInlineSize: maxInlineSizeFn('default') },
+      small: { maxInlineSize: maxInlineSizeFn('small') },
+      medium: { maxInlineSize: maxInlineSizeFn('medium') },
+      large: { maxInlineSize: maxInlineSizeFn('large') },
+      xxl: { maxInlineSize: maxInlineSizeFn('xxl') },
+      full: { maxInlineSize: 'none' },
+    },
+    cols: {
+      2: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(2, 1fr)' },
         },
-        [media.md]: {
-          gridTemplateColumns: `repeat(${e.md},1fr)`,
+      },
+      4: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(4, 1fr)' },
+        },
+      },
+      6: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(3, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(6, 1fr)' },
+        },
+      },
+      8: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(4, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(8, 1fr)' },
+        },
+      },
+      12: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(6, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(12, 1fr)' },
+        },
+      },
+      24: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(12, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(24, 1fr)' },
         },
       },
     },
-    { display: 'grid', position: 'relative', gridTemplateColumns: '1fr' },
-  ],
-)
+  },
+  defaultVariants: {
+    size: 'small',
+    cols: 12,
+  },
+})
 
-export { fontFamily, fontSize, space, media, container, containerGrid, nbGridCol }
+// Global styles adaptés
+globalStyle(`${containerGridCol({ size: 'default' })} > *`, {
+  maxInlineSize: maxInlineSizeFn('default'),
+})
+const sizesContainerGridCol = Object.keys(containerSize).filter(key =>
+  ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
+) as (keyof typeof containerSize)[]
+
+for (const size of sizesContainerGridCol) {
+  globalStyle(`${containerGridCol({ size: 'default' })} > ${containerGridCol({ size })}`, {
+    maxInlineSize: maxInlineSizeFn(size),
+  })
+}
+export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

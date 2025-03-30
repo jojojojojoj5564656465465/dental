@@ -1,4 +1,4 @@
-import { colorTheme, flex, fluid, globalStyleTag, nbGridCol } from '@styles/utils'
+import { colorTheme, containerGridCol, flex, fluid, globalStyleTag } from '@styles/utils'
 import { color, container, media, space } from '@theme'
 import { globalStyle, keyframes, style, styleVariants } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
@@ -11,7 +11,7 @@ export const wrapper = style([
   },
 ])
 export const cardsWrapper = style([
-  nbGridCol['4'],
+  containerGridCol({ cols: 4, size: 'medium' }),
   {
     placeItems: 'center',
     gap: fluid(16, 25),

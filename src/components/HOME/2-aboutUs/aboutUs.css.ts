@@ -1,18 +1,16 @@
-import { flex, nbGridCol } from '@styles/utils'
-import { color, colorTheme, container, fontFamily, fontSize, media } from '@theme'
-import { createGlobalVar, createVar, globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import { color, colorTheme, containerGridCol, fontFamily, fontSize, media } from '@theme'
+import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
 
 /**
  * WRAPPER DE LA PAGE INDEX
  */
 export const wrapperIndex = style([
-  container.medium,
-  nbGridCol['2'],
   colorTheme.blueLightBg,
+  containerGridCol({ cols: 2, size: 'medium' }),
   {
     // border: `${color.theme.primary} 5px solid`,
-
+    gap: 10,
     '@media': {
       '(width< 846px)': {
         gridTemplateColumns: '1fr',
@@ -25,8 +23,8 @@ export const wrapperIndex = style([
  * Content File
  */
 export const content__wrapper = style({
-  inlineSize: '100%',
-  minInlineSize: 400,
+  //inlineSize: '100%',
+  minInlineSize: 300,
   color: color.theme.primary,
   zIndex: 2,
 })
@@ -48,6 +46,7 @@ export const text = styleVariants({
     color: color.theme.primary,
     fontFamily: fontFamily.exo,
     fontWeight: 'bold',
+    paddingInline: '5px',
   },
   span: {
     color: color.theme.accent,
@@ -88,78 +87,48 @@ export const text = styleVariants({
  * Composant de Gauche pour les images qui se overlape
  * @MARK: IMAGES LEFT
  */
-const sizeOfWrapperImage = createVar({
-  syntax: '<length>',
-  inherits: false,
-  initialValue: '500px',
-})
-export const ImageSide__wrapper = style([
-  {
-    '@media': {
-      '(460px <= width <= 1040px)': {
-        vars: {
-          [sizeOfWrapperImage]: '68svw',
-        },
-      },
-      [media.mobile]: {
-        vars: {
-          [sizeOfWrapperImage]: '87svw',
-        },
-      },
-      [media.md]: {
-        aspectRatio: '17/16',
 
-        paddingBlockEnd: undefined,
-      },
-    },
-    aspectRatio: '17/14',
-    maxInlineSize: sizeOfWrapperImage,
-    position: 'relative',
-    paddingBlockEnd: 50,
-    //border: 'red 0.5rem solid',
-  },
-])
-const baseIm = style({
-  borderRadius: 40,
-  border: '10px solid white',
+const numberOfCc = createVar({
+  initialValue: '6',
+  inherits: true,
+  syntax: '<integer>',
 })
-export const ImagesV = styleVariants({
-  one: [
-    baseIm,
-    {
-      maxInlineSize: calc.divide(sizeOfWrapperImage, 1.35),
-      backgroundColor: color.theme.accent,
-      aspectRatio: '1',
-      '@media': {
-        '(width < 400px)': {
-          maxInlineSize: '80svw',
-        },
+export const newImageGrid_Wrapper = style({
+  gridTemplateRows: `repeat(${numberOfCc},1fr)`,
+  gap: '0px 0px',
+  gridAutoFlow: 'row',
+  justifyItems: 'stretch',
+  width: '100%',
+  display: 'grid',
+  aspectRatio: '1',
+  gridTemplateColumns: `repeat(${numberOfCc},1fr)`,
+  '@media': {
+    [media.tablet]: {
+      vars: {
+        [numberOfCc]: '7',
       },
     },
-  ],
-  two: [
-    {
-      inlineSize: calc.divide(sizeOfWrapperImage, 3),
-      backgroundColor: color.theme.primary,
-      aspectRatio: '16/9',
-      position: 'absolute',
-      content: '',
-      bottom: 0,
-      right: -20,
-      '@media': {
-        '(width < 400px)': {
-          //inlineSize: calc.divide(sizeOfWrapperImage, 3.1),
-          //right: 120,
-        },
-        [media.tablet]: {
-          // right: 150,
-          // bottom: 140,
-          //top: sizeOfWrapperImage,
-          inlineSize: calc.divide(sizeOfWrapperImage, 1.8),
-        },
-        [media.md]: { inlineSize: calc.divide(sizeOfWrapperImage, 1.6) },
+    [media.md]: {
+      vars: {
+        [numberOfCc]: '9',
       },
     },
-    baseIm,
-  ],
+  },
+})
+
+export const newImageGrid = styleVariants({
+  square: {
+    gridArea: '1 / 1 / 7 / 7',
+    backgroundColor: 'pink',
+    backgroundPosition: 'center',
+  },
+  vertical: {
+    gridArea: '5 / 3 / -1 / -1',
+    backgroundColor: 'greenyellow',
+    '@media': {
+      [media.md]: {
+        gridArea: '6 / 4 / -1 / -1',
+      },
+    },
+  },
 })
