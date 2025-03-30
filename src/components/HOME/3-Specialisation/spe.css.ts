@@ -1,21 +1,15 @@
-import { colorTheme, containerGridCol, flex, fluid, globalStyleTag } from '@styles/utils'
-import { color, container, media, space } from '@theme'
-import { globalStyle, keyframes, style, styleVariants } from '@vanilla-extract/css'
-import { calc } from '@vanilla-extract/css-utils'
+import { colorTheme, containerGridCol, fluid, globalStyleTag } from '@styles/utils'
+import { color, container, containerColor, media, space } from '@theme'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 
-export const wrapper = style([
-  container.small,
-  colorTheme.blueLightBg,
-  {
-    backgroundColor: color.theme.background,
-  },
-])
+export const wrapper = style([container.small, containerColor({ theme: 'blueLightBg' })])
 export const cardsWrapper = style([
   containerGridCol({ cols: 4, size: 'medium' }),
   {
     placeItems: 'center',
     gap: fluid(16, 25),
     color: color.theme.text,
+    marginBlock: space.lg,
   },
 ])
 
@@ -23,12 +17,14 @@ export const CardStyle = styleVariants({
   wrapper: [
     colorTheme.whiteBg,
     {
+      //maxInlineSize: 295,
+
       flexWrap: 'wrap',
       padding: space.xs,
       gap: space.sm,
       outline: color.variable.darkDark,
       cursor: 'pointer',
-      borderRadius: 25,
+      borderRadius: 30,
       position: 'relative',
       zIndex: 1,
       overflow: 'hidden',

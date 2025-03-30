@@ -1,6 +1,6 @@
+import { fluid } from '@styles/utils'
 import { color, colorTheme, containerGridCol, fontFamily, fontSize, media } from '@theme'
 import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
-import { calc } from '@vanilla-extract/css-utils'
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -10,7 +10,7 @@ export const wrapperIndex = style([
   containerGridCol({ cols: 2, size: 'medium' }),
   {
     // border: `${color.theme.primary} 5px solid`,
-    gap: 10,
+    gap: fluid(10, 50),
     '@media': {
       '(width< 846px)': {
         gridTemplateColumns: '1fr',
@@ -27,6 +27,7 @@ export const content__wrapper = style({
   minInlineSize: 300,
   color: color.theme.primary,
   zIndex: 2,
+  alignSelf: 'center',
 })
 
 const liSizeMask = createGlobalVar('mask', {

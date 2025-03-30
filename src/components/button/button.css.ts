@@ -1,4 +1,4 @@
-import { fluid, globalStyleTag } from '@styles/utils'
+import { containerColor, fluid, globalStyleTag } from '@styles/utils'
 import { color, colorTheme, fontSize, media } from '@theme'
 import { createContainer, createGlobalVar, createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
@@ -21,7 +21,7 @@ export const radius = createVar({
 const buttonContainer = createContainer()
 
 export const buttonCallToAction = style([
-  colorTheme.accent,
+  containerColor({ theme: 'accent', hover: true }),
   {
     '@container': {
       [`${buttonContainer} (width < 11rem)`]: {
@@ -58,7 +58,7 @@ export const buttonCallToAction = style([
     isolation: 'isolate',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: color.theme.background,
+
     cursor: 'pointer', // ou une autre valeur appropriée
     overflow: 'hidden',
     verticalAlign: 'center',
@@ -70,7 +70,7 @@ export const buttonCallToAction = style([
     },
     ':hover': {
       zIndex: '2',
-      color: color.theme.textHover,
+      //  color: color.theme.textHover,
     },
     containerName: buttonContainer,
     containerType: 'inline-size',

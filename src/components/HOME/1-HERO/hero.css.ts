@@ -1,10 +1,12 @@
 import { flex, fluid } from '@styles/utils'
-import { color, colorTheme, container, fontSize, media } from '@theme'
+import { color, colorTheme, container, containerColor, fontSize, media } from '@theme'
 import { style } from '@vanilla-extract/css'
+import { s } from 'hastscript'
 
 export const wrapper = style([
   container.full,
-  colorTheme.darkBlueBanner,
+
+  containerColor({ theme: 'darkBlueBanner' }),
   {
     height: 'min(40rem, 80svh)',
     minInlineSize: '100%',
@@ -12,7 +14,6 @@ export const wrapper = style([
     borderImage: 'linear-gradient(oklch(58.09% 0.1151 235.69 / 40%), oklch(97.44% 0.0134 240.95) / 20% ) fill 1',
     display: 'grid',
     placeItems: 'center',
-    color: 'white',
   },
 ])
 export const h3 = style({
@@ -43,13 +44,7 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  * MARK: BANNER
  */
 
-export const sectionWrapper = style([
-  colorTheme.darkBlueBanner,
-  {
-    backgroundColor: color.theme.background,
-    color: color.theme.text,
-  },
-])
+export const sectionWrapper = style([containerColor({ theme: 'darkBlueBanner' })])
 export const bannerWrapper = style([
   container.large,
   flex('row', 4),

@@ -1,9 +1,7 @@
-import { a } from '@arrirpc/schema'
 import { type GlobalStyleRule, globalStyle, style } from '@vanilla-extract/css'
 import {
   array,
   description,
-  fallback,
   maxLength,
   maxValue,
   minLength,
@@ -11,15 +9,12 @@ import {
   number,
   object,
   optional,
-  parse,
   parser,
   partialCheck,
   pipe,
-  record,
   safeParser,
   string,
   transform,
-  union,
 } from 'valibot'
 
 type hoverProps = {
@@ -35,14 +30,7 @@ type hoverProps = {
  * @param obj
  */
 const hover = (obj: hoverProps) => {
-  const vObjValidatorKeyValues = object({
-    backgroundColor: string(),
-    color: optional(string()),
-    border: optional(string()),
-  })
-  const parserHover = parser(vObjValidatorKeyValues)
-
-  const { backgroundColor, color, border } = parserHover(obj)
+  const { backgroundColor, color, border } = obj
 
   return style({
     ':active': {
@@ -76,7 +64,6 @@ const hover = (obj: hoverProps) => {
  * MARK: FLEX
  */
 function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9) {
-  const $$flexNumber = a.int8()
   type PositionProps = Readonly<'start' | 'center' | 'end'>
   const positions = {
     1: ['start', 'start'],
@@ -89,7 +76,7 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
     8: ['center', 'end'],
     9: ['end', 'end'],
   } as const satisfies Record<typeof flexNumber, readonly [PositionProps, PositionProps]>
-  const [justify, align] = positions[a.validate($$flexNumber, flexNumber) ? flexNumber : 1]
+  const [justify, align] = positions[flexNumber]
   return style({
     display: 'flex',
     flexDirection: 'row',
@@ -109,7 +96,7 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
 const fluid = (minSize: number, maxSize: number) => {
   const numberConvertToRem = pipe(
     number(),
-    maxValue(390),
+    maxValue(490),
     minValue(1),
     transform(e => e / 16),
     description('convert to rem px'),

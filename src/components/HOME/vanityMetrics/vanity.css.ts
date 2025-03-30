@@ -1,42 +1,22 @@
-import { colorTheme, containerGrid } from '@styles/utils'
-import { color, fontSize, media, space } from '@theme'
-import { createVar, fallbackVar, globalStyle, style, styleVariants } from '@vanilla-extract/css'
-import { calc } from '@vanilla-extract/css-utils'
+import { colorTheme, containerGridCol } from '@styles/utils'
+import { color, fontSize, space } from '@theme'
+import { fallbackVar, style, styleVariants } from '@vanilla-extract/css'
 
 export const wrapper = style([
   colorTheme.whiteBg,
-  containerGrid.medium,
+  containerGridCol({ size: 'large', cols: 4 }),
   {
     marginInline: 'auto',
-    gap: '1.5rem',
-    backgroundColor: color.theme.background,
+    gap: '.5rem',
+    placeItems: 'center',
   },
 ])
-
 export const Card = style({
+  backgroundColor: color.theme.background,
   color: fallbackVar(color.theme.primary, 'black'),
-  gridColumnEnd: '-2',
-  gridColumnStart: '2',
-
-  '@media': {
-    'only screen and (27rem <= width < 59rem)': {
-      gridColumnStart: 'auto',
-      gridColumnEnd: 'span 3',
-      ':first-of-type': { gridColumnStart: '2' },
-      selectors: {
-        '&:nth-of-type(odd)': {
-          gridColumnStart: '2',
-        },
-      },
-    },
-    [media.md]: {
-      gridColumnStart: 'auto',
-      gridColumnEnd: 'span 3',
-
-      ':first-of-type': { gridColumnStart: '2' },
-    },
-  },
+  padding: space.xs,
 })
+
 export const Card_content = styleVariants({
   title: {
     fontSize: fontSize['2xl'],
@@ -49,5 +29,3 @@ export const Card_content = styleVariants({
   },
   text: { color: color.theme.text },
 })
-
-//globalStyle(`${wrapper} > ${Card}:first-of-type`, { backgroundColor: 'red' })

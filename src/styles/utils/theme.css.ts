@@ -48,7 +48,6 @@ const theme = createThemeContract({
   textHover: null,
   divider: variable.darkDark,
 })
-
 const accent = createTheme(theme, {
   background: variable.accent,
   backgroundHover: variable.darkLight,
@@ -98,11 +97,13 @@ export const colorTheme = {
   whiteBg,
   blueLightBg,
   variable,
-}
+} as const
+
 export const color = {
   variable,
   theme,
-}
+} as const
+
 /**
  * MARK: SPACES
  */
@@ -305,12 +306,19 @@ const containerGridCol = recipe({
           [media.md]: { gridTemplateColumns: 'repeat(2, 1fr)' },
         },
       },
+      3: {
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(3, 1fr)' },
+        },
+      },
       4: {
         '@media': {
           [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
           [media.md]: { gridTemplateColumns: 'repeat(4, 1fr)' },
         },
       },
+
       6: {
         '@media': {
           [media.tablet]: { gridTemplateColumns: 'repeat(3, 1fr)' },
@@ -339,7 +347,7 @@ const containerGridCol = recipe({
   },
   defaultVariants: {
     size: 'small',
-    cols: 12,
+    cols: 2,
   },
 })
 
@@ -356,4 +364,28 @@ for (const size of sizesContainerGridCol) {
     maxInlineSize: maxInlineSizeFn(size),
   })
 }
+
+export const containerColor = recipe({
+  base: { backgroundColor: color.theme.background, color: color.theme.text },
+  variants: {
+    theme: {
+      accent,
+      darkBlueBanner,
+      whiteBg,
+      blueLightBg,
+    },
+    hover: {
+      true: {
+        backgroundColor: color.theme.background,
+        color: color.theme.text,
+        cursor: 'pointer',
+        ':hover': { backgroundColor: color.theme.backgroundHover, color: color.theme.textHover },
+      },
+    },
+  },
+  defaultVariants: {
+    theme: 'blueLightBg',
+    hover: false,
+  },
+})
 export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }
