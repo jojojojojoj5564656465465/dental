@@ -1,5 +1,6 @@
 import { globalLayer, globalStyle } from '@vanilla-extract/css'
 import * as T from './theme.css'
+import { color } from './theme.css'
 globalLayer('reset')
 globalLayer('base')
 globalLayer('custom')
@@ -109,7 +110,13 @@ globalStyle('a:hover', {
     },
   },
 })
-
+globalStyle('span', {
+  '@layer': {
+    reset: {
+      color: color.theme.accent,
+    },
+  },
+})
 globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
   margin: 0,
   textWrap: ['balance', 'pretty'],
@@ -154,8 +161,8 @@ const responsiveFontSize = {
     fontFamily: T.fontFamily.numito,
   },
   span: {
-    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-    fontFamily: T.fontFamily.numito,
+    fontSize: 'inherit',
+    fontFamily: 'inherit',
   },
   li: {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',

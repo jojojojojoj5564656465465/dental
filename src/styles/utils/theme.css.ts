@@ -53,7 +53,7 @@ const accent = createTheme(theme, {
   backgroundHover: variable.darkLight,
   primary: 'white',
   secondary: 'null',
-  accent: variable.accent,
+  accent: variable.darkDark,
   text: 'white',
   textHover: variable.darkDark,
   divider: '#0E384C1A',

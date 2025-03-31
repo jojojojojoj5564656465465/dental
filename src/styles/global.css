@@ -1,1 +1,4 @@
 @import "tailwindcss";
+.dossier {
+  @apply rounded px-2 border border-gray-300 selection:bg-pink-500 inline text-sm bg-slate-100 text-black dark:bg-slate-700 dark:text-white;
+}

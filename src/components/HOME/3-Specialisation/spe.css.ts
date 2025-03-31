@@ -4,30 +4,31 @@ import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 
 export const wrapper = style([container.small, containerColor({ theme: 'blueLightBg' })])
 export const cardsWrapper = style([
-  containerGridCol({ cols: 4, size: 'medium' }),
+  containerGridCol({ cols: 4, size: 'large' }),
   {
-    placeItems: 'center',
-    gap: fluid(16, 25),
-    color: color.theme.text,
+    gap: fluid(16, 18),
+    //color: color.theme.text,
     marginBlock: space.lg,
   },
 ])
 
 export const CardStyle = styleVariants({
   wrapper: [
-    colorTheme.whiteBg,
+    containerColor({ theme: 'blueLightBg', hover: false }),
     {
       //maxInlineSize: 295,
 
-      flexWrap: 'wrap',
-      padding: space.xs,
-      gap: space.sm,
+      //flexWrap: 'wrap',
+      display: 'grid',
+      padding: 16,
+      gap: space.xs,
       outline: color.variable.darkDark,
       cursor: 'pointer',
       borderRadius: 30,
       position: 'relative',
       zIndex: 1,
       overflow: 'hidden',
+      fontSize: '1rem',
       border: `${color.theme.divider} 3px solid`,
       ':before': {
         position: 'absolute',
@@ -44,7 +45,7 @@ export const CardStyle = styleVariants({
       },
       '@media': {
         [media.tablet]: {
-          aspectRatio: '1',
+          //aspectRatio: '7/9',
         },
         [media.mobile]: {
           blockSize: 'calc(100svh / 4 - 50px)',
@@ -71,11 +72,12 @@ globalStyle(`${CardStyle.wrapper}:hover > ${CardStyle.icon}`, {
 globalStyleTag(CardStyle.wrapper, {
   h3: {
     color: color.theme.primary,
+    fontSize: 20,
   },
   '&:hover :is(h3, p)': { color: color.theme.textHover },
   '&:active :is(h3, p)': { color: color.theme.textHover },
   p: {
-    color: color.theme.text,
+    lineHeight: 1,
     textWrap: ['balance', 'pretty'],
   },
 })
