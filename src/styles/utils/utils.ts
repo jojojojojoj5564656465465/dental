@@ -1,4 +1,4 @@
-import { type GlobalStyleRule, globalStyle, style } from '@vanilla-extract/css'
+import {globalStyle, type GlobalStyleRule, style} from '@vanilla-extract/css'
 import {
   array,
   description,
@@ -8,7 +8,7 @@ import {
   minValue,
   number,
   object,
-  optional,
+  parse,
   parser,
   partialCheck,
   pipe,
@@ -16,43 +16,9 @@ import {
   string,
   transform,
 } from 'valibot'
+import {recipe} from '@vanilla-extract/recipes'
 
-type hoverProps = {
-  backgroundColor: string
-  color?: string | 'inherit'
-  border?: string | 'inherit'
-}
 
-/**
- * @description Hover function to handle all focus activate states
- *
- * @returns {*}
- * @param obj
- */
-const hover = (obj: hoverProps) => {
-  const { backgroundColor, color, border } = obj
-
-  return style({
-    ':active': {
-      backgroundColor,
-      color: 'inherit',
-    },
-    ':focus': {
-      outline: `min(4px, 3px + 0.1vw) solid ${backgroundColor}`,
-      outlineOffset: '1px',
-      color: 'inherit',
-    },
-    '@media': {
-      'screen and (hover: hover) and (min-width: 51em)': {
-        ':hover': {
-          backgroundColor,
-          color: color ?? 'inherit',
-          border: border ?? 'inherit',
-        },
-      },
-    },
-  })
-}
 
 /**
  * Description placeholder
@@ -79,11 +45,13 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
   const [justify, align] = positions[flexNumber]
   return style({
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
   })
 }
+
+
 
 /**
  * @description Calculates a fluid value based px
@@ -168,6 +136,7 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
     : ''
 }
 
+type DirectionGradien = 'to top' | 'to bottom' | 'to left' | 'to right'
 /**
  * Crée un style CSS pour la propriété border-image avec un dégradé linéaire.
  *
@@ -176,14 +145,20 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
  *
  * @returns Un objet contenant la propriété CSS 'borderImage'.
  */
-const createBorderImageStyleOld = (deg: number, colors: [string, string] | [string, string, string]) => {
-  const arrToString = colors.join(',')
-  return `linear-gradient(${deg}deg, ${arrToString}) fill 1`
-}
-
-const createBorderImageStyle = (deg: number, ...colors: string[]) => {
-  const gradient = `linear-gradient(${deg}deg, ${colors.join(', ')})`
+const createBorderImageStyle = (deg: number | DirectionGradien, ...colors: string[]) => {
+  const colorsValidation = pipe(
+    array(string()),
+    minLength(
+      2,
+      'La fonction nécessite au moins trois arguments : un angle ou une direction et au moins deux couleurs.',
+    ),
+    maxLength(7, 'limite is 7 colors'),
+  )
+  parse(colorsValidation, colors)
+  const isNumberP = parser(number())
+  const degreResult = isNumberP(deg) ? `${deg}deg` : deg
+  const gradient = `linear-gradient(${degreResult}, ${colors.join(', ')})`
   return `${gradient} fill 1`
 }
 
-export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, createBorderImageStyle }
+export { boxShadowGenerator, globalStyleTag, ld, fluid,  createBorderImageStyle }

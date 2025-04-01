@@ -1,17 +1,19 @@
 import {
-  assignVars,
-  createGlobalTheme,
-  createTheme,
-  createThemeContract,
-  createVar,
-  globalLayer,
-  globalStyle,
-  style,
-  styleVariants,
+    assignVars,
+    createGlobalTheme,
+    createTheme,
+    createThemeContract,
+    createVar,
+    fallbackVar,
+    globalLayer,
+    globalStyle,
+    style,
+    styleVariants,
 } from '@vanilla-extract/css'
-import { recipe } from '@vanilla-extract/recipes'
+import {recipe} from '@vanilla-extract/recipes'
 import f from './fontFace.css'
-import { fluid, ld } from './utils'
+import {fluid, ld} from './utils'
+
 globalLayer('reset')
 globalLayer('base')
 globalLayer('custom')
@@ -81,12 +83,12 @@ const whiteBg = createTheme(theme, {
 })
 
 const blueLightBg = createTheme(theme, {
-  background: 'oklch(97.44% 0.0134 240.95)',
+  background: 'light-dark(oklch(97.44% 0.0134 240.95),oklch(0.69 0.0345 247.76))',
   backgroundHover: '#0e384c',
   primary: '#0e384c',
   secondary: 'null',
   accent: variable.accent,
-  text: 'oklch(53.36% 0.0445 230.26)',
+  text: ld('oklch(53.36% 0.0445 230.26)', 'white'),
   textHover: 'white',
   divider: '#0E384C1A',
 })
@@ -140,7 +142,7 @@ Object.freeze(fontSize)
 const media = {
   mobile: 'only screen and (orientation: portrait) and (max-width: 27rem)',
   tablet: 'only screen and (27rem <= width)',
-  md: 'screen and (59rem <= width)',
+  md: 'all and (59rem <= width)',
   lg: 'screen  and (hover: hover) and (min-width: 73em)',
   xl: 'screen and (min-width: 80em)',
   '2xl': 'screen and (min-width: 110em)',
@@ -366,7 +368,15 @@ for (const size of sizesContainerGridCol) {
 }
 
 export const containerColor = recipe({
-  base: { backgroundColor: color.theme.background, color: color.theme.text },
+  base: {
+    backgroundColor: color.theme.background,
+    color: color.theme.text,
+    ':focus': {
+      outline: `min(4px, 3px + 0.1vw) solid ${color.theme.divider}`,
+      outlineOffset: '4px',
+      transition: 'transform 1s easy',
+    },
+  },
   variants: {
     theme: {
       accent,
@@ -376,16 +386,73 @@ export const containerColor = recipe({
     },
     hover: {
       true: {
-        backgroundColor: color.theme.background,
-        color: color.theme.text,
         cursor: 'pointer',
-        ':hover': { backgroundColor: color.theme.backgroundHover, color: color.theme.textHover },
+        ':active': {
+          color: fallbackVar(color.theme.accent, color.theme.textHover, 'inherit'),
+          backgroundColor: color.theme.backgroundHover,
+          transform: 'scale(1.01,1)',
+          outline: `min(4px, 3px + 0.1vw) solid ${color.theme.backgroundHover}`,
+          outlineOffset: '1.6px',
+        },
+        ':focus': {
+          outline: 'min(4px, 3px + 0.1vw) solid yellow',
+          outlineOffset: '4px',
+        },
+
+        '@media': {
+          '(hover: hover)': {
+            ':hover': {
+              backgroundColor: fallbackVar(color.theme.backgroundHover, color.theme.background),
+              color: fallbackVar(color.theme.textHover, 'inherit'),
+              border: fallbackVar(color.theme.textHover, 'inherit'),
+            },
+          },
+        },
       },
     },
   },
   defaultVariants: {
     theme: 'blueLightBg',
     hover: false,
+  },
+})
+
+export const flex = recipe({
+  base: {
+    display: 'flex',
+  },
+  variants: {
+    direction: {
+      row: { flexDirection: 'row' },
+      rowReverse: { flexDirection: 'row-reverse' },
+      column: { flexDirection: 'column' },
+    },
+    side: {
+      1: { justifyContent: 'start', alignItems: 'start' },
+      2: { justifyContent: 'center', alignItems: 'start' },
+      3: { justifyContent: 'end', alignItems: 'start' },
+      4: { justifyContent: 'start', alignItems: 'center' },
+      5: { justifyContent: 'center', alignItems: 'center' },
+      6: { justifyContent: 'end', alignItems: 'center' },
+      7: { justifyContent: 'start', alignItems: 'end' },
+      8: { justifyContent: 'center', alignItems: 'end' },
+      9: { justifyContent: 'end', alignItems: 'end' },
+    },
+    space: {
+      between: { justifyContent: 'space-between' },
+      around: { justifyContent: 'space-around' },
+      evenly: { justifyContent: 'space-evenly' },
+    },
+    wrap: {
+      true: {
+        flexWrap: 'wrap',
+      },
+    },
+  },
+  defaultVariants: {
+    direction: 'row',
+    side: 1,
+    wrap: false,
   },
 })
 export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

@@ -2,10 +2,11 @@
 import { Icon } from 'astro-icon/components'
 import Button from '../../button/button.astro'
 import * as s from './hero.css'
+import {containerColor} from "../../../styles/utils";
 ---
 
 
-<section class={s.sectionWrapper}>
+<section class={containerColor({ theme: 'darkBlueBanner' })}>
 <div class={s.bannerWrapper}>
   <div class={s.banner__element}>
     <Icon class={s.banner__element_icon} name={"phone"} />

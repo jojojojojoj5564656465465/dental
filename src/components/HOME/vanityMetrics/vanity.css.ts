@@ -1,9 +1,9 @@
-import { colorTheme, containerGridCol } from '@styles/utils'
+import { containerColor, containerGridCol } from '@styles/utils'
 import { color, fontSize, space } from '@theme'
 import { fallbackVar, style, styleVariants } from '@vanilla-extract/css'
 
 export const wrapper = style([
-  colorTheme.whiteBg,
+  containerColor({ theme: 'whiteBg', hover: false }),
   containerGridCol({ size: 'large', cols: 4 }),
   {
     marginInline: 'auto',

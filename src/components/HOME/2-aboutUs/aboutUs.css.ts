@@ -1,13 +1,14 @@
-import { containerColor, fluid } from '@styles/utils'
-import { color, colorTheme, containerGridCol, fontFamily, fontSize, media } from '@theme'
-import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
+import {textStyle} from '@styles/main.css.ts'
+import {fluid} from '@styles/utils'
+import {color, containerGridCol, media} from '@theme'
+import {createGlobalVar, createVar, style, styleVariants} from '@vanilla-extract/css'
 
 /**
  * WRAPPER DE LA PAGE INDEX
  */
 export const wrapperIndex = style([
   containerGridCol({ cols: 2, size: 'medium' }),
-  containerColor({ theme: 'blueLightBg', hover: false }),
+
   {
     // border: `${color.theme.primary} 5px solid`,
     gap: fluid(10, 50),
@@ -39,18 +40,13 @@ const liSizeMask = createGlobalVar('mask', {
 })
 
 export const text = styleVariants({
-  about: {
-    fontSize: fontSize.xs,
-    letterSpacing: 5,
-    color: color.theme.accent,
-  },
-  h2: {
-    fontSize: fontSize['lg'],
-    color: color.theme.primary,
-    fontFamily: fontFamily.exo,
-    fontWeight: 'bold',
-    paddingInline: '5px',
-  },
+  about: [textStyle.preTitle, {}],
+  h2: [
+    {
+      paddingInline: '5px',
+    },
+    textStyle.title,
+  ],
   span: {
     color: color.theme.accent,
     fontSize: 'inherit',
@@ -65,25 +61,27 @@ export const text = styleVariants({
     gridTemplateRows: 'repeat(2,1fr)',
     gridTemplateColumns: 'repeat(2,1fr)',
   },
-  li: {
-    display: 'flex',
-    alignItems: 'center',
-    listStyle: 'none',
-    color: color.theme.primary,
-    fontWeight: 800,
-    ':before': {
-      width: liSizeMask,
-      height: liSizeMask,
-      marginInlineEnd: 'min(5px + 1vw, 10px)',
-      display: 'inline-block',
-      backgroundColor: color.theme.accent,
-      content: '',
-      maskImage: "url('/check.svg')",
-      maskSize: liSizeMask,
-      maskRepeat: 'no-repeat',
-      maskPosition: 'center', // Utilisera la couleur du texte (rouge)
+  li: [
+    textStyle.highLight,
+    {
+      display: 'flex',
+      alignItems: 'center',
+      listStyle: 'none',
+
+      ':before': {
+        width: liSizeMask,
+        height: liSizeMask,
+        marginInlineEnd: 'min(5px + 1vw, 10px)',
+        display: 'inline-block',
+        backgroundColor: color.theme.accent,
+        content: '',
+        maskImage: "url('/check.svg')",
+        maskSize: liSizeMask,
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center', // Utilisera la couleur du texte (rouge)
+      },
     },
-  },
+  ],
 })
 
 /**

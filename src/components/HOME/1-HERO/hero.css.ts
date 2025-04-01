@@ -1,7 +1,6 @@
-import { flex, fluid } from '@styles/utils'
-import { color, colorTheme, container, containerColor, fontSize, media } from '@theme'
-import { style } from '@vanilla-extract/css'
-import { s } from 'hastscript'
+import {flex, fluid} from '@styles/utils'
+import {color, container, containerColor, fontSize, media} from '@theme'
+import {style} from '@vanilla-extract/css'
 
 export const wrapper = style([
   container.full,
@@ -44,14 +43,14 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  * MARK: BANNER
  */
 
-export const sectionWrapper = style([containerColor({ theme: 'darkBlueBanner' })])
+//export const sectionWrapper = style([containerColor({ theme: 'darkBlueBanner' })])
 export const bannerWrapper = style([
   container.large,
-  flex('row', 4),
+  flex({ direction: 'row', side: 4, wrap: true, space: 'evenly' }),
   {
     backgroundColor: color.theme.background,
     columnGap: '3rem',
-    flexWrap: 'wrap',
+
     '@media': {
       [media.mobile]: {
         marginBlock: '3.5rem',

@@ -1,5 +1,5 @@
 import { createBorderImageStyle, flex, fluid, globalStyleTag, media } from '@styles/utils'
-import { color, container } from '@theme'
+import { color, container, containerColor } from '@theme'
 import { createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
 
@@ -9,14 +9,15 @@ const overlaping = createVar({
   initialValue: '250px',
 })
 export const sectionWrapper = style([
+  containerColor({ hover: false, theme: 'accent' }),
   {
     blockSize: 600,
     aspectRatio: '21/9s',
-    color: 'red',
+
     backgroundImage: `linear-gradient(to bottom, ${color.variable.whiteBlue} ${overlaping}, ${color.variable.darkLight} ${overlaping})`,
     '@media': {
       [media.mobile]: {
-        blockSize: '450px',
+        blockSize: '449px',
         vars: {
           [overlaping]: '180px',
         },

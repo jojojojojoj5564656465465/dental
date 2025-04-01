@@ -1,4 +1,4 @@
-import { colorTheme, containerGridCol, fluid, globalStyleTag } from '@styles/utils'
+import { containerGridCol, fluid, globalStyleTag } from '@styles/utils'
 import { color, container, containerColor, media, space } from '@theme'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 
@@ -14,14 +14,14 @@ export const cardsWrapper = style([
 
 export const CardStyle = styleVariants({
   wrapper: [
-    containerColor({ theme: 'blueLightBg', hover: false }),
+    containerColor({ theme: 'blueLightBg', hover: true }),
     {
       //maxInlineSize: 295,
 
       //flexWrap: 'wrap',
       display: 'grid',
       padding: 16,
-      gap: space.xs,
+      gap: '.5rem',
       outline: color.variable.darkDark,
       cursor: 'pointer',
       borderRadius: 30,
@@ -72,7 +72,7 @@ globalStyle(`${CardStyle.wrapper}:hover > ${CardStyle.icon}`, {
 globalStyleTag(CardStyle.wrapper, {
   h3: {
     color: color.theme.primary,
-    fontSize: 20,
+    fontSize: 18,
   },
   '&:hover :is(h3, p)': { color: color.theme.textHover },
   '&:active :is(h3, p)': { color: color.theme.textHover },

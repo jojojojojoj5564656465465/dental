@@ -1,42 +1,16 @@
+import { containerColor, fluid, textStyle } from '@styles/utils'
+import { color, container, containerGrid, fontSize, media, space } from '@theme'
 import { createContainer, createVar, style } from '@vanilla-extract/css'
-import { color, container, containerGrid, fontFamily, fontSize, media, space, colorTheme } from '@theme'
-import { fluid, globalStyleTag } from '@styles/utils'
 
 export const sectionContainerIndex = style([
   {
     marginBlock: space.md,
-    backgroundColor: color.theme.background,
     textAlign: 'center',
   },
   container.large,
-  colorTheme.whiteBg,
+  containerColor({ theme: 'blueLightBg' }),
 ])
 export const sectionContainer__Text = style({ marginBlock: fluid(20, 45) })
-
-export const sectionContainer__Text__h2 = style({
-  fontFamily: fontFamily.dancingScript,
-  fontSize: 'clamp(1.7rem, 1.5rem + 5vw, 5rem)',
-  textWrap: ['balance', 'pretty'],
-  lineHeight: '1.2',
-})
-globalStyleTag(sectionContainer__Text, {
-  h6: {
-    color: color.theme.accent,
-    fontSize: fontSize.base,
-    letterSpacing: '0.2rem',
-    fontWeight: '100',
-    fontFamily: fontFamily.exo,
-  },
-  span: {
-    fontSize: 'inherit',
-    color: color.theme.text,
-    fontFamily: 'inherit',
-  },
-  p: {
-    fontSize: fontSize.sm,
-    color: color.theme.text,
-  },
-})
 
 /**
  * MARK: ELEMENT
@@ -54,7 +28,6 @@ export const gridContainer = style([
     gridTemplateRows: 'repeat(auto-fit, minmax(8.1rem, 1fr ))',
     gridAutoFlow: 'column',
     gap: fluid(10, 20),
-    backgroundColor: 'whitesmoke',
     '@media': {
       'screen and (440px < width < 606px)': { columnGap: 21.5 },
       [media.tablet]: {
@@ -66,6 +39,10 @@ export const gridContainer = style([
     },
   },
   containerGrid.large,
+  containerColor({
+    theme: 'blueLightBg',
+    hover: true,
+  }),
 ])
 /**
  * MARK: card
@@ -157,10 +134,8 @@ const textAlignement = style({
 })
 export const title = style([
   {
-    fontSize: fontSize.base,
-    fontWeight: '800',
     gridArea: 'h4',
-    color: color.theme.primary,
+
     '@container': {
       [`${cardContainer} (width <= 250px)`]: {
         fontWeight: '600',
@@ -169,15 +144,14 @@ export const title = style([
     },
   },
   textAlignement,
+  textStyle.highLight,
 ])
 export const description = style([
   textAlignement,
+  textStyle.text,
   {
-    fontSize: fontSize.sm,
     gridArea: 'txt',
-    textWrap: ['balance', 'pretty'],
-    lineHeight: '1.3',
-    color: '#527282',
+
     '@container': {
       [`${cardContainer} (width <= 250px)`]: {
         fontSize: fontSize.base,

@@ -1,5 +1,5 @@
 import { containerColor, fluid, globalStyleTag } from '@styles/utils'
-import { color, colorTheme, fontSize, media } from '@theme'
+import { color, fontSize, media } from '@theme'
 import { createContainer, createGlobalVar, createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
 
@@ -62,7 +62,7 @@ export const buttonCallToAction = style([
     cursor: 'pointer', // ou une autre valeur appropriée
     overflow: 'hidden',
     verticalAlign: 'center',
-    color: 'black',
+    color: color.theme.text,
     selectors: {
       '&:hover::before': {
         left: 0,

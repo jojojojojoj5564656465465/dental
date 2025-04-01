@@ -77,7 +77,7 @@ export const address = style({
       marginInlineEnd: 10,
       content: '📍',
       '@media': {
-        [T.media.mobile.portrait]: {
+        [T.media.mobile]: {
           marginInlineEnd: 4,
         },
       },

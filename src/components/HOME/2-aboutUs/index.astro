@@ -3,13 +3,16 @@
 import ImageSide from './ImageSide.astro'
 import { wrapperIndex } from './aboutUs.css'
 import Content from './content.astro'
+import { containerColor } from '@theme'
 ---
 
 <section class="dossier">Dossier 2 - aboutUs</section>
-<section class={wrapperIndex}>
+<section class={containerColor({ theme: 'blueLightBg', hover: false })}>
 
+<section class={wrapperIndex}>
     <ImageSide/>
     <Content/>
+</section>
 </section>
 
 
