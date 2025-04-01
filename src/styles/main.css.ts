@@ -21,9 +21,15 @@ const textStyle = styleVariants({
     fontFamily: fontFamily.exo,
   },
   highLight: { lineHeight: '30px', fontWeight: '700', fontSize: fontSize['base'], color: color.theme.primary },
-  text: { lineHeight: '28px', fontSize: fontSize['sm'], color: color.theme.text, fontFamily: 'Poppins' ,':selection':{
-      backgroundColor:color.theme.accent,
-    } },
+  text: {
+    lineHeight: '28px',
+    fontSize: fontSize['sm'],
+    color: color.theme.text,
+    fontFamily: 'Poppins',
+    ':selection': {
+      backgroundColor: color.theme.accent,
+    },
+  },
 })
 
 globalStyle('p', {
@@ -34,7 +40,6 @@ globalStyle('p', {
       fontWeight: '400',
       color: fallbackVar(color.theme.text, '#527282'),
       fontFamily: 'Poppins',
-
     },
   },
 })
