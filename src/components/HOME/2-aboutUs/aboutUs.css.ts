@@ -1,7 +1,7 @@
-import {textStyle} from '@styles/main.css.ts'
-import {fluid} from '@styles/utils'
-import {color, containerGridCol, media} from '@theme'
-import {createGlobalVar, createVar, style, styleVariants} from '@vanilla-extract/css'
+import { textStyle } from '@styles/main.css.ts'
+import { fluid } from '@styles/utils'
+import { color, containerGridCol, media } from '@theme'
+import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
 
 /**
  * WRAPPER DE LA PAGE INDEX

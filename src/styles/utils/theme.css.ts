@@ -1,18 +1,18 @@
 import {
-    assignVars,
-    createGlobalTheme,
-    createTheme,
-    createThemeContract,
-    createVar,
-    fallbackVar,
-    globalLayer,
-    globalStyle,
-    style,
-    styleVariants,
+  assignVars,
+  createGlobalTheme,
+  createTheme,
+  createThemeContract,
+  createVar,
+  fallbackVar,
+  globalLayer,
+  globalStyle,
+  style,
+  styleVariants,
 } from '@vanilla-extract/css'
-import {recipe} from '@vanilla-extract/recipes'
+import { recipe } from '@vanilla-extract/recipes'
 import f from './fontFace.css'
-import {fluid, ld} from './utils'
+import { fluid, ld } from './utils'
 
 globalLayer('reset')
 globalLayer('base')

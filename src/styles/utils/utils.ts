@@ -1,4 +1,4 @@
-import {globalStyle, type GlobalStyleRule, style} from '@vanilla-extract/css'
+import { globalStyle, type GlobalStyleRule, style } from '@vanilla-extract/css'
 import {
   array,
   description,
@@ -16,9 +16,7 @@ import {
   string,
   transform,
 } from 'valibot'
-import {recipe} from '@vanilla-extract/recipes'
-
-
+import { recipe } from '@vanilla-extract/recipes'
 
 /**
  * Description placeholder
@@ -50,8 +48,6 @@ function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7
     alignItems: align,
   })
 }
-
-
 
 /**
  * @description Calculates a fluid value based px
@@ -161,4 +157,4 @@ const createBorderImageStyle = (deg: number | DirectionGradien, ...colors: strin
   return `${gradient} fill 1`
 }
 
-export { boxShadowGenerator, globalStyleTag, ld, fluid,  createBorderImageStyle }
+export { boxShadowGenerator, globalStyleTag, ld, fluid, createBorderImageStyle }

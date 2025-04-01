@@ -1,6 +1,6 @@
-import {flex, fluid} from '@styles/utils'
-import {color, container, containerColor, fontSize, media} from '@theme'
-import {style} from '@vanilla-extract/css'
+import { flex, fluid } from '@styles/utils'
+import { color, container, containerColor, fontSize, media } from '@theme'
+import { style } from '@vanilla-extract/css'
 
 export const wrapper = style([
   container.full,
