@@ -366,7 +366,7 @@ for (const size of sizesContainerGridCol) {
   })
 }
 
- const containerColor = recipe({
+const containerColor = recipe({
   base: {
     backgroundColor: color.theme.background,
     color: color.theme.text,
@@ -419,7 +419,7 @@ for (const size of sizesContainerGridCol) {
 /**
  * @deprecated
  */
- const flex = recipe({
+const flex = recipe({
   base: {
     display: 'flex',
   },
@@ -459,4 +459,3 @@ for (const size of sizesContainerGridCol) {
 })
 export { fontFamily, fontSize }
 //export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }
-

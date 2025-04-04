@@ -7,4 +7,3 @@ export const media = {
   '2xl': 'screen and (min-width: 110em)',
   dark: 'screen and (prefers-color-scheme: dark)',
 } as const
-

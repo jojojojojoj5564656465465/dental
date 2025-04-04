@@ -1,7 +1,7 @@
 import { assignVars, createThemeContract, createVar, style, styleVariants } from '@vanilla-extract/css'
 import { fluid } from 'src/styles/utils/utils.ts'
 import { media } from 'src/styles/token'
-import {containerSize, defaultContainer} from './base.css.ts'
+import { containerSize, defaultContainer } from './base.css.ts'
 
 /**
  * MARK: Container Rules

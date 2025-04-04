@@ -1,9 +1,9 @@
 import { textStyle } from '@styles/main.css.ts'
 import { fluid } from 'src/styles/utils/utils.ts'
-import { color} from '@theme'
+import { color } from '@theme'
 import { containerGridCol } from '@styles/recipe/containerGridCol.css.ts'
 
-import {media} from '@styles/token'
+import { media } from '@styles/token'
 import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
 
 /**

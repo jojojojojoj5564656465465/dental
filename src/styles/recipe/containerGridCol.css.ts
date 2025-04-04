@@ -2,8 +2,7 @@ import { recipe } from '@vanilla-extract/recipes'
 import { media } from '@styles/token'
 import { globalStyle } from '@vanilla-extract/css'
 
-import {containerSize,maxInlineSizeFn} from '../variants/base.css.ts'
-
+import { containerSize, maxInlineSizeFn } from '../variants/base.css.ts'
 
 export const containerGridCol = recipe({
   base: {

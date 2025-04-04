@@ -1,6 +1,6 @@
-import { recipe } from "@vanilla-extract/recipes";
-import {fontFamily, fontSize, theme } from "../utils/theme.css";
-import { fallbackVar,  } from "@vanilla-extract/css";
+import { recipe } from '@vanilla-extract/recipes'
+import { fontFamily, fontSize, theme } from '../utils/theme.css'
+import { fallbackVar } from '@vanilla-extract/css'
 
 export const textRecipe = recipe({
   base: {
@@ -87,5 +87,3 @@ export const textRecipe = recipe({
     textAlign: 'left',
   },
 })
-
-

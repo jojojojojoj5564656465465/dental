@@ -1,7 +1,7 @@
 import * as T from '@theme'
 import * as c from '@styles/variants'
 import { style, styleVariants } from '@vanilla-extract/css'
-import {media} from '@styles/token'
+import { media } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 
 export const icon = style({
