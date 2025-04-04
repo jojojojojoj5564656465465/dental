@@ -1,6 +1,7 @@
-import { globalLayer, globalStyle } from '@vanilla-extract/css'
+import { fallbackVar, globalLayer, globalStyle } from '@vanilla-extract/css'
 import * as T from './theme.css'
-import { color } from './theme.css'
+import { color, theme } from './theme.css'
+import { fontSize } from '@/styles'
 globalLayer('reset')
 globalLayer('base')
 globalLayer('custom')
@@ -181,3 +182,14 @@ for (const [key, value] of Object.entries(responsiveFontSize)) {
     },
   })
 }
+globalStyle('p', {
+  '@layer': {
+    custom: {
+      lineHeight: '28px',
+      fontSize: fontSize['base'],
+      fontWeight: '400',
+      color: fallbackVar(theme.text, '#527282'),
+      fontFamily: 'Poppins',
+    },
+  },
+})

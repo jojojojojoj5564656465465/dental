@@ -16,7 +16,7 @@ import {
   string,
   transform,
 } from 'valibot'
-import { recipe } from '@vanilla-extract/recipes'
+
 
 /**
  * Description placeholder

@@ -18,7 +18,7 @@
 			"@/*": ["src/*"],
 			"@styles/*": ["src/styles/*"],
 			"@img/*": ["src/assets/img/*"],
-			"@theme": ["src/styles/utils/theme.css.ts"],
+			"@theme": ["src/styles/utils/theme.css"],
 			"@fonts": ["public/fonts/*"],
 			"@images": ["public/images/*"]
 		}

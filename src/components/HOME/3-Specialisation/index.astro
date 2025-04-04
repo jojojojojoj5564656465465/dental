@@ -1,10 +1,11 @@
 ---
-
+// dossier 3
 import Card from './Card.astro'
 import * as s from './Specialisation.css'
+import { containerColor } from '@styles/recipe'
 ---
 <section class="dossier">Dossier 3 - specialisation</section>
-<section class={s.wrapper}>
+<section class={containerColor({theme:'blueLightBg'})}>
   <div class={s.cardsWrapper}>
     <Card
       title="general dental care"

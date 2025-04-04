@@ -1,7 +1,7 @@
-import * as T from 'src/styles/utils/theme.css.ts'
-
+import * as T from '@theme'
+import * as c from '@styles/variants'
 import { style, styleVariants } from '@vanilla-extract/css'
-
+import {media} from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 
 export const icon = style({
@@ -23,7 +23,7 @@ export const buttonMobile = styleVariants({
       backgroundColor: T.color.theme.background,
       color: 'yellow',
       '@media': {
-        [T.media.lg]: {
+        [media.lg]: {
           display: 'none',
           order: 3,
         },
@@ -43,7 +43,7 @@ export const buttonMobile = styleVariants({
 
 export const one = styleVariants({
   wrapper: [
-    T.container.full,
+    c.container.full,
     {
       cursor: 'pointer',
       //backgroundColor: T.color.blue.dark,
@@ -55,7 +55,7 @@ export const one = styleVariants({
       alignItems: 'center',
       marginInline: fluid(10, 50),
       '@media': {
-        [T.media.lg]: {
+        [media.lg]: {
           gridTemplateColumns: 'min-content 0 min-content',
         },
       },
@@ -85,7 +85,7 @@ const menuBase = style({
   overflow: 'hidden',
   color: 'black',
   '@media': {
-    [T.media.lg]: {
+    [media.lg]: {
       maxHeight: 'none !important',
       marginInlineStart: 'auto',
       flexDirection: 'row',
@@ -111,7 +111,7 @@ export const menuState = styleVariants({
       maxHeight: 0,
       opacity: 0,
       '@media': {
-        [T.media.lg]: {
+        [media.lg]: {
           display: 'flex',
         },
       },

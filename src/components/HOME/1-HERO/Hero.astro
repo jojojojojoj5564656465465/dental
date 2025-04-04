@@ -2,12 +2,19 @@
 import * as s from './hero.css'
 import Banner from './banner.astro'
 import Button from '../../button/button.astro'
+
+import { textRecipe } from '@styles/recipe/textRecipe.css'
+import { containerColor } from '@styles/recipe'
 ---
 
-<section class={s.wrapper}>
-  <h3 class={s.h3}>welcome to dentaire</h3>
-  <h1 class={s.h1}>Dental Care for the Whole Family</h1>
-  <p class={s.p}>
+<section class={containerColor({ theme: 'darkBlueBanner' })}>
+
+<div class={s.wrapper}>
+
+
+  <h3 class={textRecipe({font: 'preTitle',textAlign: 'center',marginInline: true})}>welcome to dentaire</h3>
+  <h1 class={s.bigTitle}>Dental Care for the Whole Family</h1>
+  <p class={textRecipe({font: 'text',textAlign: 'center'})}>
     It is a long established fact that a reader will be distracted by the
     readable content of a page when looking at its layout. The point of using
     Lorem Ipsum is that it has a more-or-less normal
@@ -15,11 +22,13 @@ import Button from '../../button/button.astro'
 
   <Button title="Prendre rdv" link="http://www.google.fr"/>
 
+
   <hr class={s.hr} />
   <div class="flex gap-5">
     <span>Google Rating</span>
     <span>5.0</span>
     <span>based on 492 reviews</span>
   </div>
+</div>
 </section>
 <Banner />

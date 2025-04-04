@@ -1,20 +1,16 @@
 ---
-
-import ImageSide from './ImageSide.astro'
-import { wrapperIndex } from './aboutUs.css'
-import Content from './content.astro'
-import { containerColor } from '@theme'
+import ImageSide from "./ImageSide.astro";
+import { wrapperIndex } from "./aboutUs.css";
+import Content from "./content.astro";
+import { containerColor } from '@styles/recipe'
+import { textSprinkles } from "../../../styles/utils/sprinkles.css";
 ---
 
 <section class="dossier">Dossier 2 - aboutUs</section>
-<section class={containerColor({ theme: 'blueLightBg', hover: false })}>
 
-<section class={wrapperIndex}>
-    <ImageSide/>
-    <Content/>
+<section class={containerColor({ theme: "blueLightBg", hover: false })}>
+  <section class={wrapperIndex}>
+    <ImageSide />
+    <Content />
+  </section>
 </section>
-</section>
-
-
-
-

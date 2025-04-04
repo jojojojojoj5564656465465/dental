@@ -26,15 +26,15 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '@styles': path.resolve(__dirname, 'src/styles'),
-        '@fonts': path.resolve(__dirname, 'public/fonts'),
-        '@images': path.resolve(__dirname, 'public/images'),
-        '@theme': path.resolve(__dirname, 'src/styles/utils'),
+        "@": path.resolve(__dirname, "src"),
+        "@styles": path.resolve(__dirname, "src/styles"),
+        "@fonts": path.resolve(__dirname, "public/fonts"),
+        "@images": path.resolve(__dirname, "public/images"),
+        "@theme": path.resolve(__dirname, "src/styles/utils/theme.css.ts"),
       },
     },
     css: {
-      transformer: 'lightningcss',
+      transformer: "lightningcss",
     },
     plugins: [
       vanillaExtractPlugin({
@@ -50,8 +50,8 @@ export default defineConfig({
   },
   integrations: [
     qwikdev(),
-    icon({ iconDir: 'src/assets/icons' }),
+    icon({ iconDir: "src/assets/icons" }),
     //robotsTxt()
     markdoc(),
   ],
-})
+});

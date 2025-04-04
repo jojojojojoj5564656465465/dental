@@ -40,7 +40,7 @@ const variable = createGlobalTheme(':root', {
 globalStyle('body', {
   backgroundColor: variable.whiteBlue,
 })
-const theme = createThemeContract({
+export const theme = createThemeContract({
   background: null,
   backgroundHover: null,
   primary: null,
@@ -98,7 +98,6 @@ export const colorTheme = {
   darkBlueBanner,
   whiteBg,
   blueLightBg,
-  variable,
 } as const
 
 export const color = {
@@ -367,7 +366,7 @@ for (const size of sizesContainerGridCol) {
   })
 }
 
-export const containerColor = recipe({
+ const containerColor = recipe({
   base: {
     backgroundColor: color.theme.background,
     color: color.theme.text,
@@ -417,7 +416,10 @@ export const containerColor = recipe({
   },
 })
 
-export const flex = recipe({
+/**
+ * @deprecated
+ */
+ const flex = recipe({
   base: {
     display: 'flex',
   },
@@ -455,4 +457,6 @@ export const flex = recipe({
     wrap: false,
   },
 })
-export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }
+export { fontFamily, fontSize }
+//export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }
+
