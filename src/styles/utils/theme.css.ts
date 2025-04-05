@@ -13,10 +13,11 @@ import {
 import { recipe } from '@vanilla-extract/recipes'
 import f from './fontFace.css'
 import { fluid, ld } from './utils'
+import {media} from "@/styles";
 
-globalLayer('reset')
-globalLayer('base')
-globalLayer('custom')
+// globalLayer('reset')
+// globalLayer('base')
+// globalLayer('custom')
 
 const fontFamily = createGlobalTheme(':root', {
   dancingScript: `${f.dancingScript}, Times, serif`,
@@ -46,7 +47,7 @@ export const theme = createThemeContract({
   primary: null,
   secondary: null,
   accent: null,
-  text: null,
+  text: '#000000',
   textHover: null,
   divider: variable.darkDark,
 })
@@ -105,49 +106,49 @@ export const color = {
   theme,
 } as const
 
-/**
- * MARK: SPACES
- */
-const space = {
-  xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
-  xxs: 'clamp(0.5625em, 0.5408em + 0.1087dvw, 0.625em)',
-  xs: 'clamp(0.875em, 0.8533em + 0.1087dvw, 0.9375em)',
-  sm: 'clamp(1.125em, 1.0815em + 0.2174dvw, 1.25em)',
-  md: 'clamp(1.6875em, 1.6223em + 0.3261dvw, 1.875em)',
-  lg: 'clamp(2.25em, 1.6223em + 0.4348dvw, 2.5em)',
-  xl: 'clamp(3.375em, 1.6223em + 0.6522dvw, 3.75em)',
-  xxl: 'clamp(4.5em, 4.3261em + 0.8696dvw, 5em)',
-  xxxl: 'clamp(6.75em, 6.4891em + 1.3043dvw, 7.5em)',
-}
-Object.freeze(space)
+// /**
+//  * MARK: SPACES
+//  */
+// const space = {
+//   xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
+//   xxs: 'clamp(0.5625em, 0.5408em + 0.1087dvw, 0.625em)',
+//   xs: 'clamp(0.875em, 0.8533em + 0.1087dvw, 0.9375em)',
+//   sm: 'clamp(1.125em, 1.0815em + 0.2174dvw, 1.25em)',
+//   md: 'clamp(1.6875em, 1.6223em + 0.3261dvw, 1.875em)',
+//   lg: 'clamp(2.25em, 1.6223em + 0.4348dvw, 2.5em)',
+//   xl: 'clamp(3.375em, 1.6223em + 0.6522dvw, 3.75em)',
+//   xxl: 'clamp(4.5em, 4.3261em + 0.8696dvw, 5em)',
+//   xxxl: 'clamp(6.75em, 6.4891em + 1.3043dvw, 7.5em)',
+// }
+// Object.freeze(space)
 
-const fontSize = {
-  cqi: 'clamp(0.60rem, .65cqi, .9cqi)',
-  xs: 'clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem)',
-  sm: 'clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem)',
-  base: 'clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem)',
-  md: 'clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem)',
-  lg: 'clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem)',
-  xl: 'clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem)',
-  '2xl': 'clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem)',
-  '3xl': 'clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem)',
-  '4xl': 'clamp(3.36rem, calc(2.87rem + 2.45vw), 4.77rem)',
-  '5xl': 'clamp(4.03rem, calc(3.36rem + 3.36vw), 5.96rem)',
-  '6xl': 'clamp(4.84rem, calc(3.93rem + 4.54vw), 7.45rem)',
-}
-Object.freeze(fontSize)
-
-/// ancien md = 45rem
-const media = {
-  mobile: 'only screen and (orientation: portrait) and (max-width: 27rem)',
-  tablet: 'only screen and (27rem <= width)',
-  md: 'all and (59rem <= width)',
-  lg: 'screen  and (hover: hover) and (min-width: 73em)',
-  xl: 'screen and (min-width: 80em)',
-  '2xl': 'screen and (min-width: 110em)',
-  dark: 'screen and (prefers-color-scheme: dark)',
-} as const
-Object.freeze(media)
+// const fontSize = {
+//   cqi: 'clamp(0.60rem, .65cqi, .9cqi)',
+//   xs: 'clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem)',
+//   sm: 'clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem)',
+//   base: 'clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem)',
+//   md: 'clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem)',
+//   lg: 'clamp(1.62rem, calc(1.50rem + 0.58vw), 1.95rem)',
+//   xl: 'clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem)',
+//   '2xl': 'clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem)',
+//   '3xl': 'clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem)',
+//   '4xl': 'clamp(3.36rem, calc(2.87rem + 2.45vw), 4.77rem)',
+//   '5xl': 'clamp(4.03rem, calc(3.36rem + 3.36vw), 5.96rem)',
+//   '6xl': 'clamp(4.84rem, calc(3.93rem + 4.54vw), 7.45rem)',
+// }
+// Object.freeze(fontSize)
+//
+// /// ancien md = 45rem
+// const media = {
+//   mobile: 'only screen and (orientation: portrait) and (max-width: 27rem)',
+//   tablet: 'only screen and (27rem <= width)',
+//   md: 'all and (59rem <= width)',
+//   lg: 'screen  and (hover: hover) and (min-width: 73em)',
+//   xl: 'screen and (min-width: 80em)',
+//   '2xl': 'screen and (min-width: 110em)',
+//   dark: 'screen and (prefers-color-scheme: dark)',
+// } as const
+// Object.freeze(media)
 
 /**
  * MARK: Container Rules
@@ -457,5 +458,5 @@ const flex = recipe({
     wrap: false,
   },
 })
-export { fontFamily, fontSize }
+export { fontFamily }
 //export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

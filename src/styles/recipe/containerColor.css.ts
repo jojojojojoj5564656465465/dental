@@ -1,14 +1,14 @@
 import { recipe } from '@vanilla-extract/recipes'
 import { fallbackVar } from '@vanilla-extract/css'
-import { color, colorTheme } from '../utils/theme.css.ts'
+import { theme, colorTheme } from '../utils/themeNew.css.ts'
 const { accent, darkBlueBanner, blueLightBg, whiteBg } = colorTheme
 
 export const containerColor = recipe({
   base: {
-    backgroundColor: color.theme.background,
-    color: color.theme.text,
+    backgroundColor: theme.background,
+    color: theme.text,
     ':focus': {
-      outline: `min(4px, 3px + 0.1vw) solid ${color.theme.divider}`,
+      outline: `min(4px, 3px + 0.1vw) solid ${theme.divider}`,
       outlineOffset: '4px',
       transition: 'transform 1s easy',
     },
@@ -24,10 +24,10 @@ export const containerColor = recipe({
       true: {
         cursor: 'pointer',
         ':active': {
-          color: fallbackVar(color.theme.textHover, 'inherit'),
-          backgroundColor: fallbackVar(color.theme.backgroundHover, 'inherit'),
+          color: fallbackVar(theme.textHover, 'inherit'),
+          backgroundColor: fallbackVar(theme.backgroundHover, 'inherit'),
           transform: 'scale(1.01,1)',
-          outline: `min(4px, 3px + 0.1vw) solid ${color.theme.backgroundHover}`,
+          outline: `min(4px, 3px + 0.1vw) solid ${theme.backgroundHover}`,
           outlineOffset: '1.6px',
         },
         ':focus': {
@@ -36,9 +36,9 @@ export const containerColor = recipe({
         },
 
         ':hover': {
-          backgroundColor: fallbackVar(color.theme.backgroundHover, color.theme.background),
-          color: fallbackVar(color.theme.textHover, 'inherit'),
-          border: fallbackVar(color.theme.textHover, 'inherit'),
+          backgroundColor: fallbackVar(theme.backgroundHover, theme.background),
+          color: fallbackVar(theme.textHover, 'inherit'),
+          border: fallbackVar(theme.textHover, 'inherit'),
         },
       },
     },

@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css'
-
+import {custom} from '../utils/layer.css'
 export const defaultContainer = style({
   '@layer': {
-    custom: {
+    [custom]: {
       marginInline: 'auto',
       position: 'relative',
       boxSizing: 'border-box',

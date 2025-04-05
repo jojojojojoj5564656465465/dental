@@ -1,7 +1,7 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
 
 import { fontSize, space } from '../token'
-import { theme } from '../utils/theme.css.ts'
+import { theme } from '../utils/themeNew.css.ts'
 import f from '@styles/utils/fontFace.css.ts'
 
 const text = defineProperties({

@@ -1,7 +1,7 @@
 import * as T from '@theme'
 import * as c from '@styles/variants'
 import { style, styleVariants } from '@vanilla-extract/css'
-import { media } from '@styles/token'
+import {fontSize, media} from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 
 export const icon = style({
@@ -63,7 +63,7 @@ export const one = styleVariants({
   ],
   logo: {
     fontFamily: T.fontFamily.dancingScript,
-    fontSize: T.fontSize['2xl'],
+    fontSize: fontSize['2xl'],
     marginInline: 20,
     display: 'flex',
     alignItems: 'center',
@@ -118,9 +118,9 @@ export const menuState = styleVariants({
     },
   ],
   link: {
-    fontSize: T.fontSize.md,
+    fontSize: fontSize.md,
     textAlign: 'center',
-    //color: T.color.text.light,
+    //color: color.text.light,
   },
 })
 
@@ -128,6 +128,6 @@ globalStyleTag(menuState.close, {
   span: {
     textAlign: 'center',
     marginBlock: 'center',
-    fontSize: T.fontSize.lg,
+    fontSize: fontSize.lg,
   },
 })

@@ -20,7 +20,8 @@
 			"@img/*": ["src/assets/img/*"],
 			"@theme": ["src/styles/utils/theme.css"],
 			"@fonts": ["public/fonts/*"],
-			"@images": ["public/images/*"]
+			"@images": ["public/images/*"],
+			"@s": ["src/styles/*"]
 		}
 	}
 }
