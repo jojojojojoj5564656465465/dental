@@ -1,12 +1,12 @@
 ---
 import { content__wrapper, text } from './aboutUs.css'
-//import {textVariant} from "@s";
+import { textRecipe, textSprinkles } from '@recipe'
 ---
 
 <section class={content__wrapper}>
-  <h6 class={text.about}>ABOUT US</h6>
-  <h2 class={text.h2}>
-    <span class={text.span}>Votre avenir</span> pour un mailleur quotidien et beau
+  <h6 class={textRecipe({font: "preTitle",textAlign: "left"})}>ABOUT US</h6>
+  <h2 class={textRecipe({font: "title",textAlign: "center",marginInline: true})}>
+    <span class={textSprinkles({color:'accent'})}>Votre avenir</span> pour un mailleur quotidien et beau
     sourir ici.
   </h2>
   <p class={text.p}>

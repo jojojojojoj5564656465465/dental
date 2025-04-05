@@ -3,7 +3,7 @@ import { fontSize, media, space } from '@styles/token'
 import { fluid, ld } from 'src/styles/utils/utils.ts'
 import { container } from 'src/styles/variants/container.css'
 import { style } from '@vanilla-extract/css'
-import { flex } from '@styles/recipe'
+import { flex } from '@styles/recipe/index.css.ts'
 
 export const wrapper = style([
   container.small,

@@ -1,6 +1,6 @@
 import { color } from '@theme'
 import { fontSize, space } from '@styles/token'
-import { containerColor, containerGridCol } from '@styles/recipe'
+import { containerColor, containerGridCol } from '@styles/recipe/index.css.ts'
 import { fallbackVar, style, styleVariants } from '@vanilla-extract/css'
 
 export const wrapper = style([

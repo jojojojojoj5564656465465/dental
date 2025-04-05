@@ -1,5 +1,5 @@
-import { containerColor } from '@styles/recipe'
-import { container, containerGrid, textVariant } from '@styles/variants'
+import { containerColor } from '@styles/recipe/index.css.ts'
+import { container, containerGrid, textVariant } from '@styles/variants/index.css'
 import { fontSize, media, space } from '@styles/token'
 import { fluid } from 'src/styles/utils/utils.ts'
 //import { textStyle } from '@styles/main.css'

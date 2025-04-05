@@ -2,10 +2,10 @@ import { fluid } from '@styles/utils/utils'
 
 import { color } from '@theme'
 import { media } from '@styles/token'
-import { containerColor } from '@styles/recipe'
+import { containerColor } from '@styles/recipe/index.css.ts'
 import { createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
-import { container } from '@/styles/variants'
+import { container } from '@styles/variants/container.css'
 
 const overlaping = createVar({
   syntax: '<length>',

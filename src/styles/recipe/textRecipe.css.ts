@@ -12,7 +12,7 @@ export const textRecipe = recipe({
         lineHeight: '21px',
         fontSize: fontSize.xs,
         letterSpacing: '2.8px',
-        color: color.theme.text,
+        color: color.theme.accent,
         textTransform: 'uppercase',
         ':before': {
           content: '+ ',

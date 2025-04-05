@@ -1,5 +1,5 @@
 import * as T from '@theme'
-import * as c from '@styles/variants'
+import * as c from '@styles/variants/index.css'
 import { style, styleVariants } from '@vanilla-extract/css'
 import { fontSize, media } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'

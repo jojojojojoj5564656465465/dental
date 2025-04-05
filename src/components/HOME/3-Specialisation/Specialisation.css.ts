@@ -1,5 +1,5 @@
 import { color } from '@theme'
-import { containerColor, containerGridCol } from '@styles/recipe'
+import { containerColor, containerGridCol } from '@styles/recipe/index.css.ts'
 import { media, space } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
