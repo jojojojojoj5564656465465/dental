@@ -3,10 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "biome format --write ./src ; astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "biome format --write ./src",
+    "lint:watch": "bun --watch run lint"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

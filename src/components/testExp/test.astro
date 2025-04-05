@@ -1,12 +1,19 @@
 ---
 import { oui, oui2 } from './index.css'
+import { textRecipe } from '../../styles/recipe/textRecipe.css'
+import { textSprinkles } from '../../styles/recipe/textSprinkles.css'
+import { container } from '../../styles/recipe/container.css'
 ---
 
-<section class={oui}>
-  <p class={oui2}>fsdgd</p>
+<section class={container({background: true, theme: 'accent', size: 'large'})}>
+    <p class={textSprinkles({fontSize: '6xl', color: 'text', marginY: 'sm', textDecoration: 'underline'})}>
+        lsdfjldsj</p>
 
-  <p class={oui2}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, quod?</p>
-  <p class={oui2}>fsdgd</p>
-  <p class={oui2}>fsdgd</p>
-  <p class={oui2}>fsdgd</p>
+
+    <p class={textRecipe({font: 'preTitle', textAlign: 'center', marginBlock: 'md'})}>
+        textRecipe</p>
+    <p class={oui2}>Oui2 class textRecipe</p>
+    <!--<p class={oui2}>fsdgd</p>-->
+    <!--<p class={oui2}>fsdgd</p>-->
+    <!--<p class={oui2}>fsdgd</p>-->
 </section>

@@ -1,6 +1,7 @@
 import { recipe } from '@vanilla-extract/recipes'
-import { fontFamily, color } from '@styles/utils/themeNew.css.ts'
-import { fontSize } from '@styles/token'
+import { textSprinkles } from './textSprinkles.css.ts'
+import { fontSize } from '../token'
+import { theme } from '@theme'
 
 export const textRecipe = recipe({
   base: {
@@ -8,41 +9,62 @@ export const textRecipe = recipe({
   },
   variants: {
     font: {
-      preTitle: {
-        lineHeight: '21px',
-        fontSize: fontSize.xs,
-        letterSpacing: '2.8px',
-        color: color.theme.accent,
-        textTransform: 'uppercase',
-        ':before': {
-          content: '+ ',
+      preTitle: [
+        textSprinkles({ fontSize: 'xs', color: 'accent', lineHeight: 'xxs', textTransform: 'uppercase' }),
+        {
+          letterSpacing: '2.8px',
+          ':before': {
+            content: '+ ',
+          },
         },
-      },
-      title: {
+      ],
+      title: textSprinkles({
+        fontSize: 'xl',
+        color: 'primary',
+        fontFamily: 'exo',
         fontWeight: 'bold',
-        fontSize: fontSize.xl,
-        color: color.theme.primary,
-        lineHeight: '52px',
-        textWrap: ['balance', 'pretty'],
-        fontFamily: fontFamily.exo,
+      }),
+      red: {
+        fontWeight: 'bold',
+        fontSize: fontSize['6xl'],
+        color: 'red',
       },
-      highLight: {
-        lineHeight: '30px',
-        fontWeight: '700',
-        fontSize: fontSize.base,
-        color: color.theme.primary,
-      },
-      text: {
-        lineHeight: '28px',
-        fontSize: fontSize.sm,
-        color: color.theme.text,
-        fontFamily: 'Poppins',
-      },
+
+      highLight: textSprinkles({
+        fontSize: 'sm',
+        color: 'primary',
+        fontWeight: 'bold',
+
+        fontFamily: 'exo',
+        textTransform: 'capitalize',
+      }),
+
+      text: textSprinkles({
+        fontSize: 'sm',
+        color: 'text',
+        fontWeight: 'normal',
+
+        fontFamily: 'exo',
+      }),
+    },
+    marginBlock: {
+      xxxs: textSprinkles({ marginY: 'xxxs' }),
+      xxs: textSprinkles({ marginY: 'xxs' }),
+      xs: textSprinkles({ marginY: 'xs' }),
+      sm: textSprinkles({ marginY: 'sm' }),
+      md: textSprinkles({ marginY: 'md' }),
+    },
+    lineHeight: {
+      xxxs: textSprinkles({ lineHeight: 'xxxs' }),
+      xxs: textSprinkles({ lineHeight: 'xxs' }),
+      xs: textSprinkles({ lineHeight: 'xs' }),
+      sm: textSprinkles({ lineHeight: 'sm' }),
+      md: textSprinkles({ lineHeight: 'md' }),
     },
     hover: {
       true: {
         ':hover': {
-          color: color.theme.textHover,
+          color: theme['textHover'],
         },
       },
     },
@@ -50,10 +72,10 @@ export const textRecipe = recipe({
       true: {
         selectors: {
           'section:has(&):hover > &': {
-            color: color.theme.textHover,
+            color: theme['textHover'],
           },
           'section:has(&):active > &': {
-            color: color.theme.textHover,
+            color: theme['textHover'],
           },
         },
       },
@@ -62,18 +84,18 @@ export const textRecipe = recipe({
       true: {
         selectors: {
           'div:has(&):hover > &': {
-            color: color.theme.textHover,
+            color: theme['textHover'],
           },
           'div:has(&):active > &': {
-            color: color.theme.textHover,
+            color: theme['textHover'],
           },
         },
       },
     },
     textAlign: {
-      left: { textAlign: 'left' },
-      center: { textAlign: 'center' },
-      right: { textAlign: 'right' },
+      left: textSprinkles({ textAlign: 'start' }),
+      center: textSprinkles({ textAlign: 'center' }),
+      right: textSprinkles({ textAlign: 'end' }),
     },
     marginInline: {
       true: {
@@ -85,5 +107,8 @@ export const textRecipe = recipe({
     font: 'text',
     marginInline: false,
     textAlign: 'left',
+    hoverDiv: false,
+    hoverSection: false,
+    hover: false,
   },
 })

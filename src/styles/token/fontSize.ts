@@ -1,4 +1,4 @@
-export const fontSize = {
+export const fontSize: Record<string, string> = {
   cqi: 'clamp(0.60rem, .65cqi, .9cqi)',
   xs: 'clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem)',
   sm: 'clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem)',

@@ -39,7 +39,7 @@ export default defineConfig({
     },
     plugins: [
       vanillaExtractPlugin({
-        // enabled: true,
+        enabled: true,
         //identifiers: 'short',
       }),
       tailwindcss(),

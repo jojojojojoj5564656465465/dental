@@ -3,7 +3,7 @@ import { media } from '@styles/token'
 import { colorTheme, theme } from '../utils/themeNew.css.ts'
 import { fluid } from 'src/styles/utils/utils.ts'
 import { containerSize, maxInlineSizeFn } from '../variants/base.css.ts'
-import { createVar, style, createThemeContract, assignVars, styleVariants } from '@vanilla-extract/css'
+import { createVar, style, createThemeContract, assignVars, styleVariants, fallbackVar } from '@vanilla-extract/css'
 const { accent, darkBlueBanner, blueLightBg, whiteBg } = colorTheme
 
 const spaceLrVar = createVar({
@@ -132,8 +132,39 @@ export const containerGrid = recipe({
     },
     background: {
       true: {
-        backgroundColor: theme.background,
+        backgroundColor: fallbackVar(theme.background, 'red'),
       },
     },
+    hover: {
+      true: {
+        cursor: 'pointer',
+        ':active': {
+          color: fallbackVar(theme.textHover, 'inherit'),
+          backgroundColor: fallbackVar(theme.backgroundHover, 'inherit'),
+          transform: 'scale(1.01,1)',
+          outline: `min(4px, 3px + 0.1vw) solid ${theme.backgroundHover}`,
+          outlineOffset: '1.6px',
+        },
+        ':focus': {
+          outline: 'min(4px, 3px + 0.1vw) solid yellow',
+          outlineOffset: '4px',
+        },
+
+        ':hover': {
+          backgroundColor: fallbackVar(theme.backgroundHover, theme.background),
+          color: fallbackVar(theme.textHover, 'inherit'),
+          borderColor: fallbackVar(theme.textHover, 'inherit'),
+        },
+      },
+    },
+    gap: {
+      true: {
+        gap: spaceGapVar,
+      },
+    },
+  },
+  defaultVariants: {
+    hover: false,
+    background: true,
   },
 })

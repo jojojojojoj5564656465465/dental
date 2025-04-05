@@ -180,14 +180,14 @@ for (const [key, value] of Object.entries(responsiveFontSize)) {
     },
   })
 }
-globalStyle('p', {
-  '@layer': {
-    [base]: {
-      lineHeight: '28px',
-      fontSize: fontSize['base'],
-      fontWeight: '400',
-      color: fallbackVar(theme.text, '#527282'),
-      fontFamily: 'Poppins',
-    },
-  },
-})
+// globalStyle('p', {
+//   '@layer': {
+//     [base]: {
+//       lineHeight: '28px',
+//       fontSize: fontSize['base'],
+//       fontWeight: '400',
+//       color: fallbackVar(theme.text, '#527282'),
+//       fontFamily: 'Poppins',
+//     },
+//   },
+// })

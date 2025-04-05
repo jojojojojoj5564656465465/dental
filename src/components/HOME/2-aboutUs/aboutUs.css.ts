@@ -33,7 +33,7 @@ export const content__wrapper = style({
   zIndex: 2,
   alignSelf: 'center',
   display: 'grid',
-  rowGap: fluid(15, 30),
+  rowGap: fluid(10, 20),
 })
 
 const liSizeMask = createGlobalVar('mask', {

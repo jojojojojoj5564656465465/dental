@@ -1,8 +1,8 @@
-import * as T from '@theme'
 import * as c from '@recipe'
 import { style, styleVariants } from '@vanilla-extract/css'
 import { fontSize, media } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
+import { theme } from '@/styles/utils/themeNew.css'
 
 export const icon = style({
   width: 36,
@@ -16,12 +16,12 @@ export const buttonMobile = styleVariants({
       minBlockSize: 36,
       margin: 5,
       aspectRatio: '1',
-      display: 'grid',
+      //display: 'grid',
       isolation: 'isolate',
       placeItems: 'center',
       order: 2,
-      backgroundColor: T.color.theme.background,
-      color: 'yellow',
+      //backgroundColor: T.color.theme.background,
+      //color: 'yellow',
       '@media': {
         [media.lg]: {
           display: 'none',
@@ -29,27 +29,28 @@ export const buttonMobile = styleVariants({
         },
       },
     },
-    T.colorTheme.darkBlueBanner,
+    //T.colorTheme.darkBlueBanner,
+    c.containerGrid({ theme: 'darkBlueBanner', background: true, size: 'full' }),
   ],
   svg: {
     width: 36,
     height: 36,
     zIndex: 1000,
     display: 'block',
-    color: T.color.theme.text,
+    color: theme.text,
     strokeWidth: 2,
   },
 })
 
 export const one = styleVariants({
   wrapper: [
-    c.container({ size: 'full' }),
+    c.containerGrid({ theme: 'blueLightBg', size: 'full' }),
     {
-      cursor: 'pointer',
+      //cursor: 'pointer',
       //backgroundColor: T.color.blue.dark,
       height: 'auto',
       minBlockSize: '70px',
-      display: 'grid',
+      //display: 'grid',
       gridTemplateColumns: '1fr min-content',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -61,16 +62,16 @@ export const one = styleVariants({
       },
     },
   ],
-  logo: {
-    fontFamily: T.fontFamily.dancingScript,
-    fontSize: fontSize['2xl'],
-    marginInline: 20,
-    display: 'flex',
-    alignItems: 'center',
-    order: 1,
-    gap: 10,
-    //color: T.color.text.light,
-  },
+  logo: [
+    c.textSprinkles({ fontFamily: 'dancingScript', fontSize: '2xl', textAlign: 'center', color: 'text' }),
+    {
+      marginInline: 20,
+      display: 'flex',
+      order: 1,
+      gap: 10,
+      //color: T.color.text.light,
+    },
+  ],
 })
 
 const menuBase = style({
@@ -99,10 +100,10 @@ const menuBase = style({
 export const menuState = styleVariants({
   open: [
     menuBase,
+    c.textSprinkles({ color: 'text' }),
     {
       maxBlockSize: '500px',
       opacity: 1,
-      color: 'white',
     },
   ],
   close: [
@@ -117,11 +118,13 @@ export const menuState = styleVariants({
       },
     },
   ],
-  link: {
-    fontSize: fontSize.md,
-    textAlign: 'center',
-    //color: color.text.light,
-  },
+  link: [
+    c.textSprinkles({
+      fontSize: 'md',
+      textAlign: ['center', 'center', 'end'],
+      color: 'text',
+    }),
+  ],
 })
 
 globalStyleTag(menuState.close, {
