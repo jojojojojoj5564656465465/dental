@@ -5,17 +5,13 @@ import {
   createThemeContract,
   createVar,
   fallbackVar,
-
   globalStyle,
   style,
   styleVariants,
 } from '@vanilla-extract/css'
-import { recipe } from '@vanilla-extract/recipes'
+
 import f from './fontFace.css'
 import { fluid, ld } from './utils'
-import {media} from "@/styles";
-
-
 
 export const fontFamily = createGlobalTheme(':root', {
   dancingScript: `${f.dancingScript}, Times, serif`,
@@ -103,6 +99,5 @@ export const color = {
   variable,
   theme,
 } as const
-
 
 //export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

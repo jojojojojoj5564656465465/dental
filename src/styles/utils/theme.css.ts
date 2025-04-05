@@ -13,7 +13,7 @@ import {
 import { recipe } from '@vanilla-extract/recipes'
 import f from './fontFace.css'
 import { fluid, ld } from './utils'
-import {media} from "@/styles";
+import { media } from '@/styles'
 
 // globalLayer('reset')
 // globalLayer('base')

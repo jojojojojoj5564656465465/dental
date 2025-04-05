@@ -1,11 +1,10 @@
-
 import { fluid } from 'src/styles/utils/utils.ts'
 import { color } from '@theme'
 import { containerGridCol } from '@styles/recipe/containerGridCol.css.ts'
 
 import { media } from '@styles/token'
 import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
-import {textVariant} from "@styles/variants";
+import { textVariant } from '@styles/variants'
 
 /**
  * WRAPPER DE LA PAGE INDEX

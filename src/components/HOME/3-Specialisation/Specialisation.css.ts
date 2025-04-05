@@ -3,12 +3,12 @@ import { containerColor, containerGridCol } from '@styles/recipe'
 import { media, space } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import { textVariant } from '@/styles'
 
 export const cardsWrapper = style([
   containerGridCol({ cols: 4, size: 'small' }),
   {
     gap: fluid(16, 18),
-    //color: color.theme.text,
     marginBlock: space.lg,
   },
 ])
@@ -67,14 +67,14 @@ globalStyle(`${CardStyle.wrapper}:hover > ${CardStyle.icon}`, {
   rotate: '40deg',
 })
 
-globalStyleTag(CardStyle.wrapper, {
-  h3: {
-    color: color.theme.primary,
-    fontSize: 18,
-  },
-  '&:hover :is(h3, p)': { color: color.theme.textHover },
-  '&:active :is(h3, p)': { color: color.theme.textHover },
-})
+// globalStyleTag(CardStyle.wrapper, {
+//   h3: {
+//     color: color.theme.primary,
+//     fontSize: 18,
+//   },
+//   '&:hover :is(h3, p)': { color: color.theme.textHover },
+//   '&:active :is(h3, p)': { color: color.theme.textHover },
+// })
 globalStyle(`${CardStyle.wrapper}:hover > ${CardStyle.icon} path`, {
   fill: color.theme.textHover,
 })
