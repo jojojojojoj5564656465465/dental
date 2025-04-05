@@ -35,7 +35,7 @@ export const textRecipe = recipe({
       text: {
         lineHeight: '28px',
         fontSize: fontSize.sm,
-        color: color.theme.textHover,
+        color: color.theme.text,
         fontFamily: 'Poppins',
       },
     },

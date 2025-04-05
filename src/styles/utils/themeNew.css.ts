@@ -62,7 +62,7 @@ const whiteBg = createTheme(theme, {
   primary: variable.darkLight,
   secondary: 'null',
   accent: variable.accent,
-  text: 'oklch(53.36% 0.0445 230.26)',
+  text: variable.textLight,
   textHover: 'white',
   divider: '#0E384C1A',
 })

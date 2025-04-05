@@ -15,7 +15,7 @@ export const cardsWrapper = style([
 
 export const CardStyle = styleVariants({
   wrapper: [
-    container({ theme: 'blueLightBg', hover: false, background: false }),
+    container({ theme: 'whiteBg', hover: false, background: true }),
     {
       display: 'grid',
       padding: 16,
