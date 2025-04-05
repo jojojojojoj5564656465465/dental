@@ -1,4 +1,4 @@
-import {globalStyle, type GlobalStyleRule, style} from '@vanilla-extract/css'
+import { globalStyle, type GlobalStyleRule, style } from '@vanilla-extract/css'
 import {
   array,
   description,
@@ -16,7 +16,7 @@ import {
   string,
   transform,
 } from 'valibot'
-import {custom} from './layer.css.ts'
+import { custom } from './layer.css.ts'
 
 /**
  * Description placeholder

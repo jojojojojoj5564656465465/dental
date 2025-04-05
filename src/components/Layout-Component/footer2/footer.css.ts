@@ -5,7 +5,7 @@ import { fontSize, media } from '@styles/token'
 import { container } from '@recipe'
 
 export const wrapper = style([
-  container({size: 'full', theme: 'darkBlueBanner', background: true}),
+  container({ size: 'full', theme: 'darkBlueBanner', background: true }),
 
   {
     borderTopWidth: fluid(6, 10),

@@ -4,7 +4,7 @@ import { containerGrid } from '@recipe'
 import { fallbackVar, style, styleVariants } from '@vanilla-extract/css'
 
 export const wrapper = style([
-  containerGrid({theme:'whiteBg',background:false, size: 'large', cols: 4 }),
+  containerGrid({ theme: 'whiteBg', background: false, size: 'large', cols: 4 }),
   {
     marginInline: 'auto',
     gap: '.5rem',

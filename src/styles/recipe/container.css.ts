@@ -1,9 +1,9 @@
-import {recipe} from '@vanilla-extract/recipes'
-import {fallbackVar} from '@vanilla-extract/css'
-import {colorTheme, theme} from '../utils/themeNew.css.ts'
-import {maxInlineSizeFn} from "@styles/variants/base.css.ts";
+import { recipe } from '@vanilla-extract/recipes'
+import { fallbackVar } from '@vanilla-extract/css'
+import { colorTheme, theme } from '../utils/themeNew.css.ts'
+import { maxInlineSizeFn } from '@styles/variants/base.css.ts'
 
-const {accent, darkBlueBanner, blueLightBg, whiteBg} = colorTheme
+const { accent, darkBlueBanner, blueLightBg, whiteBg } = colorTheme
 
 export const container = recipe({
   base: {

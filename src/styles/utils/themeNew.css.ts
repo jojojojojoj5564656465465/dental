@@ -1,12 +1,4 @@
-import {
-
-  createGlobalTheme,
-  createTheme,
-  createThemeContract,
-
-  globalStyle,
-
-} from '@vanilla-extract/css'
+import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css'
 
 import f from './fontFace.css'
 import { fluid, ld } from './utils'

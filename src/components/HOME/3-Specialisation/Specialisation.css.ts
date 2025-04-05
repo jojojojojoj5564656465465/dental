@@ -5,7 +5,6 @@ import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { containerGrid, container } from '@recipe'
 
-
 export const cardsWrapper = style([
   containerGrid({ cols: 4, size: 'small' }),
   {

@@ -4,7 +4,7 @@ import { colorTheme, theme } from '../utils/themeNew.css.ts'
 import { fluid } from 'src/styles/utils/utils.ts'
 import { containerSize, maxInlineSizeFn } from '../variants/base.css.ts'
 import { createVar, style, createThemeContract, assignVars, styleVariants } from '@vanilla-extract/css'
-const {accent, darkBlueBanner, blueLightBg, whiteBg} = colorTheme
+const { accent, darkBlueBanner, blueLightBg, whiteBg } = colorTheme
 
 const spaceLrVar = createVar({
   syntax: '<length>',
@@ -49,7 +49,6 @@ const numberOfColumnTheme = style({
 })
 
 const containerGridVariant = styleVariants(containerSize, size => [
-
   gridWrapper,
   numberOfColumnTheme,
   {
@@ -138,4 +137,3 @@ export const containerGrid = recipe({
     },
   },
 })
-
