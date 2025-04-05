@@ -2,10 +2,10 @@ import { fluid } from '@styles/utils/utils'
 
 import { color } from '@theme'
 import { media } from '@styles/token'
-import { containerColor } from '@styles/recipe/index.css.ts'
+
 import { createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
-import { container } from '@styles/variants/container.css'
+import { container } from '@recipe'
 
 const overlaping = createVar({
   syntax: '<length>',
@@ -13,7 +13,7 @@ const overlaping = createVar({
   initialValue: '250px',
 })
 export const sectionWrapper = style([
-  containerColor({ hover: false, theme: 'accent' }),
+  container({ hover: false, theme: 'accent' }),
   {
     blockSize: 600,
     aspectRatio: '21/9s',
@@ -31,7 +31,7 @@ export const sectionWrapper = style([
 ])
 
 export const wrapper = style([
-  container.medium,
+  container({ size: 'medium' }),
   {
     clipPath: 'inset(0 round 50px)',
     paddingBlock: fluid(40, 80),

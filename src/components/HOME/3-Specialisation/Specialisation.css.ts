@@ -1,12 +1,13 @@
 import { color } from '@theme'
-import { containerColor, containerGridCol } from '@styles/recipe/index.css.ts'
+
 import { media, space } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
-import { textVariant } from '@/styles'
+import { containerGrid, container } from '@recipe'
+
 
 export const cardsWrapper = style([
-  containerGridCol({ cols: 4, size: 'small' }),
+  containerGrid({ cols: 4, size: 'small' }),
   {
     gap: fluid(16, 18),
     marginBlock: space.lg,
@@ -15,13 +16,13 @@ export const cardsWrapper = style([
 
 export const CardStyle = styleVariants({
   wrapper: [
-    containerColor({ theme: 'blueLightBg', hover: true }),
+    container({ theme: 'blueLightBg', hover: false, background: false }),
     {
       display: 'grid',
       padding: 16,
       gap: '.5rem',
       outline: color.variable.darkDark,
-      //cursor: 'pointer',
+      cursor: 'pointer',
       borderRadius: 30,
       position: 'relative',
       zIndex: 1,
@@ -34,7 +35,7 @@ export const CardStyle = styleVariants({
         backgroundColor: color.variable.accent,
         inlineSize: '100%',
         blockSize: '100%',
-
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 100%)',
         left: 0,
         bottom: '-100%',
 

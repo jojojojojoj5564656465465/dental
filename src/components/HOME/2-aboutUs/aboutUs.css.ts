@@ -1,6 +1,6 @@
 import { fluid } from 'src/styles/utils/utils.ts'
 import { color } from '@theme'
-import { containerGridCol } from '@styles/recipe/containerGridCol.css.ts'
+import { containerGrid } from '@recipe'
 
 import { media } from '@styles/token'
 import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
@@ -10,7 +10,7 @@ import { textVariant } from '@styles/variants/index.css'
  * WRAPPER DE LA PAGE INDEX
  */
 export const wrapperIndex = style([
-  containerGridCol({ cols: 2, size: 'medium' }),
+  containerGrid({ cols: 2, size: 'medium' }),
 
   {
     // border: `${color.theme.primary} 5px solid`,

@@ -1,13 +1,11 @@
 import {
-  assignVars,
+
   createGlobalTheme,
   createTheme,
   createThemeContract,
-  createVar,
-  fallbackVar,
+
   globalStyle,
-  style,
-  styleVariants,
+
 } from '@vanilla-extract/css'
 
 import f from './fontFace.css'

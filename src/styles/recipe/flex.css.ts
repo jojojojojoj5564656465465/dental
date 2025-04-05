@@ -21,10 +21,19 @@ export const flex = recipe({
       8: { justifyContent: 'center', alignItems: 'end' },
       9: { justifyContent: 'end', alignItems: 'end' },
     },
-    space: {
+    justifyContent: {
       between: { justifyContent: 'space-between' },
       around: { justifyContent: 'space-around' },
       evenly: { justifyContent: 'space-evenly' },
+    },
+    alignItems: {
+      stretch: { alignItems: 'stretch' },
+      baseline: { alignItems: 'baseline' },
+      firstBaseline: { alignItems: 'first baseline' },
+      lastBaseline: { alignItems: 'last baseline' },
+      safeCenter: { alignItems: 'safe center' },
+      unsafeCenter: { alignItems: 'unsafe center' },
+      safeStart: { alignItems: 'safe start' },
     },
     wrap: {
       true: {

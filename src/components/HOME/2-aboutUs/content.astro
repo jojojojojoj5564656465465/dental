@@ -1,25 +1,26 @@
 ---
-import { content__wrapper, text } from './aboutUs.css'
-import { textRecipe, textSprinkles } from '@recipe'
+import {content__wrapper, text} from './aboutUs.css'
+import {textRecipe, textSprinkles} from '@recipe'
 ---
 
 <section class={content__wrapper}>
-  <h6 class={textRecipe({font: "preTitle",textAlign: "left"})}>ABOUT US</h6>
-  <h2 class={textRecipe({font: "title",textAlign: "center",marginInline: true})}>
-    <span class={textSprinkles({color:'accent'})}>Votre avenir</span> pour un mailleur quotidien et beau
-    sourir ici.
-  </h2>
-  <p class={text.p}>
-    The goal of our clinic is to provide friendly, caring dentistry and the
-    highest level of general, cosmetic, and specialist dental treatments. With
-    dental practices throughout the world.
-  </p>
+    <h6 class={textRecipe({font: "preTitle", textAlign: "left"})}>ABOUT US</h6>
+    <h2 class={textRecipe({font: "title", textAlign: "center", marginInline: true})}>
+        <span class={textSprinkles({color: {mobile: 'primary', tablet: 'accent'}})}>Votre avenir</span> pour un mailleur
+        quotidien et beau
+        sourir ici.
+    </h2>
+    <p class={text.p}>
+        The goal of our clinic is to provide friendly, caring dentistry and the
+        highest level of general, cosmetic, and specialist dental treatments. With
+        dental practices throughout the world.
+    </p>
 
-  <ul class={text.ul}>
-    {
-      ["Stérisation", "blancherur", "qualité", "prix"].map((el) => (
-        <li class={text.li}>{el}</li>
-      ))
-    }
-  </ul>
+    <ul class={text.ul}>
+        {
+            ["Stérisation", "blancherur", "qualité", "prix"].map((el) => (
+                    <li class={text.li}>{el}</li>
+            ))
+        }
+    </ul>
 </section>

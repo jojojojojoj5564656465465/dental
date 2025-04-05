@@ -4,7 +4,7 @@ import { globalStyle } from '@vanilla-extract/css'
 
 import { containerSize, maxInlineSizeFn } from '../variants/base.css.ts'
 
-export const containerGridCol = recipe({
+ const containerGridCol = recipe({
   base: {
     marginInline: 'auto',
     position: 'relative',

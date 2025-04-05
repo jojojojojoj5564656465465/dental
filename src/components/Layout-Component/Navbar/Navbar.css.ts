@@ -1,5 +1,5 @@
 import * as T from '@theme'
-import * as c from '@styles/variants/index.css'
+import * as c from '@recipe'
 import { style, styleVariants } from '@vanilla-extract/css'
 import { fontSize, media } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
@@ -43,7 +43,7 @@ export const buttonMobile = styleVariants({
 
 export const one = styleVariants({
   wrapper: [
-    c.container.full,
+    c.container({ size: 'full' }),
     {
       cursor: 'pointer',
       //backgroundColor: T.color.blue.dark,

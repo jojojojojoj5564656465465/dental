@@ -5,105 +5,104 @@ import {
   createThemeContract,
   createVar,
   fallbackVar,
-  globalLayer,
   globalStyle,
   style,
   styleVariants,
 } from '@vanilla-extract/css'
-import { recipe } from '@vanilla-extract/recipes'
+import {recipe} from '@vanilla-extract/recipes'
 import f from './fontFace.css'
-import { fluid, ld } from './utils'
-import { media } from '@/styles'
+import {fluid, ld} from './utils'
+import {media} from '@styles/token'
 
 // globalLayer('reset')
 // globalLayer('base')
 // globalLayer('custom')
 
 const fontFamily = createGlobalTheme(':root', {
-  dancingScript: `${f.dancingScript}, Times, serif`,
-  exo: `${f.exo}, Times, serif`,
-  numito: `${f.nunito}, Arial, sans-serif`,
+    dancingScript: `${f.dancingScript}, Times, serif`,
+    exo: `${f.exo}, Times, serif`,
+    numito: `${f.nunito}, Arial, sans-serif`,
 })
 
 /**
  * MARK: COLORS
  */
 const variable = createGlobalTheme(':root', {
-  darkLight: 'oklch(32.25% 0.0573 233.51)',
-  darkDark: 'oklch(25.88% 0.037 240.95)',
-  accent: 'oklch(58.09% 0.1151 235.69)',
-  whiteBlue: 'oklch(97.44% 0.0134 240.95)',
-  whiteToBlack: ld('oklch(97.44% 0.0134 240.95)', 'black'),
-  blackToWhite: ld('black', 'oklch(97.44% 0.0134 240.95)'),
-  textLight: 'oklch(53.36% 0.0445 230.26)',
-  r: ld('orange', 'green'),
+    darkLight: 'oklch(32.25% 0.0573 233.51)',
+    darkDark: 'oklch(25.88% 0.037 240.95)',
+    accent: 'oklch(58.09% 0.1151 235.69)',
+    whiteBlue: 'oklch(97.44% 0.0134 240.95)',
+    whiteToBlack: ld('oklch(97.44% 0.0134 240.95)', 'black'),
+    blackToWhite: ld('black', 'oklch(97.44% 0.0134 240.95)'),
+    textLight: 'oklch(53.36% 0.0445 230.26)',
+    r: ld('orange', 'green'),
 })
 globalStyle('body', {
-  backgroundColor: variable.whiteBlue,
+    backgroundColor: variable.whiteBlue,
 })
 export const theme = createThemeContract({
-  background: null,
-  backgroundHover: null,
-  primary: null,
-  secondary: null,
-  accent: null,
-  text: '#000000',
-  textHover: null,
-  divider: variable.darkDark,
+    background: null,
+    backgroundHover: null,
+    primary: null,
+    secondary: null,
+    accent: null,
+    text: '#000000',
+    textHover: null,
+    divider: variable.darkDark,
 })
 const accent = createTheme(theme, {
-  background: variable.accent,
-  backgroundHover: variable.darkLight,
-  primary: 'white',
-  secondary: 'null',
-  accent: variable.darkDark,
-  text: 'white',
-  textHover: variable.darkDark,
-  divider: '#0E384C1A',
+    background: variable.accent,
+    backgroundHover: variable.darkLight,
+    primary: 'white',
+    secondary: 'null',
+    accent: variable.darkDark,
+    text: 'white',
+    textHover: variable.darkDark,
+    divider: '#0E384C1A',
 })
 const darkBlueBanner = createTheme(theme, {
-  background: 'light-dark(oklch(32.25% 0.0573 233.51),oklch(72.55% 0.0573 233.51))',
-  backgroundHover: 'light-dark(oklch(72.55% 0.0573 233.51),oklch(32.25% 0.0573 233.51))',
-  primary: 'white',
-  secondary: 'null',
-  accent: variable.accent,
-  text: ld('white', 'black'),
-  textHover: ld('black', 'white'),
-  divider: '#0E384C1A',
+    background: 'light-dark(oklch(32.25% 0.0573 233.51),oklch(72.55% 0.0573 233.51))',
+    backgroundHover: 'light-dark(oklch(72.55% 0.0573 233.51),oklch(32.25% 0.0573 233.51))',
+    primary: 'white',
+    secondary: 'null',
+    accent: variable.accent,
+    text: ld('white', 'black'),
+    textHover: ld('black', 'white'),
+    divider: '#0E384C1A',
 })
 
 const whiteBg = createTheme(theme, {
-  background: 'light-dark(white,oklch(79.97% 0 0))',
-  backgroundHover: variable.darkLight,
-  primary: variable.darkLight,
-  secondary: 'null',
-  accent: variable.accent,
-  text: 'oklch(53.36% 0.0445 230.26)',
-  textHover: 'white',
-  divider: '#0E384C1A',
+    background: 'light-dark(white,oklch(79.97% 0 0))',
+    backgroundHover: variable.darkLight,
+    primary: variable.darkLight,
+    secondary: 'null',
+    accent: variable.accent,
+    text: 'oklch(53.36% 0.0445 230.26)',
+    textHover: 'white',
+    divider: '#0E384C1A',
 })
 
 const blueLightBg = createTheme(theme, {
-  background: 'light-dark(oklch(97.44% 0.0134 240.95),oklch(0.69 0.0345 247.76))',
-  backgroundHover: '#0e384c',
-  primary: '#0e384c',
-  secondary: 'null',
-  accent: variable.accent,
-  text: ld('oklch(53.36% 0.0445 230.26)', 'white'),
-  textHover: 'white',
-  divider: '#0E384C1A',
+    background: 'light-dark(oklch(97.44% 0.0134 240.95),oklch(0.69 0.0345 247.76))',
+    backgroundHover: '#0e384c',
+    primary: '#0e384c',
+    secondary: 'null',
+    accent: variable.accent,
+    text: ld('oklch(53.36% 0.0445 230.26)', 'white'),
+    textHover: 'white',
+    divider: '#0E384C1A',
 })
 
 export const colorTheme = {
-  accent,
-  darkBlueBanner,
-  whiteBg,
-  blueLightBg,
+    accent,
+    darkBlueBanner,
+    whiteBg,
+    blueLightBg,
 } as const
 
 export const color = {
-  variable,
-  theme,
+    variable,
+    theme,
 } as const
 
 // /**
@@ -154,309 +153,309 @@ export const color = {
  * MARK: Container Rules
  */
 const containerSize = {
-  default: '60rem',
-  small: '60rem',
-  medium: '72rem',
-  large: '90rem',
-  xxl: '120rem',
-  full: '100svw',
+    default: '60rem',
+    small: '60rem',
+    medium: '72rem',
+    large: '90rem',
+    xxl: '120rem',
+    full: '100svw',
 } as const
 
 // This function takes a parameter x of type keyof typeof containerSize and returns a string
 const maxInlineSizeFn = (x: keyof typeof containerSize): string => {
-  // Return a string that calculates the minimum of three values:
-  // 1. 100% minus twice the value of the parameter x from the containerSize object
-  // 2. The value of the parameter x from the containerSize object
-  // 3. 130rem
+    // Return a string that calculates the minimum of three values:
+    // 1. 100% minus twice the value of the parameter x from the containerSize object
+    // 2. The value of the parameter x from the containerSize object
+    // 3. 130rem
 
-  return `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${containerSize[x]}, 130rem)`
+    return `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${containerSize[x]}, 130rem)`
 }
 
 const defaultContainer = style({
-  '@layer': {
-    custom: {
-      marginInline: 'auto',
-      position: 'relative',
-      boxSizing: 'border-box',
+    '@layer': {
+        custom: {
+            marginInline: 'auto',
+            position: 'relative',
+            boxSizing: 'border-box',
+        },
     },
-  },
 })
 
 const container = styleVariants({
-  default: [defaultContainer],
-  small: [
-    defaultContainer,
-    {
-      maxInlineSize: maxInlineSizeFn('small'),
+    default: [defaultContainer],
+    small: [
+        defaultContainer,
+        {
+            maxInlineSize: maxInlineSizeFn('small'),
+        },
+    ],
+    medium: [
+        defaultContainer,
+        {
+            maxInlineSize: maxInlineSizeFn('medium'),
+        },
+    ],
+    large: [
+        defaultContainer,
+        {
+            maxInlineSize: maxInlineSizeFn('large'),
+        },
+    ],
+    xxl: [
+        defaultContainer,
+        {
+            maxInlineSize: maxInlineSizeFn('xxl'),
+        },
+    ],
+    full: {
+        marginInline: 'auto',
+        position: 'relative',
+        boxSizing: 'border-box',
+        maxInlineSize: 'none',
     },
-  ],
-  medium: [
-    defaultContainer,
-    {
-      maxInlineSize: maxInlineSizeFn('medium'),
-    },
-  ],
-  large: [
-    defaultContainer,
-    {
-      maxInlineSize: maxInlineSizeFn('large'),
-    },
-  ],
-  xxl: [
-    defaultContainer,
-    {
-      maxInlineSize: maxInlineSizeFn('xxl'),
-    },
-  ],
-  full: {
-    marginInline: 'auto',
-    position: 'relative',
-    boxSizing: 'border-box',
-    maxInlineSize: 'none',
-  },
 })
 
 globalStyle(`${container.default} > *`, {
-  marginInline: 'auto',
-  maxInlineSize: maxInlineSizeFn('default'),
+    marginInline: 'auto',
+    maxInlineSize: maxInlineSizeFn('default'),
 })
 
 const sizes = Object.keys(container).filter(key =>
-  ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
+    ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
 ) as (keyof typeof container)[]
 
 for (const size of sizes) {
-  globalStyle(`${container.default} > ${container[size]}`, {
-    maxInlineSize: maxInlineSizeFn(size),
-  })
+    globalStyle(`${container.default} > ${container[size]}`, {
+        maxInlineSize: maxInlineSizeFn(size),
+    })
 }
 
 // Définition des variables avec @property
 const spaceLrVar = createVar({
-  syntax: '<length>',
-  inherits: false,
-  initialValue: '40px',
+    syntax: '<length>',
+    inherits: false,
+    initialValue: '40px',
 })
 
 const spaceGapVar = createVar({
-  syntax: '<length>',
-  inherits: false,
-  initialValue: '20px',
+    syntax: '<length>',
+    inherits: false,
+    initialValue: '20px',
 })
 
 const gridWrapper = style({
-  // Valeurs initiales des variables
-  vars: {
-    [spaceLrVar]: fluid(40, 80),
-    [spaceGapVar]: fluid(20, 35),
-  },
-  gap: spaceGapVar,
+    // Valeurs initiales des variables
+    vars: {
+        [spaceLrVar]: fluid(40, 80),
+        [spaceGapVar]: fluid(20, 35),
+    },
+    gap: spaceGapVar,
 })
 
 const vars = createThemeContract({
-  col: null,
+    col: null,
 })
 const numberOfColumnTheme = style({
-  vars: assignVars(vars, {
-    col: '3',
-  }),
-  '@media': {
-    [media.tablet]: {
-      vars: assignVars(vars, {
-        col: '6',
-      }),
+    vars: assignVars(vars, {
+        col: '3',
+    }),
+    '@media': {
+        [media.tablet]: {
+            vars: assignVars(vars, {
+                col: '6',
+            }),
+        },
+        [media.md]: {
+            vars: assignVars(vars, {
+                col: '12',
+            }),
+        },
     },
-    [media.md]: {
-      vars: assignVars(vars, {
-        col: '12',
-      }),
-    },
-  },
 })
 
 const containerGrid = styleVariants(containerSize, size => [
-  defaultContainer,
-  gridWrapper,
-  numberOfColumnTheme,
-  {
-    display: 'grid',
-    gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
-  },
+    defaultContainer,
+    gridWrapper,
+    numberOfColumnTheme,
+    {
+        display: 'grid',
+        gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
+    },
 ])
 
 const containerGridCol = recipe({
-  base: {
-    marginInline: 'auto',
-    position: 'relative',
-    boxSizing: 'border-box',
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-  },
-  variants: {
-    size: {
-      default: { maxInlineSize: maxInlineSizeFn('default') },
-      small: { maxInlineSize: maxInlineSizeFn('small') },
-      medium: { maxInlineSize: maxInlineSizeFn('medium') },
-      large: { maxInlineSize: maxInlineSizeFn('large') },
-      xxl: { maxInlineSize: maxInlineSizeFn('xxl') },
-      full: { maxInlineSize: 'none' },
+    base: {
+        marginInline: 'auto',
+        position: 'relative',
+        boxSizing: 'border-box',
+        display: 'grid',
+        gridTemplateColumns: '1fr',
     },
-    cols: {
-      2: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+    variants: {
+        size: {
+            default: {maxInlineSize: maxInlineSizeFn('default')},
+            small: {maxInlineSize: maxInlineSizeFn('small')},
+            medium: {maxInlineSize: maxInlineSizeFn('medium')},
+            large: {maxInlineSize: maxInlineSizeFn('large')},
+            xxl: {maxInlineSize: maxInlineSizeFn('xxl')},
+            full: {maxInlineSize: 'none'},
         },
-      },
-      3: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(3, 1fr)' },
-        },
-      },
-      4: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(4, 1fr)' },
-        },
-      },
+        cols: {
+            2: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(2, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(2, 1fr)'},
+                },
+            },
+            3: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(2, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(3, 1fr)'},
+                },
+            },
+            4: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(2, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(4, 1fr)'},
+                },
+            },
 
-      6: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(3, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(6, 1fr)' },
+            6: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(3, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(6, 1fr)'},
+                },
+            },
+            8: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(4, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(8, 1fr)'},
+                },
+            },
+            12: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(6, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(12, 1fr)'},
+                },
+            },
+            24: {
+                '@media': {
+                    [media.tablet]: {gridTemplateColumns: 'repeat(12, 1fr)'},
+                    [media.md]: {gridTemplateColumns: 'repeat(24, 1fr)'},
+                },
+            },
         },
-      },
-      8: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(4, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(8, 1fr)' },
-        },
-      },
-      12: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(6, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(12, 1fr)' },
-        },
-      },
-      24: {
-        '@media': {
-          [media.tablet]: { gridTemplateColumns: 'repeat(12, 1fr)' },
-          [media.md]: { gridTemplateColumns: 'repeat(24, 1fr)' },
-        },
-      },
     },
-  },
-  defaultVariants: {
-    size: 'small',
-    cols: 2,
-  },
+    defaultVariants: {
+        size: 'small',
+        cols: 2,
+    },
 })
 
 // Global styles adaptés
-globalStyle(`${containerGridCol({ size: 'default' })} > *`, {
-  maxInlineSize: maxInlineSizeFn('default'),
+globalStyle(`${containerGridCol({size: 'default'})} > *`, {
+    maxInlineSize: maxInlineSizeFn('default'),
 })
 const sizesContainerGridCol = Object.keys(containerSize).filter(key =>
-  ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
+    ['small', 'medium', 'large', 'xxl', 'full'].includes(key),
 ) as (keyof typeof containerSize)[]
 
 for (const size of sizesContainerGridCol) {
-  globalStyle(`${containerGridCol({ size: 'default' })} > ${containerGridCol({ size })}`, {
-    maxInlineSize: maxInlineSizeFn(size),
-  })
+    globalStyle(`${containerGridCol({size: 'default'})} > ${containerGridCol({size})}`, {
+        maxInlineSize: maxInlineSizeFn(size),
+    })
 }
 
 const containerColor = recipe({
-  base: {
-    backgroundColor: color.theme.background,
-    color: color.theme.text,
-    ':focus': {
-      outline: `min(4px, 3px + 0.1vw) solid ${color.theme.divider}`,
-      outlineOffset: '4px',
-      transition: 'transform 1s easy',
-    },
-  },
-  variants: {
-    theme: {
-      accent,
-      darkBlueBanner,
-      whiteBg,
-      blueLightBg,
-    },
-    hover: {
-      true: {
-        cursor: 'pointer',
-        ':active': {
-          color: fallbackVar(color.theme.accent, color.theme.textHover, 'inherit'),
-          backgroundColor: color.theme.backgroundHover,
-          transform: 'scale(1.01,1)',
-          outline: `min(4px, 3px + 0.1vw) solid ${color.theme.backgroundHover}`,
-          outlineOffset: '1.6px',
-        },
+    base: {
+        backgroundColor: color.theme.background,
+        color: color.theme.text,
         ':focus': {
-          outline: 'min(4px, 3px + 0.1vw) solid yellow',
-          outlineOffset: '4px',
+            outline: `min(4px, 3px + 0.1vw) solid ${color.theme.divider}`,
+            outlineOffset: '4px',
+            transition: 'transform 1s easy',
         },
-
-        '@media': {
-          '(hover: hover)': {
-            ':hover': {
-              backgroundColor: fallbackVar(color.theme.backgroundHover, color.theme.background),
-              color: fallbackVar(color.theme.textHover, 'inherit'),
-              border: fallbackVar(color.theme.textHover, 'inherit'),
-            },
-          },
-        },
-      },
     },
-  },
-  defaultVariants: {
-    theme: 'blueLightBg',
-    hover: false,
-  },
+    variants: {
+        theme: {
+            accent,
+            darkBlueBanner,
+            whiteBg,
+            blueLightBg,
+        },
+        hover: {
+            true: {
+                cursor: 'pointer',
+                ':active': {
+                    color: fallbackVar(color.theme.accent, color.theme.textHover, 'inherit'),
+                    backgroundColor: color.theme.backgroundHover,
+                    transform: 'scale(1.01,1)',
+                    outline: `min(4px, 3px + 0.1vw) solid ${color.theme.backgroundHover}`,
+                    outlineOffset: '1.6px',
+                },
+                ':focus': {
+                    outline: 'min(4px, 3px + 0.1vw) solid yellow',
+                    outlineOffset: '4px',
+                },
+
+                '@media': {
+                    '(hover: hover)': {
+                        ':hover': {
+                            backgroundColor: fallbackVar(color.theme.backgroundHover, color.theme.background),
+                            color: fallbackVar(color.theme.textHover, 'inherit'),
+                            border: fallbackVar(color.theme.textHover, 'inherit'),
+                        },
+                    },
+                },
+            },
+        },
+    },
+    defaultVariants: {
+        theme: 'blueLightBg',
+        hover: false,
+    },
 })
 
 /**
  * @deprecated
  */
 const flex = recipe({
-  base: {
-    display: 'flex',
-  },
-  variants: {
-    direction: {
-      row: { flexDirection: 'row' },
-      rowReverse: { flexDirection: 'row-reverse' },
-      column: { flexDirection: 'column' },
+    base: {
+        display: 'flex',
     },
-    side: {
-      1: { justifyContent: 'start', alignItems: 'start' },
-      2: { justifyContent: 'center', alignItems: 'start' },
-      3: { justifyContent: 'end', alignItems: 'start' },
-      4: { justifyContent: 'start', alignItems: 'center' },
-      5: { justifyContent: 'center', alignItems: 'center' },
-      6: { justifyContent: 'end', alignItems: 'center' },
-      7: { justifyContent: 'start', alignItems: 'end' },
-      8: { justifyContent: 'center', alignItems: 'end' },
-      9: { justifyContent: 'end', alignItems: 'end' },
+    variants: {
+        direction: {
+            row: {flexDirection: 'row'},
+            rowReverse: {flexDirection: 'row-reverse'},
+            column: {flexDirection: 'column'},
+        },
+        side: {
+            1: {justifyContent: 'start', alignItems: 'start'},
+            2: {justifyContent: 'center', alignItems: 'start'},
+            3: {justifyContent: 'end', alignItems: 'start'},
+            4: {justifyContent: 'start', alignItems: 'center'},
+            5: {justifyContent: 'center', alignItems: 'center'},
+            6: {justifyContent: 'end', alignItems: 'center'},
+            7: {justifyContent: 'start', alignItems: 'end'},
+            8: {justifyContent: 'center', alignItems: 'end'},
+            9: {justifyContent: 'end', alignItems: 'end'},
+        },
+        space: {
+            between: {justifyContent: 'space-between'},
+            around: {justifyContent: 'space-around'},
+            evenly: {justifyContent: 'space-evenly'},
+        },
+        wrap: {
+            true: {
+                flexWrap: 'wrap',
+            },
+        },
     },
-    space: {
-      between: { justifyContent: 'space-between' },
-      around: { justifyContent: 'space-around' },
-      evenly: { justifyContent: 'space-evenly' },
+    defaultVariants: {
+        direction: 'row',
+        side: 1,
+        wrap: false,
     },
-    wrap: {
-      true: {
-        flexWrap: 'wrap',
-      },
-    },
-  },
-  defaultVariants: {
-    direction: 'row',
-    side: 1,
-    wrap: false,
-  },
 })
-export { fontFamily }
+export {fontFamily}
 //export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

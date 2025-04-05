@@ -23,7 +23,7 @@
 			"@theme": ["src/styles/utils/theme.css"],
 			"@fonts": ["public/fonts/*"],
 			"@images": ["public/images/*"],
-			"@s": ["src/styles/*"]
+//			"@s": ["src/styles/index.css.ts"]
 		}
 	}
 }

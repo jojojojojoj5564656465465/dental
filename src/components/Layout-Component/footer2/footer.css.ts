@@ -2,11 +2,11 @@ import { fluid } from 'src/styles/utils/utils.ts'
 import { style } from '@vanilla-extract/css'
 import { color, colorTheme, fontFamily } from '@theme'
 import { fontSize, media } from '@styles/token'
-import { container } from '@styles/variants/container.css'
+import { container } from '@recipe'
 
 export const wrapper = style([
-  container.full,
-  colorTheme.darkBlueBanner,
+  container({size: 'full', theme: 'darkBlueBanner', background: true}),
+
   {
     borderTopWidth: fluid(6, 10),
     borderTopStyle: 'double',

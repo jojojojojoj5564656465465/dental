@@ -1,7 +1,8 @@
-import { containerColor } from '@styles/recipe/index.css.ts'
-import { container, containerGrid, textVariant } from '@styles/variants/index.css'
+//import { containerColor } from '@styles/recipe/index.css.ts'
+import { textVariant } from '@styles/variants/index.css'
 import { fontSize, media, space } from '@styles/token'
 import { fluid } from 'src/styles/utils/utils.ts'
+import { container, containerGrid } from '@recipe'
 //import { textStyle } from '@styles/main.css'
 import { color } from '@theme'
 import { createContainer, createVar, style, styleVariants } from '@vanilla-extract/css'
@@ -12,8 +13,7 @@ export const sectionContainerIndex = style([
     marginBlock: space.md,
     textAlign: 'center',
   },
-  container.large,
-  containerColor({ theme: 'blueLightBg' }),
+  container({ size: 'large', theme: 'blueLightBg' }),
 ])
 export const sectionContainer__Text = styleVariants({
   wrapper: { marginBlock: fluid(20, 45) },
@@ -47,11 +47,7 @@ export const gridContainer = style([
       },
     },
   },
-  containerGrid.large,
-  containerColor({
-    theme: 'blueLightBg',
-    hover: true,
-  }),
+  containerGrid({ fullSize: 'large', theme: 'blueLightBg' }),
 ])
 /**
  * MARK: card

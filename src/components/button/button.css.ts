@@ -1,5 +1,5 @@
 import { color } from '@theme'
-import { containerColor } from '@styles/recipe/index.css.ts'
+import { container } from '@recipe'
 import { media, fontSize } from '@styles/token'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { createContainer, createGlobalVar, createVar, style } from '@vanilla-extract/css'
@@ -23,7 +23,7 @@ export const radius = createVar({
 const buttonContainer = createContainer()
 
 export const buttonCallToAction = style([
-  containerColor({ theme: 'accent', hover: true }),
+  container({ theme: 'accent', background: true, hover: true }),
   {
     '@container': {
       [`${buttonContainer} (width < 11rem)`]: {
@@ -42,7 +42,8 @@ export const buttonCallToAction = style([
       left: '-111%',
       borderRadius: `0 ${radius} ${radius} 0`,
       transition: 'left 0.5s 0.1s ease',
-      backgroundColor: color.theme.primary,
+      backgroundColor: 'white',
+      //maskImage: 'linear-gradient(to left, transparent 0%, black 100%)',
       content: '',
     },
     fontSize: fontSize.md,
@@ -68,6 +69,7 @@ export const buttonCallToAction = style([
     selectors: {
       '&:hover::before': {
         left: 0,
+        color: color.theme.textHover,
       },
     },
     ':hover': {
