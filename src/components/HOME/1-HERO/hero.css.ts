@@ -1,15 +1,15 @@
-import { color, fontFamily } from '@theme'
-import { fontSize, media, space } from '@styles/token'
-import { fluid, ld } from 'src/styles/utils/utils.ts'
+import {color} from '@theme'
+import {media, space} from '@styles/token'
+import {fluid, ld} from 'src/styles/utils/utils.ts'
 
-import { style } from '@vanilla-extract/css'
-import { flex } from '@styles/recipe/index.css.ts'
+import {style} from '@vanilla-extract/css'
+import {flex} from '@styles/recipe/index.css.ts'
 
-import { container } from '@recipe'
+import {container} from '@recipe'
 
 export const wrapper = style([
   //container.small,
-  container({ size: 'small' }),
+  container({size: 'small', background: false}),
   {
     borderImage: 'linear-gradient(oklch(58.09% 0.1151 235.69 / 40%), oklch(97.44% 0.0134 240.95) / 20% ) fill 1',
     display: 'grid',
@@ -19,26 +19,15 @@ export const wrapper = style([
   },
 ])
 
-export const bigTitle = style({
-  fontSize: fontSize['4xl'],
-  lineHeight: 1.2,
-  color: color.theme.primary,
-  fontWeight: 'bold',
-  textWrap: ['balance', 'pretty'],
-  fontFamily: fontFamily.exo,
-  textAlign: 'center',
-})
-
 export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: color.theme.divider }])
 
 /**
  * MARK: BANNER
  */
 export const bannerWrapper = style([
-  container({ size: 'large' }),
+  container({size: 'large', background: false}),
   flex({ direction: 'row', side: 4, wrap: true, justifyContent: 'evenly' }),
   {
-    //backgroundColor: color.theme.background,
     columnGap: '3rem',
 
     '@media': {

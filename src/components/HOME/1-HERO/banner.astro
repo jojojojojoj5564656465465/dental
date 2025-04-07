@@ -5,19 +5,21 @@ import * as s from './hero.css'
 import { container } from '@recipe'
 ---
 
-<section class={container({ theme: "darkBlueBanner" })}>
-  <div class={s.bannerWrapper}>
-    <div class={s.banner__element}>
-      <Icon class={s.banner__element_icon} name={"phone"} />
-      <h6>need dental services ?</h6>
-      <p>Call on : (+01) 987 828 745</p>
+<section class={container({theme: "darkBlueBanner", background: true, size: "full"})}>
+    <div class={s.bannerWrapper}>
+        <div class={s.banner__element}>
+            <Icon class={s.banner__element_icon} name={"phone"}/>
+            <h6>need dental services ?</h6>
+            <p>Call on : (+01) 987 828 745</p>
+        </div>
+        <hr class={s.banner_hr}/>
+        <div class={s.banner__element}>
+            <Icon class={s.banner__element_icon} name={"watch"}/>
+            <h6>opening hours</h6>
+            <p>Mon to Sat 9:00AM to 9:00PM</p>
+        </div>
+        <div class={s.banner_button}>
+            <Button link="w" title="tahar radio"/>
+        </div>
     </div>
-    <hr class={s.banner_hr} />
-    <div class={s.banner__element}>
-      <Icon class={s.banner__element_icon} name={"watch"} />
-      <h6>opening hours</h6>
-      <p>Mon to Sat 9:00AM to 9:00PM</p>
-    </div>
-    <div class={s.banner_button}><Button link="w" title="tahar radio" /></div>
-  </div>
 </section>

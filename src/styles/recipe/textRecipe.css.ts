@@ -1,16 +1,16 @@
-import { recipe } from '@vanilla-extract/recipes'
-import { textSprinkles } from './textSprinkles.css.ts'
-import { fontSize } from '../token'
-import { theme } from '@theme'
+import {recipe} from '@vanilla-extract/recipes'
+import {textSprinkles} from './textSprinkles.css.ts'
+import {theme} from '@theme'
 
 export const textRecipe = recipe({
   base: {
     textWrap: ['balance', 'pretty'],
+    textTransform: 'capitalize',
   },
   variants: {
     font: {
       preTitle: [
-        textSprinkles({ fontSize: 'xs', color: 'accent', lineHeight: 'xxs', textTransform: 'uppercase' }),
+        textSprinkles({fontSize: 'xs', color: 'accent', lineHeight: 'xxs'}),
         {
           letterSpacing: '2.8px',
           ':before': {
@@ -24,11 +24,10 @@ export const textRecipe = recipe({
         fontFamily: 'exo',
         fontWeight: 'bold',
       }),
-      red: {
-        fontWeight: 'bold',
-        fontSize: fontSize['6xl'],
-        color: 'red',
-      },
+      span: textSprinkles({
+        fontSize: 'inherit',
+        color: 'accent',
+      }),
 
       highLight: textSprinkles({
         fontSize: 'sm',
@@ -43,16 +42,16 @@ export const textRecipe = recipe({
         fontSize: 'sm',
         color: 'text',
         fontWeight: 'normal',
-
         fontFamily: 'exo',
       }),
     },
     marginBlock: {
-      xxxs: textSprinkles({ marginY: 'xxxs' }),
-      xxs: textSprinkles({ marginY: 'xxs' }),
-      xs: textSprinkles({ marginY: 'xs' }),
-      sm: textSprinkles({ marginY: 'sm' }),
-      md: textSprinkles({ marginY: 'md' }),
+      xxxs: textSprinkles({marginBlock: 'xxxs'}),
+      xxs: textSprinkles({marginBlock: 'xxs'}),
+      xs: textSprinkles({marginBlock: 'xs'}),
+      sm: textSprinkles({marginBlock: 'sm'}),
+      md: textSprinkles({marginBlock: 'md'}),
+      lg: textSprinkles({marginBlock: 'lg'}),
     },
     lineHeight: {
       xxxs: textSprinkles({ lineHeight: 'xxxs' }),
@@ -97,15 +96,18 @@ export const textRecipe = recipe({
       center: textSprinkles({ textAlign: 'center' }),
       right: textSprinkles({ textAlign: 'end' }),
     },
-    marginInline: {
-      true: {
-        marginInline: 'auto',
+    display: {
+      inline: {
+        display: 'inline-block',
+      },
+      block: {
+        display: 'block',
       },
     },
   },
   defaultVariants: {
     font: 'text',
-    marginInline: false,
+    display: 'block',
     textAlign: 'left',
     hoverDiv: false,
     hoverSection: false,

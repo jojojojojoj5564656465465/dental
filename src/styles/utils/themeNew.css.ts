@@ -1,7 +1,7 @@
-import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css'
+import {createGlobalTheme, createTheme, createThemeContract, globalStyle} from '@vanilla-extract/css'
 
 import f from './fontFace.css'
-import { fluid, ld } from './utils'
+import {ld} from './utils'
 
 export const fontFamily = createGlobalTheme(':root', {
   dancingScript: `${f.dancingScript}, Times, serif`,
@@ -48,7 +48,7 @@ const accent = createTheme(theme, {
 const darkBlueBanner = createTheme(theme, {
   background: 'light-dark(oklch(32.25% 0.0573 233.51),oklch(72.55% 0.0573 233.51))',
   backgroundHover: 'light-dark(oklch(72.55% 0.0573 233.51),oklch(32.25% 0.0573 233.51))',
-  primary: 'white',
+  primary: 'light-dark(white,oklch(32.25% 0.0573 233.51))',
   secondary: 'null',
   accent: variable.accent,
   text: ld('white', 'black'),

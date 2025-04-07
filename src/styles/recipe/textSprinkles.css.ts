@@ -1,16 +1,15 @@
-import { createMapValueFn, createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
+import {createSprinkles, defineProperties} from '@vanilla-extract/sprinkles'
 
-import { fontSize, media, space } from '../token'
-import { theme } from '../utils/themeNew.css.ts'
+import {media, space} from '../token'
+import {theme} from '../utils/themeNew.css.ts'
 import f from '@styles/utils/fontFace.css.ts'
+import marginPaddingSprinkles from '@styles/recipe/spaceMarginPadding.ts'
 
 const text = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': media.tablet },
     desktop: { '@media': media.md },
-
-    darkMode: { '@media': '(prefers-color-scheme: dark)' },
   },
   defaultCondition: 'mobile',
   responsiveArray: ['mobile', 'tablet', 'desktop'],
@@ -37,10 +36,6 @@ const text = defineProperties({
     },
     fontWeight: ['Light', 'normal', 'bold'],
     lineHeight: space,
-    paddingBlockStart: space,
-    paddingBlockEnd: space,
-    marginBlockStart: space,
-    marginBlockEnd: space,
     color: theme,
     backgroundColor: theme,
     borderColor: theme,
@@ -50,10 +45,6 @@ const text = defineProperties({
     textDecorationColor: theme,
     textAlign: ['start', 'center', 'end'],
   },
-  shorthands: {
-    paddingY: ['paddingBlockEnd', 'paddingBlockStart'],
-    marginY: ['marginBlockEnd', 'marginBlockStart'],
-  },
 })
 
-export const textSprinkles = createSprinkles(text)
+export const textSprinkles = createSprinkles(text, marginPaddingSprinkles)

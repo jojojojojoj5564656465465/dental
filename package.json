@@ -31,11 +31,11 @@
     "valibot": "^1.0.0"
   },
   "devDependencies": {
-    "@antebudimir/eslint-plugin-vanilla-extract": "^1.6.0",
+    "@antebudimir/eslint-plugin-vanilla-extract": "^1.7.0",
     "@arrirpc/schema": "^0.76.4",
-    "@typescript-eslint/eslint-plugin": "^8.29.0",
-    "@typescript-eslint/parser": "^8.29.0",
-    "@typescript-eslint/utils": "^8.29.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "@typescript-eslint/utils": "^8.29.1",
     "@vanilla-extract/sprinkles": "^1.6.3",
     "@vanilla-extract/vite-plugin": "^5.0.1",
     "biome": "^0.3.3",

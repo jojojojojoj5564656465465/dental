@@ -1,10 +1,9 @@
-import { fluid } from 'src/styles/utils/utils.ts'
-import { color } from '@theme'
-import { containerGrid } from '@recipe'
+import {fluid} from 'src/styles/utils/utils.ts'
+import {containerGrid} from '@recipe'
 
-import { media } from '@styles/token'
-import { createGlobalVar, createVar, style, styleVariants } from '@vanilla-extract/css'
-import { textVariant } from '@styles/variants/index.css'
+import {media} from '@styles/token'
+import {createVar, style, styleVariants} from '@vanilla-extract/css'
+import {textVariant} from '@styles/variants/index.css'
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -36,29 +35,13 @@ export const content__wrapper = style({
   rowGap: fluid(10, 20),
 })
 
-const liSizeMask = createGlobalVar('mask', {
+const liSizeMask = createVar({
   syntax: '<length>',
-  inherits: false,
-  initialValue: '22px',
+  inherits: true,
+  initialValue: '24px',
 })
 
 export const text = styleVariants({
-  about: [textVariant.preTitle, {}],
-  h2: [
-    {
-      paddingInline: '5px',
-    },
-    textVariant.title,
-  ],
-  span: {
-    color: color.theme.accent,
-    fontSize: 'inherit',
-    fontFamily: 'inherit',
-  },
-  p: {
-    marginBlock: '1rem',
-    color: color.theme.text,
-  },
   ul: {
     display: 'grid',
     gridTemplateRows: 'repeat(2,1fr)',
@@ -70,16 +53,16 @@ export const text = styleVariants({
       display: 'flex',
       alignItems: 'center',
       listStyle: 'none',
-
       ':before': {
         width: liSizeMask,
         height: liSizeMask,
         marginInlineEnd: 'min(5px + 1vw, 10px)',
-        display: 'inline-block',
-        backgroundColor: color.theme.accent,
+        display: 'inline',
+        backgroundColor: 'darkgreen',
+        backgroundSize: 'cover',
         content: '',
-        maskImage: "url('/check.svg')",
-        maskSize: liSizeMask,
+        maskImage: "url('check.svg')",
+        maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center', // Utilisera la couleur du texte (rouge)
       },

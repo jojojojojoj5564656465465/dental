@@ -1,7 +1,7 @@
 /**
  * MARK: SPACES
  */
-export const space = {
+export const space: Record<string, string> = {
   xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
   xxs: 'clamp(0.5625em, 0.5408em + 0.1087dvw, 0.625em)',
   xs: 'clamp(0.875em, 0.8533em + 0.1087dvw, 0.9375em)',
@@ -11,4 +11,15 @@ export const space = {
   xl: 'clamp(3.375em, 1.6223em + 0.6522dvw, 3.75em)',
   xxl: 'clamp(4.5em, 4.3261em + 0.8696dvw, 5em)',
   xxxl: 'clamp(6.75em, 6.4891em + 1.3043dvw, 7.5em)',
+    auto: 'auto',
+    minContent: 'min-content',
+    maxContent: 'max-content',
+    '1rem': '1rem',
+    '1.25rem': '1.25rem',
+    '1.50rem': '1.50rem',
+    '1.75rem': '1.75rem',
+    '2rem': '2rem',
+    '2.25rem': '2.25rem',
+    '2.50rem': '2.50rem',
+    '2.75rem': '2.75rem',
 } as const
