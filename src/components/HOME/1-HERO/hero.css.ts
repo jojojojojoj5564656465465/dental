@@ -9,7 +9,7 @@ import {container} from '@recipe'
 
 export const wrapper = style([
   //container.small,
-  container({size: 'small', background: false}),
+    container({size: 'small'}),
   {
     borderImage: 'linear-gradient(oklch(58.09% 0.1151 235.69 / 40%), oklch(97.44% 0.0134 240.95) / 20% ) fill 1',
     display: 'grid',
@@ -25,7 +25,7 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  * MARK: BANNER
  */
 export const bannerWrapper = style([
-  container({size: 'large', background: false}),
+    container({size: 'large', background: false}),
   flex({ direction: 'row', side: 4, wrap: true, justifyContent: 'evenly' }),
   {
     columnGap: '3rem',

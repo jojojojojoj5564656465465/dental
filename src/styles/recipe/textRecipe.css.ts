@@ -4,13 +4,12 @@ import {theme} from '@theme'
 
 export const textRecipe = recipe({
   base: {
-    textWrap: ['balance', 'pretty'],
     textTransform: 'capitalize',
   },
   variants: {
     font: {
       preTitle: [
-        textSprinkles({fontSize: 'xs', color: 'accent', lineHeight: 'xxs'}),
+        textSprinkles({fontSize: 'xs', color: 'accent', lineHeight: 'loose'}),
         {
           letterSpacing: '2.8px',
           ':before': {
@@ -54,11 +53,13 @@ export const textRecipe = recipe({
       lg: textSprinkles({marginBlock: 'lg'}),
     },
     lineHeight: {
-      xxxs: textSprinkles({ lineHeight: 'xxxs' }),
-      xxs: textSprinkles({ lineHeight: 'xxs' }),
-      xs: textSprinkles({ lineHeight: 'xs' }),
-      sm: textSprinkles({ lineHeight: 'sm' }),
-      md: textSprinkles({ lineHeight: 'md' }),
+      none: textSprinkles({lineHeight: 'none'}),
+      tight: textSprinkles({lineHeight: 'tight'}),
+      snug: textSprinkles({lineHeight: 'snug'}),
+      normal: textSprinkles({lineHeight: 'normal'}),
+      relaxed: textSprinkles({lineHeight: 'relaxed'}),
+      loose: textSprinkles({lineHeight: 'loose'}),
+      inherit: 'inherit',
     },
     hover: {
       true: {
@@ -92,9 +93,10 @@ export const textRecipe = recipe({
       },
     },
     textAlign: {
-      left: textSprinkles({ textAlign: 'start' }),
+      left: textSprinkles({textAlign: 'left'}),
       center: textSprinkles({ textAlign: 'center' }),
-      right: textSprinkles({ textAlign: 'end' }),
+      right: textSprinkles({textAlign: 'right'}),
+      justify: textSprinkles({textAlign: 'justify'}),
     },
     display: {
       inline: {

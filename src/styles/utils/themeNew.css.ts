@@ -57,14 +57,14 @@ const darkBlueBanner = createTheme(theme, {
 })
 
 const whiteBg = createTheme(theme, {
-  background: 'light-dark(white,oklch(79.97% 0 0))',
+  background: 'white',
   backgroundHover: variable.darkLight,
-  primary: variable.darkLight,
+  primary: variable.darkDark,
   secondary: 'null',
   accent: variable.accent,
   text: variable.textLight,
   textHover: 'white',
-  divider: '#0E384C1A',
+  divider: 'oklch(0.67 0.1 207.53)',
 })
 
 const blueLightBg = createTheme(theme, {

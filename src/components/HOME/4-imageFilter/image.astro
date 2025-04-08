@@ -1,8 +1,19 @@
 ---
 import { sectionWrapper, wrapper } from './image.css'
+import {textSprinkles} from '../../../styles/recipe/textSprinkles.css'
 ---
 <section class={sectionWrapper}>
-<div class={wrapper}>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, ea harum necessitatibus nesciunt porro voluptatum!</p>
-</div>
+    <div class={wrapper}>
+        <p class={textSprinkles({
+            fontSize: 'lg',
+            paddingInline: 'lg',
+            fontWeight: 'bold',
+            color: 'primary',
+            letterSpacing: 'wide',
+            textAlign: 'center',
+            fontFamily: 'dancingScript'
+        })}>Lorem
+            ipsum dolor sit amet, consectetur adipisicing elit. Architecto, ea harum necessitatibus nesciunt porro
+            voluptatum!</p>
+    </div>
 </section>

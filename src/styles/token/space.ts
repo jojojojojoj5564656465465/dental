@@ -16,10 +16,10 @@ export const space: Record<string, string> = {
     maxContent: 'max-content',
     '1rem': '1rem',
     '1.25rem': '1.25rem',
-    '1.50rem': '1.50rem',
+    '1.5rem': '1.5rem',
     '1.75rem': '1.75rem',
     '2rem': '2rem',
     '2.25rem': '2.25rem',
-    '2.50rem': '2.50rem',
+    '2.5rem': '2.5rem',
     '2.75rem': '2.75rem',
 } as const

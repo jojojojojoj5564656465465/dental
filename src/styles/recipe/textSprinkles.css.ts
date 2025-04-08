@@ -1,21 +1,59 @@
 import {createSprinkles, defineProperties} from '@vanilla-extract/sprinkles'
 
-import {media, space} from '../token'
-import {theme} from '../utils/themeNew.css.ts'
-import f from '@styles/utils/fontFace.css.ts'
-import marginPaddingSprinkles from '@styles/recipe/spaceMarginPadding.ts'
+// Assuming these imports are correctly set up
+import {media} from '../token' // Renamed imported 'space' to avoid conflict
+import {theme} from '../utils/themeNew.css.ts' // Make sure 'theme' structure matches usage (e.g., theme.primary or theme.colors.primary)
+import f from '@styles/utils/fontFace.css.ts' // Make sure these are exported font family names
+import marginPaddingSprinkles from '@styles/recipe/spaceMarginPadding.ts' // Ensure this is the defineProperties result
 
-const text = defineProperties({
+// Define semantic line heights (unitless are generally recommended)
+const lineHeights = {
+  none: 1,
+  tight: 1.25,
+  snug: 1.375,
+  normal: 1.5,
+  relaxed: 1.625,
+  loose: 2,
+  inherit: 'inherit',
+}
+
+// Define semantic font weights
+const fontWeights = {
+  thin: 100,
+  extralight: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
+  inherit: 'inherit',
+}
+
+// Define letter spacing
+const letterSpacings = {
+  tighter: '-0.05em',
+  tight: '-0.025em',
+  normal: '0em',
+  wide: '0.025em',
+  wider: '0.05em',
+  widest: '0.1em',
+  inherit: 'inherit',
+}
+
+const textProperties = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': media.tablet },
-    desktop: { '@media': media.md },
+    desktop: {'@media': media.md}, // Assuming media.md is your desktop breakpoint query string
   },
   defaultCondition: 'mobile',
   responsiveArray: ['mobile', 'tablet', 'desktop'],
   properties: {
+    // --- Font & Typeface ---
     fontSize: {
-      cqi: 'clamp(0.60rem, .65cqi, .9cqi)',
+      cqi: 'clamp(0.60rem, .65cqi, .9cqi)', // Container Query Based Size
       xs: 'clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem)',
       sm: 'clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem)',
       base: 'clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem)',
@@ -30,21 +68,44 @@ const text = defineProperties({
       inherit: 'inherit',
     },
     fontFamily: {
-      dancingScript: `${f.dancingScript}, Times, serif`,
+      dancingScript: `${f.dancingScript}, Times, serif`, // Ensure f.dancingScript is the font name string
       exo: `${f.exo}, Times, serif`,
       numito: `${f.nunito}, Arial, sans-serif`,
+      inherit: 'inherit',
     },
-    fontWeight: ['Light', 'normal', 'bold'],
-    lineHeight: space,
-    color: theme,
+    fontWeight: fontWeights,
+    lineHeight: lineHeights,
+    letterSpacing: letterSpacings,
+    fontStyle: ['normal', 'italic', 'inherit'],
+
+    // --- Color & Appearance ---
+    color: theme, // Assumes theme = { primary: '...', accent: '...', etc. }
     backgroundColor: theme,
-    borderColor: theme,
-    visibility: ['visible', 'hidden'],
-    textTransform: ['uppercase', 'lowercase', 'capitalize'],
-    textDecoration: ['underline', 'line-through', 'none'],
+    borderColor: theme, // Useful if text elements have borders
+
+    // --- Text Layout & Decoration ---
+    textAlign: ['left', 'center', 'right', 'justify', 'start', 'end', 'inherit'],
+    verticalAlign: ['baseline', 'top', 'middle', 'bottom', 'text-top', 'text-bottom', 'sub', 'super', 'inherit'],
+    textTransform: ['uppercase', 'lowercase', 'capitalize', 'none', 'inherit'],
+    textDecoration: ['underline', 'line-through', 'none', 'inherit'], // Could expand with 'overline' etc. if needed
     textDecorationColor: theme,
-    textAlign: ['start', 'center', 'end'],
+    // textDecorationStyle: ['solid', 'dotted', 'dashed', 'wavy'], // Optional
+    // textDecorationThickness: ['auto', 'from-font', '1px', '2px'], // Optional
+    textOverflow: ['clip', 'ellipsis', 'inherit'],
+    whiteSpace: ['normal', 'nowrap', 'pre', 'pre-wrap', 'pre-line', 'inherit'],
+    overflow: ['visible', 'hidden', 'clip', 'scroll', 'auto'], // Often used with textOverflow/whiteSpace
+
+    // --- Visibility & Interaction ---
+    visibility: ['visible', 'hidden', 'collapse'],
+    cursor: ['pointer', 'default', 'text', 'not-allowed'], // Optional: If text acts as interactive element
+    // userSelect: ['none', 'text', 'all', 'auto'], // Optional: Control text selection
   },
+  // No text-specific shorthands defined here, usually better to keep atomic
+  // shorthands: { ... }
 })
 
-export const textSprinkles = createSprinkles(text, marginPaddingSprinkles)
+// Combine text properties with margin/padding properties
+export const textSprinkles = createSprinkles(textProperties, marginPaddingSprinkles)
+
+// Export the type for easier use in components
+export type TextSprinkles = Parameters<typeof textSprinkles>[0]
