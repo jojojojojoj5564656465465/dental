@@ -3,8 +3,8 @@ import {createSprinkles, defineProperties} from '@vanilla-extract/sprinkles'
 // Assuming these imports are correctly set up
 import {media} from '../token' // Renamed imported 'space' to avoid conflict
 import {theme} from '../utils/themeNew.css.ts' // Make sure 'theme' structure matches usage (e.g., theme.primary or theme.colors.primary)
-import f from '@styles/utils/fontFace.css.ts' // Make sure these are exported font family names
-import marginPaddingSprinkles from '@styles/recipe/spaceMarginPadding.ts' // Ensure this is the defineProperties result
+import f from '../utils/fontFace.css.ts' // Make sure these are exported font family names
+import marginPaddingSprinkles from '../recipe/spaceMarginPadding.ts' // Ensure this is the defineProperties result
 
 // Define semantic line heights (unitless are generally recommended)
 const lineHeights = {
@@ -36,9 +36,9 @@ const letterSpacings = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',
-  wide: '0.025em',
-  wider: '0.05em',
-  widest: '0.1em',
+  wide: '0.05em',
+  wider: '0.1em',
+  widest: '0.15em',
   inherit: 'inherit',
 }
 

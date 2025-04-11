@@ -5,9 +5,9 @@ import { textRecipe, textSprinkles } from '@recipe'
 
 <section class={content__wrapper}>
     <h6 class={textRecipe({font: "preTitle", textAlign: "left"})}>ABOUT US</h6>
-    <h2 class:list={[textSprinkles({textAlign: ['center', 'left', 'left']}), textRecipe({
-        font: "title"
-    })]}>
+    <h2 class={textRecipe({
+        font: "title", textAlign: "center"
+    })}>
         <span class={textSprinkles({
             fontSize: 'inherit',
             color: {mobile: 'primary', tablet: 'accent'}
@@ -15,7 +15,7 @@ import { textRecipe, textSprinkles } from '@recipe'
         quotidien et beau
         sourir ici.
     </h2>
-    <p class:list={textRecipe({font: 'text', lineHeight: 'md'})}>
+    <p class:list={textRecipe({font: 'text', lineHeight: 'loose'})}>
         The goal of our clinic is to provide friendly, caring dentistry and the
         highest level of general, cosmetic, and specialist dental treatments. With
         dental practices throughout the world.

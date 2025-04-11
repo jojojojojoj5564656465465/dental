@@ -1,8 +1,8 @@
 import {recipe} from '@vanilla-extract/recipes'
 import {fallbackVar, globalStyle} from '@vanilla-extract/css'
 import {colorTheme, theme} from '../utils/themeNew.css.ts'
-import {maxInlineSizeFn} from '@styles/variants/base.css.ts'
-import {textSprinkles} from '@styles/recipe/textSprinkles.css.ts'
+import {maxInlineSizeFn} from '../utils/base.css.ts'
+import {textSprinkles} from './textSprinkles.css.ts'
 
 export const container = recipe({
   base: {

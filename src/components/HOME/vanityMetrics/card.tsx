@@ -1,6 +1,9 @@
-import { component$, useComputed$, useSignal, useVisibleTask$ } from '@builder.io/qwik'
+import {component$, useComputed$, useSignal, useVisibleTask$} from '@builder.io/qwik'
 import D from './data.ts'
-import { Card, Card_content, wrapper } from './vanity.css.ts'
+import {hr, wrapper} from './vanity.css.ts'
+
+import {textRecipe as R, textSprinkles as S} from '@recipe'
+
 interface Props {
   title: number
   symbol: string
@@ -24,7 +27,7 @@ const CardEl = component$<Props>(({ title, symbol, subtitle, text }) => {
     const animate = (timestamp: number) => {
       if (!startTime.value) startTime.value = timestamp
       const progress = timestamp - startTime.value
-      const progressRatio = Math.min(progress / duration, 1) // Limite à 1
+        const progressRatio = Math.min(progress / duration, 1) // Limite to 1 element
       numberSignal.value = Math.floor(progressRatio * (endValue - startValue) + startValue)
 
       if (progress < duration) {
@@ -40,14 +43,14 @@ const CardEl = component$<Props>(({ title, symbol, subtitle, text }) => {
   })
 
   return (
-    <div class={Card}>
-      <h3 class={Card_content.title}>
+      <div class={S({padding: 'xs'})}>
+          <h3 class={R({font: 'title'})}>
         {formattedValue.value}
         {symbol}
       </h3>
-      <h6 class={Card_content.subtitle}>{subtitle}</h6>
-      <hr class={Card_content.hr} />
-      <p class={Card_content.text}>{text}</p>
+          <h6 class={S({fontSize: 'md', letterSpacing: ['normal', 'wide', 'widest']})}>{subtitle}</h6>
+          <hr class={hr}/>
+          <p class={R({font: 'text'})}>{text}</p>
     </div>
   )
 })

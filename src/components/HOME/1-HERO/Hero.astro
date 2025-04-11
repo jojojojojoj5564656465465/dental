@@ -2,8 +2,9 @@
 import * as s from './hero.css'
 import Banner from './banner.astro'
 import Button from '../../button/button.astro'
-
-import {container, textRecipe, textSprinkles} from '@recipe'
+import {textSprinkles} from '@styles/index'
+import {container, textRecipe, flex} from '@recipe'
+0
 ---
 
 <section class={container({theme: "darkBlueBanner", background: true})}>
@@ -15,7 +16,7 @@ import {container, textRecipe, textSprinkles} from '@recipe'
 
                 })}
         >
-            welcome to dentaire
+            Bienvenue au Cabinet
         </h3>
         <h1 class={textSprinkles({
             color: 'primary',
@@ -24,7 +25,8 @@ import {container, textRecipe, textSprinkles} from '@recipe'
             textAlign: 'center', fontWeight: ['normal', 'bold'],
             lineHeight: "snug"
 
-        })}>Dental Care for the Whole Family</h1>
+        })}>Dentiste à Courbevoie depuis 18 ans</h1>
+
         <p class={textRecipe({font: "text", textAlign: "center", lineHeight: 'loose'})}>
             It is a long established fact that a reader will be distracted by the
             readable content of a page when looking at its layout. The point of using
@@ -34,7 +36,9 @@ import {container, textRecipe, textSprinkles} from '@recipe'
         <Button title="Prendre rdv" link="http://www.google.fr"/>
 
         <hr class={s.hr}/>
-        <div class="flex gap-5">
+        <div class={flex({
+            direction: 'row', gap: 'md', side: 2, wrap: true
+        })}>
             <span>Google Rating</span>
             <span>5.0</span>
             <span>based on 492 reviews</span>

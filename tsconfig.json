@@ -18,12 +18,15 @@
 			"@/*": ["src/*"],
 			"@styles/*": ["src/styles/*"],
 			"@recipe": ["src/styles/recipe/index.css.ts"],
-			//"@variants": ["src/styles/variants/index.css.ts"],
 			"@img/*": ["src/assets/img/*"],
-			"@theme": ["src/styles/utils/theme.css"],
+          "@theme": [
+            "src/styles/utils/themeNew.css"
+          ],
 			"@fonts": ["public/fonts/*"],
 			"@images": ["public/images/*"],
-//			"@s": ["src/styles/index.css.ts"]
+          "@s": [
+            "src/styles/index.ts"
+          ]
 		}
 	}
 }

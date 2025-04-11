@@ -40,20 +40,20 @@ const accent = createTheme(theme, {
   backgroundHover: variable.darkLight,
   primary: 'white',
   secondary: 'null',
-  accent: variable.darkDark,
+    accent: 'white',
   text: 'white',
   textHover: variable.darkDark,
   divider: '#0E384C1A',
 })
 const darkBlueBanner = createTheme(theme, {
-  background: 'light-dark(oklch(32.25% 0.0573 233.51),oklch(72.55% 0.0573 233.51))',
-  backgroundHover: 'light-dark(oklch(72.55% 0.0573 233.51),oklch(32.25% 0.0573 233.51))',
-  primary: 'light-dark(white,oklch(32.25% 0.0573 233.51))',
+    background: 'oklch(32.25% 0.0573 233.51)',
+    backgroundHover: 'oklch(72.55% 0.0573 233.51)',
+    primary: 'white',
   secondary: 'null',
   accent: variable.accent,
-  text: ld('white', 'black'),
-  textHover: ld('black', 'white'),
-  divider: '#0E384C1A',
+    text: 'white',
+    textHover: 'black',
+    divider: 'white',
 })
 
 const whiteBg = createTheme(theme, {
@@ -65,6 +65,16 @@ const whiteBg = createTheme(theme, {
   text: variable.textLight,
   textHover: 'white',
   divider: 'oklch(0.67 0.1 207.53)',
+})
+const whiteLD = createTheme(theme, {
+    background: ld('white', variable.darkDark),
+    backgroundHover: variable.darkLight,
+    primary: ld(variable.darkDark, 'white'),
+    secondary: 'null',
+    accent: ld(variable.accent, 'oklch(0.76 0.1151 235.69)'),
+    text: ld(variable.textLight, 'white'),
+    textHover: 'white',
+    divider: 'oklch(0.67 0.1 207.53)',
 })
 
 const blueLightBg = createTheme(theme, {
@@ -83,6 +93,7 @@ export const colorTheme = {
   darkBlueBanner,
   whiteBg,
   blueLightBg,
+    whiteLD,
 } as const
 
 export const color = {

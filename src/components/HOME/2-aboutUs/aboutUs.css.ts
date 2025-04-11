@@ -1,9 +1,8 @@
 import {fluid} from 'src/styles/utils/utils.ts'
-import {containerGrid} from '@recipe'
+import {containerGrid, textRecipe} from '@recipe'
 
-import {media} from '@styles/token'
+import {media, space} from '@styles/token'
 import {createVar, style, styleVariants} from '@vanilla-extract/css'
-import {textVariant} from '@styles/variants/index.css'
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -42,13 +41,16 @@ const liSizeMask = createVar({
 })
 
 export const text = styleVariants({
-  ul: {
-    display: 'grid',
-    gridTemplateRows: 'repeat(2,1fr)',
-    gridTemplateColumns: 'repeat(2,1fr)',
-  },
+  ul: [
+    {
+      display: 'grid',
+      gridTemplateRows: 'repeat(2,1fr)',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))',
+      gap: space.xs,
+    },
+  ],
   li: [
-    textVariant.highLight,
+    textRecipe({font: 'highLight'}),
     {
       display: 'flex',
       alignItems: 'center',

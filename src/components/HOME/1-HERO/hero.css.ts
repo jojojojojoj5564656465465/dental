@@ -1,6 +1,6 @@
 import {color} from '@theme'
 import {media, space} from '@styles/token'
-import {fluid, ld} from 'src/styles/utils/utils.ts'
+import {fluid} from 'src/styles/utils/utils.ts'
 
 import {style} from '@vanilla-extract/css'
 import {flex} from '@styles/recipe/index.css.ts'
@@ -26,14 +26,12 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  */
 export const bannerWrapper = style([
     container({size: 'large', background: false}),
-  flex({ direction: 'row', side: 4, wrap: true, justifyContent: 'evenly' }),
+    flex({direction: 'row', side: 4, wrap: true, justifyContent: 'evenly', gap: 'lg'}),
   {
-    columnGap: '3rem',
-
     '@media': {
       [media.mobile]: {
-        flexDirection: 'column',
-        gap: '1.4rem',
+          // flexDirection: 'column',
+          // gap: '1.4rem',
       },
     },
   },
@@ -68,12 +66,15 @@ export const banner_hr = style({
   width: '.1rem',
   blockSize: '50px',
   //marginBlock: 'auto',
-  backgroundColor: ld('whitesmoke', 'black'),
-
+    backgroundColor: color.theme.divider,
+    border: 'white solid 1px',
   justifySelf: 'center',
   '@media': {
     [media.mobile]: {
       display: 'none',
+    },
+      ['all and ( width <= 640px)']: {
+          display: 'none',
     },
   },
 })

@@ -1,10 +1,9 @@
-import { recipe } from '@vanilla-extract/recipes'
-import { media } from '@styles/token'
-import { colorTheme, theme } from '../utils/themeNew.css.ts'
-import { fluid } from 'src/styles/utils/utils.ts'
-import { containerSize, maxInlineSizeFn } from '../variants/base.css.ts'
-import { createVar, style, createThemeContract, assignVars, styleVariants, fallbackVar } from '@vanilla-extract/css'
-const { accent, darkBlueBanner, blueLightBg, whiteBg } = colorTheme
+import {recipe} from '@vanilla-extract/recipes'
+import {media} from '../token'
+import {colorTheme, theme} from '../utils/themeNew.css.ts'
+import {containerSize, maxInlineSizeFn} from '../utils/base.css.ts'
+import {assignVars, createThemeContract, createVar, fallbackVar, style, styleVariants} from '@vanilla-extract/css'
+import {fluid} from '../utils/utils.ts'
 
 const spaceLrVar = createVar({
   syntax: '<length>',
@@ -125,10 +124,7 @@ export const containerGrid = recipe({
       full: [containerGridVariant.full],
     },
     theme: {
-      accent,
-      darkBlueBanner,
-      whiteBg,
-      blueLightBg,
+      ...colorTheme,
     },
     background: {
       true: {

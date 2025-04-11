@@ -1,18 +1,17 @@
 import path from 'node:path'
-import { fileURLToPath } from 'node:url' // Import fileURLToPath from the url module
+import {fileURLToPath} from 'node:url' // Import fileURLToPath from the url module
 import qwikdev from '@qwikdev/astro'
 
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
-import { defineConfig } from 'astro/config'
-import markdoc from '@astrojs/markdoc'
+import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin'
+import {defineConfig} from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
+
+import icon from 'astro-icon'
 //import icon from 'astro-icon'
 //import robotsTxt from 'astro-robots-txt'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-import tailwindcss from '@tailwindcss/vite'
-
-import icon from 'astro-icon'
 
 export default defineConfig({
   //output: 'static',
@@ -35,17 +34,17 @@ export default defineConfig({
       },
     },
     css: {
-      transformer: "lightningcss",
+        //transformer: "lightningcss",
     },
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
-        //identifiers: 'short',
+          identifiers: 'short',
       }),
       tailwindcss(),
     ],
     optimizeDeps: {
-      noDiscovery: true,
+        noDiscovery: false,
       //include: [] // Empty array instead of undefined
     },
   },
@@ -53,6 +52,6 @@ export default defineConfig({
     qwikdev(),
     icon({ iconDir: "src/assets/icons" }),
     //robotsTxt()
-    markdoc(),
+      //markdoc(),
   ],
 });

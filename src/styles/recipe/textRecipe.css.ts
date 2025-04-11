@@ -1,6 +1,6 @@
 import {recipe} from '@vanilla-extract/recipes'
 import {textSprinkles} from './textSprinkles.css.ts'
-import {theme} from '@theme'
+import {theme} from '../utils/themeNew.css.ts'
 
 export const textRecipe = recipe({
   base: {
@@ -9,9 +9,14 @@ export const textRecipe = recipe({
   variants: {
     font: {
       preTitle: [
-        textSprinkles({fontSize: 'xs', color: 'accent', lineHeight: 'loose'}),
+        textSprinkles({
+          fontSize: 'xs',
+          color: 'accent',
+          lineHeight: 'loose',
+          textTransform: 'uppercase',
+          letterSpacing: 'widest',
+        }),
         {
-          letterSpacing: '2.8px',
           ':before': {
             content: '+ ',
           },

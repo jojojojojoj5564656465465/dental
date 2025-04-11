@@ -1,8 +1,8 @@
-import { fallbackVar, globalStyle } from '@vanilla-extract/css'
+import {fallbackVar, globalStyle} from '@vanilla-extract/css'
 import * as T from './theme.css'
-import { color, theme } from './theme.css'
-import { fontSize } from '@styles/token'
-import { base, reset } from './layer.css.ts'
+import {color, theme} from '../utils/themeNew.css.ts'
+import {fontSize} from '@styles/token'
+import {base, reset} from './layer.css.ts'
 
 globalStyle('*, *::before, *::after', {
   '@layer': {
@@ -180,14 +180,14 @@ for (const [key, value] of Object.entries(responsiveFontSize)) {
     },
   })
 }
-// globalStyle('p', {
-//   '@layer': {
-//     [base]: {
-//       lineHeight: '28px',
-//       fontSize: fontSize['base'],
-//       fontWeight: '400',
-//       color: fallbackVar(theme.text, '#527282'),
-//       fontFamily: 'Poppins',
-//     },
-//   },
-// })
+globalStyle('p', {
+  '@layer': {
+    [base]: {
+      lineHeight: '28px',
+      fontSize: fontSize['base'],
+      fontWeight: '400',
+      color: fallbackVar(theme.text, '#527282'),
+      fontFamily: 'Poppins',
+    },
+  },
+})
