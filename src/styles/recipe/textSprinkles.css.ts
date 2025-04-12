@@ -46,7 +46,7 @@ const textProperties = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': media.tablet },
-    desktop: {'@media': media.md}, // Assuming media.md is your desktop breakpoint query string
+      desktop: {'@media': media.md}, // Assuming media.md is your desktop breakpoint query string
   },
   defaultCondition: 'mobile',
   responsiveArray: ['mobile', 'tablet', 'desktop'],
