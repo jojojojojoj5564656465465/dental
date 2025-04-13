@@ -5,334 +5,334 @@
 /* Or ensure these are set globally in your root layout */
 
 .testimonial-section {
-    --primary-color: oklch(58.09% 0.1151 235.69);
-    --text-color: #e0e0e0;
-    --background-color: oklch(25.88% 0.037 240.95); /* Applied via body or parent container */
-    --grey-color: #b0b0b0;
-    --gold-color: #ffd700;
-    display: flex;
-    max-width: 1200px;
-    width: 100%;
-    align-items: center;
-    gap: 10px;
-    font-family: "Poppins", sans-serif;
-    padding-inline: clamp(5px, 5px + 2vw, 50px);
-    color: var(--text-color); /* Ensure text color is inherited */
-    /* overflow-x: auto; */ /* Potentially problematic, keep commented unless needed */
+  --primary-color: oklch(58.09% 0.1151 235.69);
+  --text-color: #e0e0e0;
+  --background-color: oklch(25.88% 0.037 240.95); /* Applied via body or parent container */
+  --grey-color: #b0b0b0;
+  --gold-color: #ffd700;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  padding-inline: clamp(5px, 5px + 2vw, 50px);
+  color: var(--text-color); /* Ensure text color is inherited */
+  /* overflow-x: auto; */ /* Potentially problematic, keep commented unless needed */
 }
 
 .testimonial-left {
-    flex: 1;
-    position: relative;
+  flex: 1;
+  position: relative;
 }
 
 .image-container {
-    position: relative;
-    padding-bottom: 40px; /* Space below image for overlay */
-    max-width: 400px; /* Ensure container doesn't exceed image max width */
+  position: relative;
+  padding-bottom: 40px; /* Space below image for overlay */
+  max-width: 400px; /* Ensure container doesn't exceed image max width */
 }
 
 .image-container img {
-    /* width: 400px; /* Max width set */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure image is responsive within its container */
-    border-radius: 20px;
-    object-fit: cover;
-    display: block; /* Prevent extra space below image */
+  /* width: 400px; /* Max width set */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure image is responsive within its container */
+  border-radius: 20px;
+  object-fit: cover;
+  display: block; /* Prevent extra space below image */
 }
 
 .rating-overlay {
-    position: absolute;
-    bottom: 10px; /* Position relative to bottom padding */
-    right: 10px; /* Position from right */
-    /* left: auto; Ensure it doesn't stretch full width */
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 90%; /* Adjust max width relative to image container */
-    width: auto; /* Let content determine width up to max-width */
-    box-sizing: border-box;
-    z-index: 1;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* transform: translateX(-5%); /* Adjust if needed */
+  position: absolute;
+  bottom: 10px; /* Position relative to bottom padding */
+  right: 10px; /* Position from right */
+  /* left: auto; Ensure it doesn't stretch full width */
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 90%; /* Adjust max width relative to image container */
+  width: auto; /* Let content determine width up to max-width */
+  box-sizing: border-box;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* transform: translateX(-5%); /* Adjust if needed */
 }
 
 .rating-score {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .rating-details {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .rating-description {
-    margin: 0 0 10px 0;
-    opacity: 0.9;
+  margin: 0 0 10px 0;
+  opacity: 0.9;
 }
 
 .rating-stars {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap; /* Allow wrapping on smaller overlay */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap; /* Allow wrapping on smaller overlay */
 }
 
 .rating-stars span:not(.rating-reason) {
-    color: var(--gold-color);
-    font-size: 1.3rem;
+  color: var(--gold-color);
+  font-size: 1.3rem;
 }
 
 .rating-reason {
-    margin-left: 10px;
-    font-size: 12px;
-    font-weight: 300;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .testimonial-right {
-    flex: 1.2;
-    padding-left: 30px; /* Adds space on the left */
-    min-width: 0; /* Allow flex item to shrink */
+  flex: 1.2;
+  padding-left: 30px; /* Adds space on the left */
+  min-width: 0; /* Allow flex item to shrink */
 }
 
 .testimonial-pre-title {
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
 .testimonial-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: white;
-    margin-top: 0;
-    margin-bottom: 15px;
-    line-height: 1.2;
-    margin-inline: auto;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  margin-inline: auto;
 }
 
 .testimonial-title .highlight {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .testimonial-subtitle {
-    font-size: 1rem;
-    color: var(--grey-color);
-    margin-bottom: 40px;
-    line-height: 1.6;
+  font-size: 1rem;
+  color: var(--grey-color);
+  margin-bottom: 40px;
+  line-height: 1.6;
 }
 
 .carousel-container {
-    position: relative;
-    min-height: 220px; /* Adjust based on typical content height */
-    overflow: hidden; /* Hide non-active slides cleanly */
+  position: relative;
+  min-height: 220px; /* Adjust based on typical content height */
+  overflow: hidden; /* Hide non-active slides cleanly */
 }
 
 .carousel-slide {
-    display: none; /* Hide slides by default */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Smooth transition */
-    position: absolute; /* Allow slides to overlap for transition */
-    top: 0;
-    left: 0;
-    width: 100%;
+  display: none; /* Hide slides by default */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  position: absolute; /* Allow slides to overlap for transition */
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .carousel-slide.active {
-    display: block; /* Show active slide */
-    opacity: 1;
-    position: relative; /* Take up space when active */
+  display: block; /* Show active slide */
+  opacity: 1;
+  position: relative; /* Take up space when active */
 }
 
 .quote-icon {
-    display: block;
-    font-size: 5rem;
-    color: var(--primary-color);
-    line-height: 0.5;
-    margin-bottom: 20px;
-    font-family: serif;
+  display: block;
+  font-size: 5rem;
+  color: var(--primary-color);
+  line-height: 0.5;
+  margin-bottom: 20px;
+  font-family: serif;
 }
 
 .quote-text {
-    font-size: 16px;
-    color: var(--text-color);
-    line-height: 1.7;
-    margin: 0 0 30px 0;
-    font-style: italic;
-    quotes: none;
-    border-left: 3px solid var(--primary-color);
-    padding-left: 15px;
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.7;
+  margin: 0 0 30px 0;
+  font-style: italic;
+  quotes: none;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 15px;
 }
 
 .author-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .author-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .author-details p {
-    margin: 0;
-    line-height: 1.3;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .author-name {
-    font-weight: 600;
-    color: white;
-    font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1.1rem;
 }
 
 .author-title {
-    font-size: 0.9rem;
-    color: var(--grey-color);
+  font-size: 0.9rem;
+  color: var(--grey-color);
 }
 
 .carousel-nav {
-    margin-top: 30px;
-    display: flex;
-    justify-content: flex-start; /* Aligns buttons to the left */
-    gap: 10px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start; /* Aligns buttons to the left */
+  gap: 10px;
 }
 
 .nav-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    width: 60px; /* User updated size */
-    aspect-ratio: 1; /* Maintain aspect ratio */
-    border-radius: 50%; /* Changed back to circle as per design */
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: grid;
-    place-content: center;
-    transition: background-color 0.3s ease;
-    line-height: 1; /* Ensure icon is centered vertically */
-    padding: 0; /* Remove padding if using grid place-content */
-    /* padding-bottom: 7px; /* Removed, grid centers it */
-    /* vertical-align: center; /* Not needed for grid */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  width: 60px; /* User updated size */
+  aspect-ratio: 1; /* Maintain aspect ratio */
+  border-radius: 50%; /* Changed back to circle as per design */
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background-color 0.3s ease;
+  line-height: 1; /* Ensure icon is centered vertically */
+  padding: 0; /* Remove padding if using grid place-content */
+  /* padding-bottom: 7px; /* Removed, grid centers it */
+  /* vertical-align: center; /* Not needed for grid */
 }
 
 .nav-button:hover {
-    background-color: #1f8ac0; /* Slightly darker shade on hover */
+  background-color: #1f8ac0; /* Slightly darker shade on hover */
 }
 
 .nav-button:disabled {
-    background-color: #555; /* Darker grey for disabled state */
-    color: #999;
-    cursor: not-allowed;
-    opacity: 0.6;
+  background-color: #555; /* Darker grey for disabled state */
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 @media (max-width: 992px) {
-    .testimonial-section {
-        flex-direction: column;
-        gap: 50px; /* Increase gap for vertical layout */
-        align-items: center; /* Center items horizontally */
-        text-align: center; /* Center text for column layout */
-    }
+  .testimonial-section {
+    flex-direction: column;
+    gap: 50px; /* Increase gap for vertical layout */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text for column layout */
+  }
 
-    .testimonial-left,
-    .testimonial-right {
-        flex: none;
-        width: 100%;
-        max-width: 600px; /* Limit max width on smaller screens */
-        padding-left: 0; /* Remove padding for centered alignment */
-    }
+  .testimonial-left,
+  .testimonial-right {
+    flex: none;
+    width: 100%;
+    max-width: 600px; /* Limit max width on smaller screens */
+    padding-left: 0; /* Remove padding for centered alignment */
+  }
 
-    .testimonial-left {
-        display: flex; /* Use flex to center image container */
-        justify-content: center; /* Center image container */
-        padding-bottom: 0; /* Remove bottom padding */
-    }
+  .testimonial-left {
+    display: flex; /* Use flex to center image container */
+    justify-content: center; /* Center image container */
+    padding-bottom: 0; /* Remove bottom padding */
+  }
 
-    .image-container {
-        max-width: 400px; /* Limit width of image container */
-        width: 90%; /* Make it slightly smaller than parent */
-        margin: 0 auto; /* Center the container */
-        padding-bottom: 60px; /* Increased padding for overlay below */
-    }
+  .image-container {
+    max-width: 400px; /* Limit width of image container */
+    width: 90%; /* Make it slightly smaller than parent */
+    margin: 0 auto; /* Center the container */
+    padding-bottom: 60px; /* Increased padding for overlay below */
+  }
 
-    .rating-overlay {
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Fine-tune centering */
-        bottom: 10px; /* Position from bottom */
-        width: 90%; /* Adjust width as needed */
-        max-width: 350px; /* Limit max width */
-        right: auto; /* Reset right positioning */
-        padding: 15px;
-    }
+  .rating-overlay {
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Fine-tune centering */
+    bottom: 10px; /* Position from bottom */
+    width: 90%; /* Adjust width as needed */
+    max-width: 350px; /* Limit max width */
+    right: auto; /* Reset right positioning */
+    padding: 15px;
+  }
 
-    .testimonial-title {
-        font-size: 2.2rem;
-    }
+  .testimonial-title {
+    font-size: 2.2rem;
+  }
 
-    .author-info {
-        justify-content: center; /* Center author info in column layout */
-    }
+  .author-info {
+    justify-content: center; /* Center author info in column layout */
+  }
 
-    .carousel-nav {
-        justify-content: center; /* Center nav buttons in column layout */
-    }
+  .carousel-nav {
+    justify-content: center; /* Center nav buttons in column layout */
+  }
 
-    .quote-text {
-        text-align: left; /* Keep quote text left-aligned */
-        margin-left: auto; /* Center blockquote within container */
-        margin-right: auto;
-        max-width: 90%; /* Limit width */
-    }
+  .quote-text {
+    text-align: left; /* Keep quote text left-aligned */
+    margin-left: auto; /* Center blockquote within container */
+    margin-right: auto;
+    max-width: 90%; /* Limit width */
+  }
 
-    .quote-icon {
-        text-align: left; /* Align quote icon left */
-        margin-left: 5%; /* Add some margin to align with quote text */
-    }
+  .quote-icon {
+    text-align: left; /* Align quote icon left */
+    margin-left: 5%; /* Add some margin to align with quote text */
+  }
 }
 
 @media (max-width: 576px) {
-    /* Ensure body styles are applied if this component is used stand-alone */
-    /* body { padding: 15px; }  */
-    .testimonial-section {
-        gap: 30px;
-    }
+  /* Ensure body styles are applied if this component is used stand-alone */
+  /* body { padding: 15px; }  */
+  .testimonial-section {
+    gap: 30px;
+  }
 
-    .testimonial-title {
-        font-size: 1.8rem;
-    }
+  .testimonial-title {
+    font-size: 1.8rem;
+  }
 
-    .rating-score {
-        font-size: 20px; /* Slightly smaller score */
-    }
+  .rating-score {
+    font-size: 20px; /* Slightly smaller score */
+  }
 
-    .quote-text {
-        font-size: 15px; /* Adjust quote text size */
-    }
+  .quote-text {
+    font-size: 15px; /* Adjust quote text size */
+  }
 
-    .rating-overlay {
-        padding: 10px; /* Reduce padding */
-        max-width: 90%; /* Ensure it fits */
-        bottom: 5px;
-    }
+  .rating-overlay {
+    padding: 10px; /* Reduce padding */
+    max-width: 90%; /* Ensure it fits */
+    bottom: 5px;
+  }
 
-    .image-container {
-        padding-bottom: 50px; /* Adjust padding for smaller overlay */
-    }
+  .image-container {
+    padding-bottom: 50px; /* Adjust padding for smaller overlay */
+  }
 
-    .nav-button {
-        width: 45px; /* Smaller buttons */
-        height: 45px;
-        font-size: 1.2rem;
-    }
+  .nav-button {
+    width: 45px; /* Smaller buttons */
+    height: 45px;
+    font-size: 1.2rem;
+  }
 
-    .carousel-container {
-        min-height: 250px; /* Adjust min-height for potentially taller content */
-    }
+  .carousel-container {
+    min-height: 250px; /* Adjust min-height for potentially taller content */
+  }
 }
