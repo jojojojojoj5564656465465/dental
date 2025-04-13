@@ -31,7 +31,7 @@
     "valibot": "^1.0.0"
   },
   "devDependencies": {
-    "@antebudimir/eslint-plugin-vanilla-extract": "^1.7.0",
+    "@antebudimir/eslint-plugin-vanilla-extract": "^1.8.0",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
     "@typescript-eslint/utils": "^8.29.1",

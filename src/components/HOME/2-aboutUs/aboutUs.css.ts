@@ -42,7 +42,7 @@ const liSizeMask = createVar({
 
 export const text = styleVariants({
   ul: [
-    containerGrid({cols: 2}),
+      containerGrid({cols: 2}),
     {
       display: 'grid',
       //gridTemplateRows: 'repeat(2,1fr)',
@@ -51,7 +51,7 @@ export const text = styleVariants({
     },
   ],
   li: [
-    textRecipe({font: 'highLight'}),
+      textRecipe({font: 'highLight'}),
     {
       display: 'flex',
       alignItems: 'center',

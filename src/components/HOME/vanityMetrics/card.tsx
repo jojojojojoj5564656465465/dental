@@ -44,13 +44,13 @@ const CardEl = component$<Props>(({ title, symbol, subtitle, text }) => {
 
   return (
       <div class={S({padding: 'xs'})}>
-        <h3 class={R({font: 'title'})}>
+          <h3 class={R({font: 'title'})}>
         {formattedValue.value}
         {symbol}
       </h3>
-        <h6 class={S({color: 'primary', fontSize: 'md', letterSpacing: ['normal', 'wide', 'widest']})}>{subtitle}</h6>
-        <hr class={hr}/>
-        <p class={R({font: 'text'})}>{text}</p>
+          <h6 class={S({color: 'primary', fontSize: 'md', letterSpacing: ['normal', 'wide', 'widest']})}>{subtitle}</h6>
+          <hr class={hr}/>
+          <p class={R({font: 'text'})}>{text}</p>
     </div>
   )
 })
@@ -59,12 +59,12 @@ export default component$(() => {
   return (
       <section
           class={containerGridMaxColumn({
-            theme: 'whiteBg',
-            maxColumn: 4,
-            size: 'large',
-            background: true,
-            marginBlock: 'sm',
-            gap: 'lg',
+              theme: 'whiteBg',
+              maxColumn: 4,
+              size: 'large',
+              background: true,
+              marginBlock: 'sm',
+              gap: 'lg',
           })}
       >
       {D.map((e, index) => (

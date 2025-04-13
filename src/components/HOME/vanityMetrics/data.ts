@@ -15,13 +15,13 @@ const cardData: CardQwkProps[] = [
   {
     title: 1524,
     symbol: '+',
-    subtitle: 'insurance covered',
+    subtitle: 'Kahina mehidi',
     text: 'Our team loves dental trivia. Did you know that tooth enamel.',
   },
   {
     title: 3, // Using string here to represent "3K"
     symbol: 'K',
-    subtitle: 'insurance covered',
+    subtitle: 'Annabelle Mendes',
     text: 'Our team loves dental trivia. Did you know that tooth enamel.',
   },
   {
