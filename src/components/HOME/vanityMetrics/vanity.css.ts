@@ -1,5 +1,5 @@
-import {space} from '@styles/token'
-import {style} from '@vanilla-extract/css'
+import { space } from '@styles/token'
+import { style } from '@vanilla-extract/css'
 
 export const hr = style({
   blockSize: 4,

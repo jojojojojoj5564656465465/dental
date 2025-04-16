@@ -1,8 +1,8 @@
-import {fontSize, media, space} from '@styles/token'
-import {fluid} from 'src/styles/utils/utils.ts'
-import {container, containerGrid, textRecipe} from '@recipe'
-import {color} from '@theme'
-import {createContainer, createVar, style, styleVariants} from '@vanilla-extract/css'
+import { fontSize, media, space } from '@styles/token'
+import { fluid } from 'src/styles/utils/utils.ts'
+import { container, containerGrid, textRecipe } from '@recipe'
+import { color } from '@theme'
+import { createContainer, createVar, style, styleVariants } from '@vanilla-extract/css'
 
 export const sectionContainerIndex = style([
   {
@@ -13,8 +13,8 @@ export const sectionContainerIndex = style([
 ])
 export const sectionContainer__Text = styleVariants({
   wrapper: { marginBlock: fluid(20, 45) },
-    h6: [textRecipe({font: 'preTitle', textAlign: 'center'})],
-    h2: [textRecipe({font: 'title', textAlign: 'center'})],
+  h6: [textRecipe({ font: 'preTitle', textAlign: 'center' })],
+  h2: [textRecipe({ font: 'title', textAlign: 'center' })],
 })
 
 /**
@@ -144,11 +144,11 @@ export const title = style([
     },
   },
   textAlignement,
-    textRecipe({font: 'highLight'}),
+  textRecipe({ font: 'highLight' }),
 ])
 export const description = style([
   textAlignement,
-    textRecipe({font: 'text'}),
+  textRecipe({ font: 'text' }),
   {
     gridArea: 'txt',
 

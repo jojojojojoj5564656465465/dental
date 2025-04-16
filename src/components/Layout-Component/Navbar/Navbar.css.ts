@@ -1,8 +1,8 @@
 import * as c from '@recipe'
-import {style, styleVariants} from '@vanilla-extract/css'
-import {fontSize, media} from '@styles/token'
-import {fluid, globalStyleTag} from 'src/styles/utils/utils.ts'
-import {theme} from '@/styles/utils/themeNew.css'
+import { style, styleVariants } from '@vanilla-extract/css'
+import { fontSize, media } from '@styles/token'
+import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
+import { theme } from '@/styles/utils/themeNew.css'
 
 export const icon = style({
   width: 36,
@@ -121,7 +121,7 @@ export const menuState = styleVariants({
   link: [
     c.textSprinkles({
       fontSize: 'md',
-        textAlign: ['center', 'center', 'right'],
+      textAlign: ['center', 'center', 'right'],
       color: 'text',
     }),
   ],

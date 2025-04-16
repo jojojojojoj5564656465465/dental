@@ -1,5 +1,5 @@
-import {style} from '@vanilla-extract/css'
-import {custom} from './layer.css.ts'
+import { style } from '@vanilla-extract/css'
+import { custom } from './layer.css.ts'
 
 export const defaultContainer = style({
   '@layer': {

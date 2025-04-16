@@ -1,8 +1,8 @@
-import {fluid} from 'src/styles/utils/utils.ts'
-import {containerGrid, textRecipe} from '@recipe'
+import { fluid } from 'src/styles/utils/utils.ts'
+import { containerGrid, textRecipe } from '@recipe'
 
-import {media, space} from '@styles/token'
-import {createVar, style, styleVariants} from '@vanilla-extract/css'
+import { media, space } from '@styles/token'
+import { createVar, style, styleVariants } from '@vanilla-extract/css'
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -31,7 +31,7 @@ export const content__wrapper = style({
   zIndex: 2,
   alignSelf: 'center',
   display: 'grid',
-  rowGap: fluid(10, 20),
+  gap: fluid(10, 50),
 })
 
 const liSizeMask = createVar({
@@ -42,7 +42,7 @@ const liSizeMask = createVar({
 
 export const text = styleVariants({
   ul: [
-      containerGrid({cols: 2}),
+    containerGrid({ cols: 2 }),
     {
       display: 'grid',
       //gridTemplateRows: 'repeat(2,1fr)',
@@ -51,7 +51,7 @@ export const text = styleVariants({
     },
   ],
   li: [
-      textRecipe({font: 'highLight'}),
+    textRecipe({ font: 'highLight' }),
     {
       display: 'flex',
       alignItems: 'center',

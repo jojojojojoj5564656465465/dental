@@ -1,8 +1,8 @@
-import {component$, useComputed$, useSignal, useVisibleTask$} from '@builder.io/qwik'
+import { component$, useComputed$, useSignal, useVisibleTask$ } from '@builder.io/qwik'
 import D from './data.ts'
-import {hr} from './vanity.css.ts'
+import { hr } from './vanity.css.ts'
 
-import {containerGridMaxColumn, textRecipe as R, textSprinkles as S} from '@recipe'
+import { containerGridMaxColumn, textRecipe as R, textSprinkles as S } from '@recipe'
 
 interface Props {
   title: number
@@ -43,30 +43,30 @@ const CardEl = component$<Props>(({ title, symbol, subtitle, text }) => {
   })
 
   return (
-      <div class={S({padding: 'xs'})}>
-          <h3 class={R({font: 'title'})}>
+    <div class={S({ padding: 'xs' })}>
+      <h3 class={R({ font: 'title' })}>
         {formattedValue.value}
         {symbol}
       </h3>
-          <h6 class={S({color: 'primary', fontSize: 'md', letterSpacing: ['normal', 'wide', 'widest']})}>{subtitle}</h6>
-          <hr class={hr}/>
-          <p class={R({font: 'text'})}>{text}</p>
+      <h6 class={S({ color: 'primary', fontSize: 'md', letterSpacing: ['normal', 'wide', 'widest'] })}>{subtitle}</h6>
+      <hr class={hr} />
+      <p class={R({ font: 'text' })}>{text}</p>
     </div>
   )
 })
 
 export default component$(() => {
   return (
-      <section
-          class={containerGridMaxColumn({
-              theme: 'whiteBg',
-              maxColumn: 4,
-              size: 'large',
-              background: true,
-              marginBlock: 'sm',
-              gap: 'lg',
-          })}
-      >
+    <section
+      class={containerGridMaxColumn({
+        theme: 'whiteBg',
+        maxColumn: 4,
+        size: 'large',
+        background: true,
+        marginBlock: 'sm',
+        gap: 'lg',
+      })}
+    >
       {D.map((e, index) => (
         <CardEl key={index} text={e.text} symbol={e.symbol} subtitle={e.subtitle} title={e.title} />
       ))}

@@ -1,0 +1,31 @@
+---
+interface Props {
+  subtitle: string
+  PreTitle: string
+  title: string
+  description: string
+  textAlign?: 'left' | 'center' | 'right'
+  gap: 'largeGap' | 'smallGap'
+}
+const { subtitle, title, PreTitle, description, gap, textAlign = 'left' } = Astro.props
+
+import { textRecipe as R, textSprinkles as S } from '@recipe'
+---
+
+<div class:list={["grid", gap]}>
+    <h5 class={R({font: 'preTitle', textAlign: textAlign})}>{subtitle}</h5>
+
+    <h2 class={R({font: 'title', textAlign: textAlign ,lineHeight: 'snug'})}><span class={R({font: 'span', display: 'inline'})} >{PreTitle}</span> {title}</h2>
+
+    <p class={R({font: 'text',textAlign: textAlign})}>{description}</p>
+
+    <slot/>
+</div>
+<style>
+    .smallGap {
+        gap: 5px;
+    }
+    .largeGap {
+        gap: 30px;
+    }
+</style>

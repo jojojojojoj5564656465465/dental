@@ -1,9 +1,9 @@
-import {recipe} from '@vanilla-extract/recipes'
-import {media} from '../token'
-import {colorTheme, theme} from '../utils/themeNew.css.ts'
-import {containerSize, maxInlineSizeFn} from '../utils/base.css.ts'
-import {assignVars, createThemeContract, createVar, fallbackVar, style, styleVariants} from '@vanilla-extract/css'
-import {fluid} from '../utils/utils.ts'
+import { recipe } from '@vanilla-extract/recipes'
+import { media } from '../token'
+import { colorTheme, theme } from '../utils/themeNew.css.ts'
+import { containerSize, maxInlineSizeFn } from '../utils/base.css.ts'
+import { assignVars, createThemeContract, createVar, fallbackVar, style, styleVariants } from '@vanilla-extract/css'
+import { fluid } from '../utils/utils.ts'
 
 const spaceLrVar = createVar({
   syntax: '<length>',

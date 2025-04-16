@@ -1,8 +1,8 @@
-import {createSprinkles, defineProperties} from '@vanilla-extract/sprinkles'
+import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
 
 // Assuming these imports are correctly set up
-import {media} from '../token' // Renamed imported 'space' to avoid conflict
-import {theme} from '../utils/themeNew.css.ts' // Make sure 'theme' structure matches usage (e.g., theme.primary or theme.colors.primary)
+import { media } from '../token' // Renamed imported 'space' to avoid conflict
+import { theme } from '../utils/themeNew.css.ts' // Make sure 'theme' structure matches usage (e.g., theme.primary or theme.colors.primary)
 import f from '../utils/fontFace.css.ts' // Make sure these are exported font family names
 import marginPaddingSprinkles from '../recipe/spaceMarginPadding.ts' // Ensure this is the defineProperties result
 
@@ -46,7 +46,7 @@ const textProperties = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': media.tablet },
-      desktop: {'@media': media.md}, // Assuming media.md is your desktop breakpoint query string
+    desktop: { '@media': media.md }, // Assuming media.md is your desktop breakpoint query string
   },
   defaultCondition: 'mobile',
   responsiveArray: ['mobile', 'tablet', 'desktop'],

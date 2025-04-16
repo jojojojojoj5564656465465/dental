@@ -1,6 +1,6 @@
-import {recipe} from '@vanilla-extract/recipes'
-import {textSprinkles} from './textSprinkles.css.ts'
-import {theme} from '../utils/themeNew.css.ts'
+import { recipe } from '@vanilla-extract/recipes'
+import { textSprinkles } from './textSprinkles.css.ts'
+import { theme } from '../utils/themeNew.css.ts'
 
 export const textRecipe = recipe({
   base: {
@@ -50,20 +50,20 @@ export const textRecipe = recipe({
       }),
     },
     marginBlock: {
-        xxxs: textSprinkles({marginBlock: 'xxxs'}),
-        xxs: textSprinkles({marginBlock: 'xxs'}),
-        xs: textSprinkles({marginBlock: 'xs'}),
-        sm: textSprinkles({marginBlock: 'sm'}),
-        md: textSprinkles({marginBlock: 'md'}),
-        lg: textSprinkles({marginBlock: 'lg'}),
+      xxxs: textSprinkles({ marginBlock: 'xxxs' }),
+      xxs: textSprinkles({ marginBlock: 'xxs' }),
+      xs: textSprinkles({ marginBlock: 'xs' }),
+      sm: textSprinkles({ marginBlock: 'sm' }),
+      md: textSprinkles({ marginBlock: 'md' }),
+      lg: textSprinkles({ marginBlock: 'lg' }),
     },
     lineHeight: {
-        none: textSprinkles({lineHeight: 'none'}),
-        tight: textSprinkles({lineHeight: 'tight'}),
-        snug: textSprinkles({lineHeight: 'snug'}),
-        normal: textSprinkles({lineHeight: 'normal'}),
-        relaxed: textSprinkles({lineHeight: 'relaxed'}),
-        loose: textSprinkles({lineHeight: 'loose'}),
+      none: textSprinkles({ lineHeight: 'none' }),
+      tight: textSprinkles({ lineHeight: 'tight' }),
+      snug: textSprinkles({ lineHeight: 'snug' }),
+      normal: textSprinkles({ lineHeight: 'normal' }),
+      relaxed: textSprinkles({ lineHeight: 'relaxed' }),
+      loose: textSprinkles({ lineHeight: 'loose' }),
       inherit: 'inherit',
     },
     hover: {
@@ -98,10 +98,10 @@ export const textRecipe = recipe({
       },
     },
     textAlign: {
-        left: textSprinkles({textAlign: 'left'}),
+      left: textSprinkles({ textAlign: 'left' }),
       center: textSprinkles({ textAlign: 'center' }),
-        right: textSprinkles({textAlign: 'right'}),
-        justify: textSprinkles({textAlign: 'justify'}),
+      right: textSprinkles({ textAlign: 'right' }),
+      justify: textSprinkles({ textAlign: 'justify' }),
     },
     display: {
       inline: {

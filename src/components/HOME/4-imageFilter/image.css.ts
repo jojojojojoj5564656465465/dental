@@ -1,11 +1,11 @@
-import {fluid} from '@styles/utils/utils'
+import { fluid } from '@styles/utils/utils'
 
-import {color} from '@theme'
-import {media} from '@styles/token'
+import { color } from '@theme'
+import { media } from '@styles/token'
 
-import {createVar, style} from '@vanilla-extract/css'
-import {calc} from '@vanilla-extract/css-utils'
-import {container, flex} from '@recipe'
+import { createVar, style } from '@vanilla-extract/css'
+import { calc } from '@vanilla-extract/css-utils'
+import { container, flex } from '@recipe'
 
 const overlaping = createVar({
   syntax: '<length>',
@@ -31,11 +31,11 @@ export const sectionWrapper = style([
 ])
 
 export const wrapper = style([
-    container({size: 'medium', background: false}),
-    flex({direction: 'column', side: 4}),
+  container({ size: 'medium', background: false }),
+  flex({ direction: 'column', side: 4 }),
   {
     clipPath: 'inset(0 round 50px)',
-      paddingBlock: fluid(10, 40),
+    paddingBlock: fluid(10, 40),
     blockSize: calc.multiply(overlaping, 2),
 
     display: 'grid',

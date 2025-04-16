@@ -1,0 +1,31 @@
+---
+import Title from '../../Layout-Component/topContent.astro'
+import { containerGridMaxColumn } from '@recipe'
+import UL from './index'
+---
+
+<section
+  class={containerGridMaxColumn({
+    theme: "darkBlueBanner",
+    sizeOfBox: 300,
+    background: true,
+    size: "medium",
+    gap: "sm",
+    maxColumn: 2,
+    marginBlock: "lg",
+    paddingBlock: "lg",
+    hover: false,
+  })}
+>
+  <div class="grid place-items-center">
+    <Title
+      subtitle="how it work"
+      PreTitle="What we do for"
+      title=" your teeth"
+      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint, consequatur consequuntur totam eos sapiente nihil consectetur"
+      gap="largeGap"
+      textAlign="left"
+    />
+  </div>
+  <UL />
+</section>

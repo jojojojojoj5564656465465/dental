@@ -1,15 +1,15 @@
-import {color} from '@theme'
-import {media, space} from '@styles/token'
-import {fluid} from 'src/styles/utils/utils.ts'
+import { color } from '@theme'
+import { media, space } from '@styles/token'
+import { fluid } from 'src/styles/utils/utils.ts'
 
-import {style} from '@vanilla-extract/css'
-import {flex} from '@styles/recipe/index.css.ts'
+import { style } from '@vanilla-extract/css'
+import { flex } from '@styles/recipe/index.css.ts'
 
-import {container} from '@recipe'
+import { container } from '@recipe'
 
 export const wrapper = style([
   //container.small,
-    container({size: 'small'}),
+  container({ size: 'small' }),
   {
     borderImage: 'linear-gradient(oklch(58.09% 0.1151 235.69 / 40%), oklch(97.44% 0.0134 240.95) / 20% ) fill 1',
     display: 'grid',
@@ -25,13 +25,13 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  * MARK: BANNER
  */
 export const bannerWrapper = style([
-    container({size: 'large', background: false}),
-    flex({direction: 'row', side: 4, wrap: true, justifyContent: 'evenly', gap: 'lg'}),
+  container({ size: 'large', background: false }),
+  flex({ direction: 'row', side: 4, wrap: true, justifyContent: 'evenly', gap: 'lg' }),
   {
     '@media': {
       [media.mobile]: {
-          // flexDirection: 'column',
-          // gap: '1.4rem',
+        // flexDirection: 'column',
+        // gap: '1.4rem',
       },
     },
   },
@@ -66,15 +66,15 @@ export const banner_hr = style({
   width: '.1rem',
   blockSize: '50px',
   //marginBlock: 'auto',
-    backgroundColor: color.theme.divider,
-    border: 'white solid 1px',
+  backgroundColor: color.theme.divider,
+  border: 'white solid 1px',
   justifySelf: 'center',
   '@media': {
     [media.mobile]: {
       display: 'none',
     },
-      ['all and ( width <= 640px)']: {
-          display: 'none',
+    ['all and ( width <= 640px)']: {
+      display: 'none',
     },
   },
 })

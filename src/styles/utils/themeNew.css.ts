@@ -1,7 +1,7 @@
-import {createGlobalTheme, createTheme, createThemeContract, globalStyle} from '@vanilla-extract/css'
+import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css'
 
 import f from './fontFace.css'
-import {ld} from './utils'
+import { ld } from './utils'
 
 export const fontFamily = createGlobalTheme(':root', {
   dancingScript: `${f.dancingScript}, Times, serif`,

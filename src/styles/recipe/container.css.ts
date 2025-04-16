@@ -1,8 +1,8 @@
-import {recipe} from '@vanilla-extract/recipes'
-import {fallbackVar, globalStyle} from '@vanilla-extract/css'
-import {colorTheme, theme} from '../utils/themeNew.css.ts'
-import {maxInlineSizeFn} from '../utils/base.css.ts'
-import {textSprinkles} from './textSprinkles.css.ts'
+import { recipe } from '@vanilla-extract/recipes'
+import { fallbackVar, globalStyle } from '@vanilla-extract/css'
+import { colorTheme, theme } from '../utils/themeNew.css.ts'
+import { maxInlineSizeFn } from '../utils/base.css.ts'
+import { textSprinkles } from './textSprinkles.css.ts'
 
 export const container = recipe({
   base: {
@@ -16,20 +16,20 @@ export const container = recipe({
       ...colorTheme,
     },
     marginBlock: {
-        sm: textSprinkles({marginBlock: 'sm'}),
-        md: textSprinkles({marginBlock: 'md'}),
-        lg: textSprinkles({marginBlock: 'lg'}),
-        xl: textSprinkles({marginBlock: 'xl'}),
-        xxl: textSprinkles({marginBlock: 'xxl'}),
-        xxxl: textSprinkles({marginBlock: 'xxxl'}),
+      sm: textSprinkles({ marginBlock: 'sm' }),
+      md: textSprinkles({ marginBlock: 'md' }),
+      lg: textSprinkles({ marginBlock: 'lg' }),
+      xl: textSprinkles({ marginBlock: 'xl' }),
+      xxl: textSprinkles({ marginBlock: 'xxl' }),
+      xxxl: textSprinkles({ marginBlock: 'xxxl' }),
     },
     paddingBlock: {
-        sm: textSprinkles({paddingBlock: 'sm'}),
-        md: textSprinkles({paddingBlock: 'md'}),
-        lg: textSprinkles({paddingBlock: 'lg'}),
-        xl: textSprinkles({paddingBlock: 'xl'}),
-        xxl: textSprinkles({paddingBlock: 'xxl'}),
-        xxxl: textSprinkles({paddingBlockStart: 'xxxl'}),
+      sm: textSprinkles({ paddingBlock: 'sm' }),
+      md: textSprinkles({ paddingBlock: 'md' }),
+      lg: textSprinkles({ paddingBlock: 'lg' }),
+      xl: textSprinkles({ paddingBlock: 'xl' }),
+      xxl: textSprinkles({ paddingBlock: 'xxl' }),
+      xxxl: textSprinkles({ paddingBlockStart: 'xxxl' }),
     },
     hover: {
       true: {
@@ -108,16 +108,16 @@ export const container = recipe({
 })
 
 globalStyle(
-    `${container.classNames.variants.size.small}:has(> :is(${container.classNames.variants.size.medium}, ${container.classNames.variants.size.large},${container.classNames.variants.size.xxl},)) > *`,
-    {
-        maxInlineSize: '100%',
-    },
+  `${container.classNames.variants.size.small}:has(> :is(${container.classNames.variants.size.medium}, ${container.classNames.variants.size.large},${container.classNames.variants.size.xxl},)) > *`,
+  {
+    maxInlineSize: '100%',
+  },
 )
 globalStyle(
-    `${container.classNames.variants.size.medium}:has(> :is(${container.classNames.variants.size.large}, ${container.classNames.variants.size.xxl})) > *`,
-    {
-        maxInlineSize: '100%',
-    },
+  `${container.classNames.variants.size.medium}:has(> :is(${container.classNames.variants.size.large}, ${container.classNames.variants.size.xxl})) > *`,
+  {
+    maxInlineSize: '100%',
+  },
 )
 globalStyle(`${container.classNames.variants.size.large}:has(> :is(${container.classNames.variants.size.xxl})) > *`, {
   maxInlineSize: '100%',

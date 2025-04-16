@@ -1,5 +1,5 @@
-import {recipe} from '@vanilla-extract/recipes'
-import {space} from '../token'
+import { recipe } from '@vanilla-extract/recipes'
+import { space } from '../token'
 
 export const flex = recipe({
   base: {
@@ -42,23 +42,23 @@ export const flex = recipe({
       },
     },
     gap: {
-        xxxs: {gap: space.xxxs},
-        xxs: {gap: space.xxs},
-        xs: {gap: space.xs},
-        sm: {gap: space.sm},
-        md: {gap: space.md},
-        lg: {gap: space.lg},
-        xl: {gap: space.xl},
-        xxl: {gap: space.xxl},
-        xxxl: {gap: space.xxxl},
-        '1rem': {gap: space['1rem']},
-        '1.25rem': {gap: space['1.25rem']},
-        '1.5rem': {gap: space['1.5rem']},
-        '1.75rem': {gap: space['1.75rem']},
-        '2rem': {gap: space['2rem']},
-        '2.25rem': {gap: space['2.25rem']},
-        '2.5rem': {gap: space['2.5rem']},
-        '2.75rem': {gap: space['2.75rem']},
+      xxxs: { gap: space.xxxs },
+      xxs: { gap: space.xxs },
+      xs: { gap: space.xs },
+      sm: { gap: space.sm },
+      md: { gap: space.md },
+      lg: { gap: space.lg },
+      xl: { gap: space.xl },
+      xxl: { gap: space.xxl },
+      xxxl: { gap: space.xxxl },
+      '1rem': { gap: space['1rem'] },
+      '1.25rem': { gap: space['1.25rem'] },
+      '1.5rem': { gap: space['1.5rem'] },
+      '1.75rem': { gap: space['1.75rem'] },
+      '2rem': { gap: space['2rem'] },
+      '2.25rem': { gap: space['2.25rem'] },
+      '2.5rem': { gap: space['2.5rem'] },
+      '2.75rem': { gap: space['2.75rem'] },
     },
   },
   defaultVariants: {
