@@ -2,6 +2,7 @@
 interface Props {
   title: string
   link: string
+  align?: 'left' | 'right' | 'center'
 }
 const { title, link } = Astro.props
 import { buttonCallToAction, buttonCallToAction_icon } from './button.css'

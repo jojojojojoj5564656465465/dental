@@ -1,8 +1,6 @@
 import { $, component$, useOn, useOnDocument, useSignal } from '@builder.io/qwik'
 
 import { li_content, liHeader, liWrapper, ul } from './content.css'
-//import {text} from "@/components/HOME/2-aboutUs/aboutUs.css.ts";
-import Title from '../../Layout-Component/topContent.astro'
 
 interface ItemProps {
   title: string

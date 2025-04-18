@@ -49,7 +49,7 @@ export const buttonCallToAction = style([
     fontSize: fontSize.md,
     height: heightButton,
     minInlineSize: 'min(90%, 16rem)',
-    marginInline: 'auto',
+    //marginInlineStart: 0,
     paddingInline: '1.5rem 0.08rem',
     position: 'relative',
     zIndex: '10',

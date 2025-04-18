@@ -42,7 +42,7 @@ const TestimonialSection = component$(() => {
   useStylesScoped$(styles) // Apply the scoped styles
 
   const currentIndex = useSignal<number>(0) // Reactive state for the current slide index
-  const note = useSignal<number>(5)
+  const note = useSignal<number>(2)
 
   if (note.value > 5) {
     throw new Error('etoile limit to 5')
