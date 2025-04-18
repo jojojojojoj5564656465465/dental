@@ -2,10 +2,12 @@
 interface Props {
   title: string
   link: string
-  align?: 'left' | 'right' | 'center'
+    marginInlineCustomProps?: string
 }
-const { title, link } = Astro.props
-import { buttonCallToAction, buttonCallToAction_icon } from './button.css'
+const {title, link, marginInlineCustomProps} = Astro.props
+import {buttonCallToAction, buttonCallToAction_icon, marginInlineCustom} from './button.css'
+
+import {assignInlineVars} from '@vanilla-extract/dynamic'
 ---
 
 <button
@@ -13,7 +15,10 @@ import { buttonCallToAction, buttonCallToAction_icon } from './button.css'
   type="button"
   aria-label="rendez-vous"
   tabindex="0"
-  >
+  style={assignInlineVars({
+      [marginInlineCustom]: marginInlineCustomProps,
+  })}
+>
   <a href={link}>{title}</a>
   <span class={buttonCallToAction_icon}>↑</span>
 </button>

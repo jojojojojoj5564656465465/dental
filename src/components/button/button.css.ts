@@ -1,9 +1,9 @@
-import { color } from '@theme'
-import { container } from '@recipe'
-import { media, fontSize } from '@styles/token'
-import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
-import { createContainer, createGlobalVar, createVar, style } from '@vanilla-extract/css'
-import { calc } from '@vanilla-extract/css-utils'
+import {color} from '@theme'
+import {container} from '@recipe'
+import {fontSize, media} from '@styles/token'
+import {fluid, globalStyleTag} from 'src/styles/utils/utils.ts'
+import {createContainer, createGlobalVar, createVar, style} from '@vanilla-extract/css'
+import {calc} from '@vanilla-extract/css-utils'
 
 const heightButton = createGlobalVar('height', {
   syntax: '<length>',
@@ -15,6 +15,11 @@ export const radius = createVar({
   syntax: '<length>',
   inherits: false,
   initialValue: '80px',
+})
+export const marginInlineCustom = createVar({
+    syntax: '<length>~',
+    inherits: false,
+    initialValue: 'auto',
 })
 
 /**
@@ -49,7 +54,7 @@ export const buttonCallToAction = style([
     fontSize: fontSize.md,
     height: heightButton,
     minInlineSize: 'min(90%, 16rem)',
-    //marginInlineStart: 0,
+      marginInlineStart: marginInlineCustom,
     paddingInline: '1.5rem 0.08rem',
     position: 'relative',
     zIndex: '10',

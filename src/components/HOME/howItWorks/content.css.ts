@@ -1,6 +1,6 @@
-import { createVar, keyframes, style, styleVariants } from '@vanilla-extract/css'
-import { container, textRecipe as R } from '../../../../../qwikDentist/src/styles/recipe'
-import { color } from '../../../../../qwikDentist/src/styles/utils/themeNew.css'
+import {createVar, keyframes, style, styleVariants} from '@vanilla-extract/css'
+import {container, textRecipe as R} from '../../../../../qwikDentist/src/styles/recipe'
+import {color} from '../../../../../qwikDentist/src/styles/utils/themeNew.css'
 
 const hoverColor = createVar({
   syntax: '<color>',
@@ -107,7 +107,12 @@ export const liWrapper = style([
     },
   },
 ])
-
+export const bgImage = style({
+  backgroundImage: 'url(/src/assets/istockphoto.jpg)',
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'repeat-x',
+})
 export const ul = style({
   paddingInline: 0,
   marginInline: 20,

@@ -1,23 +1,26 @@
 ---
-import Title from '../../Layout-Component/topContent.astro'
-import { containerGridMaxColumn } from '@recipe'
-import UL from './index'
+import Title from "../../Layout-Component/topContent.astro";
+import {containerGridMaxColumn} from "@recipe";
+import UL from "./index";
+import {bgImage} from "./content.css";
 ---
 
 <section
-  class={containerGridMaxColumn({
-    theme: "darkBlueBanner",
-    sizeOfBox: 300,
-    background: true,
-    size: "medium",
-    gap: "sm",
-    maxColumn: 2,
-    marginBlock: "lg",
-    paddingBlock: "lg",
-    hover: false,
-  })}
+    class:list={[
+      bgImage, containerGridMaxColumn({
+        theme: "darkBlueBanner",
+        sizeOfBox: 300,
+        background: false,
+        size: "medium",
+        gap: "sm",
+        maxColumn: 2,
+        marginBlock: "lg",
+        paddingBlock: "lg",
+        hover: false,
+      }),
+    ]}
 >
-  <div class="grid place-items-center">
+  <div class="grid place-items-center bg-slate-900/70 mx-4 px-2">
     <Title
       subtitle="how it work"
       PreTitle="What we do for"
