@@ -1,12 +1,6 @@
-import {createVar, keyframes, style, styleVariants} from '@vanilla-extract/css'
+import {keyframes, style, styleVariants} from '@vanilla-extract/css'
 import {container, textRecipe as R} from '../../../../../qwikDentist/src/styles/recipe'
 import {color} from '../../../../../qwikDentist/src/styles/utils/themeNew.css'
-
-const hoverColor = createVar({
-  syntax: '<color>',
-  inherits: true,
-  initialValue: 'oklch(0.9 0.0419 261.53)',
-})
 
 const changeColor = keyframes({
   '0%': {
@@ -134,10 +128,15 @@ export const liHeader = style({
 export const li_content = styleVariants({
   ico: {
     gridColumn: '1 / 2',
-    backgroundColor: 'pink',
+    //backgroundColor: 'pink',
+    padding: '10px',
+    width: '40px',
+    height: '40px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
   },
   txt1: [
     R({ font: 'highLight' }),
@@ -206,4 +205,16 @@ export const li_content = styleVariants({
       opacity: '1',
     },
   ],
+})
+
+export const iconBase = style({
+  gridColumn: '1 / 2',
+  padding: '10px',
+  width: '40px',
+  height: '40px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',
 })

@@ -4,7 +4,7 @@ interface Props {
   link: string
     marginInlineCustomProps?: string
 }
-const {title, link, marginInlineCustomProps} = Astro.props
+const {title, link, marginInlineCustomProps = '0 auto'} = Astro.props
 import {buttonCallToAction, buttonCallToAction_icon, marginInlineCustom} from './button.css'
 
 import {assignInlineVars} from '@vanilla-extract/dynamic'

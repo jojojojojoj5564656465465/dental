@@ -1,8 +1,8 @@
-import { recipe } from '@vanilla-extract/recipes'
-import { fallbackVar, globalStyle } from '@vanilla-extract/css'
-import { colorTheme, theme } from '../utils/themeNew.css.ts'
-import { maxInlineSizeFn } from '../utils/base.css.ts'
-import { textSprinkles } from './textSprinkles.css.ts'
+import {recipe} from '@vanilla-extract/recipes'
+import {fallbackVar, globalStyle} from '@vanilla-extract/css'
+import {colorTheme, theme} from '../utils/themeNew.css.ts'
+import {maxInlineSizeFn} from '../utils/base.css.ts'
+import {textSprinkles} from './textSprinkles.css.ts'
 
 export const container = recipe({
   base: {
@@ -108,7 +108,7 @@ export const container = recipe({
 })
 
 globalStyle(
-  `${container.classNames.variants.size.small}:has(> :is(${container.classNames.variants.size.medium}, ${container.classNames.variants.size.large},${container.classNames.variants.size.xxl},)) > *`,
+    `${container.classNames.variants.size.small}:has(> :is(${container.classNames.variants.size.medium}, ${container.classNames.variants.size.large}, ${container.classNames.variants.size.xxl})) > *`,
   {
     maxInlineSize: '100%',
   },

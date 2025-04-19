@@ -1,8 +1,7 @@
-import {color} from '@theme'
-import {container} from '@recipe'
+import {color, theme} from '@theme'
 import {fontSize, media} from '@styles/token'
-import {fluid, globalStyleTag} from 'src/styles/utils/utils.ts'
-import {createContainer, createGlobalVar, createVar, style} from '@vanilla-extract/css'
+import {fluid} from 'src/styles/utils/utils.ts'
+import {createContainer, createGlobalVar, createVar, globalStyle, style} from '@vanilla-extract/css'
 import {calc} from '@vanilla-extract/css-utils'
 
 const heightButton = createGlobalVar('height', {
@@ -11,15 +10,10 @@ const heightButton = createGlobalVar('height', {
   initialValue: '65px',
 })
 
-export const radius = createVar({
+export const marginInlineCustom = createVar({
   syntax: '<length>',
   inherits: false,
-  initialValue: '80px',
-})
-export const marginInlineCustom = createVar({
-    syntax: '<length>~',
-    inherits: false,
-    initialValue: 'auto',
+  initialValue: 'auto',
 })
 
 /**
@@ -28,7 +22,8 @@ export const marginInlineCustom = createVar({
 const buttonContainer = createContainer()
 
 export const buttonCallToAction = style([
-  container({ theme: 'accent', background: true, hover: true }),
+  // container({ theme: 'accent', background: true, hover: true }),
+  theme.accent,
   {
     '@container': {
       [`${buttonContainer} (width < 11rem)`]: {
@@ -45,7 +40,7 @@ export const buttonCallToAction = style([
       zIndex: '-10',
       top: '0%',
       left: '-111%',
-      borderRadius: `0 ${radius} ${radius} 0`,
+      borderRadius: `0 80px 80px 0`,
       transition: 'left 0.5s 0.1s ease',
       backgroundColor: 'white',
       //maskImage: 'linear-gradient(to left, transparent 0%, black 100%)',
@@ -54,19 +49,19 @@ export const buttonCallToAction = style([
     fontSize: fontSize.md,
     height: heightButton,
     minInlineSize: 'min(90%, 16rem)',
-      marginInlineStart: marginInlineCustom,
+    marginInlineStart: marginInlineCustom,
     paddingInline: '1.5rem 0.08rem',
     position: 'relative',
     zIndex: '10',
     borderWidth: 4,
     borderStyle: 'solid',
-    borderRadius: radius,
+    borderRadius: '100px !important',
     borderColor: 'oklch(58.09% 0.1151 235.69 / 55%)',
     display: 'flex',
     isolation: 'isolate',
     alignItems: 'center',
     justifyContent: 'space-between',
-
+    backgroundColor: color.theme.background,
     cursor: 'pointer', // ou une autre valeur appropriée
     overflow: 'hidden',
     verticalAlign: 'center',
@@ -108,7 +103,7 @@ export const buttonCallToAction_icon = style({
   height: calc.subtract(heightButton, '10px'),
   minInlineSize: calc.subtract(heightButton, '10px'),
   marginInlineStart: fluid(5, 10),
-  borderRadius: 80,
+  borderRadius: '80px !important',
   aspectRatio: 1,
   display: 'inline-grid',
   placeItems: 'center',
@@ -117,16 +112,14 @@ export const buttonCallToAction_icon = style({
   transition: 'transform 0.2s ease',
   backgroundColor: color.theme.background,
   color: color.theme.textHover,
-  selectors: {
-    [`${buttonCallToAction}:hover > &`]: {
-      transform: 'rotate(45deg)',
-      backgroundColor: color.theme.primary,
-      color: color.theme.textHover,
-    },
-  },
+  // selectors: {
+  //   [`${buttonCallToAction}:hover > &`]: {
+  //     transform: 'rotate(45deg)',
+  //     backgroundColor: color.theme.primary,
+  //     color: color.theme.textHover,
+  //   },
+  // },
 })
-globalStyleTag(buttonCallToAction, {
-  a: {
-    textDecoration: 'none',
-  },
+globalStyle(`${buttonCallToAction} > a`, {
+  textDecoration: 'none',
 })
