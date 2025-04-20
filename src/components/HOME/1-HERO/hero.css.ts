@@ -78,7 +78,7 @@ export const banner_hr = style({
     [media.mobile]: {
       display: 'none',
     },
-    ['all and ( width <= 641px)']: {
+    ['all and ( width <= 640px)']: {
       display: 'none',
     },
   },
