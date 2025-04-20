@@ -42,39 +42,43 @@ const liSizeMask = createVar({
 
 export const text = styleVariants({
   ul: [
-    containerGrid({ cols: 2 }),
     {
-      display: 'grid',
-      //gridTemplateRows: 'repeat(2,1fr)',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(100px,1fr))',
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(9.40rem,1fr))",
       gap: space.xs,
     },
   ],
   li: [
-    textRecipe({ font: 'highLight' }),
+    textRecipe({ font: "highLight" }),
     {
-      display: 'flex',
-      alignItems: 'center',
-      listStyle: 'none',
-      ':before': {
-        width: liSizeMask,
-        height: liSizeMask,
-        marginInlineEnd: 'min(5px + 1vw, 10px)',
-        display: 'inline',
-        backgroundColor: 'darkgreen',
-        backgroundSize: 'cover',
-        content: '',
-        maskImage: "url('check.svg')",
-        maskSize: 'contain',
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center', // Utilisera la couleur du texte (rouge)
-      },
+      display: "flex",
+      alignItems: "center",
+      listStyle: "none",
+      // ":before": {
+      // 	width: liSizeMask,
+      // 	height: liSizeMask,
+      // 	marginInlineEnd: "min(5px + 1vw, 10px)",
+      // 	display: "inline",
+      // 	backgroundSize: "cover",
+      // 	fill: "darkgreen",
+      // 	content: "",
+      // 	backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="red" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="%231C274C" stroke-width="1.5"/><path stroke="%231C274C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.5 12.5 2 2 5-5"/></svg>')`,
+      // 	//
+      // 	//
+      // 	//
+      // 	//
+      // 	//
+      // 	// maskImage: 'public/check.svg',
+      // 	maskSize: "contain",
+      // 	maskRepeat: "no-repeat",
+      // 	maskPosition: "center", // Utilisera la couleur du texte (rouge)
+      // },
     },
   ],
-})
+});
 
 /**
- * Composant de Gauche pour les images qui se overlape
+ * Composant de Gauche pour les images qui se
  * @MARK: IMAGES LEFT
  */
 

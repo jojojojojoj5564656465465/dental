@@ -2,25 +2,28 @@
 import { content__wrapper, text } from './aboutUs.css'
 import { textRecipe, textSprinkles } from '@recipe'
 import Title from 'src/components/Layout-Component/topContent.astro'
+import MonIconeSVG from "src/assets/icons/check.svg";
+//import Icon from "astro-icon";
 ---
 
 <section class={content__wrapper}>
-
-    <Title subtitle="ABOUT US"
-           title="pour un mailleur quotidien et beau sourir ici."
-           description="The goal of our clinic is to provide friendly, caring dentistry and the   highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world."
-           PreTitle="Votre avenir"
-           gap="largeGap"
-           textAlign="left">
-            <ul class={text.ul}>
-            {
-                ["Stérisation", "blancherur", "qualité", "prix"].map((el) => (
-                        <li class={text.li}>{el}</li>
-                ))
-            }
-            </ul>
-            </Title>
-
-
-
+  <Title
+    subtitle="ABOUT US"
+    title="pour un mailleur quotidien et beau sourir ici."
+    description="The goal of our clinic is to provide friendly, caring dentistry and the   highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world."
+    PreTitle="Votre avenir"
+    gap="largeGap"
+    textAlign="left"
+  >
+    <ul class={text.ul}>
+      {
+        ["Stérisation", "blancherur", "qualité", "prix"].map((el) => (
+          <li class="flex gap-2 items-center">
+            <MonIconeSVG width={16} height={16} />
+            <p class={text.li}>{el}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Title>
 </section>

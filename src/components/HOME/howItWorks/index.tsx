@@ -1,6 +1,6 @@
-import {$, component$, useOnDocument, useSignal} from '@builder.io/qwik'
+import { $, component$, useOnDocument, useSignal } from "@builder.io/qwik";
 
-import {li_content, liHeader, liWrapper, ul} from './content.css'
+import { li_content, liHeader, liWrapper, ul } from "./content.css";
 
 interface ItemProps {
   title: string
@@ -48,13 +48,23 @@ const LI = component$<ItemProps>(props => {
     <li onClick$={toOpen} class={liWrapper}>
       <div class={liHeader}>
         {/*<span class={li_content.ico}>{props.icon}</span>*/}
-        <img class={li_content.ico} src={props.icon} alt='dd'/>
+        <img class={li_content.ico} src={props.icon} alt="dd" />
         <h4 class={li_content.txt1}>{props.title}</h4>
-        <span class={opening.value ? li_content.notificationOpen : li_content.notification}> </span>
+        <span
+          class={
+            opening.value
+              ? li_content.notificationOpen
+              : li_content.notification
+          }
+        >
+          {" "}
+        </span>
       </div>
-      <p class={opening.value ? li_content.txt2Open : li_content.txt2}>{props.description}</p>
+      <p class={opening.value ? li_content.txt2Open : li_content.txt2}>
+        {props.description}
+      </p>
     </li>
-  )
+  );
 })
 
 export default component$(() => {

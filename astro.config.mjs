@@ -1,20 +1,20 @@
-import path from 'node:path'
-import {fileURLToPath} from 'node:url' // Import fileURLToPath from the url module
-import qwikdev from '@qwikdev/astro'
+import path from "node:path";
+import { fileURLToPath } from "node:url"; // Import fileURLToPath from the url module
+import qwikdev from "@qwikdev/astro";
 
-import {vanillaExtractPlugin} from '@vanilla-extract/vite-plugin'
-import {defineConfig} from 'astro/config'
-import tailwindcss from '@tailwindcss/vite'
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
-import icon from 'astro-icon'
-//import icon from 'astro-icon'
+import icon from "astro-icon"; //import robotsTxt from 'astro-robots-txt'
+
 //import robotsTxt from 'astro-robots-txt'
 
 // Get the directory name of the current module
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  //output: 'static',
+  output: "static",
   // server: {
   //   host: true,
   //   port: 3000,
@@ -33,18 +33,19 @@ export default defineConfig({
         "@recipe": path.resolve(__dirname, "src/styles/recipe/index.css.ts"),
       },
     },
-    css: {
-        //transformer: "lightningcss",
-    },
+    // css: {
+    // 	transformer: "lightningcss",
+    // },
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
-        // identifiers: 'short',
+        identifiers: "short",
       }),
       tailwindcss(),
     ],
     optimizeDeps: {
-        noDiscovery: false,
+      noDiscovery: false,
+      exclude: ["virtual:astro:assets/fonts/internal"],
       //include: [] // Empty array instead of undefined
     },
   },
@@ -52,6 +53,6 @@ export default defineConfig({
     qwikdev(),
     icon({ iconDir: "src/assets/icons" }),
     //robotsTxt()
-      //markdoc(),
+    //markdoc(),
   ],
 });

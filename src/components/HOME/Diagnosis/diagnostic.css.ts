@@ -180,21 +180,21 @@ export const logoIcon = style({
 
 export const image = style({
   minBlockSize: 150,
-  display: 'inline-grid',
-  gridArea: '1 / 1/ span 1 / -1',
-  backgroundImage: 'url(public/why-choose-us-img.png)',
+  display: "inline-grid",
+  gridArea: "1 / 1/ span 1 / -1",
+  //backgroundImage: "url(public/why-choose-us-img.png)",
 
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
-  backgroundPositionX: 'center',
-  '@media': {
+  // backgroundRepeat: "no-repeat",
+  // backgroundSize: "contain",
+  // backgroundPositionX: "center",
+  "@media": {
     [media.tablet]: {
-      minBlockSize: 'auto',
-      gridArea: '1 / 2 /span 1 / span 6',
+      minBlockSize: "auto",
+      gridArea: "1 / 2 /span 1 / span 6",
     },
     [media.md]: {
-      gridArea: '1/ 6 / -1 / -6',
-      backgroundPositionY: 'center',
+      gridArea: "1/ 6 / -1 / -6",
+      backgroundPositionY: "center",
     },
   },
-})
+});

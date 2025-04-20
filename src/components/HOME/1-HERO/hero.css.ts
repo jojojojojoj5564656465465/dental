@@ -25,17 +25,23 @@ export const hr = style([{ height: 2, minInlineSize: '80%', backgroundColor: col
  * MARK: BANNER
  */
 export const bannerWrapper = style([
-  container({ size: 'large', background: false }),
-  flex({ direction: 'row', side: 4, wrap: true, justifyContent: 'evenly', gap: 'lg' }),
+  container({ size: "large", background: false }),
+  flex({
+    direction: "row",
+    side: 4,
+    wrap: true,
+    justifyContent: "evenly",
+    gap: "lg",
+  }),
   {
-    '@media': {
+    "@media": {
       [media.mobile]: {
         // flexDirection: 'column',
         // gap: '1.4rem',
       },
     },
   },
-])
+]);
 
 /**
  * @description ok good
@@ -80,6 +86,8 @@ export const banner_hr = style({
 })
 export const banner_button = style({
   inlineSize: '100%',
+  backgroundColor"red"d',
+
   '@media': {
     [media.tablet]: {
       minInlineSize: '18rem',

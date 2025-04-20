@@ -31,23 +31,23 @@ export const sectionWrapper = style([
 ])
 
 export const wrapper = style([
-  container({ size: 'medium', background: false }),
-  flex({ direction: 'column', side: 4 }),
+  container({ size: "medium", background: false }),
+
   {
-    clipPath: 'inset(0 round 50px)',
+    clipPath: "inset(0 round 50px)",
     paddingBlock: fluid(10, 40),
     blockSize: calc.multiply(overlaping, 2),
 
-    display: 'grid',
-    placeItems: 'center',
-    transition: 'border-image 4s ease-in-out 1s',
-    backgroundAttachment: 'fixed',
-    backgroundImage: 'url(/men.jpg)',
-    backgroundPosition: 'bottom',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    display: "grid",
+    placeItems: "center !important",
+    transition: "border-image 4s ease-in-out 1s",
+    backgroundAttachment: "fixed",
+    backgroundImage: "url(/men.jpg)",
+    backgroundPosition: "bottom",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
     borderImage:
-      'linear-gradient(light-dark(oklch(58.09% 0.1151 235.69/70%),oklch(32.25% 0.0573 233.51 / 80%))) fill 1',
+      "linear-gradient(light-dark(oklch(58.09% 0.1151 235.69/70%),oklch(32.25% 0.0573 233.51 / 80%))) fill 1",
     zIndex: 2,
   },
-])
+]);

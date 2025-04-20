@@ -176,10 +176,17 @@ export default component$(() => {
   return (
     <>
       {/* Other page content */}
-      <section class={container({ size: 'medium', theme: 'darkBlueBanner', paddingBlock: 'md', marginBlock: 'md' })}>
+      <section
+        class={container({
+          size: "medium",
+          theme: "darkBlueBanner",
+          paddingBlock: "md",
+          marginBlock: "md",
+        })}
+      >
         <TestimonialSection />
       </section>
       {/* Other page content */}
     </>
-  )
+  );
 })

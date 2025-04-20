@@ -6,6 +6,18 @@
 		"enabled": true,
 		"ignore": [".astro", "dist", "node_modules"]
 	},
+  "overrides": [
+    {
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ],
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -37,8 +49,7 @@
 	},
 
 	"linter": {
-		"ignore": ["dist", "stubs"],
-		"enabled": true,
+      "enabled": true,
 		"rules": {
 			"a11y": {
 				"recommended": true

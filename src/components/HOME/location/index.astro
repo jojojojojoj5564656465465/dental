@@ -79,42 +79,39 @@ const contactInfo = [
           title=" Professional Consultation"
           gap="smallGap"
         >
-
-
-            <div class="mt-4 grid gap-3 md:gap-4">
-          {/* Ajout d'un margin-top pour espacer du titre */}
-          {
-            contactInfo.map((item) => (
-              <div class="flex items-center gap-x-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 flex-shrink-0 text-teal-500"
-                  aria-labelledby={`contact-icon-title-${item.id}`}
-                  role="img"
-                >
-                  {item.iconPaths.map((path) => (
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d={path.d}
-                    />
-                  ))}
-                </svg>
-                <span>{item.text}</span>
-              </div>
-            ))
-          }
-        </div>
-            <span class="grid justify-items-start text-white w-full">
-
-             <Button title="ddgdfsg" link="/fdgfd"/>
+          <div class="mt-4 grid gap-3 md:gap-4">
+            {/* Ajout d'un margin-top pour espacer du titre */}
+            {
+              contactInfo.map((item) => (
+                <div class="flex items-center gap-x-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-6 w-6 flex-shrink-0 text-teal-500"
+                    aria-labelledby={`contact-icon-title-${item.id}`}
+                    role="img"
+                  >
+                    {item.iconPaths.map((path) => (
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d={path.d}
+                      />
+                    ))}
+                  </svg>
+                  <span>{item.text}</span>
+                </div>
+              ))
+            }
+          </div>
+          <span class="grid justify-items-start text-white w-full">
+            <Button title="ddgdfsg" link="/fdgfd" />
           </span>
         </Title>
+      </div>
     </div>
-</div>
   </div>
 </section>

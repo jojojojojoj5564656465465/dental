@@ -7,43 +7,60 @@ import { container, textRecipe, flex } from '@recipe'
 0
 ---
 
-<section class={container({theme: "darkBlueBanner", background: true})}>
-    <div class={s.wrapper}>
-        <h3
-                class={textRecipe({
-                    font: "preTitle",
-                    textAlign: "center",
+<section class={container({ theme: "darkBlueBanner", background: true })}>
+  <div class={s.wrapper}>
+    <h3
+      class={textRecipe({
+        font: "preTitle",
+        textAlign: "center"
+      })}
+    >
+      Bienvenue au Cabinet
+    </h3>
+    <h1
+      class={textSprinkles({
+        color: "primary",
+        fontSize: ["xl", "3xl", "4xl"],
+        fontFamily: "exo",
+        textAlign: "center",
+        fontWeight: ["normal", "bold"],
+        lineHeight: "snug"
+      })}
+    >
+      Dentiste à Courbevoie depuis 18 ans
+    </h1>
 
-                })}
-        >
-            Bienvenue au Cabinet
-        </h3>
-        <h1 class={textSprinkles({
-            color: 'primary',
-            fontSize: ['xl', '3xl', '4xl'],
-            fontFamily: 'exo',
-            textAlign: 'center', fontWeight: ['normal', 'bold'],
-            lineHeight: "snug"
+    <p
+      class={textRecipe({
+        font: "text",
+        textAlign: "center",
+        lineHeight: "loose"
+      })}
+    >
+      It is a long established fact that a reader will be distracted by the
+      readable content of a page when looking at its layout. The point of using
+      Lorem Ipsum is that it has a more-or-less normal
+    </p>
 
-        })}>Dentiste à Courbevoie depuis 18 ans</h1>
+    <Button
+      title="Prendre rdv"
+      link="http://www.google.fr"
+      marginInlineCustomProps="0 auto"
+    />
 
-        <p class={textRecipe({font: "text", textAlign: "center", lineHeight: 'loose'})}>
-            It is a long established fact that a reader will be distracted by the
-            readable content of a page when looking at its layout. The point of using
-            Lorem Ipsum is that it has a more-or-less normal
-        </p>
-
-        <Button title="Prendre rdv" link="http://www.google.fr" marginInlineCustomProps='auto'/>
-
-
-        <hr class={s.hr}/>
-        <div class={flex({
-            direction: 'row', gap: 'md', side: 2, wrap: true
-        })}>
-            <span>Google Rating</span>
-            <span>5.0</span>
-            <span>based on 492 reviews</span>
-        </div>
+    <hr class={s.hr} />
+    <div
+      class={flex({
+        direction: "row",
+        gap: "md",
+        side: 2,
+        wrap: true
+      })}
+    >
+      <span>Google Rating</span>
+      <span>5.0</span>
+      <span>based on 492 reviews</span>
     </div>
+  </div>
 </section>
-<Banner/>
+<Banner />

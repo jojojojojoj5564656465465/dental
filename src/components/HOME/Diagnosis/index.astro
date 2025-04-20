@@ -10,6 +10,7 @@ import {
   sectionContainer__Text,
   title,
 } from './diagnostic.css'
+import ImageMiddle from "src/assets/why-choose-us-img.png";
 interface Service {
   title: string
   description: string
@@ -42,23 +43,33 @@ const services: Service[] = [
       'Grincement des dents diagnostiqué par examen des signes d’usure et questions sur les habitudes de sommeil.',
   },
 ]
+
+import { Image } from "astro:assets";
 ---
+
 <section class={sectionContainerIndex}>
-    <div class={sectionContainer__Text.wrapper}>
+  <div class={sectionContainer__Text.wrapper}>
     <h6 class={sectionContainer__Text.h6}>why choose us</h6>
-    <h2 class={sectionContainer__Text.h2}><span>diagnostics des</span> maladies dentaires</h2>
+    <h2 class={sectionContainer__Text.h2}>
+      <span>diagnostics des</span> maladies dentaires
+    </h2>
     <p>We are committed to sustainability. eco-friendly initiatives.</p>
+  </div>
+  <section class={gridContainer}>
+    <div role="img" class={image}>
+
+      <img src={ImageMiddle.src} alt="Image illustrative">
     </div>
-    <section class={gridContainer}>
-        <div role='img' class={image}>
-
-        </div>
-        {services.map(e => (
-                <dl class={element}>
-                    <dt class={title}>{e.title}</dt>
-                    <dd class={description}>{e.description}</dd>
-                    <span class={logoIcon}><Icon name="toothbrush"/></span>
-                </dl>))}
-
-    </section>
+    {
+      services.map((e) => (
+        <dl class={element}>
+          <dt class={title}>{e.title}</dt>
+          <dd class={description}>{e.description}</dd>
+          <span class={logoIcon}>
+            <Icon name="toothbrush" />
+          </span>
+        </dl>
+      ))
+    }
+  </section>
 </section>

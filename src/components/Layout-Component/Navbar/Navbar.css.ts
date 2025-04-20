@@ -15,32 +15,36 @@ export const buttonMobile = styleVariants({
     {
       minBlockSize: 36,
       margin: 5,
-      aspectRatio: '1',
+      aspectRatio: "1",
       //display: 'grid',
-      isolation: 'isolate',
-      placeItems: 'center',
+      isolation: "isolate",
+      placeItems: "center",
       order: 2,
       //backgroundColor: T.color.theme.background,
       //color: 'yellow',
-      '@media': {
+      "@media": {
         [media.lg]: {
-          display: 'none',
+          display: "none",
           order: 3,
         },
       },
     },
     //T.colorTheme.darkBlueBanner,
-    c.containerGrid({ theme: 'darkBlueBanner', background: true, size: 'full' }),
+    c.containerGrid({
+      theme: "darkBlueBanner",
+      background: true,
+      size: "full",
+    }),
   ],
   svg: {
     width: 36,
     height: 36,
     zIndex: 1000,
-    display: 'block',
+    display: "block",
     color: theme.text,
     strokeWidth: 2,
   },
-})
+});
 
 export const one = styleVariants({
   wrapper: [
@@ -63,7 +67,12 @@ export const one = styleVariants({
     },
   ],
   logo: [
-    c.textSprinkles({ fontFamily: 'dancingScript', fontSize: '2xl', textAlign: 'center', color: 'text' }),
+    c.textSprinkles({
+      fontFamil"dancingScript"pt',
+      fontSiz"2xl"xl',
+      textAlig"center"er',
+      colo"text"t',
+    }),
     {
       marginInline: 20,
       display: 'flex',
