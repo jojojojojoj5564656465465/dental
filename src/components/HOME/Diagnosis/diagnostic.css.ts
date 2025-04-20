@@ -2,19 +2,24 @@ import { fontSize, media, space } from "@styles/token";
 import { fluid } from "src/styles/utils/utils.ts";
 import { container, containerGrid, textRecipe } from "@recipe";
 import { color } from "@theme";
-import { createContainer, createVar, style, styleVariants } from "@vanilla-extract/css";
+import {
+  createContainer,
+  createVar,
+  style,
+  styleVariants,
+} from "@vanilla-extract/css";
 
 export const sectionContainerIndex = style([
   {
     marginBlock: space.md,
-    textAlign: "center,
+    textAlign: "center",
   },
-  container({ size: "large", theme: "blueLightBg" })
+  container({ size: "large", theme: "blueLightBg" }),
 ]);
 export const sectionContainer__Text = styleVariants({
   wrapper: { marginBlock: fluid(20, 45) },
   h6: [textRecipe({ font: "preTitle", textAlign: "center" })],
-  h2: [textRecipe({ font: "title", textAlign: "center" })]
+  h2: [textRecipe({ font: "title", textAlign: "center" })],
 });
 
 /**
@@ -23,7 +28,7 @@ export const sectionContainer__Text = styleVariants({
 const logoSize = createVar({
   inherits: false,
   initialValue: "70px",
-  syntax: "<length>"
+  syntax: "<length>",
 });
 /**
  * MARK: GRID COMPO
@@ -37,14 +42,14 @@ export const gridContainer = style([
     "@media": {
       "screen and (440px < width < 606px)": { columnGap: 11.5 },
       [media.tablet]: {
-        gridTemplateRows: "10rem, repeat(3,6rem)"
+        gridTemplateRows: "10rem, repeat(3,6rem)",
       },
       [media.md]: {
-        gridTemplateRows: "repeat(3, 9rem)"
+        gridTemplateRows: "repeat(3, 9rem)",
       },
     },
   },
-  containerGrid({ fullSize: "large", theme: "blueLightBg" })
+  containerGrid({ fullSize: "large", theme: "blueLightBg" }),
 ]);
 /**
  * MARK: card
@@ -64,7 +69,7 @@ const inside = style({
   "@container": {
     [`${cardContainer} (width <= 250px)`]: {
       gridTemplateAreas: '"h4 h4" "txt txt"',
-      gridTemplateColumns: "1fr 1fr"
+      gridTemplateColumns: "1fr 1fr",
     },
   },
   selectors: {
@@ -100,20 +105,20 @@ export const element = style([
     gridColumn: "2 / span 3",
     "@media": {
       [media.tablet]: {
-        gridColumn: "2 / span 3"
+        gridColumn: "2 / span 3",
       },
       [media.md]: {
-        gridColumn: "2 / span 4"
+        gridColumn: "2 / span 4",
       },
     },
     selectors: {
       "&:nth-of-type(even)": {
         "@media": {
           [media.tablet]: {
-            gridColumn: "-5 / -2"
+            gridColumn: "-5 / -2",
           },
           [media.md]: {
-            gridColumn: "-6 / -2"
+            gridColumn: "-6 / -2",
           },
         },
       },
@@ -129,7 +134,7 @@ const textAlignement = style({
     [`${element}:nth-of-type(odd) &`]: {
       "@media": {
         [media.tablet]: {
-          textAlign: "right"
+          textAlign: "right",
         },
       },
     },
@@ -143,12 +148,12 @@ export const title = style([
     "@container": {
       [`${cardContainer} (width <= 250px)`]: {
         fontWeight: "600",
-        gridColumn: "span 2"
+        gridColumn: "span 2",
       },
     },
   },
   textAlignement,
-  textRecipe({ font: "highLight" })
+  textRecipe({ font: "highLight" }),
 ]);
 export const description = style([
   textAlignement,
@@ -160,7 +165,7 @@ export const description = style([
       [`${cardContainer} (width <= 250px)`]: {
         fontSize: fontSize.base,
         gridColumn: "span 2",
-        lineHeight: "1.1"
+        lineHeight: "1.1",
       },
     },
   },
@@ -174,11 +179,11 @@ export const logoIcon = style({
   color: color.theme.accent,
   "@container": {
     [`${cardContainer} (width <= 250px)`]: {
-      display: "none"
+      display: "none",
     },
   },
   selectors: {
-    [`${element}:hover &`]: { transform: "rotate(10deg)" }
+    [`${element}:hover &`]: { transform: "rotate(10deg)" },
   },
 });
 
