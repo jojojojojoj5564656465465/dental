@@ -2,12 +2,12 @@
 interface Props {
   title: string
   link: string
-  marginInlineCustomProps?: string;
+  marginInlineCustomProps?: string
 }
-const { title, link, marginInlineCustomProps = "0 auto" } = Astro.props;
-import { buttonCallToAction, buttonCallToAction_icon, marginInlineCustom } from "./button.css";
+const { title, link, marginInlineCustomProps = '0 auto' } = Astro.props
+import { buttonCallToAction, buttonCallToAction_icon, marginInlineCustom } from './button.css'
 
-import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 ---
 
 <button

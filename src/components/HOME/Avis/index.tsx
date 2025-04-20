@@ -178,15 +178,15 @@ export default component$(() => {
       {/* Other page content */}
       <section
         class={container({
-          size: "medium",
-          theme: "darkBlueBanner",
-          paddingBlock: "md",
-          marginBlock: "md",
+          size: 'medium',
+          theme: 'darkBlueBanner',
+          paddingBlock: 'md',
+          marginBlock: 'md',
         })}
       >
         <TestimonialSection />
       </section>
       {/* Other page content */}
     </>
-  );
+  )
 })

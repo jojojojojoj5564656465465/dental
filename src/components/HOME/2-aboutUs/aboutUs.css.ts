@@ -1,8 +1,8 @@
-import { fluid } from "src/styles/utils/utils.ts";
-import { containerGrid, textRecipe } from "@recipe";
+import { fluid } from 'src/styles/utils/utils.ts'
+import { containerGrid, textRecipe } from '@recipe'
 
-import { media, space } from "@styles/token";
-import { createVar, style, styleVariants } from "@vanilla-extract/css";
+import { media, space } from '@styles/token'
+import { createVar, style, styleVariants } from '@vanilla-extract/css'
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -43,17 +43,17 @@ const liSizeMask = createVar({
 export const text = styleVariants({
   ul: [
     {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(9.40rem,1fr))",
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(9.40rem,1fr))',
       gap: space.xs,
     },
   ],
   li: [
-    textRecipe({ font: "highLight" }),
+    textRecipe({ font: 'highLight' }),
     {
-      display: "flex",
-      alignItems: "center",
-      listStyle: "none"
+      display: 'flex',
+      alignItems: 'center',
+      listStyle: 'none',
       // ":before": {
       // 	width: liSizeMask,
       // 	height: liSizeMask,
@@ -75,7 +75,7 @@ export const text = styleVariants({
       // },
     },
   ],
-});
+})
 
 /**
  * Composant de Gauche pour les images qui se

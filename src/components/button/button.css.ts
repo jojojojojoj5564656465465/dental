@@ -1,114 +1,115 @@
-import { color } from "@theme";
-import { fontSize, media } from "@styles/token";
-import { fluid } from "src/styles/utils/utils.ts";
-import { createContainer, createVar, globalStyle, style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
+import { color } from '@theme'
+import { fontSize, media } from '@styles/token'
+import { fluid } from 'src/styles/utils/utils.ts'
+import { createContainer, createVar, globalStyle, style } from '@vanilla-extract/css'
+import { calc } from '@vanilla-extract/css-utils'
 
-const heightButton = creat"height"ar("height", {"<length>" "<length>",
+export const heightButton = createVar({
+  syntax: '<length>',
   inherits: false,
-  initialValue: "65px",
-});
+  initialValue: '65px',
+})
 
 export const marginInlineCustom = createVar({
-  syntax: "<length>",
+  syntax: '<length>',
   inherits: false,
-  initialValue: "auto"
-});
+  initialValue: 'auto',
+})
 
 /**
  * MARK: BUTTON
  */
-const buttonContainer = createContainer();
+const buttonContainer = createContainer()
 
 export const buttonCallToAction = style([
   // container({ theme: 'accent', background: true, hover: true }),
   color.theme.accent,
   {
-    "@container": {
+    '@container': {
       [`${buttonContainer} (width < 11rem)`]: {
-        display: "grid",
-        justifyContent: "center",
-        placeItems: "center",
+        display: 'grid',
+        justifyContent: 'center',
+        placeItems: 'center',
         backgroundColor: color.theme.background,
       },
     },
-    "::before": {
+    '::before': {
       blockSize: heightButton,
-      inlineSize: "101%",
-      position: "absolute",
-      zIndex: "-10",
-      top: "0%",
-      left: "-111%",
+      inlineSize: '101%',
+      position: 'absolute',
+      zIndex: '-10',
+      top: '0%',
+      left: '-111%',
       borderRadius: `0 80px 80px 0`,
-      transition: "left 0.5s 0.1s ease",
-      backgroundColor: "white",
+      transition: 'left 0.5s 0.1s ease',
+      backgroundColor: 'white',
       //maskImage: 'linear-gradient(to left, transparent 0%, black 100%)',
-      content: ""
+      content: '',
     },
     backgroundColor: color.theme.background,
     fontSize: fontSize.md,
     height: heightButton,
-    minInlineSize: "min(90%, 16rem)",
+    minInlineSize: 'min(90%, 16rem)',
     marginInlineStart: marginInlineCustom,
-    paddingInline: "1.5rem 0.08rem",
-    position: "relative",
-    zIndex: "10",
+    paddingInline: '1.5rem 0.08rem',
+    position: 'relative',
+    zIndex: '10',
     borderWidth: 4,
-    borderStyle: "solid",
-    borderRadius: "100px !important",
-    borderColor: "oklch(58.09% 0.1151 235.69 / 55%)",
-    display: "flex",
-    isolation: "isolate",
-    alignItems: "center",
-    justifyContent: "space-between",
-    cursor: "pointer", // ou une autre valeur appropriée
-    overflow: "hidden",
-    verticalAlign: "center",
+    borderStyle: 'solid',
+    borderRadius: '100px !important',
+    borderColor: 'oklch(58.09% 0.1151 235.69 / 55%)',
+    display: 'flex',
+    isolation: 'isolate',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    cursor: 'pointer', // ou une autre valeur appropriée
+    overflow: 'hidden',
+    verticalAlign: 'center',
     color: color.theme.text,
     selectors: {
-      "&:hover::before": {
+      '&:hover::before': {
         left: 0,
         color: color.theme.textHover,
       },
     },
-    ":hover": {
-      zIndex: "2"
+    ':hover': {
+      zIndex: '2',
       //  color: color.theme.textHover,
     },
     containerName: buttonContainer,
-    containerType: "inline-size"
+    containerType: 'inline-size',
   },
-]);
+])
 
 const sizeFontSize = createVar({
   inherits: true,
-  syntax: "<length>",
-  initialValue: "1.6rem"
-});
+  syntax: '<length>',
+  initialValue: '1.6rem',
+})
 
 export const buttonCallToAction_icon = style({
-  "@container": {
+  '@container': {
     [`${buttonContainer} (width < 11rem)`]: {
-      display: "none"
+      display: 'none',
     },
   },
-  "@media": {
+  '@media': {
     [media.md]: {
       vars: {
-        [sizeFontSize]: "2.5rem"
+        [sizeFontSize]: '2.5rem',
       },
     },
   },
-  height: calc.subtract(heightButton, "10px"),
-  minInlineSize: calc.subtract(heightButton, "10px"),
+  height: calc.subtract(heightButton, '10px'),
+  minInlineSize: calc.subtract(heightButton, '10px'),
   marginInlineStart: fluid(5, 10),
-  borderRadius: "80px !important",
+  borderRadius: '80px !important',
   aspectRatio: 1,
-  display: "inline-grid",
-  placeItems: "center",
-  transform: "rotate(25deg)",
+  display: 'inline-grid',
+  placeItems: 'center',
+  transform: 'rotate(25deg)',
   fontSize: sizeFontSize,
-  transition: "transform 0.2s ease",
+  transition: 'transform 0.2s ease',
   backgroundColor: color.theme.background,
   color: color.theme.textHover,
   // selectors: {
@@ -118,7 +119,7 @@ export const buttonCallToAction_icon = style({
   //     color: color.theme.textHover,
   //   },
   // },
-});
+})
 globalStyle(`${buttonCallToAction} > a`, {
-  textDecoration: "none"
-});
+  textDecoration: 'none',
+})

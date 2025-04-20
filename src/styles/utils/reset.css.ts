@@ -1,8 +1,8 @@
-import { fallbackVar, globalStyle } from "@vanilla-extract/css";
+import { fallbackVar, globalStyle } from '@vanilla-extract/css'
 import * as T from './theme.css'
-import { color, theme } from "../utils/themeNew.css.ts";
-import { fontSize } from "@styles/token";
-import { base, reset } from "./layer.css.ts";
+import { color, theme } from '../utils/themeNew.css.ts'
+import { fontSize } from '@styles/token'
+import { base, reset } from './layer.css.ts'
 
 globalStyle('*, *::before, *::after', {
   '@layer': {
