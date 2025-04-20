@@ -1,17 +1,10 @@
-import { color, theme } from "@theme";
+import { color } from "@theme";
 import { fontSize, media } from "@styles/token";
 import { fluid } from "src/styles/utils/utils.ts";
-import {
-  createContainer,
-  createGlobalVar,
-  createVar,
-  globalStyle,
-  style,
-} from "@vanilla-extract/css";
+import { createContainer, createVar, globalStyle, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-const heightButton = createGlobalVar("height", {
-  syntax: "<length>",
+const heightButton = creat"height"ar("height", {"<length>" "<length>",
   inherits: false,
   initialValue: "65px",
 });
@@ -19,7 +12,7 @@ const heightButton = createGlobalVar("height", {
 export const marginInlineCustom = createVar({
   syntax: "<length>",
   inherits: false,
-  initialValue: "auto",
+  initialValue: "auto"
 });
 
 /**
@@ -50,7 +43,7 @@ export const buttonCallToAction = style([
       transition: "left 0.5s 0.1s ease",
       backgroundColor: "white",
       //maskImage: 'linear-gradient(to left, transparent 0%, black 100%)',
-      content: "",
+      content: ""
     },
     backgroundColor: color.theme.background,
     fontSize: fontSize.md,
@@ -79,30 +72,30 @@ export const buttonCallToAction = style([
       },
     },
     ":hover": {
-      zIndex: "2",
+      zIndex: "2"
       //  color: color.theme.textHover,
     },
     containerName: buttonContainer,
-    containerType: "inline-size",
+    containerType: "inline-size"
   },
 ]);
 
 const sizeFontSize = createVar({
   inherits: true,
   syntax: "<length>",
-  initialValue: "1.6rem",
+  initialValue: "1.6rem"
 });
 
 export const buttonCallToAction_icon = style({
   "@container": {
     [`${buttonContainer} (width < 11rem)`]: {
-      display: "none",
+      display: "none"
     },
   },
   "@media": {
     [media.md]: {
       vars: {
-        [sizeFontSize]: "2.5rem",
+        [sizeFontSize]: "2.5rem"
       },
     },
   },
@@ -127,5 +120,5 @@ export const buttonCallToAction_icon = style({
   // },
 });
 globalStyle(`${buttonCallToAction} > a`, {
-  textDecoration: "none",
+  textDecoration: "none"
 });

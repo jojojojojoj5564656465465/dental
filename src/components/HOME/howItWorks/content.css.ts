@@ -1,14 +1,9 @@
 import { keyframes, style, styleVariants } from "@vanilla-extract/css";
-import {
-  container,
-  textRecipe as R,
-} from "../../../../../qwikDentist/src/styles/recipe";
+import { container, textRecipe as R } from "../../../../../qwikDentist/src/styles/recipe";
 import { color } from "../../../../../qwikDentist/src/styles/utils/themeNew.css";
 
-const changeColor = keyframes({
-  "0%": {
-    background:
-      "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 0%)",
+const changeColor = keyframes"0%" "0%": {
+    backgro"linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 0%)"5, 1) 0%)",
   },
   "5%": {
     background:

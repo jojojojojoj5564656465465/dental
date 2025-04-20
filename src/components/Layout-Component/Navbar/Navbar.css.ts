@@ -1,14 +1,14 @@
-import * as c from '@recipe'
-import { style, styleVariants } from '@vanilla-extract/css'
-import { fontSize, media } from '@styles/token'
-import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
-import { theme } from '@/styles/utils/themeNew.css'
+import * as c from "@recipe";
+import { style, styleVariants } from "@vanilla-extract/css";
+import { fontSize, media } from "@styles/token";
+import { fluid, globalStyleTag } from "src/styles/utils/utils.ts";
+import { theme } from "@/styles/utils/themeNew.css";
 
 export const icon = style({
   width: 36,
-  aspectRatio: '1',
-  display: 'inline-block',
-})
+  aspectRatio: "1",
+  display: "inline-block",
+});
 
 export const buttonMobile = styleVariants({
   wrapper: [
@@ -48,70 +48,70 @@ export const buttonMobile = styleVariants({
 
 export const one = styleVariants({
   wrapper: [
-    c.containerGrid({ theme: 'blueLightBg', size: 'full' }),
+    c.containerGrid({ theme: "blueLightBg", size: "full" }),
     {
       //cursor: 'pointer',
       //backgroundColor: T.color.blue.dark,
-      height: 'auto',
-      minBlockSize: '70px',
+      height: "auto",
+      minBlockSize: "70px",
       //display: 'grid',
-      gridTemplateColumns: '1fr min-content',
-      justifyContent: 'space-between',
-      alignItems: 'center',
+      gridTemplateColumns: "1fr min-content",
+      justifyContent: "space-between",
+      alignItems: "center",
       marginInline: fluid(10, 50),
-      '@media': {
+      "@media": {
         [media.lg]: {
-          gridTemplateColumns: 'min-content 0 min-content',
+          gridTemplateColumns: "min-content 0 min-content",
         },
       },
     },
   ],
   logo: [
     c.textSprinkles({
-      fontFamil"dancingScript"pt',
-      fontSiz"2xl"xl',
-      textAlig"center"er',
-      colo"text"t',
+      fontFamily: "dancingScript",
+      fontSize: "2xl",
+      textAlign: "center",
+      color: "text",
     }),
     {
       marginInline: 20,
-      display: 'flex',
+      display: "flex",
       order: 1,
       gap: 10,
       //color: T.color.text.light,
     },
   ],
-})
+});
 
 const menuBase = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gridColumn: 'span 2',
-  justifyContent: 'center',
+  display: "flex",
+  flexDirection: "column",
+  gridColumn: "span 2",
+  justifyContent: "center",
   order: 3,
   gap: 60,
-  transition: 'max-height 0.3s ease-out, opacity 0.2s ease-out',
+  transition: "max-height 0.3s ease-out, opacity 0.2s ease-out",
   //backgroundColor: T.color.background.blue,
-  overflow: 'hidden',
-  color: 'black',
-  '@media': {
+  overflow: "hidden",
+  color: "black",
+  "@media": {
     [media.lg]: {
-      maxHeight: 'none !important',
-      marginInlineStart: 'auto',
-      flexDirection: 'row',
-      justifyContent: 'end',
+      maxHeight: "none !important",
+      marginInlineStart: "auto",
+      flexDirection: "row",
+      justifyContent: "end",
       order: 2,
-      opacity: '1 !important',
+      opacity: "1 !important",
     },
   },
-})
+});
 
 export const menuState = styleVariants({
   open: [
     menuBase,
-    c.textSprinkles({ color: 'text' }),
+    c.textSprinkles({ color: "text" }),
     {
-      maxBlockSize: '500px',
+      maxBlockSize: "500px",
       opacity: 1,
     },
   ],
@@ -120,26 +120,26 @@ export const menuState = styleVariants({
     {
       maxHeight: 0,
       opacity: 0,
-      '@media': {
+      "@media": {
         [media.lg]: {
-          display: 'flex',
+          display: "flex",
         },
       },
     },
   ],
   link: [
     c.textSprinkles({
-      fontSize: 'md',
-      textAlign: ['center', 'center', 'right'],
-      color: 'text',
+      fontSize: "md",
+      textAlign: ["center", "center", "right"],
+      color: "text",
     }),
   ],
-})
+});
 
 globalStyleTag(menuState.close, {
   span: {
-    textAlign: 'center',
-    marginBlock: 'center',
+    textAlign: "center",
+    marginBlock: "center",
     fontSize: fontSize.lg,
   },
-})
+});

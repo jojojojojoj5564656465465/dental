@@ -1,8 +1,8 @@
-import { fluid } from 'src/styles/utils/utils.ts'
-import { containerGrid, textRecipe } from '@recipe'
+import { fluid } from "src/styles/utils/utils.ts";
+import { containerGrid, textRecipe } from "@recipe";
 
-import { media, space } from '@styles/token'
-import { createVar, style, styleVariants } from '@vanilla-extract/css'
+import { media, space } from "@styles/token";
+import { createVar, style, styleVariants } from "@vanilla-extract/css";
 
 /**
  * WRAPPER DE LA PAGE INDEX
@@ -53,7 +53,7 @@ export const text = styleVariants({
     {
       display: "flex",
       alignItems: "center",
-      listStyle: "none",
+      listStyle: "none"
       // ":before": {
       // 	width: liSizeMask,
       // 	height: liSizeMask,

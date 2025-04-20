@@ -26,7 +26,7 @@ const services: Service[] = [
     description: 'Inflammation des gencives diagnostiquée par examen visuel et sondes parodontales.',
   },
   {
-    title: 'Maladies de la pulpe dentaire (pulpite)',
+    title: "Maladies de la pulpe dentaire",
     description: 'Inflammation de la pulpe dentaire diagnostiquée par tests de sensibilité.',
   },
   {
@@ -56,10 +56,10 @@ import { Image } from "astro:assets";
     <p>We are committed to sustainability. eco-friendly initiatives.</p>
   </div>
   <section class={gridContainer}>
-    <div role="img" class={image}>
 
-      <img src={ImageMiddle.src} alt="Image illustrative">
-    </div>
+
+    <img class={image} src={ImageMiddle.src} alt="Image illustrative">
+
     {
       services.map((e) => (
         <dl class={element}>
