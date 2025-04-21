@@ -1,6 +1,6 @@
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 
-import SvgImage from '/home/tim/Documents/dentistLanding/src/assets/icons/icon-services-1.svg?jsx'
+import SvgImage from '@assets/icons/icon-services-3.svg?jsx'
 import { li_content, liHeader, liWrapper, ul } from './content.css'
 
 interface ItemProps {
@@ -48,7 +48,6 @@ const LI = component$<ItemProps>(props => {
   return (
     <li onClick$={toOpen} class={liWrapper}>
       <div class={liHeader}>
-        <SvgImage />
         {/*<span class={li_content.ico}>{props.icon}</span>*/}
         <img class={li_content.ico} src={props.icon} alt='i' />
         <h4 class={li_content.txt1}>{props.title}</h4>
@@ -62,6 +61,7 @@ const LI = component$<ItemProps>(props => {
 export default component$(() => {
   return (
     <ul class={ul}>
+      <SvgImage />
       {data.map((element, i) => (
         <LI key={i} title={element.title} icon={element.icon} description={element.description} />
       ))}

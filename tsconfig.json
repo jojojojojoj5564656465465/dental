@@ -11,7 +11,7 @@
 		"target": "esnext",
 		"allowImportingTsExtensions": true,
 		"moduleResolution": "Bundler",
-		"baseUrl": ".",
+		"baseUrl": "./",
 		"jsx": "react-jsx",
 		"jsxImportSource": "@builder.io/qwik",
 		"paths": {
@@ -26,7 +26,8 @@
 			"@images": ["public/images/*"],
           "@s": [
             "src/styles/index.ts"
-          ]
+          ],
+			"@assets/*": ["src/assets/*"]
 		}
 	}
 }
