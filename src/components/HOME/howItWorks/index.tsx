@@ -1,5 +1,7 @@
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 
+// @ts-ignore
+//import SvgImage from 'src/assets/icons/icon-why-us-2.svg';
 import { li_content, liHeader, liWrapper, ul } from './content.css'
 
 interface ItemProps {
@@ -48,7 +50,7 @@ const LI = component$<ItemProps>(props => {
     <li onClick$={toOpen} class={liWrapper}>
       <div class={liHeader}>
         {/*<span class={li_content.ico}>{props.icon}</span>*/}
-        <img class={li_content.ico} src={props.icon} alt='dd' />
+        <img class={li_content.ico} src={props.icon} alt='i' />
         <h4 class={li_content.txt1}>{props.title}</h4>
         <span class={opening.value ? li_content.notificationOpen : li_content.notification}> </span>
       </div>
