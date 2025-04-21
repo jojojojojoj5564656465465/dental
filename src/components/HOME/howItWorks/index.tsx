@@ -1,7 +1,6 @@
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 
-// @ts-ignore
-//import SvgImage from 'src/assets/icons/icon-why-us-2.svg';
+import SvgImage from '/home/tim/Documents/dentistLanding/src/assets/icons/icon-services-1.svg?jsx'
 import { li_content, liHeader, liWrapper, ul } from './content.css'
 
 interface ItemProps {
@@ -13,19 +12,19 @@ interface ItemProps {
 const data: ItemProps[] = [
   {
     title: 'book an appointment',
-    icon: 'src/assets/icons/icon-how-it-work-1.svg',
+    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-1.svg',
     description:
       'The goal of our clinic is to provide friendly, caring dentistry and\n' +
       'the highest level of general, cosmetic, ents.',
   },
   {
     title: 'Expert Care',
-    icon: 'src/assets/icons/icon-how-it-work-2.svg',
+    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-2.svg',
     description: 'hhhhhhhhhhgfdlkfdmlk',
   },
   {
     title: 'expert Care',
-    icon: 'src/assets/icons/icon-how-it-work-3.svg',
+    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-3.svg',
     description:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint consequatur consequuntur totam eos sapiente nihil consectetur',
   },
@@ -49,6 +48,7 @@ const LI = component$<ItemProps>(props => {
   return (
     <li onClick$={toOpen} class={liWrapper}>
       <div class={liHeader}>
+        <SvgImage />
         {/*<span class={li_content.ico}>{props.icon}</span>*/}
         <img class={li_content.ico} src={props.icon} alt='i' />
         <h4 class={li_content.txt1}>{props.title}</h4>

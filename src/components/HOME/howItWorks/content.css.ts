@@ -1,4 +1,4 @@
-import { keyframes, style, styleVariants } from '@vanilla-extract/css'
+import { createVar, keyframes, style, styleVariants } from '@vanilla-extract/css'
 import { container, textRecipe as R } from '../../../../../qwikDentist/src/styles/recipe'
 import { color } from '../../../../../qwikDentist/src/styles/utils/themeNew.css'
 
@@ -125,6 +125,12 @@ export const liHeader = style({
   alignItems: 'center',
 })
 
+export const myContent = createVar({
+  syntax: '<string>',
+  initialValue: 'url(src/assets/icons/icon-how-it-work-1.svg)',
+  inherits: false,
+})
+
 export const li_content = styleVariants({
   ico: {
     gridColumn: '1 / 2',
@@ -144,6 +150,9 @@ export const li_content = styleVariants({
       gridColumn: '2 / 3',
 
       marginInlineStart: '1rem',
+      ':before': {
+        content: 'url(/home/tim/Documents/dentistLanding/src/assets/icons/icon-services-1.svg)',
+      },
     },
   ],
   notification: [
