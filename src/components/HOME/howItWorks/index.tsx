@@ -1,36 +1,14 @@
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 
-import SvgImage from '@assets/icons/icon-services-3.svg?jsx'
-import { li_content, liHeader, liWrapper, ul } from './content.css'
+import { li_content, liHeader, liWrapper } from './content.css'
 
-interface ItemProps {
+export interface ItemProps {
   title: string
   description: string
-  icon: string
+  icon: any
 }
 
-const data: ItemProps[] = [
-  {
-    title: 'book an appointment',
-    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-1.svg',
-    description:
-      'The goal of our clinic is to provide friendly, caring dentistry and\n' +
-      'the highest level of general, cosmetic, ents.',
-  },
-  {
-    title: 'Expert Care',
-    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-2.svg',
-    description: 'hhhhhhhhhhgfdlkfdmlk',
-  },
-  {
-    title: 'expert Care',
-    icon: '/home/tim/Documents/dentistLanding/src/assets/icons/icon-how-it-work-3.svg',
-    description:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint consequatur consequuntur totam eos sapiente nihil consectetur',
-  },
-]
-
-const LI = component$<ItemProps>(props => {
+export default component$<ItemProps>(props => {
   const opening = useSignal<boolean>(false)
 
   const toOpen = $(() => {
@@ -46,25 +24,14 @@ const LI = component$<ItemProps>(props => {
     }),
   )
   return (
-    <li onClick$={toOpen} class={liWrapper}>
+    <li onClick$={toOpen} class={liWrapper} role='button' aria-expanded={opening.value} tabIndex={0}>
       <div class={liHeader}>
         {/*<span class={li_content.ico}>{props.icon}</span>*/}
-        <img class={li_content.ico} src={props.icon} alt='i' />
+        <img class={li_content.ico} src={props.icon} alt='xxx' />
         <h4 class={li_content.txt1}>{props.title}</h4>
         <span class={opening.value ? li_content.notificationOpen : li_content.notification}> </span>
       </div>
       <p class={opening.value ? li_content.txt2Open : li_content.txt2}>{props.description}</p>
     </li>
-  )
-})
-
-export default component$(() => {
-  return (
-    <ul class={ul}>
-      <SvgImage />
-      {data.map((element, i) => (
-        <LI key={i} title={element.title} icon={element.icon} description={element.description} />
-      ))}
-    </ul>
   )
 })

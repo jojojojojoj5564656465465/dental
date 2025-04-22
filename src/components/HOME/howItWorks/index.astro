@@ -1,8 +1,36 @@
 ---
 import Title from '../../Layout-Component/topContent.astro'
 import { containerGridMaxColumn } from '@recipe'
-import UL from './index'
-import { bgImage } from './content.css'
+
+import { bgImage, ul } from './content.css'
+
+import Li from './index'
+
+export interface ItemProps {
+  title: string
+  description: string
+  icon: any
+}
+const data: ItemProps[] = [
+  {
+    title: 'book an appointment',
+    icon: 'src/assets/icons/icon-how-it-work-1.svg',
+    description:
+      'The goal of our clinic is to provide friendly, caring dentistry and\n' +
+      'the highest level of general, cosmetic, ents.',
+  },
+  {
+    title: 'Expert Care',
+    icon: '~assets/icons/icon-how-it-work-2.svg',
+    description: 'hhhhhhhhhhgfdlkfdmlk',
+  },
+  {
+    title: 'expert Care',
+    icon: '~assets/icons/icon-how-it-work-2.svg',
+    description:
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint consequatur consequuntur totam eos sapiente nihil consectetur',
+  },
+]
 ---
 
 <section
@@ -31,5 +59,11 @@ import { bgImage } from './content.css'
       textAlign="left"
     />
   </div>
-  <UL />
+    <ul class={ul}>
+
+      {data.map((element, i) => (
+        <Li title={element.title} icon={element.icon} description={element.description} />
+      ))}
+    </ul>
+
 </section>

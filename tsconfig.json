@@ -27,7 +27,7 @@
           "@s": [
             "src/styles/index.ts"
           ],
-			"@assets/*": ["src/assets/*"]
+			"~assets/*": ["src/assets/*"]
 		}
 	}
 }
