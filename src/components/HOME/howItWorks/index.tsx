@@ -1,11 +1,11 @@
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
-
-import { li_content, liHeader, liWrapper } from './content.css'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { li_content, liHeader, liWrapper, myContent } from './content.css'
 
 export interface ItemProps {
   title: string
   description: string
-  icon: any
+  icon: string
 }
 
 export default component$<ItemProps>(props => {
@@ -26,9 +26,9 @@ export default component$<ItemProps>(props => {
   return (
     <li onClick$={toOpen} class={liWrapper} role='button' aria-expanded={opening.value} tabIndex={0}>
       <div class={liHeader}>
-        {/*<span class={li_content.ico}>{props.icon}</span>*/}
-        <img class={li_content.ico} src={props.icon} alt='xxx' />
-        <h4 class={li_content.txt1}>{props.title}</h4>
+        <h4 class={li_content.txt1} style={assignInlineVars({ [myContent]: props.icon })}>
+          {props.title}
+        </h4>
         <span class={opening.value ? li_content.notificationOpen : li_content.notification}> </span>
       </div>
       <p class={opening.value ? li_content.txt2Open : li_content.txt2}>{props.description}</p>

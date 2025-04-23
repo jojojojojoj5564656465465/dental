@@ -8,19 +8,25 @@ import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon"; //import robotsTxt from 'astro-robots-txt'
 
+import netlify from "@astrojs/netlify";
+
 //import robotsTxt from 'astro-robots-txt'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  //output: "static",
+  output: "static",
+
   // server: {
   //   host: true,
   //   port: 3000,
   //   watch: {
   //     usePolling: true
   //   }
+  // },
+  // experimental: {
+  //   fonts: [],  // <-- stub enables the virtual:astro:assets/fonts/internal export
   // },
   vite: {
     resolve: {
@@ -45,15 +51,18 @@ export default defineConfig({
       tailwindcss(),
     ],
     optimizeDeps: {
-      noDiscovery: false,
-      exclude: ["virtual:astro:assets/fonts/internal"],
+      noDiscovery: true,
+
       //include: [] // Empty array instead of undefined
     },
   },
+
   integrations: [
     qwikdev(),
     icon({ iconDir: "src/assets/icons" }),
     //robotsTxt()
     //markdoc(),
   ],
+
+  //adapter: netlify(),
 });

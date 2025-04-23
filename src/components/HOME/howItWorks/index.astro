@@ -9,24 +9,24 @@ import Li from './index'
 export interface ItemProps {
   title: string
   description: string
-  icon: any
+  iconPath: string
 }
 const data: ItemProps[] = [
   {
     title: 'book an appointment',
-    icon: 'src/assets/icons/icon-how-it-work-1.svg',
+    iconPath: 'url(src/assets/icons/icon-how-it-work-1.svg)',
     description:
       'The goal of our clinic is to provide friendly, caring dentistry and\n' +
       'the highest level of general, cosmetic, ents.',
   },
   {
     title: 'Expert Care',
-    icon: '~assets/icons/icon-how-it-work-2.svg',
+    iconPath: 'url(src/assets/icons/icon-how-it-work-2.svg)',
     description: 'hhhhhhhhhhgfdlkfdmlk',
   },
   {
     title: 'expert Care',
-    icon: '~assets/icons/icon-how-it-work-2.svg',
+    iconPath: 'url(src/assets/icons/icon-how-it-work-3.svg)',
     description:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint consequatur consequuntur totam eos sapiente nihil consectetur',
   },
@@ -62,7 +62,7 @@ const data: ItemProps[] = [
     <ul class={ul}>
 
       {data.map((element, i) => (
-        <Li title={element.title} icon={element.icon} description={element.description} />
+        <Li title={element.title} icon={element.iconPath} description={element.description} />
       ))}
     </ul>
 

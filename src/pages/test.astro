@@ -1,7 +1,7 @@
 ---
-import icon1 from '/home/tim/Documents/dentistLanding/src/assets/icons/icon-services-1.svg'
-import icon2 from 'src/assets/icons/icon-how-it-work-2.svg'
-import { Picture, Image } from 'astro:assets'
+import icon1 from 'public/icon-star.svg'
+import icon2 from '~assets/icons/icon-how-it-work-2.svg'
+import { Image } from 'astro:assets'
 ---
 
 <html lang="fr">
@@ -13,7 +13,8 @@ import { Picture, Image } from 'astro:assets'
   <title>dentist Astro</title>
 </head>
 <body>
-<Image src={icon1} alt="A description of my image." />
+<h1 class="text-red-500 text-7xl text-center">svg a afficher top</h1>
+<Image src={icon2} alt="A description of my image." width={'76'} height={'76'} />
 
 </body>
 </html>

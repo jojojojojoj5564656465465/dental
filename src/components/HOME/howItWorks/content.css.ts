@@ -127,17 +127,17 @@ export const liHeader = style({
 
 export const myContent = createVar({
   syntax: '<string>',
-  initialValue: 'url(src/assets/icons/icon-how-it-work-1.svg)',
+  initialValue: 'url(~assets/icons/icon-how-it-work-1.svg)',
   inherits: false,
 })
 
 export const li_content = styleVariants({
   ico: {
     gridColumn: '1 / 2',
-    //backgroundColor: 'pink',
+    backgroundColor: 'pink',
     padding: '10px',
-    width: '40px',
-    height: '40px',
+    // width: '40px',
+    // height: '40px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -151,7 +151,7 @@ export const li_content = styleVariants({
 
       marginInlineStart: '1rem',
       ':before': {
-        content: 'url(/home/tim/Documents/dentistLanding/src/assets/icons/icon-services-1.svg)',
+        content: myContent,
       },
     },
   ],
