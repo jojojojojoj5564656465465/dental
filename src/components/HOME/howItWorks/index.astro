@@ -5,28 +5,37 @@ import { containerGridMaxColumn } from '@recipe'
 import { bgImage, ul } from './content.css'
 
 import Li from './index'
+import svg1 from 'src/assets/icons/icon-how-it-work-1.svg'
+import svg2 from 'src/assets/icons/icon-how-it-work-2.svg'
+import svg3 from 'src/assets/icons/icon-how-it-work-3.svg'
+import { getImage } from 'astro:assets'
 
 export interface ItemProps {
   title: string
   description: string
   iconPath: string
 }
+const svgUrl = {
+  one: await getImage({ src: svg1, format: 'svg' }),
+  two: await getImage({ src: svg2, format: 'svg' }),
+  three: await getImage({ src: svg3, format: 'svg' }),
+}
 const data: ItemProps[] = [
   {
     title: 'book an appointment',
-    iconPath: 'url(src/assets/icons/icon-how-it-work-1.svg)',
+    iconPath: `url(${svgUrl.one.src})`,
     description:
       'The goal of our clinic is to provide friendly, caring dentistry and\n' +
       'the highest level of general, cosmetic, ents.',
   },
   {
     title: 'Expert Care',
-    iconPath: 'url(src/assets/icons/icon-how-it-work-2.svg)',
+    iconPath: `url(${svgUrl.two.src})`,
     description: 'hhhhhhhhhhgfdlkfdmlk',
   },
   {
     title: 'expert Care',
-    iconPath: 'url(src/assets/icons/icon-how-it-work-3.svg)',
+    iconPath: `url(${svgUrl.three.src})`,
     description:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo velit illo atque voluptates ipsam iure cupiditate reprehenderit sint consequatur consequuntur totam eos sapiente nihil consectetur',
   },

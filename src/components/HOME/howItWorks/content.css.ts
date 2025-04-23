@@ -152,6 +152,7 @@ export const li_content = styleVariants({
       marginInlineStart: '1rem',
       ':before': {
         content: myContent,
+        marginInlineEnd: '1rem',
       },
     },
   ],
