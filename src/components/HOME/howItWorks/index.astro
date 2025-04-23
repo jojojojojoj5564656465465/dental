@@ -54,8 +54,8 @@ const data: ItemProps[] = [
       maxColumn: 2,
       marginBlock: "lg",
       paddingBlock: "lg",
-      hover: false
-    })
+      hover: false,
+    }),
   ]}
 >
   <div class="grid place-items-center bg-slate-900/70 mx-4 px-2">
@@ -68,11 +68,15 @@ const data: ItemProps[] = [
       textAlign="left"
     />
   </div>
-    <ul class={ul}>
-
-      {data.map((element, i) => (
-        <Li title={element.title} icon={element.iconPath} description={element.description} />
-      ))}
-    </ul>
-
+  <ul class={ul}>
+    {
+      data.map((element, i) => (
+        <Li
+          title={element.title}
+          icon={element.iconPath}
+          description={element.description}
+        />
+      ))
+    }
+  </ul>
 </section>

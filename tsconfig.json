@@ -1,33 +1,29 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["dist"],
-	"compilerOptions": {
-		"verbatimModuleSyntax": true,
-		"types": ["bun-types"],
-		"noEmit": true,
-		"strictNullChecks": true,
-		"allowJs": true,
-		"target": "esnext",
-		"allowImportingTsExtensions": true,
-		"moduleResolution": "Bundler",
-		"baseUrl": "./",
-		"jsx": "react-jsx",
-		"jsxImportSource": "@builder.io/qwik",
-		"paths": {
-			"@/*": ["src/*"],
-			"@styles/*": ["src/styles/*"],
-			"@recipe": ["src/styles/recipe/index.css.ts"],
-			"@img/*": ["src/assets/img/*"],
-          "@theme": [
-            "src/styles/utils/themeNew.css"
-          ],
-			"@fonts": ["public/fonts/*"],
-			"@images": ["public/images/*"],
-          "@s": [
-            "src/styles/index.ts"
-          ],
-			"~assets/*": ["src/assets/*"]
-		}
-	}
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "types": ["bun-types"],
+    "noEmit": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "target": "esnext",
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "Bundler",
+    "baseUrl": "./",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
+    "paths": {
+      "@/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@recipe": ["src/styles/recipe/index.css.ts"],
+      "@img/*": ["src/assets/img/*"],
+      "@theme": ["src/styles/utils/themeNew.css"],
+      "@fonts": ["public/fonts/*"],
+      "@images": ["public/images/*"],
+      "@s": ["src/styles/index.ts"],
+      "~assets/*": ["src/assets/*"]
+    }
+  }
 }

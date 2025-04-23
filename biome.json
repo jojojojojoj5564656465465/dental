@@ -1,11 +1,11 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
-	"extends": [],
-	"files": { "ignoreUnknown": true },
-	"organizeImports": {
-		"enabled": true,
-		"ignore": [".astro", "dist", "node_modules"]
-	},
+  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+  "extends": [],
+  "files": { "ignoreUnknown": true },
+  "organizeImports": {
+    "enabled": true,
+    "ignore": [".astro", "dist", "node_modules"]
+  },
   "overrides": [
     {
       "linter": {
@@ -18,67 +18,67 @@
       }
     }
   ],
-	"formatter": {
-		"enabled": true,
-		"formatWithErrors": false,
-		"ignore": [],
-		"indentStyle": "space",
-		"indentWidth": 2,
-		"lineWidth": 120
-	},
-	"javascript": {
-		"parser": {
-			"unsafeParameterDecoratorsEnabled": true
-		},
-		"formatter": {
-			"quoteStyle": "single",
-			"jsxQuoteStyle": "single",
-			"semicolons": "asNeeded",
-			"arrowParentheses": "asNeeded",
-			"bracketSpacing": true
-		}
-	},
-	"json": {
-		"parser": { "allowComments": true },
-		"formatter": {
-			"enabled": true,
-			"indentStyle": "tab",
-			"indentWidth": 2,
-			"lineWidth": 120
-		}
-	},
-
-	"linter": {
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "ignore": [],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      "bracketSpacing": true
+    }
+  },
+  "json": {
+    "parser": { "allowComments": true },
+    "formatter": {
       "enabled": true,
-		"rules": {
-			"a11y": {
-				"recommended": true
-			},
-			"complexity": {
-				"recommended": true,
-				"useLiteralKeys": "off"
-			},
-			"correctness": {
-				"recommended": true
-			},
-			"performance": {
-				"recommended": true
-			},
-			"security": {
-				"recommended": true
-			},
-			"style": {
-				"recommended": true
-			},
-			"suspicious": {
-				"noExplicitAny": "off",
-				"recommended": true,
-				"noArrayIndexKey": "off",
-				"noMisleadingCharacterClass": "off"
-			},
-			"nursery": {
-				"recommended": true
-			}
-		}
-	}
+      "indentStyle": "tab",
+      "indentWidth": 2,
+      "lineWidth": 120
+    }
+  },
+
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "recommended": true
+      },
+      "complexity": {
+        "recommended": true,
+        "useLiteralKeys": "off"
+      },
+      "correctness": {
+        "recommended": true
+      },
+      "performance": {
+        "recommended": true
+      },
+      "security": {
+        "recommended": true
+      },
+      "style": {
+        "recommended": true
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "recommended": true,
+        "noArrayIndexKey": "off",
+        "noMisleadingCharacterClass": "off"
+      },
+      "nursery": {
+        "recommended": true
+      }
+    }
+  }
 }

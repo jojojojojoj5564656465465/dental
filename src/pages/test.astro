@@ -5,16 +5,20 @@ import { Image } from 'astro:assets'
 ---
 
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-  <title>dentist Astro</title>
-</head>
-<body>
-<h1 class="text-red-500 text-7xl text-center">svg a afficher top</h1>
-<Image src={icon2} alt="A description of my image." width={'76'} height={'76'} />
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>dentist Astro</title>
+  </head>
+  <body>
+    <h1 class="text-red-500 text-7xl text-center">svg a afficher top</h1>
+    <Image
+      src={icon2}
+      alt="A description of my image."
+      width={"76"}
+      height={"76"}
+    />
+  </body>
 </html>

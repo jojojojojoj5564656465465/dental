@@ -8,6 +8,7 @@ fi
 
 # Exécute biome format
 echo "Formatting code with Biome..."
+bunx prettier . --write
 biome format --write ./src
 
 # Ajoute les changements
