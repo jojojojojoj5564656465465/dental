@@ -105,7 +105,7 @@ export const bgImage = style({
   backgroundImage: 'url(/src/assets/istockphoto.jpg)',
   backgroundSize: 'contain',
   backgroundPosition: 'center',
-  backgroundRepeat: 'repeat-x',
+  backgroundRepeat: 'repeat',
 })
 export const ul = style({
   paddingInline: 0,
@@ -127,7 +127,7 @@ export const liHeader = style({
 
 export const myContent = createVar({
   syntax: '<string>',
-  initialValue: 'url(~assets/icons/icon-how-it-work-1.svg)',
+  initialValue: 'url(src/assets/icons/icon-how-it-work-1.svg)',
   inherits: false,
 })
 

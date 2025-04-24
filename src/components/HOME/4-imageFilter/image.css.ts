@@ -35,8 +35,8 @@ export const wrapper = style([
 
   {
     clipPath: 'inset(0 round 50px)',
-    paddingBlock: fluid(10, 40),
-    blockSize: calc.multiply(overlaping, 2),
+    paddingBlock: fluid(5, 40),
+    blockSize: calc.multiply(overlaping, 1.5),
 
     display: 'grid',
     placeItems: 'center !important',
@@ -49,5 +49,10 @@ export const wrapper = style([
     borderImage:
       'linear-gradient(light-dark(oklch(58.09% 0.1151 235.69/70%),oklch(32.25% 0.0573 233.51 / 80%))) fill 1',
     zIndex: 2,
+    '@media': {
+      [media.md]: {
+        blockSize: calc.multiply(overlaping, 2),
+      },
+    },
   },
 ])
