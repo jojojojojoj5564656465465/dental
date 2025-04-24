@@ -17,13 +17,24 @@ export const sectionWrapper = style([
   {
     blockSize: 600,
     aspectRatio: '21/9s',
-
     backgroundImage: `linear-gradient(to bottom, ${color.variable.whiteBlue} ${overlaping}, ${color.variable.darkLight} ${overlaping})`,
     '@media': {
       [media.mobile]: {
+        blockSize: '349px',
+        vars: {
+          [overlaping]: '0px',
+        },
+      },
+      [media.tablet]: {
         blockSize: '449px',
         vars: {
-          [overlaping]: '180px',
+          [overlaping]: '120px',
+        },
+      },
+      [media.md]: {
+        blockSize: '609px',
+        vars: {
+          [overlaping]: '250px',
         },
       },
     },
