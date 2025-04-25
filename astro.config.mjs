@@ -41,12 +41,15 @@ export default defineConfig({
       },
     },
     // css: {
-    // 	transformer: "lightningcss",
+    //   transformer: "lightningcss",
+    // },
+    // build: {
+    //   cssMinify: "lightningcss",
     // },
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
-        identifiers: "short",
+        identifiers: "debug",
       }),
       tailwindcss(),
     ],

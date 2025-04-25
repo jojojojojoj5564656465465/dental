@@ -107,12 +107,20 @@ export const container = recipe({
   },
 })
 
+// /home/tim/Documents/dentistLanding/src/styles/recipe/container.css.ts
+
+// ... other code ...
+
+// /home/tim/Documents/dentistLanding/src/styles/recipe/container.css.ts
+
 globalStyle(
+  // Cette ligne génère le sélecteur CSS invalide
   `${container.classNames.variants.size.small}:has(> :is(${container.classNames.variants.size.medium}, ${container.classNames.variants.size.large}, ${container.classNames.variants.size.xxl})) > *`,
   {
     maxInlineSize: '100%',
   },
 )
+
 globalStyle(
   `${container.classNames.variants.size.medium}:has(> :is(${container.classNames.variants.size.large}, ${container.classNames.variants.size.xxl})) > *`,
   {

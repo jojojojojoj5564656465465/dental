@@ -40,7 +40,7 @@ export const sectionWrapper = style([
     },
   },
 ])
-
+export const menBG = createVar()
 export const wrapper = style([
   container({ size: 'medium', background: false }),
 
@@ -48,12 +48,12 @@ export const wrapper = style([
     clipPath: 'inset(0 round 50px)',
     paddingBlock: fluid(5, 40),
     blockSize: calc.multiply(overlaping, 1.5),
-
+    backgroundImage: menBG,
     display: 'grid',
     placeItems: 'center !important',
     transition: 'border-image 4s ease-in-out 1s',
     backgroundAttachment: 'fixed',
-    backgroundImage: 'url(/men.jpg)',
+
     backgroundPosition: 'bottom',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',

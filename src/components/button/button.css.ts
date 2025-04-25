@@ -13,7 +13,7 @@ export const heightButton = createVar({
 export const marginInlineCustom = createVar({
   syntax: '<length>',
   inherits: false,
-  initialValue: 'auto',
+  initialValue: '50px',
 })
 
 /**

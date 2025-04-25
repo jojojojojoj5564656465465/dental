@@ -1,5 +1,5 @@
 /* src/components/testimonial-section/testimonial-section.css */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+/* @import url("..."); <-- Supprime cette ligne */
 
 /* Apply background and text color to the component's scope if body styles aren't global */
 /* Or ensure these are set globally in your root layout */
@@ -15,7 +15,7 @@
   width: 100%;
   align-items: center;
   gap: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif; /* Assure-toi que Poppins est chargé via <link> dans HTML */
   padding-inline: clamp(5px, 5px + 2vw, 50px);
   color: var(--text-color); /* Ensure text color is inherited */
   /* overflow-x: auto; */ /* Potentially problematic, keep commented unless needed */

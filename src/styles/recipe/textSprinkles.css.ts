@@ -4,7 +4,7 @@ import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles'
 import { media } from '../token' // Renamed imported 'space' to avoid conflict
 import { theme } from '../utils/themeNew.css.ts' // Make sure 'theme' structure matches usage (e.g., theme.primary or theme.colors.primary)
 import f from '../utils/fontFace.css.ts' // Make sure these are exported font family names
-import marginPaddingSprinkles from '../recipe/spaceMarginPadding.ts' // Ensure this is the defineProperties result
+import marginPaddingSprinkles from './spaceMarginPadding.css.ts' // Ensure this is the defineProperties result
 
 // Define semantic line heights (unitless are generally recommended)
 const lineHeights = {
