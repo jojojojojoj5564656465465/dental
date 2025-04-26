@@ -30,7 +30,7 @@ export const buttonCallToAction = style([
         display: 'grid',
         justifyContent: 'center',
         placeItems: 'center',
-        backgroundColor: color.theme.background,
+        //backgroundColor: color.theme.accent,
       },
     },
     '::before': {
@@ -46,7 +46,7 @@ export const buttonCallToAction = style([
       //maskImage: 'linear-gradient(to left, transparent 0%, black 100%)',
       content: '',
     },
-    backgroundColor: color.theme.background,
+    backgroundColor: color.variable.accent,
     fontSize: fontSize.md,
     height: heightButton,
     minInlineSize: 'min(90%, 16rem)',
@@ -69,12 +69,12 @@ export const buttonCallToAction = style([
     selectors: {
       '&:hover::before': {
         left: 0,
-        color: color.theme.textHover,
+        color: color.variable.accent,
       },
     },
     ':hover': {
-      zIndex: '2',
-      //  color: color.theme.textHover,
+      zIndex: '23',
+      color: color.variable.accent,
     },
     containerName: buttonContainer,
     containerType: 'inline-size',
@@ -112,13 +112,9 @@ export const buttonCallToAction_icon = style({
   transition: 'transform 0.2s ease',
   backgroundColor: color.theme.background,
   color: color.theme.textHover,
-  // selectors: {
-  //   [`${buttonCallToAction}:hover > &`]: {
-  //     transform: 'rotate(45deg)',
-  //     backgroundColor: color.theme.primary,
-  //     color: color.theme.textHover,
-  //   },
-  // },
+  ':hover': {
+    transform: 'rotate(85deg)',
+  },
 })
 globalStyle(`${buttonCallToAction} > a`, {
   textDecoration: 'none',
