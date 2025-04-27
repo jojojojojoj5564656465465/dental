@@ -2,10 +2,7 @@
   "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
   "extends": [],
   "files": { "ignoreUnknown": true },
-  "organizeImports": {
-    "enabled": true,
-    "ignore": [".astro", "dist", "node_modules"]
-  },
+
   "overrides": [
     {
       "linter": {
@@ -21,7 +18,7 @@
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": [],
+
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 120

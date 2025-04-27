@@ -1,8 +1,18 @@
 // components/BeforeAfterSlider.tsx
-import { component$, useSignal, useVisibleTask$, useStylesScoped$, useOn, $ } from '@builder.io/qwik'
+import { $, component$, useOn, useSignal, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik'
 import styles from './BeforeAfterSlider.css?inline'
+import * as v from 'valibot'
 
-export default component$(() => {
+interface Props {
+  beforeImage: string
+  afterImage: string
+}
+export const beforeAfterSliderSchema = v.object({
+  beforeImage: v.string(),
+  afterImage: v.string(),
+})
+export default component$<Props>(Props => {
+  const PropsValidated = v.parse(beforeAfterSliderSchema, Props)
   const sliderPosition = useSignal(20)
   const containerRef = useSignal<HTMLDivElement>()
   const isDragging = useSignal(false)
@@ -54,12 +64,18 @@ export default component$(() => {
   return (
     <div class='before-after-container' ref={containerRef}>
       <div class='before-image'>
-        <img src='src/assets/men.jpg' alt='Sourire avant traitement dentaire' width={600} height={400} loading='lazy' />
+        <img
+          src={PropsValidated.beforeImage}
+          alt='Sourire avant traitement dentaire'
+          width={600}
+          height={400}
+          loading='lazy'
+        />
       </div>
 
       <div class='after-image' style={{ width: `${sliderPosition.value}%` }}>
         <img
-          src='src/assets/why-choose-us-img.png'
+          src={PropsValidated.afterImage}
           alt='Sourire après traitement dentaire'
           width={600}
           height={400}
@@ -67,6 +83,7 @@ export default component$(() => {
         />
       </div>
 
+      {/** biome-ignore lint/a11y/useFocusableInteractive: <explanation> */}
       <div
         class='slider-handle'
         style={{ left: `${sliderPosition.value}%` }}
