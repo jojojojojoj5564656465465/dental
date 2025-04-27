@@ -6,8 +6,10 @@ interface Props {
 }
 const { title, link, marginInlineCustomProps = '0 auto' } = Astro.props
 import { buttonCallToAction, buttonCallToAction_icon, marginInlineCustom } from './button.css'
-
+import * as v from 'valibot'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
+const PixelStringSchema = v.pipe(v.string())
+const pixel = v.parse(PixelStringSchema, marginInlineCustomProps)
 ---
 
 <button
@@ -16,7 +18,7 @@ import { assignInlineVars } from '@vanilla-extract/dynamic'
   aria-label="rendez-vous"
   tabindex="0"
   style={assignInlineVars({
-    [marginInlineCustom]: marginInlineCustomProps,
+    [marginInlineCustom]: pixel,
   })}
 >
   <a href={link}>{title}</a>

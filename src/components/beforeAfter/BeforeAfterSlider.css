@@ -1,0 +1,85 @@
+/* components/BeforeAfterSlider.css */
+.before-after-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: col-resize;
+}
+
+.before-image,
+.after-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.before-image {
+  width: 100%;
+}
+
+.after-image {
+  width: 50%;
+  border-right: 2px solid white;
+}
+
+.before-image img,
+.after-image img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: white;
+  z-index: 10;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-arrow {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a6496;
+  font-size: 14px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.slider-arrow.left {
+  left: -50px;
+}
+
+.slider-arrow.right {
+  right: -50px;
+}
+
+@media (max-width: 640px) {
+  .before-after-container {
+    height: 300px;
+  }
+
+  .before-image img,
+  .after-image img {
+    height: 300px;
+  }
+}

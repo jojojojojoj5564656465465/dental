@@ -2,6 +2,7 @@
 import icon1 from 'public/icon-star.svg'
 import icon2 from '~assets/icons/icon-how-it-work-2.svg'
 import { Image } from 'astro:assets'
+import BeforeAfter from 'src/components/beforeAfter/index.tsx'
 ---
 
 <html lang="fr">
@@ -14,11 +15,6 @@ import { Image } from 'astro:assets'
   </head>
   <body>
     <h1 class="text-red-500 text-7xl text-center">svg a afficher top</h1>
-    <Image
-      src={icon2}
-      alt="A description of my image."
-      width={"76"}
-      height={"76"}
-    />
+    <BeforeAfter />
   </body>
 </html>
