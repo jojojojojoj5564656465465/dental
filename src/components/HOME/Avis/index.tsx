@@ -127,7 +127,7 @@ const TestimonialSection = component$(() => {
                 active: index === currentIndex.value,
               }}
             >
-              <span class='quote-icon'>“</span>
+              <span class='quote-icon'> </span>
               <blockquote class='quote-text'>{testimonial.quote}</blockquote>
               <div class='author-info'>
                 <img

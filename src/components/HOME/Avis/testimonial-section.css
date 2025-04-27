@@ -155,6 +155,9 @@
   line-height: 0.5;
   margin-bottom: 20px;
   font-family: serif;
+  &:before {
+    content: url("../../../../public/svg/icon-testimonial-quote.svg");
+  }
 }
 
 .quote-text {
