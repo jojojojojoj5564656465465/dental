@@ -8,22 +8,21 @@ import MonIconeSVG from 'src/assets/icons/check.svg'
 
 <section class={content__wrapper}>
   <Title
-    subtitle="ABOUT US"
-    title="pour un mailleur quotidien et beau sourir ici."
-    description="The goal of our clinic is to provide friendly, caring dentistry and the   highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world."
-    PreTitle="Votre avenir"
+    subtitle="À propos de nous"
+    title=" Pour un sourire éclatant et une hygiène bucco-dentaire optimale."
+    description="Notre cabinet dentaire s'engage à offrir des soins attentifs, adaptés à vos besoins, et à garantir un service de qualité en dentisterie générale, esthétique et spécialisée. Nous mettons tout en œuvre pour améliorer votre quotidien et préserver votre bien-être."
+    PreTitle="Votre santé, notre priorité"
     gap="largeGap"
     textAlign="left"
-  >
-    <ul class={text.ul}>
-      {
-        ["Stérisation", "blancherur", "qualité", "prix"].map((el) => (
-          <li class="flex gap-2 items-center">
-            <MonIconeSVG width={16} height={16} />
-            <p class={text.li}>{el}</p>
-          </li>
-        ))
-      }
-    </ul>
-  </Title>
+  />
+  <ul class={text.ul}>
+    {
+      ["Stérisation", "Expertise", "qualité", "prix"].map((el) => (
+        <li class="flex gap-2 items-center capitalize">
+          <MonIconeSVG width={16} height={16} />
+          <p class={text.li}>{el}</p>
+        </li>
+      ))
+    }
+  </ul>
 </section>
