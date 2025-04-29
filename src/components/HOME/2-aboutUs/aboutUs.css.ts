@@ -27,7 +27,7 @@ export const wrapperIndex = style([
 export const content__wrapper = style({
   //inlineSize: '100%',
   minInlineSize: 300,
-
+  marginTop: 10,
   zIndex: 2,
   alignSelf: 'center',
   display: 'grid',
@@ -96,6 +96,7 @@ export const newImageGrid_Wrapper = style({
   display: 'grid',
   aspectRatio: '1',
   gridTemplateColumns: `repeat(${numberOfCc},1fr)`,
+  marginTop: fluid(10, 50),
   '@media': {
     [media.tablet]: {
       vars: {
@@ -109,26 +110,42 @@ export const newImageGrid_Wrapper = style({
     },
   },
 })
-export const carreImage = createVar()
-export const rectangleImage = createVar()
+export const carreImage = createVar({
+  syntax: '<string>',
+  initialValue: '',
+  inherits: false,
+})
+export const rectangleImage = createVar({
+  syntax: '<string>',
+  initialValue: '',
+  inherits: false,
+})
+const baseImageStyle = style({
+  borderRadius: '20px',
+  border: '10px solid white',
+  backgroundPosition: 'center',
+})
 export const newImageGrid = styleVariants({
-  square: {
-    gridArea: '1 / 1 / 7 / 7',
-    backgroundImage: carreImage,
-    backgroundPosition: 'center',
-  },
-  vertical: {
-    gridArea: '5 / 3 / -1 / -1',
-    backgroundImage: rectangleImage,
-    border: '10px solid white',
-    borderRadius: '20px',
-    backgroundPosition: '-10px -70px',
-    '@media': {
-      [media.md]: {
-        backgroundPosition: '0 0',
+  square: [
+    baseImageStyle,
+    {
+      gridArea: '1 / 1 / 7 / 7',
+      backgroundImage: carreImage,
+    },
+  ],
+  vertical: [
+    baseImageStyle,
+    {
+      gridArea: '5 / 3 / -1 / -1',
+      backgroundImage: rectangleImage,
 
-        gridArea: '6 / 4 / -1 / -1',
+      backgroundPosition: '-10px -70px',
+      '@media': {
+        [media.md]: {
+          backgroundPosition: '0 0',
+          gridArea: '6 / 4 / -1 / -1',
+        },
       },
     },
-  },
+  ],
 })
