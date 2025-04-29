@@ -120,8 +120,13 @@ export const newImageGrid = styleVariants({
   vertical: {
     gridArea: '5 / 3 / -1 / -1',
     backgroundImage: rectangleImage,
+    border: '10px solid white',
+    borderRadius: '20px',
+    backgroundPosition: '-10px -70px',
     '@media': {
       [media.md]: {
+        backgroundPosition: '0 0',
+
         gridArea: '6 / 4 / -1 / -1',
       },
     },
