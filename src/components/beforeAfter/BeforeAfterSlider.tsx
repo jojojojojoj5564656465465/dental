@@ -3,15 +3,11 @@ import { $, component$, useOn, useSignal, useStylesScoped$, useVisibleTask$ } fr
 import styles from './BeforeAfterSlider.css?inline'
 import * as v from 'valibot'
 
-interface Props {
-  beforeImage: string
-  afterImage: string
-}
 export const beforeAfterSliderSchema = v.object({
   beforeImage: v.string(),
   afterImage: v.string(),
 })
-export default component$<Props>(Props => {
+export default component$<v.InferInput<typeof beforeAfterSliderSchema>>(Props => {
   const PropsValidated = v.parse(beforeAfterSliderSchema, Props)
   const sliderPosition = useSignal(20)
   const containerRef = useSignal<HTMLDivElement>()

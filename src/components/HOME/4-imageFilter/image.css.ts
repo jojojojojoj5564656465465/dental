@@ -56,7 +56,7 @@ export const wrapper = style([
 
     backgroundPosition: 'bottom',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: 'auto',
     borderImage:
       'linear-gradient(light-dark(oklch(58.09% 0.1151 235.69/70%),oklch(32.25% 0.0573 233.51 / 80%))) fill 1',
     zIndex: 2,
