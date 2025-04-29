@@ -109,16 +109,17 @@ export const newImageGrid_Wrapper = style({
     },
   },
 })
-
+export const carreImage = createVar()
+export const rectangleImage = createVar()
 export const newImageGrid = styleVariants({
   square: {
     gridArea: '1 / 1 / 7 / 7',
-    backgroundColor: 'pink',
+    backgroundImage: carreImage,
     backgroundPosition: 'center',
   },
   vertical: {
     gridArea: '5 / 3 / -1 / -1',
-    backgroundColor: 'greenyellow',
+    backgroundImage: rectangleImage,
     '@media': {
       [media.md]: {
         gridArea: '6 / 4 / -1 / -1',

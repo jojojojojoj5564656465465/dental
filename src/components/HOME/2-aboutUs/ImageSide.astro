@@ -1,8 +1,32 @@
 ---
-import { newImageGrid, newImageGrid_Wrapper } from './aboutUs.css'
+import { newImageGrid, newImageGrid_Wrapper, carreImage, rectangleImage } from './aboutUs.css'
+import { getImage } from 'astro:assets'
+import carre from 'src/assets/about-us-img-1.jpg'
+import rectangle from 'src/assets/about-us-img-2.jpg'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+const carreBackground = await getImage({
+  src: carre,
+  format: 'avif',
+})
+const rectangleBackground = await getImage({
+  src: rectangle,
+  format: 'avif',
+})
 ---
 
 <section class={newImageGrid_Wrapper}>
-  <div class={newImageGrid.square}></div>
-  <div class={newImageGrid.vertical}></div>
+  <div
+    class={newImageGrid.square}
+    style={assignInlineVars({
+      [carreImage]: `url(${carreBackground.src})`,
+    })}
+  >
+  </div>
+  <div
+    style={assignInlineVars({
+      [rectangleImage]: `url(${rectangleBackground.src})`,
+    })}
+    class={newImageGrid.vertical}
+  >
+  </div>
 </section>
