@@ -7,28 +7,29 @@ interface CardQwkProps {
 
 const cardData: CardQwkProps[] = [
   {
-    title: 24,
-    symbol: '+',
-    subtitle: 'insurance covered',
-    text: 'Our team loves dental trivia. Did you know that tooth enamel.',
+    title: 12,
+    symbol: '~',
+    subtitle: 'Années',
+    text: 'Une expertise reconnue pour des soins de qualité.',
   },
   {
-    title: 1524,
+    title: 2000,
     symbol: '+',
-    subtitle: 'dadsd dsf ',
-    text: 'Our team loves dental trivia. Did you know that tooth enamel.',
+    subtitle: 'Patients',
+    text: 'Des milliers de sourires transformés avec succès.',
   },
   {
-    title: 3, // Using string here to represent "3K"
-    symbol: 'K',
-    subtitle: 'hdjjr Mendes',
-    text: 'Our team loves dental trivia. Did you know that tooth enamel.',
+    title: 11,
+    symbol: '~',
+    subtitle: 'Professionnels',
+    text: 'Une équipe à votre écoute pour votre confort et sécurité.',
   },
   {
-    title: 92,
+    title: 20,
     symbol: '+',
-    subtitle: 'insurance covered',
-    text: 'Our team loves dental trivia. Did you know that tooth enamel.',
+    subtitle: 'Mutuelles',
+    text: "Une prise en charge simplifiée pour votre tranquillité d'esprit.",
   },
 ]
+
 export default cardData

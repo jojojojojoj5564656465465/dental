@@ -46,7 +46,8 @@ export const CardStyle = styleVariants({
   ],
   icon: {
     aspectRatio: 1,
-    inlineSize: 'auto',
+    inlineSize: 55,
+    blockSize: 55,
   },
 })
 

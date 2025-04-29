@@ -1,4 +1,5 @@
 // components/BeforeAfterSlider.tsx
+/** biome-ignore-all lint/a11y/useFocusableInteractive: <explanation> */
 import { $, component$, useOn, useSignal, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik'
 import styles from './BeforeAfterSlider.css?inline'
 import * as v from 'valibot'
