@@ -1,7 +1,6 @@
-import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
-// Navbar.js
+import { $, component$, useSignal } from '@builder.io/qwik'
+import { type MenuItem, menu } from './menu.data'
 import * as s from './Navbar.css'
-import MenuLinks from './menu.data'
 
 const SVG = component$(() => {
   return (
@@ -21,23 +20,38 @@ const SVG = component$(() => {
     </svg>
   )
 })
-export default component$(props => {
-  const isMenuOpen = useSignal<boolean>(false)
+
+export const SubMenu = component$<{ items: MenuItem[] }>(props => {
+  const isOpen = useSignal(false)
+
+  const toggleSubMenu = $(() => {
+    isOpen.value = !isOpen.value
+  })
+
+  return (
+    <li class={s.menuItem}>
+      <button type='button' onClick$={toggleSubMenu} class={s.subMenuToggle}>
+        Sous-menu
+      </button>
+      {isOpen.value && (
+        <ul class={s.subMenu}>
+          {props.items.map((item, index) => (
+            <li key={index}>
+              <a href={item.link}>{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  )
+})
+
+export default component$(() => {
+  const isMenuOpen = useSignal(false)
+
   const toggleMenu = $(() => {
     isMenuOpen.value = !isMenuOpen.value
   })
-
-  useOnDocument(
-    'click',
-    $(event => {
-      if (isMenuOpen.value) {
-        const target = event.target as HTMLElement
-        if (target.closest('#nav-bar') === null) {
-          isMenuOpen.value = false
-        }
-      }
-    }),
-  )
 
   return (
     <nav id='nav-bar' class={s.one.wrapper} aria-label='Main Navigation'>
@@ -64,17 +78,14 @@ export default component$(props => {
           <path d={!isMenuOpen.value ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18 18 6M6 6l12 12'} />
         </svg>
       </button>
-      <div class={isMenuOpen.value ? s.menuState.open : s.menuState.close} aria-hidden={!isMenuOpen.value} role='menu'>
-        {MenuLinks.map((el, index) => {
-          return (
-            <span class={s.menuState.link} key={index}>
-              <a class={s.menuState.link} href={el.link}>
-                {el.name}
-              </a>
-            </span>
-          )
-        })}
-      </div>
+      <ul class={s.menu}>
+        {menu.map((item, index) => (
+          <li key={index} class={s.menuItem}>
+            <a href={item.link}>{item.name}</a>
+            {item.Submenu && <SubMenu items={item.Submenu} />}
+          </li>
+        ))}
+      </ul>
     </nav>
   )
 })

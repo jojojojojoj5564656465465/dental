@@ -2,8 +2,28 @@
 import '../styles/global.css'
 
 import 'src/styles/utils/reset.css'
-import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
+//import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
 import Footer from 'src/components/Layout-Component/footer2/index.astro'
+//import Navbar from '@/components/Layout-Component/Navbar2/index.tsx'
+import NavbarTest from '@/components/Layout-Component/Navbar3/submenu.tsx'
+import type { SubMenuB } from '../components/Layout-Component/Navbar3/menu'
+
+const obj = {
+  type: 'submenu',
+  name: 'IT2',
+  Submenu: [
+    {
+      type: 'link',
+      name: 'Sous-menu 1',
+      link: '/sous-menu-1',
+    },
+    {
+      type: 'link',
+      name: 'Sous-menu 2',
+      link: '/sous-menu-2',
+    },
+  ],
+} satisfies SubMenuB
 ---
 
 <!doctype html>
@@ -22,7 +42,7 @@ import Footer from 'src/components/Layout-Component/footer2/index.astro'
     />
   </head>
   <body>
-    <Navbar />
+    <NavbarTest {...obj} />
     <slot />
     <Footer />
   </body>

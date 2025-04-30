@@ -1,6 +1,6 @@
 import * as c from '@recipe'
-import { style, styleVariants } from '@vanilla-extract/css'
 import { fontSize, media } from '@styles/token'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { fluid, globalStyleTag } from 'src/styles/utils/utils.ts'
 import { theme } from '@/styles/utils/themeNew.css'
 
@@ -20,7 +20,7 @@ export const buttonMobile = styleVariants({
       isolation: 'isolate',
       placeItems: 'center',
       order: 2,
-      //backgroundColor: T.color.theme.background,
+      backgroundColor: 'red',
       //color: 'yellow',
       '@media': {
         [media.lg]: {
@@ -142,4 +142,83 @@ globalStyleTag(menuState.close, {
     marginBlock: 'center',
     fontSize: fontSize.lg,
   },
+})
+
+// export const subMenu = style([
+//   flex({ direction: 'column', gap: 'sm', side: 4 }),
+//   {
+//     backgroundColor: 'red',
+//     ':first-child': {
+//       backgroundColor: 'blue',
+//     },
+//   },
+// ])
+export const navbar = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '1rem',
+})
+
+export const logo = style({
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+})
+
+export const menuToggle = style({
+  fontSize: '1rem',
+})
+
+export const menu = style({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  color: 'black',
+  display: 'flex',
+  backgroundColor: 'lightgreen',
+  flexGrow: 1,
+  inlineSize: 500,
+  gap: '2rem',
+})
+
+export const menuOpen = style({
+  // display: 'block',
+})
+
+export const menuClosed = style({
+  //display: 'none',
+})
+
+export const menuItem = style({
+  margin: '0.5rem 0',
+  display: 'flex',
+  flexDirection: 'column',
+  color: 'green',
+})
+globalStyle(`${menuItem}:has(ul):after`, {
+  content: '→',
+  marginLeft: '0.5rem',
+  fontSize: '0.8rem',
+  color: 'gray',
+  backgroundColor: 'orange',
+})
+
+export const subMenuWrapper = style({
+  position: 'relative',
+})
+
+export const subMenuToggle = style({
+  fontSize: '1rem',
+})
+
+export const subMenu = style({
+  position: 'absolute',
+  top: '100%',
+  left: 0,
+  backgroundColor: '#fff',
+  listStyle: 'none',
+  margin: 0,
+  padding: '0.5rem',
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  zIndex: 10,
 })

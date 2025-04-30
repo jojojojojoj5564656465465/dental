@@ -1,14 +1,26 @@
-export type menu = {
+export type MenuItem = {
   name: string
   link: string
+  Submenu?: MenuItem[]
 }
-export default [
+
+export const menu: MenuItem[] = [
   {
-    name: 'Exemples',
-    link: '/list',
+    name: 'IT1',
+    link: '/politique-de-confidentialite',
   },
   {
-    name: 'Tarifs',
-    link: '/Tarif',
+    name: 'IT2',
+    link: '/politique-de-confidentialite',
+    Submenu: [
+      {
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+      {
+        name: 'Sous-menu 2',
+        link: '/sous-menu-2',
+      },
+    ],
   },
-] as menu[]
+]
