@@ -27,9 +27,9 @@ export default component$<SubMenuB>(props => {
   })
   useStylesScoped$(styles)
   return (
-    <div class='submenu'>
-      <span class='elie'>{props.name}</span>
-      <ul class='yo'>
+    <div class='submenu flex flex-col gap-2 text-red-600'>
+      <span class=''>{props.name}</span>
+      <ul class=''>
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
         ))}

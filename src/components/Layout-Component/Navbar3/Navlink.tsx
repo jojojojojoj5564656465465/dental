@@ -6,8 +6,8 @@ import type { A } from './menu'
 export default component$<A>(props => {
   useStylesScoped$(styles)
   return (
-    <li class='navlink'>
-      <a class='cursor-pointer text-red-600 ' href={props.link}>
+    <li class='navlink flex text-green-500 '>
+      <a class='cursor-pointer ' href={props.link}>
         {props.name}
       </a>
     </li>
