@@ -23,6 +23,11 @@ export const menu: readonly (SubMenuB | A)[] = [
     link: '/politique-de-confidentialite',
   },
   {
+    type: 'link',
+    name: 'ITD1',
+    link: '/politique-de-confidentialite',
+  },
+  {
     type: 'submenu',
     name: 'IT2',
     Submenu: [
@@ -35,6 +40,58 @@ export const menu: readonly (SubMenuB | A)[] = [
         type: 'link',
         name: 'Sous-menu 2',
         link: '/sous-menu-2',
+      },
+    ],
+  },
+  {
+    type: 'submenu',
+    name: 'IT2D',
+    Submenu: [
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 2',
+        link: '/sous-menu-2',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+    ],
+  },
+  {
+    type: 'submenu',
+    name: 'IT5',
+    Submenu: [
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 2',
+        link: '/sous-menu-2',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
+      },
+      {
+        type: 'link',
+        name: 'Sous-menu 1',
+        link: '/sous-menu-1',
       },
     ],
   },

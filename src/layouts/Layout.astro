@@ -2,11 +2,12 @@
 import '../styles/global.css'
 
 import 'src/styles/utils/reset.css'
+import NN from ''
 //import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
 import Footer from 'src/components/Layout-Component/footer2/index.astro'
+import Ffr from 'src/components/Layout-Component/Navbar3/index.tsx'
 //import Navbar from '@/components/Layout-Component/Navbar2/index.tsx'
 import NavbarTest from '@/components/Layout-Component/Navbar3/submenu.tsx'
-import type { SubMenuB } from '../components/Layout-Component/Navbar3/menu'
 
 const obj = {
   type: 'submenu',
@@ -42,7 +43,8 @@ const obj = {
     />
   </head>
   <body>
-    <NavbarTest {...obj} />
+    <!--<NavbarTest {...obj} />-->
+    <Ffr />
     <slot />
     <Footer />
   </body>
