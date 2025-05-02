@@ -9,11 +9,14 @@
   display: inline-block;
 }
 .submenu_navlink:has(.navlink) .navlink {
-  background-color: #1f8ac0;
+  border: 2px solid #1f8ac0;
 }
 .submenu_navlink:has(.navlink) {
   display: none;
 }
 .submenu_name:hover:has(+ .submenu_navlink) + .submenu_navlink {
+  display: block;
+}
+.submenu:hover:has(.submenu_navlink) .submenu_navlink {
   display: block;
 }

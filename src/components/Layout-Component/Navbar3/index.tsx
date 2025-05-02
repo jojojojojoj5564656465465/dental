@@ -7,7 +7,7 @@ export default component$(() => {
   return (
     <div>
       <h1>Navbar3</h1>
-      <ul class='flex gap-5'>
+      <ul class='flex gap-5 md:flex-row flex-col'>
         {menu.map((item, index) => {
           switch (item.type) {
             case 'link':
