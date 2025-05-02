@@ -20,16 +20,23 @@ const ObjectSchema = v.object({
 export default component$<SubMenuB>(props => {
   v.parse(ObjectSchema, props)
 
-  const openSubMenu = useSignal<number | null>(null)
+  const openSubMenu = useSignal<boolean>(true)
 
-  const toggleSubMenu = $((index: number) => {
-    openSubMenu.value = openSubMenu.value === index ? null : index
+  const toggleSubMenu = $(() => {
+    openSubMenu.value = !openSubMenu.value
   })
   useStyles$(styles)
+
   return (
-    <div class='submenu flex flex-col gap-2 text-red-600 cursor-pointer hover:text-orange-900'>
-      <span class='submenu_name'>{props.name}</span>
-      <ul class='submenu_navlink'>
+    <div class={['submenu flex flex-col cursor-pointer hover:text-orange-900']}>
+      <button
+        type={'button'}
+        onclick$={toggleSubMenu}
+        class={['submenu_name cursor-pointer', openSubMenu.value ? 'text-green-500' : 'text-red-600']}
+      >
+        {props.name}
+      </button>
+      <ul class={['submenu_navlink gap-6 group', openSubMenu.value ? 'open' : 'close'].join(' ')}>
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
         ))}
