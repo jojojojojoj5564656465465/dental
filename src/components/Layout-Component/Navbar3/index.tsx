@@ -7,7 +7,7 @@ import Submenu from './submenu'
 
 export default component$(() => {
   useStyles$(styles)
-  const isOpen = useSignal(false)
+  const isOpen = useSignal(true)
 
   return (
     <nav class='bg-yellow-200'>
@@ -16,7 +16,7 @@ export default component$(() => {
       </div>
       <ul
         class={[
-          'flex flex-col md:flex-row gap-5 items-start md:items-center transition-all duration-300',
+          'flex flex-col md:flex-row gap-5 items-start  transition-all duration-300 mx-auto',
           isOpen.value ? 'block' : 'hidden',
           'md:flex',
         ]}

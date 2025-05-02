@@ -20,7 +20,7 @@ const ObjectSchema = v.object({
 export default component$<SubMenuB>(props => {
   v.parse(ObjectSchema, props)
 
-  const openSubMenu = useSignal<boolean>(true)
+  const openSubMenu = useSignal<boolean>(false)
 
   const toggleSubMenu = $(() => {
     openSubMenu.value = !openSubMenu.value
@@ -28,7 +28,7 @@ export default component$<SubMenuB>(props => {
   useStyles$(styles)
 
   return (
-    <div class={['submenu flex flex-col cursor-pointer hover:text-orange-900']}>
+    <div class={['submenu flex flex-col']}>
       <button
         type={'button'}
         onclick$={toggleSubMenu}
@@ -36,7 +36,7 @@ export default component$<SubMenuB>(props => {
       >
         {props.name}
       </button>
-      <ul class={['submenu_navlink gap-6 group', openSubMenu.value ? 'open' : 'close'].join(' ')}>
+      <ul class={['submenu_navlink gap-y-6', openSubMenu.value ? 'open' : 'close']}>
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
         ))}
