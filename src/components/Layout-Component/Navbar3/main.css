@@ -20,13 +20,3 @@
 /*.submenu:hover:has(.submenu_navlink) .submenu_navlink {*/
 /*  display: block;*/
 /*}*/
-
-.close {
-  /*display: none;*/
-  background-color: hotpink;
-  visibility: hidden;
-}
-.open {
-  flex-direction: column;
-  visibility: initial;
-}
