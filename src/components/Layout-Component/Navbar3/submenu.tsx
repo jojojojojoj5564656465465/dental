@@ -1,5 +1,5 @@
 // src/components/Navbar3/submenu.tsx
-import { $, component$, useSignal, useStylesScoped$ } from '@builder.io/qwik'
+import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik'
 import * as v from 'valibot'
 import styles from './main.css?inline'
 import { type SubMenuB } from './menu'
@@ -25,11 +25,11 @@ export default component$<SubMenuB>(props => {
   const toggleSubMenu = $((index: number) => {
     openSubMenu.value = openSubMenu.value === index ? null : index
   })
-  useStylesScoped$(styles)
+  useStyles$(styles)
   return (
-    <div class='submenu flex flex-col gap-2 text-red-600'>
-      <span class=''>{props.name}</span>
-      <ul class=''>
+    <div class='submenu flex flex-col gap-2 text-red-600 cursor-pointer hover:text-orange-900'>
+      <span class='submenu_name'>{props.name}</span>
+      <ul class='submenu_navlink'>
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
         ))}

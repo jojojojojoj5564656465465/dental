@@ -1,0 +1,19 @@
+.submenu:has(.submenu_name) > span::after {
+  content: "→";
+}
+
+.submenu:hover:has(.submenu_name) > .submenu_name::after {
+  content: "↓";
+}
+.submenu:hover:has(.submenu_name) {
+  display: inline-block;
+}
+.submenu_navlink:has(.navlink) .navlink {
+  background-color: #1f8ac0;
+}
+.submenu_navlink:has(.navlink) {
+  display: none;
+}
+.submenu_name:hover:has(+ .submenu_navlink) + .submenu_navlink {
+  display: block;
+}

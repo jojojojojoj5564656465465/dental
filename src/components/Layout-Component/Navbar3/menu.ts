@@ -95,4 +95,9 @@ export const menu: readonly (SubMenuB | A)[] = [
       },
     ],
   },
+  {
+    type: 'link',
+    name: 'IT19',
+    link: '/politique-de-confidentialite',
+  },
 ]
