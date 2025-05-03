@@ -1,5 +1,5 @@
 // src/components/Navbar3/submenu.tsx
-import { $, component$, useContext, useSignal, useStyles$ } from '@builder.io/qwik'
+import { $, component$, type Signal, useContext, useSignal, useStyles$ } from '@builder.io/qwik'
 import * as v from 'valibot'
 import { openMenuIndexPosition } from './index'
 import styles from './main.css?inline'
@@ -18,8 +18,12 @@ const ObjectSchema = v.object({
     }),
   ),
 })
+type Extra = {
+  idx: number
+  changeTab: (index: number) => void
+}
 
-export default component$<SubMenuB & Record<'idx', number>>(props => {
+export default component$<SubMenuB & Extra>(props => {
   v.parse(ObjectSchema, props)
 
   const openSubMenu = useSignal<boolean>(false)
@@ -34,7 +38,7 @@ export default component$<SubMenuB & Record<'idx', number>>(props => {
     <div class={['submenu flex flex-col']}>
       <button
         type={'button'}
-        onclick$={toggleSubMenu}
+        onclick$={[toggleSubMenu, $(() => props.changeTab(props.idx))]}
         onMouseEnter$={toggleSubMenu}
         onMouseLeave$={toggleSubMenu}
         class={['submenu_name cursor-pointer text-xl!', openSubMenu.value ? 'text-green-500' : 'text-red-600 ']}
