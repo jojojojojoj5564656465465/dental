@@ -48,8 +48,7 @@ li.navlink,
 }
 
 .navlink a:hover,
-.submenu_name:hover,
-.submenu_name.text-green-500 {
+.submenu_name:hover {
   background: #1f8ac0;
   color: #fff !important;
 }
@@ -104,4 +103,8 @@ li.navlink,
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+.submenu_name:hover + .submenu_navlink {
+  opacity: 1;
+  transform: translateY(0px);
 }

@@ -1,5 +1,5 @@
 // src/components/Navbar3/submenu.tsx
-import { $, component$, useComputed$, useContext, useSignal, useStyles$ } from '@builder.io/qwik'
+import { $, component$, useComputed$, useContext, useOn, useSignal, useStyles$ } from '@builder.io/qwik'
 import * as v from 'valibot'
 import { openMenuIndexPosition } from './index'
 import styles from './main.css?inline'
@@ -36,7 +36,7 @@ export default component$<SubMenuB & Extra>(props => {
     openSubMenu.value = !openSubMenu.value
   })
   useStyles$(styles)
-
+  useOn('mouseleave', toggleSubMenu)
   return (
     <div class={['submenu flex flex-col']}>
       <button
@@ -45,8 +45,14 @@ export default component$<SubMenuB & Extra>(props => {
         aria-controls={`submenu-list-${props.idx}`}
         onclick$={[toggleSubMenu, $(() => props.changeTab(props.idx))]}
         onMouseEnter$={[$(() => (openSubMenu.value = true)), $(() => props.changeTab(props.idx))]}
-        onMouseLeave$={[$(() => (openSubMenu.value = false)), $(() => props.changeTab(props.idx))]}
-        class={['submenu_name cursor-pointer text-xl!', openCompute.value ? 'text-green-500' : 'text-red-600 ']}
+        // onMouseLeave$={[$(() => (openSubMenu.value = false)), $(() => props.changeTab(props.idx))]}
+
+        //onMouseEnter$={() => (ctx.value = props.idx)}
+        //onMouseLeave$={() => (ctx.value = null)}
+        class={[
+          'submenu_name cursor-pointer !text-xl border border-2 border-black',
+          openCompute.value ? 'text-green-500' : 'text-red-600 ',
+        ]}
       >
         {props.name} {openCompute.value ? 'true▼' : 'false▶'}
         {openANDopenCompute.value ? 'trueDOUBLE' : 'false'}
