@@ -28,7 +28,10 @@ export default component$<SubMenuB & Extra>(props => {
 
   const openSubMenu = useSignal<boolean>(false)
   const ctx = useContext(openMenuIndexPosition)
+
   const openCompute = useComputed$(() => props.idx === ctx.value)
+  const openANDopenCompute = useComputed$(() => openCompute.value === openSubMenu.value)
+
   const toggleSubMenu = $(() => {
     openSubMenu.value = !openSubMenu.value
   })
@@ -37,15 +40,25 @@ export default component$<SubMenuB & Extra>(props => {
   return (
     <div class={['submenu flex flex-col']}>
       <button
-        type={'button'}
+        type='button'
+        aria-expanded={openCompute.value}
+        aria-controls={`submenu-list-${props.idx}`}
         onclick$={[toggleSubMenu, $(() => props.changeTab(props.idx))]}
-        onMouseEnter$={[toggleSubMenu, $(() => props.changeTab(props.idx))]}
-        onMouseLeave$={toggleSubMenu}
+        onMouseEnter$={[$(() => (openSubMenu.value = true)), $(() => props.changeTab(props.idx))]}
+        onMouseLeave$={[$(() => (openSubMenu.value = false)), $(() => props.changeTab(props.idx))]}
         class={['submenu_name cursor-pointer text-xl!', openCompute.value ? 'text-green-500' : 'text-red-600 ']}
       >
-        {props.name} {props.idx}
+        {props.name} {openCompute.value ? 'true▼' : 'false▶'}
+        {openANDopenCompute.value ? 'trueDOUBLE' : 'false'}
       </button>
-      <ul class={['submenu_navlink gap-y-1 flex-col', openCompute.value ? 'flex' : 'hidden']}>
+      <ul
+        id={`submenu-list-${props.idx}`}
+        class={[
+          'submenu_navlink gap-y-1 flex-col',
+          openCompute.value ? 'flex' : '!hidden',
+          openSubMenu.value ? 'flex' : 'hidden',
+        ]}
+      >
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
         ))}
