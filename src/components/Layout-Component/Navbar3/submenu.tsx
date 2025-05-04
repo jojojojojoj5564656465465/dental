@@ -54,8 +54,7 @@ export default component$<SubMenuB & Extra>(props => {
           openCompute.value ? 'text-green-500' : 'text-red-600 ',
         ]}
       >
-        {props.name} {openCompute.value ? 'true▼' : 'false▶'}
-        {openANDopenCompute.value ? 'trueDOUBLE' : 'false'}
+        {props.name}
       </button>
       <ul
         id={`submenu-list-${props.idx}`}
