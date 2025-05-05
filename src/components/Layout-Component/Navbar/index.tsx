@@ -1,4 +1,4 @@
-import { $, component$, useSignal } from '@builder.io/qwik'
+import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 import { type MenuItem, menu } from './menu.data'
 import * as s from './Navbar.css'
 
@@ -52,6 +52,17 @@ export default component$(() => {
   const toggleMenu = $(() => {
     isMenuOpen.value = !isMenuOpen.value
   })
+  useOnDocument(
+    'click',
+    $(event => {
+      if (isMenuOpen.value) {
+        const target = event.target as HTMLElement
+        if (target.closest('#nav-bar') === null) {
+          isMenuOpen.value = false
+        }
+      }
+    }),
+  )
 
   return (
     <nav id='nav-bar' class={s.one.wrapper} aria-label='Main Navigation'>

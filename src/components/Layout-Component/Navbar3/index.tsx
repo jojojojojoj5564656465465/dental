@@ -18,14 +18,13 @@ export const openMenuIndexPosition = createContextId<Signal<number>>('what-is-su
 export default component$(() => {
   useStyles$(styles)
   const isOpen = useSignal<boolean>(true)
-  const submenuPosition = useSignal<number>(0)
+  const submenuPosition = useSignal<number>(-1)
   useContextProvider(openMenuIndexPosition, submenuPosition)
   const changePosition = $((indexNumber: number) => {
     submenuPosition.value = indexNumber
   })
   return (
-    <nav class='bg-yellow-200'>
-      <h5 class='text-red-800 text-3xl'>{submenuPosition.value}</h5>
+    <nav class='bg-yellow-200 relative'>
       <div class='flex items-center justify-between p-4'>
         <h1 class='text-xl font-bold text-sky-600'>Navbar3</h1>
       </div>

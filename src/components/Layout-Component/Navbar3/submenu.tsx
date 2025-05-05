@@ -1,5 +1,5 @@
 // src/components/Navbar3/submenu.tsx
-import { $, component$, useComputed$, useContext, useOn, useSignal, useStyles$ } from '@builder.io/qwik'
+import { $, component$, useComputed$, useContext, useOn, useOnDocument, useSignal, useStyles$ } from '@builder.io/qwik'
 import * as v from 'valibot'
 import { openMenuIndexPosition } from './index'
 import styles from './main.css?inline'
@@ -37,8 +37,20 @@ export default component$<SubMenuB & Extra>(props => {
   })
   useStyles$(styles)
   useOn('mouseleave', toggleSubMenu)
+
+  useOnDocument(
+    'click',
+    $(event => {
+      if (openSubMenu.value) {
+        const target = event.target as HTMLElement
+        if (target.closest('.submenu') === null) {
+          openSubMenu.value = false
+        }
+      }
+    }),
+  )
   return (
-    <div class={['submenu flex flex-col']}>
+    <div class={['submenu flex flex-col relative']}>
       <button
         type='button'
         aria-expanded={openCompute.value}

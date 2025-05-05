@@ -6,8 +6,10 @@ import type { A } from './menu'
 export default component$<A>(props => {
   useStyles$(styles)
   return (
-    <li class='navlink navStyle flex'>
-      <a href={props.link}>{props.name}</a>
+    <li class='group navlink navStyle flex hover:bg-sky-500 focus:bg-sky-500 active:bg-sky-500 cursor-pointer '>
+      <a class={'group-hover:text-white'} href={props.link}>
+        {props.name}
+      </a>
     </li>
   )
 })
