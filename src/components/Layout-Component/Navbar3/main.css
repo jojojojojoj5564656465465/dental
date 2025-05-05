@@ -5,11 +5,18 @@
 .submenu:hover:has(.submenu_name) > .submenu_name::after {
   content: "↓";
 }
-/*.submenu:hover:has(.submenu_name) {*/
-/*  display: inline-block;*/
-/*}*/
+
+@property --font-size-navbar {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1.5em;
+}
+
 .submenu_navlink:has(.navlink) .navlink {
   border: 2px solid #1f8ac0;
+  color: red;
+  font-weight: lighter;
+  font-size: calc(var(--font-size-navbar) / 2);
 }
 /*.submenu_navlink:has(.navlink) {*/
 /*  display: none;*/
@@ -36,15 +43,6 @@ ul {
 li.navlink,
 .submenu {
   margin: 0 0.5rem;
-}
-
-.navlink a,
-.submenu_name {
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
-  font-weight: 500;
-  font-size: 1.1rem;
 }
 
 .navlink a:hover,
@@ -107,4 +105,14 @@ li.navlink,
 .submenu_name:hover + .submenu_navlink {
   opacity: 1;
   transform: translateY(0px);
+  display: inline-flex;
+}
+
+.navStyle {
+  cursor: pointer;
+  font-size: var(--font-size-navbar);
+  border: 2px solid #1f8ac0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  color: green;
 }

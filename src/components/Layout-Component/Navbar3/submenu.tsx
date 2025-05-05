@@ -49,10 +49,7 @@ export default component$<SubMenuB & Extra>(props => {
 
         //onMouseEnter$={() => (ctx.value = props.idx)}
         //onMouseLeave$={() => (ctx.value = null)}
-        class={[
-          'submenu_name cursor-pointer !text-xl border border-2 border-black',
-          openCompute.value ? 'text-green-500' : 'text-red-600 ',
-        ]}
+        class={['submenu_name navStyle']}
       >
         {props.name}
       </button>
