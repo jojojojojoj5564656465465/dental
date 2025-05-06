@@ -29,7 +29,7 @@ export const menu: readonly (SubMenuB | A)[] = [
   },
   {
     type: 'submenu',
-    name: 'Implant',
+    name: 'sub_Implant',
     Submenu: [
       {
         type: 'link',
@@ -45,7 +45,7 @@ export const menu: readonly (SubMenuB | A)[] = [
   },
   {
     type: 'submenu',
-    name: 'IT2D',
+    name: 'sub_IT2D',
     Submenu: [
       {
         type: 'link',
@@ -71,7 +71,7 @@ export const menu: readonly (SubMenuB | A)[] = [
   },
   {
     type: 'submenu',
-    name: 'Orthodontie',
+    name: 'sub_Orthodontie',
     Submenu: [
       {
         type: 'link',

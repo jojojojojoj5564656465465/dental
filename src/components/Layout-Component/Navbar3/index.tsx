@@ -24,15 +24,15 @@ export default component$(() => {
     submenuPosition.value = indexNumber
   })
   return (
-    <nav class='bg-yellow-200 relative'>
+    <nav class='bg-blue-300/50 relative gap-3'>
       <div class='flex items-center justify-between p-4'>
-        <h1 class='text-xl font-bold text-sky-600'>Navbar3</h1>
+        <h1 class='text-xl font-bold text-sky-600'>DentiCourb</h1>
       </div>
       <ul
         class={[
-          'flex flex-col md:flex-row gap-5 items-start transition-all duration-300 mx-auto',
+          'grid md:flex-row gap-1 items-start transition-all duration-300',
           isOpen.value ? 'block' : 'hidden',
-          'md:flex',
+          'md:flex ',
         ]}
       >
         {menu.map((item, index) =>

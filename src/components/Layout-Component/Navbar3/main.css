@@ -54,9 +54,8 @@ li.navlink,
   nav {
     border-radius: 0;
   }
-  ul {
+  .submenu:has(ul) ul {
     flex-direction: column !important;
-    gap: 0;
   }
   .submenu_navlink {
     position: static;
@@ -90,4 +89,5 @@ li.navlink,
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
   color: black;
+  /*min-inline-size: min(90%, 30rem);*/
 }

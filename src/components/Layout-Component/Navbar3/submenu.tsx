@@ -50,25 +50,26 @@ export default component$<SubMenuB & Extra>(props => {
     }),
   )
   return (
-    <div class={['submenu flex flex-col relative']}>
+    <div class={['submenu flex flex-col align-center relative']}>
       <button
         type='button'
         aria-expanded={openCompute.value}
         aria-controls={`submenu-list-${props.idx}`}
         onclick$={[toggleSubMenu, $(() => props.changeTab(props.idx))]}
+        // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
         onMouseEnter$={[$(() => (openSubMenu.value = true)), $(() => props.changeTab(props.idx))]}
         // onMouseLeave$={[$(() => (openSubMenu.value = false)), $(() => props.changeTab(props.idx))]}
 
         //onMouseEnter$={() => (ctx.value = props.idx)}
         //onMouseLeave$={() => (ctx.value = null)}
-        class={['submenu_name navStyle']}
+        class={['submenu_name navStyle py-9']}
       >
         {props.name}
       </button>
       <ul
         id={`submenu-list-${props.idx}`}
         class={[
-          'submenu_navlink gap-y-1 flex-col',
+          'submenu_navlink gap-1.5 flex flex-col navStyle',
           openCompute.value ? 'flex' : '!hidden',
           openSubMenu.value ? 'flex' : 'hidden',
         ]}
