@@ -1,9 +1,10 @@
-.submenu:has(.submenu_name) > span::after {
-  content: "→";
+.submenu:has(.submenu_name) > .submenu_name::after {
+  content: " ▶";
+  opacity: 0.5;
 }
 
 .submenu:hover:has(.submenu_name) > .submenu_name::after {
-  content: "↓";
+  content: " ▼";
 }
 
 @property --font-size-navbar {
