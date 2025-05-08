@@ -1,86 +1,86 @@
-import { recipe } from '@vanilla-extract/recipes'
-import { textSprinkles } from './textSprinkles.css.ts'
-import { theme } from '../utils/themeNew.css.ts'
+import { recipe } from "@vanilla-extract/recipes";
+import { textSprinkles } from "./textSprinkles.css.ts";
+import { theme } from "../utils/themeNew.css.ts";
 
 export const textRecipe = recipe({
   base: {
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   variants: {
     font: {
       preTitle: [
         textSprinkles({
-          fontSize: 'xs',
-          color: 'accent',
-          lineHeight: 'loose',
-          textTransform: 'uppercase',
-          letterSpacing: 'widest',
+          fontSize: "xs",
+          color: "accent",
+          lineHeight: "loose",
+          textTransform: "uppercase",
+          letterSpacing: "widest",
         }),
         {
-          ':before': {
-            content: '+ ',
+          ":before": {
+            content: "+ ",
           },
         },
       ],
       title: textSprinkles({
-        fontSize: 'xl',
-        color: 'primary',
-        fontFamily: 'exo',
-        fontWeight: 'bold',
+        fontSize: "xl",
+        color: "primary",
+        fontFamily: "exo",
+        fontWeight: "bold",
       }),
       span: textSprinkles({
-        fontSize: 'inherit',
-        color: 'accent',
+        fontSize: "inherit",
+        color: "accent",
       }),
 
       highLight: textSprinkles({
-        fontSize: 'sm',
-        color: 'primary',
-        fontWeight: 'bold',
+        fontSize: "sm",
+        color: "primary",
+        fontWeight: "bold",
 
-        fontFamily: 'exo',
-        textTransform: 'capitalize',
+        fontFamily: "exo",
+        textTransform: "capitalize",
       }),
 
       text: textSprinkles({
-        fontSize: 'sm',
-        color: 'text',
-        fontWeight: 'normal',
-        fontFamily: 'exo',
+        fontSize: "sm",
+        color: "text",
+        fontWeight: "normal",
+        fontFamily: "exo",
       }),
     },
     marginBlock: {
-      xxxs: textSprinkles({ marginBlock: 'xxxs' }),
-      xxs: textSprinkles({ marginBlock: 'xxs' }),
-      xs: textSprinkles({ marginBlock: 'xs' }),
-      sm: textSprinkles({ marginBlock: 'sm' }),
-      md: textSprinkles({ marginBlock: 'md' }),
-      lg: textSprinkles({ marginBlock: 'lg' }),
+      xxxs: textSprinkles({ marginBlock: "xxxs" }),
+      xxs: textSprinkles({ marginBlock: "xxs" }),
+      xs: textSprinkles({ marginBlock: "xs" }),
+      sm: textSprinkles({ marginBlock: "sm" }),
+      md: textSprinkles({ marginBlock: "md" }),
+      lg: textSprinkles({ marginBlock: "lg" }),
     },
     lineHeight: {
-      none: textSprinkles({ lineHeight: 'none' }),
-      tight: textSprinkles({ lineHeight: 'tight' }),
-      snug: textSprinkles({ lineHeight: 'snug' }),
-      normal: textSprinkles({ lineHeight: 'normal' }),
-      relaxed: textSprinkles({ lineHeight: 'relaxed' }),
-      loose: textSprinkles({ lineHeight: 'loose' }),
-      inherit: 'inherit',
+      none: textSprinkles({ lineHeight: "none" }),
+      tight: textSprinkles({ lineHeight: "tight" }),
+      snug: textSprinkles({ lineHeight: "snug" }),
+      normal: textSprinkles({ lineHeight: "normal" }),
+      relaxed: textSprinkles({ lineHeight: "relaxed" }),
+      loose: textSprinkles({ lineHeight: "loose" }),
+      inherit: "inherit",
     },
     hover: {
       true: {
-        ':hover': {
-          color: theme['textHover'],
+        ":hover": {
+          color: theme["textHover"],
         },
       },
     },
     hoverSection: {
       true: {
         selectors: {
-          'section:has(&):hover > &': {
-            color: theme['textHover'],
+          "section:has(&):hover > &": {
+            color: theme["textHover"],
           },
-          'section:has(&):active > &': {
-            color: theme['textHover'],
+          "section:has(&):active > &": {
+            color: theme["textHover"],
           },
         },
       },
@@ -88,36 +88,36 @@ export const textRecipe = recipe({
     hoverDiv: {
       true: {
         selectors: {
-          'div:has(&):hover > &': {
-            color: theme['textHover'],
+          "div:has(&):hover > &": {
+            color: theme["textHover"],
           },
-          'div:has(&):active > &': {
-            color: theme['textHover'],
+          "div:has(&):active > &": {
+            color: theme["textHover"],
           },
         },
       },
     },
     textAlign: {
-      left: textSprinkles({ textAlign: 'left' }),
-      center: textSprinkles({ textAlign: 'center' }),
-      right: textSprinkles({ textAlign: 'right' }),
-      justify: textSprinkles({ textAlign: 'justify' }),
+      left: textSprinkles({ textAlign: "left" }),
+      center: textSprinkles({ textAlign: "center" }),
+      right: textSprinkles({ textAlign: "right" }),
+      justify: textSprinkles({ textAlign: "justify" }),
     },
     display: {
       inline: {
-        display: 'inline-block',
+        display: "inline-block",
       },
       block: {
-        display: 'block',
+        display: "block",
       },
     },
   },
   defaultVariants: {
-    font: 'text',
-    display: 'block',
-    textAlign: 'left',
+    font: "text",
+    display: "block",
+    textAlign: "left",
     hoverDiv: false,
     hoverSection: false,
     hover: false,
   },
-})
+});

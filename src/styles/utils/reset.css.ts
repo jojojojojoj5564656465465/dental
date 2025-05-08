@@ -1,125 +1,125 @@
-import { fallbackVar, globalStyle } from '@vanilla-extract/css'
-import * as T from './theme.css'
-import { color, theme } from '../utils/themeNew.css.ts'
-import { fontSize } from '@styles/token'
-import { base, reset } from './layer.css.ts'
+import { fallbackVar, globalStyle } from "@vanilla-extract/css";
+import * as T from "./theme.css";
+import { color, theme } from "../utils/themeNew.css.ts";
+import { fontSize } from "@styles/token";
+import { base, reset } from "./layer.css.ts";
 
-globalStyle('*, *::before, *::after', {
-  '@layer': {
+globalStyle("*, *::before, *::after", {
+  "@layer": {
     [reset]: {
-      boxSizing: 'border-box',
+      boxSizing: "border-box",
       margin: 0,
     },
   },
-})
+});
 
-globalStyle('*', {
-  '@layer': {
+globalStyle("*", {
+  "@layer": {
     [reset]: {
       margin: 0,
-      maxInlineSize: '100dvw',
-      boxSizing: 'border-box',
+      maxInlineSize: "100dvw",
+      boxSizing: "border-box",
     },
   },
-})
+});
 
-globalStyle('html, body', {
-  '@layer': {
+globalStyle("html, body", {
+  "@layer": {
     [reset]: {
-      blockSize: '100%',
-      overflowInline: 'hidden',
-      boxSizing: 'border-box',
+      blockSize: "100%",
+      overflowInline: "hidden",
+      boxSizing: "border-box",
       lineHeight: 1.5,
-      WebkitFontSmoothing: 'antialiased',
-      scrollBehavior: 'smooth',
+      WebkitFontSmoothing: "antialiased",
+      scrollBehavior: "smooth",
     },
   },
-})
+});
 
-globalStyle('img, svg', {
-  '@layer': {
+globalStyle("img, svg", {
+  "@layer": {
     [reset]: {
-      verticalAlign: 'middle',
+      verticalAlign: "middle",
     },
   },
-})
-globalStyle('input, button, textarea, select', {
-  '@layer': {
+});
+globalStyle("input, button, textarea, select", {
+  "@layer": {
     [reset]: {
-      font: 'inherit',
+      font: "inherit",
       //all: 'unset',
     },
   },
-})
-globalStyle(':where(img, picture, video, canvas, svg)', {
-  '@layer': {
+});
+globalStyle(":where(img, picture, video, canvas, svg)", {
+  "@layer": {
     [reset]: {
-      scrollBehavior: 'smooth',
-      display: 'block',
-      maxInlineSize: '100%',
+      scrollBehavior: "smooth",
+      display: "block",
+      maxInlineSize: "100%",
     },
   },
-})
+});
 
-globalStyle(':root', {
-  '@layer': {
+globalStyle(":root", {
+  "@layer": {
     [reset]: {
-      colorScheme: 'light dark',
-      isolation: 'isolate',
+      colorScheme: "light dark",
+      isolation: "isolate",
     },
   },
-})
+});
 
-globalStyle('html, body *', {
-  '@layer': {
+globalStyle("html, body *", {
+  "@layer": {
     [reset]: {
-      boxSizing: 'border-box',
+      boxSizing: "border-box",
     },
   },
-})
+});
 
-globalStyle('ul li', {
-  '@layer': {
+globalStyle("ul li", {
+  "@layer": {
     [reset]: {
-      listStyleType: 'none',
+      listStyleType: "none",
     },
   },
-})
+});
 
-globalStyle('img', {
-  '@layer': {
+globalStyle("img", {
+  "@layer": {
     [reset]: {
-      objectFit: 'cover',
+      objectFit: "cover",
     },
   },
-})
+});
 
-globalStyle('a', {
-  '@layer': {
+globalStyle("a", {
+  "@layer": {
     [reset]: {
-      textDecoration: 'none',
+      textDecoration: "none",
     },
   },
-})
+});
 
-globalStyle('a:hover', {
-  '@layer': {
+globalStyle("a:hover", {
+  "@layer": {
     [reset]: {
-      textDecoration: 'underline',
+      textDecoration: "underline",
     },
   },
-})
-globalStyle('span', {
-  '@layer': {
+});
+globalStyle("span", {
+  "@layer": {
     [reset]: {
       color: color.theme.accent,
     },
   },
-})
-globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
+});
+globalStyle(":where(h1, h2, h3, h4, h5, h6, p)", {
   margin: 0,
-  textWrap: ['balance', 'pretty'],
-})
+  textWrap: ["balance", "pretty"],
+});
 
 // globalStyle('body', {
 //   '@layer': {
@@ -131,63 +131,63 @@ globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
 
 const responsiveFontSize = {
   h1: {
-    fontSize: 'clamp(2.5rem, 5vw + 0.5rem, 4rem)',
+    fontSize: "clamp(2.5rem, 5vw + 0.5rem, 4rem)",
     fontFamily: T.fontFamily.dancingScript,
   },
   h2: {
-    fontSize: 'clamp(2rem, 4vw, 3rem)',
+    fontSize: "clamp(2rem, 4vw, 3rem)",
     fontFamily: T.fontFamily.dancingScript,
   },
   h3: {
-    fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+    fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
     fontFamily: T.fontFamily.exo,
   },
   h4: {
-    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+    fontSize: "clamp(1.5rem, 3vw, 2rem)",
     fontFamily: T.fontFamily.exo,
   },
   h5: {
-    fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+    fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
 
     fontFamily: T.fontFamily.exo,
   },
   h6: {
-    fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+    fontSize: "clamp(1rem, 2vw, 1.5rem)",
     fontFamily: T.fontFamily.exo,
   },
   p: {
-    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+    fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
     fontFamily: T.fontFamily.numito,
   },
   span: {
-    fontSize: 'inherit',
-    fontFamily: 'inherit',
+    fontSize: "inherit",
+    fontFamily: "inherit",
   },
   li: {
-    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+    fontSize: "clamp(1rem, 1.5vw, 1.25rem)",
     fontFamily: T.fontFamily.numito,
   },
-} as const satisfies Record<string, Record<'fontSize' | 'fontFamily', string>>
+} as const satisfies Record<string, Record<"fontSize" | "fontFamily", string>>;
 
 for (const [key, value] of Object.entries(responsiveFontSize)) {
-  const { fontSize, fontFamily } = value
+  const { fontSize, fontFamily } = value;
   globalStyle(key, {
-    '@layer': {
+    "@layer": {
       [reset]: {
         fontSize,
         fontFamily,
       },
     },
-  })
+  });
 }
-globalStyle('p', {
-  '@layer': {
+globalStyle("p", {
+  "@layer": {
     [base]: {
-      lineHeight: '28px',
-      fontSize: fontSize['base'],
-      fontWeight: '400',
-      color: fallbackVar(theme.text, '#527282'),
-      fontFamily: 'Poppins',
+      lineHeight: "28px",
+      fontSize: fontSize["base"],
+      fontWeight: "400",
+      color: fallbackVar(theme.text, "#527282"),
+      fontFamily: "Poppins",
     },
   },
-})
+});

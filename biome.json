@@ -8,7 +8,7 @@
       "linter": {
         "rules": {
           "suspicious": {
-            "noAssignInExpressions": "off"
+            "noAssignInExpressions": "on"
           },
           "style": {
             "useConst": "off",

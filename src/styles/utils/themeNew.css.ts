@@ -1,30 +1,35 @@
-import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css'
+import {
+  createGlobalTheme,
+  createTheme,
+  createThemeContract,
+  globalStyle,
+} from "@vanilla-extract/css";
 
-import f from './fontFace.css'
-import { ld } from './utils'
+import f from "./fontFace.css";
+import { ld } from "./utils";
 
-export const fontFamily = createGlobalTheme(':root', {
+export const fontFamily = createGlobalTheme(":root", {
   dancingScript: `${f.dancingScript}, Times, serif`,
   exo: `${f.exo}, Times, serif`,
   numito: `${f.nunito}, Arial, sans-serif`,
-})
+});
 
 /**
  * MARK: COLORS
  */
-const variable = createGlobalTheme(':root', {
-  darkLight: 'oklch(32.25% 0.0573 233.51)',
-  darkDark: 'oklch(25.88% 0.037 240.95)',
-  accent: 'oklch(58.09% 0.1151 235.69)',
-  whiteBlue: 'oklch(97.44% 0.0134 240.95)',
-  whiteToBlack: ld('oklch(97.44% 0.0134 240.95)', 'black'),
-  blackToWhite: ld('black', 'oklch(97.44% 0.0134 240.95)'),
-  textLight: 'oklch(53.36% 0.0445 230.26)',
-  r: ld('orange', 'green'),
-})
-globalStyle('body', {
+const variable = createGlobalTheme(":root", {
+  darkLight: "oklch(32.25% 0.0573 233.51)",
+  darkDark: "oklch(25.88% 0.037 240.95)",
+  accent: "oklch(58.09% 0.1151 235.69)",
+  whiteBlue: "oklch(97.44% 0.0134 240.95)",
+  whiteToBlack: ld("oklch(97.44% 0.0134 240.95)", "black"),
+  blackToWhite: ld("black", "oklch(97.44% 0.0134 240.95)"),
+  textLight: "oklch(53.36% 0.0445 230.26)",
+  r: ld("orange", "green"),
+});
+globalStyle("body", {
   backgroundColor: variable.whiteBlue,
-})
+});
 export const theme = createThemeContract({
   background: null,
   backgroundHover: null,
@@ -34,59 +39,59 @@ export const theme = createThemeContract({
   text: null,
   textHover: null,
   divider: null,
-})
+});
 const accent = createTheme(theme, {
   background: variable.accent,
   backgroundHover: variable.darkLight,
-  primary: 'white',
-  secondary: 'null',
-  accent: 'white',
-  text: 'white',
+  primary: "white",
+  secondary: "null",
+  accent: "white",
+  text: "white",
   textHover: variable.darkDark,
-  divider: '#0E384C1A',
-})
+  divider: "#0E384C1A",
+});
 const darkBlueBanner = createTheme(theme, {
-  background: 'oklch(32.25% 0.0573 233.51)',
-  backgroundHover: 'oklch(72.55% 0.0573 233.51)',
-  primary: 'white',
-  secondary: 'null',
+  background: "oklch(32.25% 0.0573 233.51)",
+  backgroundHover: "oklch(72.55% 0.0573 233.51)",
+  primary: "white",
+  secondary: "null",
   accent: variable.accent,
-  text: 'white',
-  textHover: 'black',
-  divider: 'white',
-})
+  text: "white",
+  textHover: "black",
+  divider: "white",
+});
 
 const whiteBg = createTheme(theme, {
-  background: 'white',
+  background: "white",
   backgroundHover: variable.darkLight,
   primary: variable.darkDark,
-  secondary: 'null',
+  secondary: "null",
   accent: variable.accent,
   text: variable.textLight,
-  textHover: 'white',
-  divider: 'oklch(0.67 0.1 207.53)',
-})
+  textHover: "white",
+  divider: "oklch(0.67 0.1 207.53)",
+});
 const whiteLD = createTheme(theme, {
-  background: 'white',
+  background: "white",
   backgroundHover: variable.darkLight,
   primary: variable.darkDark,
-  secondary: 'null',
+  secondary: "null",
   accent: variable.accent,
   text: variable.textLight,
   textHover: variable.accent,
   divider: variable.accent,
-})
+});
 
 const blueLightBg = createTheme(theme, {
-  background: 'oklch(97.44% 0.0134 240.95)',
-  backgroundHover: '#0e384c',
-  primary: '#0e384c',
-  secondary: 'null',
+  background: "oklch(97.44% 0.0134 240.95)",
+  backgroundHover: "#0e384c",
+  primary: "#0e384c",
+  secondary: "null",
   accent: variable.accent,
-  text: 'oklch(53.36% 0.0445 230.26)',
-  textHover: 'white',
-  divider: '#0E384C1A',
-})
+  text: "oklch(53.36% 0.0445 230.26)",
+  textHover: "white",
+  divider: "#0E384C1A",
+});
 
 export const colorTheme = {
   accent,
@@ -94,11 +99,11 @@ export const colorTheme = {
   whiteBg,
   blueLightBg,
   whiteLD,
-} as const
+} as const;
 
 export const color = {
   variable,
   theme,
-} as const
+} as const;
 
 //export { fontFamily, fontSize, space, media, container, containerGrid, containerGridCol }

@@ -1,15 +1,15 @@
 ---
-import { sectionWrapper, wrapper, menBG } from './image.css'
-import { textSprinkles } from '../../../styles/recipe/textSprinkles.css'
-import { textRecipe } from '../../../styles/recipe/textRecipe.css'
-import { getImage } from 'astro:assets'
-import men from '@/assets/men.jpg'
+import { sectionWrapper, wrapper, menBG } from "./image.css";
+import { textSprinkles } from "../../../styles/recipe/textSprinkles.css";
+import { textRecipe } from "../../../styles/recipe/textRecipe.css";
+import { getImage } from "astro:assets";
+import men from "@/assets/men.jpg";
 const optimizedBackground = await getImage({
   src: men,
-  format: 'avif',
-})
+  format: "avif",
+});
 
-import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 ---
 
 <section class={sectionWrapper}>

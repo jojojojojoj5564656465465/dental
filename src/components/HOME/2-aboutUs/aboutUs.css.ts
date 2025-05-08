@@ -1,25 +1,25 @@
-import { fluid } from 'src/styles/utils/utils.ts'
-import { containerGrid, textRecipe } from '@recipe'
+import { fluid } from "src/styles/utils/utils.ts";
+import { containerGrid, textRecipe } from "@recipe";
 
-import { media, space } from '@styles/token'
-import { createVar, style, styleVariants } from '@vanilla-extract/css'
+import { media, space } from "@styles/token";
+import { createVar, style, styleVariants } from "@vanilla-extract/css";
 
 /**
  * WRAPPER DE LA PAGE INDEX
  */
 export const wrapperIndex = style([
-  containerGrid({ cols: 2, size: 'medium' }),
+  containerGrid({ cols: 2, size: "medium" }),
 
   {
     // border: `${color.theme.primary} 5px solid`,
     gap: fluid(10, 50),
-    '@media': {
-      '(width< 846px)': {
-        gridTemplateColumns: '1fr',
+    "@media": {
+      "(width< 846px)": {
+        gridTemplateColumns: "1fr",
       },
     },
   },
-])
+]);
 
 /**
  * Content File
@@ -29,31 +29,31 @@ export const content__wrapper = style({
   minInlineSize: 300,
   marginTop: 10,
   zIndex: 2,
-  alignSelf: 'center',
-  display: 'grid',
+  alignSelf: "center",
+  display: "grid",
   gap: fluid(10, 50),
-})
+});
 
 const liSizeMask = createVar({
-  syntax: '<length>',
+  syntax: "<length>",
   inherits: true,
-  initialValue: '24px',
-})
+  initialValue: "24px",
+});
 
 export const text = styleVariants({
   ul: [
     {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(9.40rem,1fr))',
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(9.40rem,1fr))",
       gap: space.xs,
     },
   ],
   li: [
-    textRecipe({ font: 'highLight' }),
+    textRecipe({ font: "highLight" }),
     {
-      display: 'flex',
-      alignItems: 'center',
-      listStyle: 'none',
+      display: "flex",
+      alignItems: "center",
+      listStyle: "none",
       // ":before": {
       // 	width: liSizeMask,
       // 	height: liSizeMask,
@@ -75,7 +75,7 @@ export const text = styleVariants({
       // },
     },
   ],
-})
+});
 
 /**
  * Composant de Gauche pour les images qui se
@@ -83,69 +83,69 @@ export const text = styleVariants({
  */
 
 const numberOfCc = createVar({
-  initialValue: '6',
+  initialValue: "6",
   inherits: true,
-  syntax: '<integer>',
-})
+  syntax: "<integer>",
+});
 export const newImageGrid_Wrapper = style({
   gridTemplateRows: `repeat(${numberOfCc},1fr)`,
-  gap: '0px 0px',
-  gridAutoFlow: 'row',
-  justifyItems: 'stretch',
-  width: '100%',
-  display: 'grid',
-  aspectRatio: '1',
+  gap: "0px 0px",
+  gridAutoFlow: "row",
+  justifyItems: "stretch",
+  width: "100%",
+  display: "grid",
+  aspectRatio: "1",
   gridTemplateColumns: `repeat(${numberOfCc},1fr)`,
   marginTop: fluid(10, 50),
-  '@media': {
+  "@media": {
     [media.tablet]: {
       vars: {
-        [numberOfCc]: '7',
+        [numberOfCc]: "7",
       },
     },
     [media.md]: {
       vars: {
-        [numberOfCc]: '9',
+        [numberOfCc]: "9",
       },
     },
   },
-})
+});
 export const carreImage = createVar({
-  syntax: '<string>',
-  initialValue: '',
+  syntax: "<string>",
+  initialValue: "",
   inherits: false,
-})
+});
 export const rectangleImage = createVar({
-  syntax: '<string>',
-  initialValue: '',
+  syntax: "<string>",
+  initialValue: "",
   inherits: false,
-})
+});
 const baseImageStyle = style({
-  borderRadius: '20px',
-  border: '10px solid white',
-  backgroundPosition: 'center',
-})
+  borderRadius: "20px",
+  border: "10px solid white",
+  backgroundPosition: "center",
+});
 export const newImageGrid = styleVariants({
   square: [
     baseImageStyle,
     {
-      gridArea: '1 / 1 / 7 / 7',
+      gridArea: "1 / 1 / 7 / 7",
       backgroundImage: carreImage,
     },
   ],
   vertical: [
     baseImageStyle,
     {
-      gridArea: '5 / 3 / -1 / -1',
+      gridArea: "5 / 3 / -1 / -1",
       backgroundImage: rectangleImage,
 
-      backgroundPosition: '-10px -70px',
-      '@media': {
+      backgroundPosition: "-10px -70px",
+      "@media": {
         [media.md]: {
-          backgroundPosition: '0 0',
-          gridArea: '6 / 4 / -1 / -1',
+          backgroundPosition: "0 0",
+          gridArea: "6 / 4 / -1 / -1",
         },
       },
     },
   ],
-})
+});
