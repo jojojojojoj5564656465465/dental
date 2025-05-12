@@ -8,6 +8,7 @@ import {
   useSignal,
   useStyles$,
 } from "@builder.io/qwik";
+import useButton from "./ButtonOpen";
 import styles from "./main.css?inline";
 import { menu } from "./menu";
 import Navlink from "./Navlink";
@@ -19,21 +20,36 @@ export const openMenuIndexPosition = createContextId<Signal<number>>(
 
 export default component$(() => {
   useStyles$(styles);
-  const isOpen = useSignal<boolean>(true);
+
+  const { state: mobileOpenCloseButton, toggle } = useButton("#nav-bar");
   const submenuPosition = useSignal<number>(-1);
   useContextProvider(openMenuIndexPosition, submenuPosition);
   const changePosition = $((indexNumber: number) => {
     submenuPosition.value = indexNumber;
   });
   return (
-    <nav class="bg-blue-300/50 relative gap-3">
+    <nav
+      id="nav-bar"
+      class="bg-blue-300/50 relative gap-3 max-md:grid flex flex-row items-center"
+    >
       <div class="flex items-center justify-between p-4">
         <h1 class="text-xl font-bold text-sky-600">DentiCourb</h1>
+        <button
+          class="cursor-pointer grid place-items-center size-10 rounded-md bg-sky-600 text-white sm:hidden"
+          type="button"
+          onClick$={toggle}
+          aria-label="Toggle Menu"
+          aria-expanded={mobileOpenCloseButton.value}
+          aria-controls="nav-bar"
+        >
+          {mobileOpenCloseButton.value ? "X" : "☰"}
+        </button>
       </div>
+      <buttonNav />
       <ul
         class={[
           "grid md:flex-row gap-1 items-start transition-all duration-300",
-          isOpen.value ? "block" : "hidden",
+          mobileOpenCloseButton.value ? "block" : "max-sm:hidden",
           "md:flex ",
         ]}
       >

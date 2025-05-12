@@ -19,7 +19,7 @@ export type SubMenuB = Base & {
 export const menu: readonly (SubMenuB | A)[] = [
   {
     type: "link",
-    name: "IT1",
+    name: "it1",
     link: "/politique-de-confidentialite",
   },
   {

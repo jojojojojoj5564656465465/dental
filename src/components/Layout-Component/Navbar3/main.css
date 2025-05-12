@@ -2,14 +2,15 @@
   position: relative;
   display: inline-block;
 }
+@media (width > 80rem) {
+  .submenu:has(.submenu_name) > .submenu_name::after {
+    content: " ▶";
+    opacity: 0.5;
+  }
 
-.submenu:has(.submenu_name) > .submenu_name::after {
-  content: " ▶";
-  opacity: 0.5;
-}
-
-.submenu:hover:has(.submenu_name) > .submenu_name::after {
-  content: " ▼";
+  .submenu:hover:has(.submenu_name) > .submenu_name::after {
+    content: "  ";
+  }
 }
 
 ul {
@@ -18,15 +19,10 @@ ul {
   margin: 0;
 }
 
-li.navlink,
-.submenu {
-  margin: 0 0.5rem;
-}
-
 .submenu_navlink {
   display: none;
   position: absolute;
-  top: 99%;
+  top: 100%;
   left: 0;
   min-width: 180px;
   background: #fff;
@@ -53,14 +49,14 @@ li.navlink,
 
 .submenu_navlink:has(.navlink) .navlink {
   color: oklch(68.5% 0.169 237.323);
-  font-weight: lighter;
   font-size: calc(var(--font-size-navbar, 1.5em) / 2);
+  color: black;
 }
 
 .submenu_name {
-  cursor: visible;
-  font-size: var(--font-size-navbar, 1.5em);
-  border: 2px solid #1f8ac0;
+  cursor: initial;
+  font-size: 1em;
+
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
   color: black;
@@ -69,8 +65,7 @@ li.navlink,
 
 .navStyle {
   cursor: pointer;
-  font-size: var(--font-size-navbar, 1.5em);
-  border: 2px solid #1f8ac0;
+
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
   color: black;
@@ -83,9 +78,9 @@ li.navlink,
     border-radius: 0;
     min-width: unset;
     width: 100%;
-    display: none;
+
     background: #fff;
-    flex-direction: column !important;
+    flex-direction: column;
     padding: 0.5rem 0;
     opacity: 1;
     transform: none;
@@ -94,10 +89,11 @@ li.navlink,
 
   .submenu:hover > .submenu_navlink,
   .submenu:focus-within > .submenu_navlink {
-    display: flex !important;
+    display: inline-flex;
     background: #f5f5f5;
     position: static;
     width: 100%;
+    gap: 2rem;
   }
 
   .navStyle {

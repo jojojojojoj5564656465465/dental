@@ -4,6 +4,7 @@ import {
   component$,
   useComputed$,
   useContext,
+  useOn,
   useOnDocument,
   useSignal,
   useStyles$,
@@ -35,11 +36,10 @@ type Extra = {
 export default component$<SubMenuB & Extra>((props) => {
   v.parse(ObjectSchema, props);
 
-  const openSubMenu = useSignal<boolean>(false);
   const ctx = useContext(openMenuIndexPosition);
-
+  const openSubMenu = useSignal<boolean>(false);
   const isActive = useComputed$(() => props.idx === ctx.value);
-
+  const both = useComputed$(() => openSubMenu.value && isActive.value);
   const toggleSubMenu = $(() => {
     openSubMenu.value = !openSubMenu.value;
   });
@@ -51,28 +51,42 @@ export default component$<SubMenuB & Extra>((props) => {
     $((event) => {
       if (openSubMenu.value) {
         const target = event.target as HTMLElement;
-        if (target.closest(".submenu") === null) {
+        if (target.closest(`#submenu-btn-${props.idx}`) === null) {
           openSubMenu.value = false;
         }
       }
     }),
   );
-
+  useOn(
+    "mouseleave",
+    $(() => (openSubMenu.value = false)),
+  );
   return (
-    <div class={["submenu flex flex-col align-center relative"]}>
+    <div class={["submenu grid align-center relative"]}>
       <button
         id={`submenu-btn-${props.idx}`}
         type="button"
         aria-expanded={isActive.value}
         aria-controls={`submenu-list-${props.idx}`}
-        onClick$={toggleSubMenu}
-        class="submenu_name navStyle"
+        onClick$={[$(() => props.changeTab(props.idx)), toggleSubMenu]}
+        onMouseEnter$={[
+          $(() => (openSubMenu.value = true)),
+          $(() => props.changeTab(props.idx)),
+        ]}
+        class="capitalize submenu_name navStyle peer hover:!text-sky-600"
       >
+        {/*{openSubMenu.value ? ' open😛 ' : ' open🤮 '}*/}
+        {/*{isActive.value ? ' ℹ️😛 ' : ' ℹ️🤮'}*/}
+
         {props.name}
+        <span class="sm:hidden opacity-35">{both.value ? " ▼ " : " ▶"}</span>
       </button>
       <ul
         id={`submenu-list-${props.idx}`}
-        class={["submenu_navlink gap-1.5 flex-col navStyle"]}
+        class={[
+          "submenu_navlink navStyle  peer-hover:grid gap-y-2",
+          both.value ? "max-sm:!flex !grid" : "!hidden",
+        ]}
       >
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />
