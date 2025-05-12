@@ -35,7 +35,7 @@ export default component$(() => {
       <div class="flex items-center justify-between p-4">
         <h1 class="text-xl font-bold text-sky-600">DentiCourb</h1>
         <button
-          class="cursor-pointer grid place-items-center size-10 rounded-md bg-sky-600 text-white sm:hidden"
+          class="cursor-pointer grid place-items-center size-10 rounded-md bg-sky-600 p-2 text-white md:hidden"
           type="button"
           onClick$={toggle}
           aria-label="Toggle Menu"
@@ -48,9 +48,8 @@ export default component$(() => {
       <buttonNav />
       <ul
         class={[
-          "grid md:flex-row gap-1 items-start transition-all duration-300",
-          mobileOpenCloseButton.value ? "block" : "max-sm:hidden",
-          "md:flex ",
+          "grid md:flex md:justify-start gap-1 items-start transition-all duration-300",
+          mobileOpenCloseButton.value ? "block" : "max-md:hidden",
         ]}
       >
         {menu.map((item, index) =>

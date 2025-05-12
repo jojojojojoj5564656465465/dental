@@ -62,7 +62,7 @@ export default component$<SubMenuB & Extra>((props) => {
     $(() => (openSubMenu.value = false)),
   );
   return (
-    <div class={["submenu grid align-center relative"]}>
+    <div class={["submenu grid align-center relative max-sm:mx-auto "]}>
       <button
         id={`submenu-btn-${props.idx}`}
         type="button"
@@ -84,8 +84,8 @@ export default component$<SubMenuB & Extra>((props) => {
       <ul
         id={`submenu-list-${props.idx}`}
         class={[
-          "submenu_navlink navStyle  peer-hover:grid gap-y-2",
-          both.value ? "max-sm:!flex !grid" : "!hidden",
+          "submenu_navlink navStyle  peer-hover:grid gap-y-2 w-full",
+          both.value ? "!grid " : "!hidden",
         ]}
       >
         {props.Submenu.map((item, index) => (
