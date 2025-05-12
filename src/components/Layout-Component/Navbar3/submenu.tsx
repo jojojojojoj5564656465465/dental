@@ -73,7 +73,7 @@ export default component$<SubMenuB & Extra>((props) => {
           $(() => (openSubMenu.value = true)),
           $(() => props.changeTab(props.idx)),
         ]}
-        class="capitalize submenu_name navStyle peer hover:!text-sky-600"
+        class="capitalize submenu_name navStyle peer hover:!text-sky-600 my-auto"
       >
         {/*{openSubMenu.value ? ' open😛 ' : ' open🤮 '}*/}
         {/*{isActive.value ? ' ℹ️😛 ' : ' ℹ️🤮'}*/}

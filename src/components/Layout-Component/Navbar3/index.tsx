@@ -48,7 +48,7 @@ export default component$(() => {
       <buttonNav />
       <ul
         class={[
-          "grid md:flex md:justify-start gap-1 items-start transition-all duration-300",
+          "grid md:flex md:justify-start gap-1 md:items-center transition-all duration-300",
           mobileOpenCloseButton.value ? "block" : "max-md:hidden",
         ]}
       >
