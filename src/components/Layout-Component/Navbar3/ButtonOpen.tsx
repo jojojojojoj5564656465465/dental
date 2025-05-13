@@ -1,10 +1,47 @@
-import { $, useOn, useOnDocument, useSignal } from "@builder.io/qwik";
+import {
+  $,
+  useOnDocument,
+  useOnWindow,
+  useSignal,
+  useTask$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
+
+function isMobileBoolean() {
+  const isMobile = useSignal<boolean>(false);
+
+  useVisibleTask$(({ cleanup }) => {
+    const checkIfMobile = () => {
+      isMobile.value = window.matchMedia("(max-width: 768px)").matches;
+    };
+
+    // checkIfMobile() // Vérification initiale
+    // window.addEventListener('resize', checkIfMobile)
+    //
+    // cleanup(() => {
+    //   window.removeEventListener('resize', checkIfMobile)
+    // })
+  });
+  useOnWindow(
+    "resize",
+    $(() => {
+      isMobile.value = window.matchMedia("(max-width: 768px)").matches;
+    }),
+  );
+  return isMobile;
+}
 
 function useButton(props: string) {
   const state = useSignal<boolean>(false);
+  const isMobile = isMobileBoolean();
+
+  useTask$(({ track }) => {
+    track(() => isMobile.value);
+    console.log("Count changed:", isMobile.value);
+  });
 
   const toggle = $(() => {
-    state.value = !state.value;
+    state.value = isMobile.value && !state.value;
   });
 
   useOnDocument(
