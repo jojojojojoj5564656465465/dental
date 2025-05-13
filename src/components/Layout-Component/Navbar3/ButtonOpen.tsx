@@ -8,24 +8,15 @@ import {
 } from "@builder.io/qwik";
 
 function isMobileBoolean() {
-  const isMobile = useSignal<boolean>(false);
+  const isMobile = useSignal<boolean>(true);
 
-  useVisibleTask$(({ cleanup }) => {
-    const checkIfMobile = () => {
-      isMobile.value = window.matchMedia("(max-width: 768px)").matches;
-    };
-
-    // checkIfMobile() // Vérification initiale
-    // window.addEventListener('resize', checkIfMobile)
-    //
-    // cleanup(() => {
-    //   window.removeEventListener('resize', checkIfMobile)
-    // })
+  useVisibleTask$(() => {
+    isMobile.value = window.matchMedia("(max-width: 768px)").matches;
   });
   useOnWindow(
     "resize",
     $(() => {
-      isMobile.value = window.matchMedia("(max-width: 768px)").matches;
+      isMobile.value = window.matchMedia("(max-width: 48rem)").matches;
     }),
   );
   return isMobile;
@@ -37,7 +28,7 @@ function useButton(props: string) {
 
   useTask$(({ track }) => {
     track(() => isMobile.value);
-    console.log("Count changed:", isMobile.value);
+    console.log("useTask:", isMobile.value);
   });
 
   const toggle = $(() => {

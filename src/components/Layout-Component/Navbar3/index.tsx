@@ -33,7 +33,9 @@ export default component$(() => {
       class="bg-blue-300/50 relative gap-3 max-md:grid flex flex-row items-center"
     >
       <div class="flex items-center justify-between p-4">
-        <h1 class="text-xl font-bold text-sky-600">DentiCourb</h1>
+        <h1 class="text-xl font-bold text-sky-600 hover:text-sky-400">
+          DentiCourb
+        </h1>
         <button
           class="cursor-pointer grid place-items-center size-10 rounded-md bg-sky-600 p-2 text-white md:hidden"
           type="button"
