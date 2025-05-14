@@ -41,9 +41,8 @@ export default component$<SubMenuB & Extra>((props) => {
   const openSubMenu = useSignal<boolean>(false);
   const isActive = useComputed$(() => props.idx === ctx.value);
   const both = useComputed$(() => openSubMenu.value && isActive.value);
-
   const toggleSubMenu = $(() => {
-    openSubMenu.value = props.isMobile && !openSubMenu.value;
+    openSubMenu.value = !openSubMenu.value;
   });
 
   useStyles$(styles);
@@ -71,7 +70,6 @@ export default component$<SubMenuB & Extra>((props) => {
         aria-expanded={isActive.value}
         aria-controls={`submenu-list-${props.idx}`}
         onClick$={[$(() => props.changeTab(props.idx)), toggleSubMenu]}
-        onMouseEnter$={$(() => props.changeTab(props.idx))}
         // onMouseEnter$={[$(() => (openSubMenu.value = true)), $(() => props.changeTab(props.idx))]}
         class="capitalize submenu_name navStyle peer hover:!text-sky-600 my-auto"
       >
@@ -81,10 +79,9 @@ export default component$<SubMenuB & Extra>((props) => {
       <ul
         id={`submenu-list-${props.idx}`}
         class={[
-          "submenu_navlink navStyle peer-hover:grid gap-y-2 w-full",
-          props.isMobile ? (both.value ? "!grid " : "!hidden") : "",
+          "submenu_navlink navStyle  peer-hover:grid gap-y-2 w-full",
+          both.value ? "!grid " : "!hidden",
         ]}
-        //class={['submenu_navlink navStyle peer-hover:grid gap-y-2 w-full']}
       >
         {props.Submenu.map((item, index) => (
           <Navlink key={index} {...item} />

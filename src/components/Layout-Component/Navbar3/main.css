@@ -2,14 +2,14 @@
   position: relative;
   display: inline-block;
 }
-@media (width > 80rem) {
+@media (width > 60rem) {
   .submenu:has(.submenu_name) > .submenu_name::after {
-    content: " ▶";
+    content: " +";
     opacity: 0.5;
   }
 
   .submenu:hover:has(.submenu_name) > .submenu_name::after {
-    content: "  ";
+    content: " -";
   }
 }
 
@@ -49,7 +49,6 @@ ul {
 
 .submenu_navlink:has(.navlink) .navlink {
   color: oklch(68.5% 0.169 237.323);
-  font-size: calc(var(--font-size-navbar, 1.5em) / 2);
   color: black;
 }
 

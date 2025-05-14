@@ -8,7 +8,7 @@ import {
   useSignal,
   useStyles$,
 } from "@builder.io/qwik";
-import useButton from "./ButtonOpen";
+import { useButton } from "./ButtonOpen";
 import styles from "./main.css?inline";
 import { menu } from "./menu";
 import Navlink from "./Navlink";
@@ -50,7 +50,7 @@ export default component$(() => {
       <buttonNav />
       <ul
         class={[
-          "grid md:flex md:justify-start gap-1 md:items-center transition-all duration-300",
+          "md:hidden grid gap-1 md:items-center transition-all duration-300",
           mobileOpenCloseButton.value ? "block" : "max-md:hidden",
         ]}
       >
@@ -62,6 +62,27 @@ export default component$(() => {
               key={index}
               changeTab={changePosition}
               idx={index}
+              isMobile={true}
+              {...item}
+            />
+          ),
+        )}
+      </ul>
+
+      <ul
+        class={[
+          "max-md:hidden md:flex md:justify-start gap-1 md:items-center transition-all duration-300",
+        ]}
+      >
+        {menu.map((item, index) =>
+          item.type === "link" ? (
+            <Navlink key={index} {...item} />
+          ) : (
+            <Submenu
+              key={index}
+              changeTab={changePosition}
+              idx={index}
+              isMobile={false}
               {...item}
             />
           ),

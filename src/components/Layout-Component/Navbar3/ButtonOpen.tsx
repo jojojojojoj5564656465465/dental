@@ -7,16 +7,22 @@ import {
   useVisibleTask$,
 } from "@builder.io/qwik";
 
-function isMobileBoolean() {
-  const isMobile = useSignal<boolean>(true);
-
+/**
+ * @description Check if the screen window is below a certain size in rem
+ * @param x number - The number of rems to check against the screen width
+ */
+function useScreenBelowInRem(x: number) {
+  const isMobile = useSignal<boolean>(false);
+  const size = `(max-width: ${x}rem)`;
+  // eslint-disable-next-line qwik/use-method-usage
   useVisibleTask$(() => {
-    isMobile.value = window.matchMedia("(max-width: 768px)").matches;
+    isMobile.value = window.matchMedia(size).matches;
   });
+  // eslint-disable-next-line qwik/use-method-usage
   useOnWindow(
     "resize",
     $(() => {
-      isMobile.value = window.matchMedia("(max-width: 48rem)").matches;
+      isMobile.value = window.matchMedia(size).matches;
     }),
   );
   return isMobile;
@@ -24,11 +30,10 @@ function isMobileBoolean() {
 
 function useButton(props: string) {
   const state = useSignal<boolean>(false);
-  const isMobile = isMobileBoolean();
+  const isMobile = useScreenBelowInRem(48);
 
   useTask$(({ track }) => {
     track(() => isMobile.value);
-    console.log("useTask:", isMobile.value);
   });
 
   const toggle = $(() => {
@@ -49,4 +54,4 @@ function useButton(props: string) {
   return { state, toggle };
 }
 
-export default useButton;
+export { useButton, useScreenBelowInRem };
