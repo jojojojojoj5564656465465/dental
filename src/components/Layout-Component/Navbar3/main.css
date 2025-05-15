@@ -1,3 +1,9 @@
+@property --text-color-navbar {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+}
+
 .submenu {
   position: relative;
   display: inline-block;
@@ -29,7 +35,7 @@ ul {
   border-radius: 0 0 12px 12px;
   box-shadow: 0 8px 24px rgba(31, 138, 192, 0.12);
   z-index: 10;
-  padding: 0.5rem 0;
+  padding-inline: 1.5rem;
   transform: translateY(-10px);
   pointer-events: none;
   opacity: 0;
@@ -48,8 +54,7 @@ ul {
 }
 
 .submenu_navlink:has(.navlink) .navlink {
-  color: oklch(68.5% 0.169 237.323);
-  color: black;
+  color: var(--text-color-navbar);
 }
 
 .submenu_name {
@@ -64,10 +69,10 @@ ul {
 
 .navStyle {
   cursor: pointer;
-
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
-  color: black;
+  color: var(--text-color-navbar);
 }
 
 @media (max-width: 768px) {
@@ -88,15 +93,10 @@ ul {
 
   .submenu:hover > .submenu_navlink,
   .submenu:focus-within > .submenu_navlink {
-    display: inline-flex;
+    display: grid;
     background: #f5f5f5;
     position: static;
     width: 100%;
     gap: 2rem;
-  }
-
-  .navStyle {
-    width: 100%;
-    box-sizing: border-box;
   }
 }

@@ -81,7 +81,7 @@ export default component$<SubMenuB & Extra>((props) => {
       <ul
         id={`submenu-list-${props.idx}`}
         class={[
-          "submenu_navlink navStyle peer-hover:grid gap-y-2 w-full",
+          "submenu_navlink navStyle peer-hover:grid ",
           props.isMobile ? (both.value ? "!grid " : "!hidden") : "",
         ]}
         //class={['submenu_navlink navStyle peer-hover:grid gap-y-2 w-full']}
