@@ -30,10 +30,10 @@ export default component$(() => {
   return (
     <nav
       id="nav-bar"
-      class="bg-blue-300/50 relative gap-3 max-md:grid flex flex-row items-center"
+      class="bg-sky-500/50 relative gap-3 max-md:grid flex flex-row items-center"
     >
       <div class="flex items-center justify-between p-4">
-        <h1 class="text-xl font-bold text-sky-600 hover:text-sky-400">
+        <h1 class="text-3xl md:pr-9 font-bold text-blue-800 hover:text-sky-400">
           DentiCourb
         </h1>
         <button
@@ -50,8 +50,8 @@ export default component$(() => {
       <buttonNav />
       <ul
         class={[
-          "md:hidden grid gap-1 md:items-center transition-all duration-300",
-          mobileOpenCloseButton.value ? "block" : "max-md:hidden",
+          "md:hidden grid gap-1 md:items-center place-items-center items-start transition-all duration-300",
+          mobileOpenCloseButton.value ? "grid" : "max-md:hidden",
         ]}
       >
         {menu.map((item, index) =>

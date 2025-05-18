@@ -7,7 +7,7 @@ import type { A } from "./menu";
 export default component$<A>((props) => {
   useStyles$(styles);
   return (
-    <li class="grid place-items-center group/nvl navlink navStyle flex  md:w-max capitalize list-none">
+    <li class="grid place-items-center group/nvl navlink navStyle md:w-max capitalize list-none">
       <a class={"group-hover/nvl:text-sky-600 mx-auto"} href={props.link}>
         {props.name}
       </a>
