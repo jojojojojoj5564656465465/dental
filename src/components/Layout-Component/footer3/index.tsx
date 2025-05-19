@@ -47,7 +47,7 @@ export default component$(() => {
   });
 
   return (
-    <footer class="bg-sky-500/50 border-t border-sky-100 text-white px-4 py-5 text-sm mt-xxl">
+    <footer class="bg-sky-500/50 border-t border-sky-100 text-white px-4 py-5 text-sm mt-xxl ">
       <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
         {/* Logo & Description */}
         <div>
