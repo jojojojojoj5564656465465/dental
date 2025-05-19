@@ -1,7 +1,7 @@
 ---
 import * as s from "./hero.css";
 import Banner from "./banner.astro";
-import Button from "../../button/button.astro";
+import Buttonn from "../../button/button.astro";
 import { textSprinkles } from "@styles/index";
 import { container, textRecipe, flex } from "@recipe";
 ---
@@ -39,12 +39,9 @@ import { container, textRecipe, flex } from "@recipe";
       La meilleure clinique de Courbevoie pour vous vous rendre le sourire que
       vous avez toujours rêvé.
     </p>
-
-    <Button
-      title="Doctolib"
-      link="http://www.doctolib.fr"
-      marginInlineCustomProps="0 auto"
-    />
+    <span class="grid place-items-center w-2xl text-white">
+      <Buttonn title="Doctolib" link="http://www.doctolib.fr" />
+    </span>
 
     <hr class={s.hr} />
     <div

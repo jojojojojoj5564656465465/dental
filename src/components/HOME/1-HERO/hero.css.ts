@@ -7,7 +7,6 @@ import { flex } from "@styles/recipe/index.css.ts";
 import { container } from "@recipe";
 
 export const wrapper = style([
-  //container.small,
   container({ size: "small" }),
   {
     borderImage:
