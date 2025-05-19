@@ -47,31 +47,34 @@ export default component$(() => {
   });
 
   return (
-    <footer class="bg-sky-500/50 text-white py-10 px-4 mt-12">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+    <footer class="bg-sky-500/50 border-t border-sky-100 text-white px-4 py-5 text-sm mt-xxl">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
         {/* Logo & Description */}
-        <div class="flex-1 mb-6 md:mb-0">
-          <div class="flex items-center mb-3">
-            <span class="bg-white rounded-full text-blue-800 font-bold text-xl w-10 h-10 flex items-center justify-center mr-2 shadow-lg">
+        <div>
+          <div class="flex items-center mb-2">
+            <span class="rounded-full text-sky-600 text-xl w-8 h-8 flex items-center justify-center mr-2 border border-sky-300 bg-sky-50">
               🦷
             </span>
-            <span class="text-2xl font-bold tracking-wide">DentistePro</span>
+            <span class="text-lg font-semibold tracking-wide">DentistePro</span>
           </div>
-          <p class="text-sm opacity-80">
-            Votre sourire, notre priorité. Cabinet dentaire moderne, soins
-            personnalisés et équipements de pointe.
+          <p class="text-xs text-sky-700/80 leading-snug">
+            Votre sourire, notre priorité.
+            <br />
+            Soins personnalisés et équipements de pointe.
           </p>
         </div>
 
         {/* Liens rapides */}
-        <div class="flex-1 mb-6 md:mb-0">
-          <h5 class="font-semibold mb-3 text-lg">Liens rapides</h5>
-          <ul class="space-y-2">
+        <div>
+          <h5 class="font-semibold mb-2 text-sky-800 text-base">
+            Liens rapides
+          </h5>
+          <ul class="space-y-1">
             {quickLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  class="hover:underline transition-opacity opacity-90"
+                  class="hover:underline hover:text-sky-600 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -81,19 +84,21 @@ export default component$(() => {
         </div>
 
         {/* Contact */}
-        <div class="flex-1">
-          <h5 class="font-semibold mb-3 text-lg">Contact</h5>
-          <ul class="space-y-2 text-sm">
+        <div>
+          <h5 class="font-semibold mb-2 text-sky-800 text-base">Contact</h5>
+          <ul class="space-y-1">
             {contactInfos.map((info, idx) => (
-              <li key={idx} class="flex items-center">
-                <span class="mr-2">{info.icon}</span>
-                <span class="font-medium">{info.label} :</span> {info.value}
+              <li key={idx} class="flex items-start gap-1">
+                <span class="text-lg">{info.icon}</span>
+                <span>
+                  <span class="font-medium">{info.label} :</span> {info.value}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div class="border-t border-blue-800 mt-8 pt-6 text-center text-xs opacity-70">
+      <div class="mt-6 border-t border-sky-100 pt-4 text-center text-xs text-blue-950">
         &copy; {currentYear.value} DentistePro. Tous droits réservés.
       </div>
     </footer>
