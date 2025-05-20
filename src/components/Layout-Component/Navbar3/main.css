@@ -78,6 +78,12 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .navStyle,
+  .submenu:has(.navStyle) {
+    inline-size: 100%;
+    text-align: left;
+  }
+
   .submenu_navlink {
     position: static;
     box-shadow: none;
