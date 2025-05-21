@@ -71,6 +71,12 @@
   font-size: 12px;
 }
 
+@media (min-width: 48rem) {
+  .rating-details {
+    width: 100%;
+    justify-content: start;
+  }
+}
 .rating-description {
   margin: 0 0 10px 0;
   opacity: 0.9;
@@ -81,6 +87,7 @@
   align-items: center;
   gap: 5px;
   flex-wrap: wrap; /* Allow wrapping on smaller overlay */
+  justify-content: center;
 }
 
 .rating-stars span:not(.rating-reason) {
@@ -92,6 +99,7 @@
   margin-left: 10px;
   font-size: 12px;
   font-weight: 300;
+  color: white;
 }
 
 .testimonial-right {

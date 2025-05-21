@@ -29,6 +29,9 @@ export default defineConfig({
   //   fonts: [],  // <-- stub enables the virtual:astro:assets/fonts/internal export
   // },
   vite: {
+    // css: {
+    //   transformer: "lightningcss",
+    // },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
@@ -40,12 +43,7 @@ export default defineConfig({
         "@recipe": path.resolve(__dirname, "src/styles/recipe/index.css.ts"),
       },
     },
-    // css: {
-    //   transformer: "lightningcss",
-    // },
-    // build: {
-    //   cssMinify: "lightningcss",
-    // },
+
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
@@ -67,5 +65,5 @@ export default defineConfig({
     //markdoc(),
   ],
 
-  //adapter: netlify(),
+  adapter: netlify(),
 });
