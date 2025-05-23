@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon"; //import robotsTxt from 'astro-robots-txt'
 
-import netlify from "@astrojs/netlify";
+//import netlify from "@astrojs/netlify";
 
 //import robotsTxt from 'astro-robots-txt'
 
@@ -65,5 +65,5 @@ export default defineConfig({
     //markdoc(),
   ],
 
-  adapter: netlify(),
+  //adapter: netlify(),
 });

@@ -64,7 +64,7 @@ export default component$<SubMenuB & Extra>((props) => {
     $(() => (openSubMenu.value = false)),
   );
   return (
-    <div class={["submenu grid align-center relative max-sm:mx-auto "]}>
+    <div class={["submenu grid align-center relative max-sm:mx-auto"]}>
       <button
         id={`submenu-btn-${props.idx}`}
         type="button"

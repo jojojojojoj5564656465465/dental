@@ -71,7 +71,7 @@ export default component$(() => {
 
       <ul
         class={[
-          "max-md:hidden md:flex md:justify-start gap-1 md:items-center transition-all duration-300 ",
+          "max-md:hidden md:flex md:justify-start gap-1 md:items-center transition-all duration-300",
         ]}
       >
         {menu.map((item, index) =>
