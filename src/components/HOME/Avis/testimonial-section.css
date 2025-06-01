@@ -7,9 +7,7 @@
 .testimonial-section {
   --primary-color: oklch(58.09% 0.1151 235.69);
   --text-color: #e0e0e0;
-  --background-color: oklch(
-    25.88% 0.037 240.95
-  ); /* Applied via body or parent container */
+  --background-color: oklch(25.88% 0.037 240.95); /* Applied via body or parent container */
   --grey-color: #b0b0b0;
   --gold-color: #ffd700;
   display: flex;
@@ -17,8 +15,7 @@
   width: 100%;
   align-items: center;
   gap: 10px;
-  font-family:
-    "Poppins", sans-serif; /* Assure-toi que Poppins est chargé via <link> dans HTML */
+  font-family: "Poppins", sans-serif; /* Assure-toi que Poppins est chargé via <link> dans HTML */
   padding-inline: clamp(5px, 5px + 2vw, 50px);
   color: var(--text-color); /* Ensure text color is inherited */
   /* overflow-x: auto; */ /* Potentially problematic, keep commented unless needed */

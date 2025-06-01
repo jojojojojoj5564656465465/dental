@@ -1,22 +1,17 @@
 ---
-import {
-  newImageGrid,
-  newImageGrid_Wrapper,
-  carreImage,
-  rectangleImage,
-} from "./aboutUs.css";
-import { getImage } from "astro:assets";
-import carre from "src/assets/about-us-img-1.jpg";
-import rectangle from "src/assets/about-us-img-2.jpg";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { newImageGrid, newImageGrid_Wrapper, carreImage, rectangleImage } from './aboutUs.css'
+import { getImage } from 'astro:assets'
+import carre from 'src/assets/about-us-img-1.jpg'
+import rectangle from 'src/assets/about-us-img-2.jpg'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 const carreBackground = await getImage({
   src: carre,
-  format: "avif",
-});
+  format: 'avif',
+})
 const rectangleBackground = await getImage({
   src: rectangle,
-  format: "avif",
-});
+  format: 'avif',
+})
 ---
 
 <section class={newImageGrid_Wrapper}>

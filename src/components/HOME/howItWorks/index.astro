@@ -1,44 +1,42 @@
 ---
-import Title from "../../Layout-Component/topContent.astro";
-import { containerGridMaxColumn } from "@recipe";
+import Title from '../../Layout-Component/topContent.astro'
+import { containerGridMaxColumn } from '@recipe'
 
-import { bgImage, ul } from "./content.css";
+import { bgImage, ul } from './content.css'
 
-import Li from "./index";
-import svg1 from "src/assets/icons/icon-how-it-work-1.svg";
-import svg2 from "src/assets/icons/icon-how-it-work-2.svg";
-import svg3 from "src/assets/icons/icon-how-it-work-3.svg";
-import { getImage } from "astro:assets";
+import Li from './index'
+import svg1 from 'src/assets/icons/icon-how-it-work-1.svg'
+import svg2 from 'src/assets/icons/icon-how-it-work-2.svg'
+import svg3 from 'src/assets/icons/icon-how-it-work-3.svg'
+import { getImage } from 'astro:assets'
 
 export interface ItemProps {
-  title: string;
-  description: string;
-  iconPath: string;
+  title: string
+  description: string
+  iconPath: string
 }
 const svgUrl = {
-  one: await getImage({ src: svg1, format: "svg" }),
-  two: await getImage({ src: svg2, format: "svg" }),
-  three: await getImage({ src: svg3, format: "svg" }),
-};
+  one: await getImage({ src: svg1, format: 'svg' }),
+  two: await getImage({ src: svg2, format: 'svg' }),
+  three: await getImage({ src: svg3, format: 'svg' }),
+}
 const data: ItemProps[] = [
   {
-    title: "Prendre rendez-vous",
+    title: 'Prendre rendez-vous',
     iconPath: `url(${svgUrl.one.src})`,
-    description:
-      "Prenez rendez-vous facilement et bénéficiez de soins dentaires adaptés à vos besoins.",
+    description: 'Prenez rendez-vous facilement et bénéficiez de soins dentaires adaptés à vos besoins.',
   },
   {
-    title: "Tiers Payant",
+    title: 'Tiers Payant',
     iconPath: `url(${svgUrl.two.src})`,
-    description: "bénéficier du tiers payant sans rien debourser au cabinet",
+    description: 'bénéficier du tiers payant sans rien debourser au cabinet',
   },
   {
-    title: "Soins experts",
+    title: 'Soins experts',
     iconPath: `url(${svgUrl.three.src})`,
-    description:
-      "Recevez des soins dentaires experts dans un environnement accueillant et sécurisé.",
+    description: 'Recevez des soins dentaires experts dans un environnement accueillant et sécurisé.',
   },
-];
+]
 ---
 
 <section

@@ -1,24 +1,19 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css'
 
-import {
-  container,
-  flex,
-  containerGrid,
-  textRecipe,
-} from "src/styles/recipe/index.css.ts";
+import { container, flex, containerGrid, textRecipe } from 'src/styles/recipe/index.css.ts'
 
 export const oui = style([
   flex({
-    direction: "row",
-    justifyContent: "evenly",
+    direction: 'row',
+    justifyContent: 'evenly',
     wrap: true,
   }),
   containerGrid({
-    theme: "blueLightBg",
+    theme: 'blueLightBg',
     background: true,
-    size: "small",
+    size: 'small',
     hover: true,
     gap: true,
   }),
-]);
-export const oui2 = style([textRecipe({ font: "title", marginBlock: "xs" })]);
+])
+export const oui2 = style([textRecipe({ font: 'title', marginBlock: 'xs' })])

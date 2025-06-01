@@ -1,2 +1,2 @@
-export * from "./themeNew.css";
-export * from "./utils.ts";
+export * from './themeNew.css'
+export * from './utils.ts'

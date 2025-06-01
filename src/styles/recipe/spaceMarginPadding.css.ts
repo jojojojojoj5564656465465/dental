@@ -1,15 +1,15 @@
-import { defineProperties } from "@vanilla-extract/sprinkles";
+import { defineProperties } from '@vanilla-extract/sprinkles'
 
-import { media, space } from "../token";
+import { media, space } from '../token'
 
 export default defineProperties({
   conditions: {
     mobile: {},
-    tablet: { "@media": media.tablet },
-    desktop: { "@media": media.md },
+    tablet: { '@media': media.tablet },
+    desktop: { '@media': media.md },
   },
-  defaultCondition: "mobile",
-  responsiveArray: ["mobile", "tablet", "desktop"],
+  defaultCondition: 'mobile',
+  responsiveArray: ['mobile', 'tablet', 'desktop'],
   properties: {
     paddingInlineStart: space,
     paddingInlineEnd: space,
@@ -28,21 +28,11 @@ export default defineProperties({
     margin: space,
   },
   shorthands: {
-    py: ["paddingBlockEnd", "paddingBlockStart"],
-    my: ["marginBlockEnd", "marginBlockStart"],
-    px: ["paddingInlineEnd", "paddingInlineStart"],
-    mx: ["marginInlineEnd", "marginInlineStart"],
-    m: [
-      "marginInlineEnd",
-      "marginInlineStart",
-      "marginBlockEnd",
-      "marginBlockStart",
-    ],
-    p: [
-      "paddingInlineEnd",
-      "paddingInlineStart",
-      "paddingBlockEnd",
-      "paddingBlockStart",
-    ],
+    py: ['paddingBlockEnd', 'paddingBlockStart'],
+    my: ['marginBlockEnd', 'marginBlockStart'],
+    px: ['paddingInlineEnd', 'paddingInlineStart'],
+    mx: ['marginInlineEnd', 'marginInlineStart'],
+    m: ['marginInlineEnd', 'marginInlineStart', 'marginBlockEnd', 'marginBlockStart'],
+    p: ['paddingInlineEnd', 'paddingInlineStart', 'paddingBlockEnd', 'paddingBlockStart'],
   },
-});
+})

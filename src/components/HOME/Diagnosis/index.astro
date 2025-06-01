@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components'
 import {
   description,
   element,
@@ -9,46 +9,42 @@ import {
   sectionContainerIndex,
   sectionContainer__Text,
   title,
-} from "./diagnostic.css";
-import ImageMiddle from "src/assets/why-choose-us-img.png";
+} from './diagnostic.css'
+import ImageMiddle from 'src/assets/why-choose-us-img.png'
 interface Service {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 const services: Service[] = [
   {
-    title: "Caries dentaires",
+    title: 'Caries dentaires',
     description:
-      "Les caries sont des lésions de la structure dentaire causées par les bactéries, diagnostiquées par examen visuel et radiographies.",
+      'Les caries sont des lésions de la structure dentaire causées par les bactéries, diagnostiquées par examen visuel et radiographies.',
   },
   {
-    title: "Maladies des gencives (gingivite et parodontite)",
-    description:
-      "Inflammation des gencives diagnostiquée par examen visuel et sondes parodontales.",
+    title: 'Maladies des gencives (gingivite et parodontite)',
+    description: 'Inflammation des gencives diagnostiquée par examen visuel et sondes parodontales.',
   },
   {
-    title: "Maladies de la pulpe dentaire",
-    description:
-      "Inflammation de la pulpe dentaire diagnostiquée par tests de sensibilité.",
+    title: 'Maladies de la pulpe dentaire',
+    description: 'Inflammation de la pulpe dentaire diagnostiquée par tests de sensibilité.',
   },
   {
-    title: "Malocclusion",
-    description:
-      "Problèmes d’alignement des dents diagnostiqués par examen clinique et radiographies.",
+    title: 'Malocclusion',
+    description: 'Problèmes d’alignement des dents diagnostiqués par examen clinique et radiographies.',
   },
   {
-    title: "Maladies des tissus mous",
-    description:
-      "Lésions des tissus mous diagnostiquées par examen visuel et biopsies si nécessaire.",
+    title: 'Maladies des tissus mous',
+    description: 'Lésions des tissus mous diagnostiquées par examen visuel et biopsies si nécessaire.',
   },
   {
-    title: "Bruxisme",
+    title: 'Bruxisme',
     description:
-      "Grincement des dents diagnostiqué par examen des signes d’usure et questions sur les habitudes de sommeil.",
+      'Grincement des dents diagnostiqué par examen des signes d’usure et questions sur les habitudes de sommeil.',
   },
-];
+]
 
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 ---
 
 <section class={sectionContainerIndex}>

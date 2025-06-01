@@ -1,13 +1,13 @@
 ---
 interface Props {
-  icon: string;
-  title: string;
-  text: string;
+  icon: string
+  title: string
+  text: string
 }
-import { CardStyle } from "./Specialisation.css";
-const { icon, title, text } = Astro.props;
-import { Icon } from "astro-icon/components";
-import { textRecipe } from "@styles/recipe/textRecipe.css";
+import { CardStyle } from './Specialisation.css'
+const { icon, title, text } = Astro.props
+import { Icon } from 'astro-icon/components'
+import { textRecipe } from '@styles/recipe/textRecipe.css'
 ---
 
 <div class={CardStyle.wrapper}>

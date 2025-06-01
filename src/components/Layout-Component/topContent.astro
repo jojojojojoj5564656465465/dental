@@ -1,22 +1,15 @@
 ---
 interface Props {
-  subtitle: string;
-  PreTitle: string;
-  title: string;
-  description?: string;
-  textAlign?: "left" | "center" | "right";
-  gap: "largeGap" | "smallGap";
+  subtitle: string
+  PreTitle: string
+  title: string
+  description?: string
+  textAlign?: 'left' | 'center' | 'right'
+  gap: 'largeGap' | 'smallGap'
 }
-const {
-  subtitle,
-  title,
-  PreTitle,
-  description,
-  gap = "smallGap",
-  textAlign = "left",
-} = Astro.props;
+const { subtitle, title, PreTitle, description, gap = 'smallGap', textAlign = 'left' } = Astro.props
 
-import { textRecipe as R, textSprinkles as S } from "@recipe";
+import { textRecipe as R, textSprinkles as S } from '@recipe'
 ---
 
 <div class:list={["grid", gap]}>

@@ -1,28 +1,21 @@
-import { recipe } from "@vanilla-extract/recipes";
-import { media } from "../token";
-import { colorTheme, theme } from "../utils/themeNew.css.ts";
-import { containerSize, maxInlineSizeFn } from "../utils/base.css.ts";
-import {
-  assignVars,
-  createThemeContract,
-  createVar,
-  fallbackVar,
-  style,
-  styleVariants,
-} from "@vanilla-extract/css";
-import { fluid } from "../utils/utils.ts";
+import { recipe } from '@vanilla-extract/recipes'
+import { media } from '../token'
+import { colorTheme, theme } from '../utils/themeNew.css.ts'
+import { containerSize, maxInlineSizeFn } from '../utils/base.css.ts'
+import { assignVars, createThemeContract, createVar, fallbackVar, style, styleVariants } from '@vanilla-extract/css'
+import { fluid } from '../utils/utils.ts'
 
 const spaceLrVar = createVar({
-  syntax: "<length>",
+  syntax: '<length>',
   inherits: false,
-  initialValue: "40px",
-});
+  initialValue: '40px',
+})
 
 const spaceGapVar = createVar({
-  syntax: "<length>",
+  syntax: '<length>',
   inherits: false,
-  initialValue: "20px",
-});
+  initialValue: '20px',
+})
 
 const gridWrapper = style({
   // Valeurs initiales des variables
@@ -31,95 +24,95 @@ const gridWrapper = style({
     [spaceGapVar]: fluid(20, 35),
   },
   gap: spaceGapVar,
-});
+})
 
 const vars = createThemeContract({
   col: null,
-});
+})
 const numberOfColumnTheme = style({
   vars: assignVars(vars, {
-    col: "3",
+    col: '3',
   }),
-  "@media": {
+  '@media': {
     [media.tablet]: {
       vars: assignVars(vars, {
-        col: "6",
+        col: '6',
       }),
     },
     [media.md]: {
       vars: assignVars(vars, {
-        col: "12",
+        col: '12',
       }),
     },
   },
-});
+})
 
-const containerGridVariant = styleVariants(containerSize, (size) => [
+const containerGridVariant = styleVariants(containerSize, size => [
   gridWrapper,
   numberOfColumnTheme,
   {
     gridTemplateColumns: `1fr repeat(${vars.col}, calc((min(100% - ${spaceLrVar}, ${size}) - (${vars.col} - 1) * ${spaceGapVar}) / ${vars.col})) 1fr`,
   },
-]);
+])
 export const containerGrid = recipe({
   base: [
     {
-      marginInline: "auto",
-      position: "relative",
-      boxSizing: "border-box",
-      display: "grid",
+      marginInline: 'auto',
+      position: 'relative',
+      boxSizing: 'border-box',
+      display: 'grid',
     },
   ],
   variants: {
     size: {
-      small: { maxInlineSize: maxInlineSizeFn("small") },
-      medium: { maxInlineSize: maxInlineSizeFn("medium") },
-      large: { maxInlineSize: maxInlineSizeFn("large") },
-      xxl: { maxInlineSize: maxInlineSizeFn("xxl") },
-      full: { maxInlineSize: "none" },
+      small: { maxInlineSize: maxInlineSizeFn('small') },
+      medium: { maxInlineSize: maxInlineSizeFn('medium') },
+      large: { maxInlineSize: maxInlineSizeFn('large') },
+      xxl: { maxInlineSize: maxInlineSizeFn('xxl') },
+      full: { maxInlineSize: 'none' },
     },
     cols: {
       2: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(2, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(2, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(2, 1fr)' },
         },
       },
       3: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(2, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(3, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(3, 1fr)' },
         },
       },
       4: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(2, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(4, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(2, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(4, 1fr)' },
         },
       },
 
       6: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(3, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(6, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(3, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(6, 1fr)' },
         },
       },
       8: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(4, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(8, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(4, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(8, 1fr)' },
         },
       },
       12: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(6, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(12, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(6, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(12, 1fr)' },
         },
       },
       24: {
-        "@media": {
-          [media.tablet]: { gridTemplateColumns: "repeat(12, 1fr)" },
-          [media.md]: { gridTemplateColumns: "repeat(24, 1fr)" },
+        '@media': {
+          [media.tablet]: { gridTemplateColumns: 'repeat(12, 1fr)' },
+          [media.md]: { gridTemplateColumns: 'repeat(24, 1fr)' },
         },
       },
     },
@@ -135,28 +128,28 @@ export const containerGrid = recipe({
     },
     background: {
       true: {
-        backgroundColor: fallbackVar(theme.background, "red"),
+        backgroundColor: fallbackVar(theme.background, 'red'),
       },
     },
     hover: {
       true: {
-        cursor: "pointer",
-        ":active": {
-          color: fallbackVar(theme.textHover, "inherit"),
-          backgroundColor: fallbackVar(theme.backgroundHover, "inherit"),
-          transform: "scale(1.01,1)",
+        cursor: 'pointer',
+        ':active': {
+          color: fallbackVar(theme.textHover, 'inherit'),
+          backgroundColor: fallbackVar(theme.backgroundHover, 'inherit'),
+          transform: 'scale(1.01,1)',
           outline: `min(4px, 3px + 0.1vw) solid ${theme.backgroundHover}`,
-          outlineOffset: "1.6px",
+          outlineOffset: '1.6px',
         },
-        ":focus": {
-          outline: "min(4px, 3px + 0.1vw) solid yellow",
-          outlineOffset: "4px",
+        ':focus': {
+          outline: 'min(4px, 3px + 0.1vw) solid yellow',
+          outlineOffset: '4px',
         },
 
-        ":hover": {
+        ':hover': {
           backgroundColor: fallbackVar(theme.backgroundHover, theme.background),
-          color: fallbackVar(theme.textHover, "inherit"),
-          borderColor: fallbackVar(theme.textHover, "inherit"),
+          color: fallbackVar(theme.textHover, 'inherit'),
+          borderColor: fallbackVar(theme.textHover, 'inherit'),
         },
       },
     },
@@ -170,4 +163,4 @@ export const containerGrid = recipe({
     hover: false,
     background: true,
   },
-});
+})
