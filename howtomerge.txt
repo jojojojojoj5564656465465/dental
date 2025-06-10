@@ -1,0 +1,826 @@
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/content.css.ts ===
+
+import { createVar, keyframes, style, styleVariants } from '@vanilla-extract/css'
+import { container, textRecipe as R } from 'src/styles/recipe'
+import { color } from 'src/styles/utils/themeNew.css.ts'
+
+const changeColor = keyframes({
+  '0%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 0%)',
+  },
+  '5%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 5%)',
+  },
+  '10%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 10%)',
+  },
+  '15%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 15%)',
+  },
+  '20%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 20%)',
+  },
+  '25%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 25%)',
+  },
+  '30%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 30%)',
+  },
+  '35%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 35%)',
+  },
+  '40%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 40%)',
+  },
+  '45%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 45%)',
+  },
+  '50%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 50%)',
+  },
+  '55%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 55%)',
+  },
+  '60%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 60%)',
+  },
+  '65%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 65%)',
+  },
+  '70%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 70%)',
+  },
+  '75%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 75%)',
+  },
+  '80%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 80%)',
+  },
+  '85%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 85%)',
+  },
+  '90%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 90%)',
+  },
+  '95%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 95%)',
+  },
+  '100%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 100%)',
+  },
+})
+
+export const liWrapper = style([
+  container({ theme: 'whiteBg', background: true }),
+  {
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr auto', // Remplacez par ces proportions plus logiques
+    gridTemplateRows: 'auto auto', // Définissez explicitement les rangées
+    gap: '10px',
+    padding: '15px',
+    border: '2px solid oklch(0.8 0.0345 261.53)',
+    borderRadius: '5px',
+    width: '100%', // Utilisez width au lieu de minInlineSize pour plus de compatibilité
+    cursor: 'pointer',
+
+    selectors: {
+      '&:has(+li):before': {
+        content: '',
+        width: '100%', // Utilisez width au lieu de inlineSize
+        backgroundColor: color.theme.accent,
+        bottom: '-25px',
+        height: '5px', // Utilisez height au lieu de blockSize
+        position: 'absolute',
+        left: 0,
+      },
+      '&:hover:has(+li):before': {
+        animationName: changeColor,
+        animationDuration: '4s',
+        animationIterationCount: 'infinite',
+
+        animationDirection: 'alternate',
+      },
+    },
+  },
+])
+export const bgImage = style({
+  backgroundImage: 'url(/src/assets/istockphoto.jpg)',
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'repeat',
+})
+export const ul = style({
+  paddingInline: 0,
+  marginInline: 20,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 35,
+  justifyItems: 'stretch',
+})
+
+export const liHeader = style({
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr auto',
+  gridColumn: '1 / -1', // Couvre toutes les colonnes du parent
+  gridRow: '1 / 2',
+  gap: '10px',
+  alignItems: 'center',
+})
+
+export const myContent = createVar({
+  syntax: '<string>',
+  initialValue: 'url(src/assets/icons/icon-how-it-work-1.svg)',
+  inherits: false,
+})
+
+export const li_content = styleVariants({
+  ico: {
+    gridColumn: '1 / 2',
+    backgroundColor: 'pink',
+    padding: '10px',
+    // width: '40px',
+    // height: '40px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+  },
+  txt1: [
+    R({ font: 'highLight' }),
+    {
+      gridColumn: '2 / 3',
+
+      marginInlineStart: '1rem',
+      ':before': {
+        content: myContent,
+        marginInlineEnd: '1rem',
+      },
+    },
+  ],
+  notification: [
+    {
+      gridColumn: '3 / 4',
+      ':after': {
+        content: '+',
+      },
+      selectors: {
+        [`${liWrapper}:hover &:after`]: {
+          content: '-',
+        },
+        [`${liWrapper}:active &:after`]: {
+          content: '-',
+        },
+        [`${liWrapper}:focus &:after`]: {
+          content: '-',
+        },
+      },
+    },
+  ],
+  notificationOpen: [
+    {
+      gridColumn: '3 / 4',
+      ':after': {
+        content: '-',
+      },
+    },
+  ],
+  txt2: [
+    R({ font: 'text' }),
+    {
+      gridColumn: '1 / -1', // Couvre toutes les colonnes
+      gridRow: '2 / 3',
+      transition: 'max-height 0.5s ease, opacity 0.5s ease',
+      maxHeight: '0',
+      opacity: '0',
+      overflow: 'hidden',
+      selectors: {
+        [`${liWrapper}:hover &`]: {
+          maxHeight: '1200px',
+          opacity: '1',
+        },
+        [`${liWrapper}:active &`]: {
+          maxHeight: '600px',
+          opacity: '1',
+        },
+      },
+    },
+  ],
+  txt2Open: [
+    R({ font: 'text' }),
+    {
+      gridColumn: '1 / -1', // Couvre toutes les colonnes
+      gridRow: '2 / 3',
+      transition: 'max-height 0.5s ease, opacity 0.5s ease',
+      overflow: 'hidden',
+      maxHeight: '300px',
+      opacity: '1',
+    },
+  ],
+})
+
+export const iconBase = style({
+  gridColumn: '1 / 2',
+  padding: '10px',
+  width: '40px',
+  height: '40px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',
+})
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/how-it-works.tsx ===
+
+// how-it-works.component.tsx
+
+/**
+ * Section principale expliquant comment fonctionne le service.
+ * Affiche une introduction et une liste de 3 étapes avec icones.
+ */
+
+import { component$, useSignal } from '@builder.io/qwik'
+import Title from '@/components/Layout-Component/topContent' // Vérifie le chemin vers ton composant Title
+import Li from './Li.tsx' // Assure-toi que ce fichier existe
+import svg1 from '~/assets/icons/icon-how-it-work-1.svg?url'
+import svg2 from '~/assets/icons/icon-how-it-work-2.svg?url'
+import svg3 from '~/assets/icons/icon-how-it-work-3.svg?url'
+
+import { bgImage, ul, containerGridMaxColumn } from './content.css'
+
+export interface ItemProps {
+  title: string
+  description: string
+  icon: string
+}
+
+export default component$(() => {
+  const data: ItemProps[] = [
+    {
+      title: 'Prendre rendez-vous',
+      icon: `url(${svg1})`,
+      description: 'Prenez rendez-vous facilement et bénéficiez de soins dentaires adaptés à vos besoins.',
+    },
+    {
+      title: 'Tiers Payant',
+      icon: `url(${svg2})`,
+      description: 'Bénéficier du tiers payant sans rien débourser au cabinet.',
+    },
+    {
+      title: 'Soins experts',
+      icon: `url(${svg3})`,
+      description: 'Recevez des soins dentaires experts dans un environnement accueillant et sécurisé.',
+    },
+  ]
+
+  return (
+    <section
+      class={[
+        bgImage,
+        containerGridMaxColumn({
+          theme: 'darkBlueBanner',
+          sizeOfBox: 300,
+          background: false,
+          size: 'medium',
+          gap: 'sm',
+          maxColumn: 2,
+          marginBlock: 'lg',
+          paddingBlock: 'lg',
+          hover: false,
+        }),
+      ]}
+    >
+      <div class='grid place-items-center bg-slate-900/70 mx-4 px-2'>
+        <Title
+          subtitle='Comment ça marche ?'
+          PreTitle='Ce que nous faisons'
+          title='Pour votre sourire'
+          description='Notre cabinet simplifie vos démarches administratives, vous permettant de vous concentrer sur votre santé et votre bien-être.'
+          gap='largeGap'
+          textAlign='left'
+        />
+      </div>
+      <ul class={ul}>
+        {data.map(element => (
+          <Li key={element.title} {...element} />
+        ))}
+      </ul>
+    </section>
+  )
+})
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/index.astro ===
+
+---
+import Title from '../../Layout-Component/topContent.astro'
+import { containerGridMaxColumn } from '@recipe'
+
+import { bgImage, ul } from './content.css'
+
+import Li from './index'
+import svg1 from 'src/assets/icons/icon-how-it-work-1.svg'
+import svg2 from 'src/assets/icons/icon-how-it-work-2.svg'
+import svg3 from 'src/assets/icons/icon-how-it-work-3.svg'
+import { getImage } from 'astro:assets'
+
+export interface ItemProps {
+  title: string
+  description: string
+  iconPath: string
+}
+const svgUrl = {
+  one: await getImage({ src: svg1, format: 'svg' }),
+  two: await getImage({ src: svg2, format: 'svg' }),
+  three: await getImage({ src: svg3, format: 'svg' }),
+}
+const data: ItemProps[] = [
+  {
+    title: 'Prendre rendez-vous',
+    iconPath: `url(${svgUrl.one.src})`,
+    description: 'Prenez rendez-vous facilement et bénéficiez de soins dentaires adaptés à vos besoins.',
+  },
+  {
+    title: 'Tiers Payant',
+    iconPath: `url(${svgUrl.two.src})`,
+    description: 'bénéficier du tiers payant sans rien debourser au cabinet',
+  },
+  {
+    title: 'Soins experts',
+    iconPath: `url(${svgUrl.three.src})`,
+    description: 'Recevez des soins dentaires experts dans un environnement accueillant et sécurisé.',
+  },
+]
+---
+
+<section
+  class:list={[
+    bgImage,
+    containerGridMaxColumn({
+      theme: "darkBlueBanner",
+      sizeOfBox: 300,
+      background: false,
+      size: "medium",
+      gap: "sm",
+      maxColumn: 2,
+      marginBlock: "lg",
+      paddingBlock: "lg",
+      hover: false,
+    }),
+  ]}
+>
+  <div class="grid place-items-center bg-slate-900/70 mx-4 px-2">
+    <Title
+      subtitle="Comment ça marche ?"
+      PreTitle="Ce que nous faisons"
+      title="Pour votre sourire"
+      description="Notre cabinet simplifie vos démarches administratives, vous permettant de vous concentrer sur votre santé et votre bien-être."
+      gap="largeGap"
+      textAlign="left"
+    />
+  </div>
+  <ul class={ul}>
+    {
+      data.map((element) => (
+        <Li
+          title={element.title}
+          icon={element.iconPath}
+          description={element.description}
+        />
+      ))
+    }
+  </ul>
+</section>
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/index.tsx ===
+
+import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { li_content, liHeader, liWrapper, myContent } from './content.css'
+
+export interface ItemProps {
+  title: string
+  description: string
+  icon: string
+}
+
+export default component$<ItemProps>(props => {
+  const opening = useSignal<boolean>(false)
+
+  const toOpen = $(() => {
+    opening.value = !opening.value
+  })
+
+  useOnDocument(
+    'keydown',
+    $(event => {
+      if (event.key === 'Escape') {
+        opening.value = false
+      }
+    }),
+  )
+  return (
+    // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: <explanation>
+    <li onClick$={toOpen} class={liWrapper} role='button' aria-expanded={opening.value} tabIndex={0}>
+      <div class={liHeader}>
+        <h4 class={li_content.txt1} style={assignInlineVars({ [myContent]: props.icon })}>
+          {props.title}
+        </h4>
+        <span class={opening.value ? li_content.notificationOpen : li_content.notification}> </span>
+      </div>
+      <p class={opening.value ? li_content.txt2Open : li_content.txt2}>{props.description}</p>
+    </li>
+  )
+})
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/Li.tsx ===
+
+// Li.tsx
+
+import { component$, useSignal, $ } from '@builder.io/qwik'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { li_content, liHeader, liWrapper, myContent } from './content.css'
+
+export interface ItemProps {
+  title: string
+  description: string
+  icon: string
+}
+
+export default component$<ItemProps>(props => {
+  const opening = useSignal<boolean>(false)
+
+  const toOpen = $(() => {
+    opening.value = !opening.value
+  })
+
+  return (
+    <li onClick$={toOpen} class={liWrapper} role='button' aria-expanded={opening.value} tabIndex={0}>
+      <div class={liHeader}>
+        <h4 class={li_content.txt1} style={assignInlineVars({ [myContent]: props.icon })}>
+          {props.title}
+        </h4>
+        <span class={opening.value ? li_content.notificationOpen : li_content.notification}></span>
+      </div>
+      <p class={opening.value ? li_content.txt2Open : li_content.txt2}>{props.description}</p>
+    </li>
+  )
+})
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/how3/content.css.ts ===
+
+// /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/content.css.ts
+
+import { createVar, keyframes, style, styleVariants } from '@vanilla-extract/css'
+import { container, textRecipe as R } from 'src/styles/recipe'
+import { color } from 'src/styles/utils/themeNew.css.ts'
+
+// Animation pour le changement de couleur progressif
+const changeColor = keyframes({
+  '0%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 0%)',
+  },
+  '25%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 25%)',
+  },
+  '50%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 50%)',
+  },
+  '75%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 75%)',
+  },
+  '100%': {
+    background: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 100%)',
+  },
+})
+
+// Container principal pour la liste
+export const ul = style({
+  paddingInline: 0,
+  marginInline: 20,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 35,
+  justifyItems: 'stretch',
+})
+
+// Background image pour la section
+export const bgImage = style({
+  backgroundImage: 'url(/src/assets/istockphoto.jpg)',
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'repeat',
+})
+
+// Wrapper principal pour chaque élément de liste
+export const liWrapper = style([
+  container({ theme: 'whiteBg', background: true }),
+  {
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr auto',
+    gridTemplateRows: 'auto auto',
+    gap: '10px',
+    padding: '15px',
+    border: '2px solid oklch(0.8 0.0345 261.53)',
+    borderRadius: '5px',
+    width: '100%',
+    cursor: 'pointer',
+    position: 'relative',
+    transition: 'all 0.3s ease',
+
+    selectors: {
+      '&:hover': {
+        borderColor: color.theme.accent,
+        transform: 'translateY(-2px)',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+      },
+      '&:has(+li):before': {
+        content: '',
+        width: '100%',
+        backgroundColor: color.theme.accent,
+        bottom: '-25px',
+        height: '5px',
+        position: 'absolute',
+        left: 0,
+      },
+      '&:hover:has(+li):before': {
+        animationName: changeColor,
+        animationDuration: '4s',
+        animationIterationCount: 'infinite',
+        animationDirection: 'alternate',
+      },
+    },
+  },
+])
+
+// Header de chaque élément (titre + icône + indicateur)
+export const liHeader = style({
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr auto',
+  gridColumn: '1 / -1',
+  gridRow: '1 / 2',
+  gap: '10px',
+  alignItems: 'center',
+  cursor: 'pointer',
+})
+
+// Variable CSS pour l'icône dynamique
+export const myContent = createVar({
+  syntax: '<string>',
+  initialValue: 'url(src/assets/icons/icon-how-it-work-1.svg)',
+  inherits: false,
+})
+
+// Checkbox cachée pour la logique d'accordéon
+export const hiddenCheckbox = style({
+  position: 'absolute',
+  opacity: 0,
+  pointerEvents: 'none',
+})
+
+// Variants pour les différents éléments
+export const li_content = styleVariants({
+  // Titre avec icône
+  txt1: [
+    R({ font: 'highLight' }),
+    {
+      gridColumn: '2 / 3',
+      marginInlineStart: '1rem',
+      display: 'flex',
+      alignItems: 'center',
+      fontWeight: 'bold',
+      color: color.theme.primary,
+
+      ':before': {
+        content: myContent,
+        marginInlineEnd: '1rem',
+        width: '24px',
+        height: '24px',
+        display: 'inline-block',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      },
+    },
+  ],
+
+  // Indicateur fermé (+)
+  notification: {
+    gridColumn: '3 / 4',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    color: color.theme.accent,
+    transition: 'transform 0.3s ease, color 0.3s ease',
+
+    ':after': {
+      content: '+',
+    },
+
+    selectors: {
+      [`${liWrapper}:hover &`]: {
+        transform: 'scale(1.1)',
+        color: color.theme.primary,
+      },
+    },
+  },
+
+  // Indicateur ouvert (-)
+  notificationOpen: {
+    gridColumn: '3 / 4',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    color: color.theme.primary,
+    transition: 'transform 0.3s ease',
+
+    ':after': {
+      content: '-',
+    },
+
+    selectors: {
+      [`${liWrapper}:hover &`]: {
+        transform: 'scale(1.1)',
+      },
+    },
+  },
+
+  // Contenu fermé
+  txt2: [
+    R({ font: 'text' }),
+    {
+      gridColumn: '1 / -1',
+      gridRow: '2 / 3',
+      maxHeight: '0',
+      opacity: '0',
+      overflow: 'hidden',
+      padding: '0 15px',
+      transition: 'max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out',
+      color: color.theme.textSecondary,
+      lineHeight: '1.6',
+    },
+  ],
+
+  // Contenu ouvert
+  txt2Open: [
+    R({ font: 'text' }),
+    {
+      gridColumn: '1 / -1',
+      gridRow: '2 / 3',
+      maxHeight: '500px',
+      opacity: '1',
+      overflow: 'hidden',
+      padding: '15px',
+      transition: 'max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out',
+      color: color.theme.textSecondary,
+      lineHeight: '1.6',
+      marginTop: '10px',
+      borderTop: `1px solid ${color.theme.border}`,
+    },
+  ],
+})
+
+// Style de base pour les icônes (si nécessaire)
+export const iconBase = style({
+  gridColumn: '1 / 2',
+  padding: '10px',
+  width: '40px',
+  height: '40px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',
+})
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/how3/index.astro ===
+
+---
+// /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/index.astro
+
+import Title from '../../Layout-Component/topContent.astro'
+import { containerGridMaxColumn } from '@recipe'
+import { bgImage } from './content.css'
+import HowItWorksComponent from './index'
+---
+
+<section
+  class:list={[
+    bgImage,
+    containerGridMaxColumn({
+      theme: "darkBlueBanner",
+      sizeOfBox: 300,
+      background: false,
+      size: "medium",
+      gap: "sm",
+      maxColumn: 2,
+      marginBlock: "lg",
+      paddingBlock: "lg",
+      hover: false,
+    }),
+  ]}
+>
+  <div class="grid place-items-center bg-slate-900/70 mx-4 px-2 rounded-lg">
+    <Title
+      subtitle="Comment ça marche ?"
+      PreTitle="Ce que nous faisons"
+      title="Pour votre sourire"
+      description="Notre cabinet simplifie vos démarches administratives, vous permettant de vous concentrer sur votre santé et votre bien-être."
+      gap="largeGap"
+      textAlign="left"
+    />
+  </div>
+
+  <div class="w-full">
+    <HowItWorksComponent client:load />
+  </div>
+</section>
+
+----------------------------------------
+
+=== FICHIER: /home/tom/Documents/DEV/dentistLanding/src/components/HOME/how3/index.tsx ===
+
+// /home/tom/Documents/DEV/dentistLanding/src/components/HOME/howItWorks/index.tsx
+
+import { $, component$, useStore } from '@builder.io/qwik'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import { li_content, liHeader, liWrapper, myContent, ul } from './content.css'
+
+export interface ItemProps {
+  title: string
+  description: string
+  icon: string
+}
+
+export default component$(() => {
+  // Données directement dans le composant pour tester
+  const data = [
+    {
+      title: 'Prendre rendez-vous',
+      icon: 'url(/src/assets/icons/icon-how-it-work-1.svg)',
+      description:
+        'Prenez rendez-vous facilement en ligne ou par téléphone. Notre équipe vous proposera un créneau adapté à votre emploi du temps.',
+    },
+    {
+      title: 'Tiers Payant',
+      icon: 'url(/src/assets/icons/icon-how-it-work-2.svg)',
+      description: 'Bénéficiez du tiers payant pour la plupart des soins. Aucun débours au cabinet.',
+    },
+    {
+      title: 'Soins experts',
+      icon: 'url(/src/assets/icons/icon-how-it-work-3.svg)',
+      description: 'Recevez des soins dentaires experts dans un environnement moderne et accueillant.',
+    },
+  ]
+
+  // Store simple avec juste les index ouverts
+  const openItems = useStore<Record<number, boolean>>({})
+
+  // Fonction de toggle simplifiée
+  const toggleItem = $((index: number) => {
+    console.log('Toggle item:', index) // Pour debug
+
+    if (openItems[index]) {
+      // Si ouvert, fermer
+      delete openItems[index]
+    } else {
+      // Fermer tous les autres puis ouvrir celui-ci
+      Object.keys(openItems).forEach(key => {
+        delete openItems[parseInt(key)]
+      })
+      openItems[index] = true
+    }
+  })
+
+  return (
+    <ul class={ul}>
+      {data.map((item, index) => {
+        const isOpen = !!openItems[index]
+        return (
+          <li key={`item-${index}`} class={liWrapper} onClick$={() => toggleItem(index)} role='button' tabIndex={0}>
+            <div class={liHeader}>
+              <h4 class={li_content.txt1} style={assignInlineVars({ [myContent]: item.icon })}>
+                {item.title}
+              </h4>
+              <span class={isOpen ? li_content.notificationOpen : li_content.notification} />
+            </div>
+            <p class={isOpen ? li_content.txt2Open : li_content.txt2}>{item.description}</p>
+          </li>
+        )
+      })}
+    </ul>
+  )
+})
+
+----------------------------------------
+

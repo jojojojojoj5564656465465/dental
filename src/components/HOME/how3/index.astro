@@ -1,0 +1,41 @@
+---
+
+
+
+import Title from '../../Layout-Component/topContent.astro'
+import { containerGridMaxColumn } from '@recipe'
+import { bgImage } from './content.css'
+import HowItWorksComponent from './index'
+---
+
+<section
+  class:list={[
+    bgImage,
+    containerGridMaxColumn({
+      theme: "darkBlueBanner",
+      sizeOfBox: 300,
+      background: false,
+      size: "medium",
+      gap: "sm",
+      maxColumn: 2,
+      marginBlock: "lg",
+      paddingBlock: "lg",
+      hover: false,
+    }),
+  ]}
+>
+  <div class="grid place-items-center bg-slate-900/70 mx-4 px-2 rounded-lg">
+    <Title
+      subtitle="Comment ça marche ?"
+      PreTitle="Ce que nous faisons"
+      title="Pour votre sourire"
+      description="Notre cabinet simplifie vos démarches administratives, vous permettant de vous concentrer sur votre santé et votre bien-être."
+      gap="largeGap"
+      textAlign="left"
+    />
+  </div>
+
+  <div class="w-full">
+    <HowItWorksComponent />
+  </div>
+</section>
