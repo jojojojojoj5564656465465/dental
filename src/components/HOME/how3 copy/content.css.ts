@@ -43,7 +43,7 @@ export const bgImage = style({
 
 // Wrapper principal pour chaque élément de liste
 export const liWrapper = style([
-  container({ theme: 'whiteLD', background: true }),
+  container({ theme: 'whiteBg', background: true }),
   {
     display: 'grid',
     gridTemplateColumns: 'auto 1fr auto',
@@ -56,7 +56,7 @@ export const liWrapper = style([
     cursor: 'pointer',
     position: 'relative',
     transition: 'all 0.3s ease',
-    height: '200px',
+
     selectors: {
       '&:hover': {
         borderColor: color.theme.accent,
@@ -92,7 +92,7 @@ export const liHeader = style({
   alignItems: 'center',
   cursor: 'pointer',
   width: '100%',
-  background: 'greenyellow',
+  background: 'green',
   border: 'none',
   padding: 0,
   textAlign: 'left',
@@ -110,24 +110,6 @@ export const hiddenCheckbox = style({
   position: 'absolute',
   opacity: 0,
   pointerEvents: 'none',
-})
-
-export const descriptionHeight = styleVariants({
-  closed: {
-    // maxHeight: '100px',
-    overflow: 'hidden',
-    transition: 'max-height 0.3s ease-out',
-    //display: 'none',
-    //color: 'red',
-  },
-  open: {
-    maxHeight: '500px',
-    //height: 'auto',
-    transition: 'max-height 0.3s ease-out',
-    backgroundColor: 'greenyellow',
-    minHeight: '200px',
-    color: 'green !important',
-  },
 })
 
 // Variants pour les différents éléments
@@ -196,17 +178,20 @@ export const li_content = styleVariants({
   },
 
   // Contenu fermé
-  txtClose: [
+  txt2: [
+    R({ font: 'text' }),
     {
-      backgroundColor: 'pink',
-      margin: '0px',
+      backgroundColor: 'red',
+
       gridColumn: '1 / -1',
       gridRow: '2 / 3',
-      maxHeight: '0px',
-      opacity: 0,
+      maxHeight: '0',
+      opacity: '0',
       overflow: 'hidden',
-      padding: '0px',
+      padding: '0 15px',
       transition: 'max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out',
+      color: color.theme.secondary,
+      lineHeight: '1.6',
     },
   ],
 
@@ -215,9 +200,10 @@ export const li_content = styleVariants({
     R({ font: 'text' }),
     {
       gridColumn: '1 / -1',
+      backgroundColor: 'violet',
       gridRow: '2 / 3',
-      maxHeight: '100px', // 👈 CHANGÉ DE height → maxHeight
-      opacity: 1, // 👈 AJOUTÉ
+      maxHeight: '500px',
+      opacity: '1',
       overflow: 'hidden',
       padding: '15px',
       transition: 'max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out',
@@ -240,4 +226,50 @@ export const iconBase = style({
   justifyContent: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'contain',
+})
+
+///// Context Example (not used in the above styles) ////
+
+export const exampleContextStyle = styleVariants({
+  Open: {
+    backgroundColor: '#f0f0f0',
+    border: '1px solid #ddd',
+    borderRadius: '4px',
+    padding: '12px 16px',
+    width: '100%',
+    textAlign: 'left',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    marginBottom: '4px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    transition: 'background-color 0.2s ease',
+  },
+  Close: {
+    backgroundColor: '#fff',
+    border: '1px solid #ddd',
+    borderRadius: '4px',
+    padding: '12px 16px',
+    width: '100%',
+    textAlign: 'left',
+    cursor: 'pointer',
+    marginBottom: '4px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    transition: 'background-color 0.2s ease',
+    '&:hover': {
+      backgroundColor: '#f9f9f9',
+    },
+    Description: {
+      padding: '12px 16px',
+      backgroundColor: '#f9f9f9',
+      border: '1px solid #ddd',
+      borderTop: 'none',
+      borderRadius: '0 0 4px 4px',
+      marginBottom: '8px',
+      color: '#333',
+    },
+  },
 })

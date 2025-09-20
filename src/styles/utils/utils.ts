@@ -126,7 +126,7 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
   const ArrayLengthSchema = pipe(array(string()), minLength(2), maxLength(7, 'limite is 7 colors'))
   const parserArrayLength = safeParser(ArrayLengthSchema)
   const { success, output, issues } = parserArrayLength(colors)
-  !success && console.error(issues)
+  !success && console.error('boxShadowGenerator', issues)
   return success
     ? output
         .map((color, index) => {
