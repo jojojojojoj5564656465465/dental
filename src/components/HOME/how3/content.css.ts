@@ -56,7 +56,7 @@ export const liWrapper = style([
     cursor: 'pointer',
     position: 'relative',
     transition: 'all 0.3s ease',
-    height: '200px',
+    height: 'auto',
     selectors: {
       '&:hover': {
         borderColor: color.theme.accent,
@@ -112,24 +112,6 @@ export const hiddenCheckbox = style({
   pointerEvents: 'none',
 })
 
-export const descriptionHeight = styleVariants({
-  closed: {
-    // maxHeight: '100px',
-    overflow: 'hidden',
-    transition: 'max-height 0.3s ease-out',
-    //display: 'none',
-    //color: 'red',
-  },
-  open: {
-    maxHeight: '500px',
-    //height: 'auto',
-    transition: 'max-height 0.3s ease-out',
-    backgroundColor: 'greenyellow',
-    minHeight: '200px',
-    color: 'green !important',
-  },
-})
-
 // Variants pour les différents éléments
 export const li_content = styleVariants({
   // Titre avec icône
@@ -155,7 +137,6 @@ export const li_content = styleVariants({
       },
     },
   ],
-
   // Indicateur fermé (+)
   notification: {
     gridColumn: '3 / 4',

@@ -1,7 +1,7 @@
-.open {
+.openDescription {
   color: green;
 }
-.closed {
+.closeDescription {
   color: red;
   display: none;
 }

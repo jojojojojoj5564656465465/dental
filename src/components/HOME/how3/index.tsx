@@ -8,11 +8,11 @@ import {
   useContext,
   useContextProvider,
   useSignal,
-  useTask$,
   useStylesScoped$,
+  useTask$,
 } from '@builder.io/qwik'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
-import { descriptionHeight, li_content, liHeader, liWrapper, myContent, ul } from './content.css'
+import { li_content, liHeader, liWrapper, myContent, ul } from './content.css'
 import styles from './main.css?inline'
 export interface ItemProps {
   title: string
@@ -59,10 +59,9 @@ const Accordion = component$(() => {
 
   // Fournir le contexte aux composants enfants
   useContextProvider(AccordionContext, activeId)
-  const context = useContext(AccordionContext)
+  //  const context = useContext(AccordionContext);
   return (
     <ul class={ul}>
-      <h2 class='bg-red-500 h-5 text-xl text-white text-center'>{context.value ?? 'null value'}</h2>
       {data.map((item, index) => (
         <AccordionItem key={index} item={{ ...item, toggleItem }} />
       ))}
@@ -105,7 +104,7 @@ const AccordionItem = component$<{ item: ItemProps }>(({ item }) => {
         // class={isOpen.value ? li_content.txt2Open : li_content.txtClose}
         aria-hidden={!isOpen.value}
       >
-        <p class={isOpen.value ? 'open' : 'closed'}>
+        <p class={isOpen.value ? 'openDescription' : 'closeDescription'}>
           ID : {item.id}
           <br />
           isOpen: {isOpen.value ? 'true:' : 'false'}
