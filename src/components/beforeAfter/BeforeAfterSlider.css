@@ -29,8 +29,7 @@
   border-right: 2px solid white;
 }
 
-.before-image img,
-.after-image img {
+:is(.before-image, .after-image) img {
   width: 600px;
   height: 400px;
   object-fit: cover;
@@ -78,8 +77,8 @@
     height: 300px;
   }
 
-  .before-image img,
-  .after-image img {
+:is(.before-image, .after-image) img  
+  {
     height: 300px;
   }
 }
