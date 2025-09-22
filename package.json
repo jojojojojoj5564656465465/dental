@@ -33,9 +33,9 @@
   },
   "devDependencies": {
     "@antebudimir/eslint-plugin-vanilla-extract": "^1.11.0",
-    "@typescript-eslint/eslint-plugin": "^8.44.0",
-    "@typescript-eslint/parser": "^8.44.0",
-    "@typescript-eslint/utils": "^8.44.0",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "@typescript-eslint/utils": "^8.44.1",
     "@vanilla-extract/sprinkles": "^1.6.5",
     "@vanilla-extract/vite-plugin": "^5.1.1",
     "biome": "^0.3.3",
