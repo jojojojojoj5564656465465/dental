@@ -1,3 +1,23 @@
 [build]
-  command = "npm run build"
+  command = "bun run build"
   publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ✅ Headers pour les fichiers JS Qwik
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/q-*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ✅ Gestion des erreurs pour SPA
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404

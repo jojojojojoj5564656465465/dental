@@ -92,7 +92,7 @@ export const liHeader = style({
   alignItems: 'center',
   cursor: 'pointer',
   width: '100%',
-  background: 'greenyellow',
+  background: color.theme.secondary,
   border: 'none',
   padding: 0,
   textAlign: 'left',
@@ -111,7 +111,20 @@ export const hiddenCheckbox = style({
   opacity: 0,
   pointerEvents: 'none',
 })
+export const notificationBase = style({
+  gridColumn: '3 / 4',
+  fontSize: '24px',
+  fontWeight: 'bold',
+  color: color.theme.accent,
+  transition: 'transform 0.3s ease, color 0.3s ease',
 
+  selectors: {
+    [`${liWrapper}:hover &`]: {
+      transform: 'scale(1.1)',
+      color: color.theme.primary,
+    },
+  },
+})
 // Variants pour les différents éléments
 export const li_content = styleVariants({
   // Titre avec icône
@@ -138,43 +151,24 @@ export const li_content = styleVariants({
     },
   ],
   // Indicateur fermé (+)
-  notification: {
-    gridColumn: '3 / 4',
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: color.theme.accent,
-    transition: 'transform 0.3s ease, color 0.3s ease',
-
-    ':after': {
-      content: '+',
-    },
-
-    selectors: {
-      [`${liWrapper}:hover &`]: {
-        transform: 'scale(1.1)',
-        color: color.theme.primary,
+  notificationClosed: [
+    notificationBase,
+    {
+      ':after': {
+        content: '+',
       },
     },
-  },
+  ],
 
   // Indicateur ouvert (-)
-  notificationOpen: {
-    gridColumn: '3 / 4',
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: color.theme.primary,
-    transition: 'transform 0.3s ease',
-
-    ':after': {
-      content: '-',
-    },
-
-    selectors: {
-      [`${liWrapper}:hover &`]: {
-        transform: 'scale(1.1)',
+  notificationOpen: [
+    notificationBase,
+    {
+      ':after': {
+        content: '-',
       },
     },
-  },
+  ],
 
   // Contenu fermé
   txtClose: [

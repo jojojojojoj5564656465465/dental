@@ -52,14 +52,14 @@ const Accordion = component$(() => {
   const activeId = useSignal<number | null>(null)
 
   // Fonction pour basculer l'état d'un élément
-  const toggleItem = $((id: number) => {
-    console.log('Toggling item:', id, 'Current activeId:', activeId.value)
+  const toggleItem = $((id: number): void => {
+    // console.log('Toggling item:', id, 'Current activeId:', activeId.value)
     activeId.value = activeId.value === id ? null : id
   })
 
   // Fournir le contexte aux composants enfants
   useContextProvider(AccordionContext, activeId)
-  //  const context = useContext(AccordionContext);
+
   return (
     <ul class={ul}>
       {data.map((item, index) => (
@@ -76,51 +76,52 @@ const AccordionItem = component$<{ item: ItemProps }>(({ item }) => {
   // Calculer si cet élément est ouvert
   const isOpen = useComputed$(() => {
     const open = context.value === item.id
-    console.log(`Item ${item.id} isOpen:`, open) // Debug
+    // console.log(`Item ${item.id} isOpen:`, open) // Debug
     return open
   })
-  useTask$(({ track }) => {
-    track(() => context.value)
-    console.log('Active ID changed to:', context.value) // Debug
-  })
+
   return (
     <li class={liWrapper}>
       <button
-        type='button'
+        type="button"
         class={liHeader}
         onClick$={() => item.toggleItem(item.id)}
         aria-expanded={!!isOpen.value}
         aria-controls={`accordion-content-${item.id}`}
       >
-        <h4 class={li_content.txt1} style={assignInlineVars({ [myContent]: item.icon })}>
-          {item.title} {item.id}
+        <h4
+          class={li_content.txt1}
+          style={assignInlineVars({ [myContent]: item.icon })}
+        >
+          {item.title}
         </h4>
-        <span class={isOpen.value ? li_content.notificationOpen : li_content.notification} aria-hidden='true' />
+        <i
+          class={[
+            "notificationBaseCss",
+            isOpen.value ? "notificationOpenCss" : "notificationClosedCss",
+          ]}
+          aria-hidden="true"
+        />
       </button>
 
       {/* Contenu conditionnel avec animation */}
       <div
-        id={`accordion-content-${item.id}`}
-        // class={isOpen.value ? li_content.txt2Open : li_content.txtClose}
+        class="description"
         aria-hidden={!isOpen.value}
+        style={`--show-description: ${isOpen.value ? "true" : "false"}`}
       >
-        <p class={isOpen.value ? 'openDescription' : 'closeDescription'}>
-          ID : {item.id}
-          <br />
-          isOpen: {isOpen.value ? 'true:' : 'false'}
-          <br />
-          context Value : {context.value ?? 'null'}
+        <p class={isOpen.value ? "openDescription" : "closeDescription"}>
+          {item.description}
         </p>
       </div>
     </li>
-  )
+  );
 })
 
 // Composant réutilisable générique pour d'autres cas d'usage
 export const GenericAccordion = component$<{
   items: ItemProps[]
 }>(({ items }) => {
-  // const currContext = useContext(AccordionContext)
   return (
     <ul class={ul}>
       {items.map(item => (
