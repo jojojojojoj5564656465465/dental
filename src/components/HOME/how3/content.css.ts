@@ -148,6 +148,14 @@ export const li_content = styleVariants({
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       },
+      selectors: {
+        [`${liWrapper}:hover &`]: {
+          color: color.theme.accent,
+        },
+        [`${liWrapper}:focus &`]: {
+          color: color.theme.accent,
+        },
+      },
     },
   ],
   // Indicateur fermé (+)
