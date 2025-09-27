@@ -77,8 +77,7 @@
     height: 300px;
   }
 
-:is(.before-image, .after-image) img  
-  {
+  :is(.before-image, .after-image) img {
     height: 300px;
   }
 }

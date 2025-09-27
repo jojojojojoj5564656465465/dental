@@ -13,12 +13,9 @@
   font-size: 0.8rem;
   color: rgb(5, 78, 213);
 }
-.notificationClosedCss::after  {
+.notificationClosedCss::after {
   content: " - ";
 }
 .notificationOpenCss::after {
   content: " + ";
 }
-
-  
-

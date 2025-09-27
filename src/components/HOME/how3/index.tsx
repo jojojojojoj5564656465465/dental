@@ -9,10 +9,8 @@ import {
   useContextProvider,
   useSignal,
   useStylesScoped$,
-  useTask$,
 } from '@builder.io/qwik'
-import { assignInlineVars } from '@vanilla-extract/dynamic'
-import { li_content, liHeader, liWrapper, myContent, ul } from './content.css'
+import { li_content, liHeader, liWrapper, ul } from './content.css'
 import styles from './main.css?inline'
 export interface ItemProps {
   title: string
@@ -31,21 +29,20 @@ const Accordion = component$(() => {
     {
       id: 0,
       title: 'Prendre rendez-vous',
-      icon: 'url(/src/assets/icons/icon-how-it-work-1.svg)',
-      description:
-        'Prenez rendez-vous facilement en ligne ou par téléphone. Notre équipe vous proposera un créneau adapté à votre emploi du temps.',
+      icon: '/svg/How/icon-how-it-work-1.svg', // Chemin relatif
+      description: 'Prenez rendez-vous facilement en ligne ou par téléphone.',
     },
     {
       id: 1,
       title: 'Tiers Payant',
-      icon: 'url(/src/assets/icons/icon-how-it-work-2.svg)',
-      description: 'Bénéficiez du tiers payant pour la plupart des soins. Aucun débours au cabinet.',
+      icon: '/svg/How/icon-how-it-work-2.svg', // Chemin relatif
+      description: 'Bénéficiez du tiers payant pour la plupart des soins.',
     },
     {
       id: 2,
       title: 'Soins experts',
-      icon: 'url(/src/assets/icons/icon-how-it-work-3.svg)',
-      description: 'Recevez des soins dentaires experts dans un environnement moderne et accueillant.',
+      icon: '/svg/How/icon-how-it-work-3.svg', // Chemin relatif
+      description: 'Recevez des soins dentaires experts dans un environnement moderne.',
     },
   ]
 
@@ -73,49 +70,37 @@ const Accordion = component$(() => {
 const AccordionItem = component$<{ item: ItemProps }>(({ item }) => {
   const context = useContext(AccordionContext)
   useStylesScoped$(styles)
-  // Calculer si cet élément est ouvert
-  const isOpen = useComputed$(() => {
-    const open = context.value === item.id
-    // console.log(`Item ${item.id} isOpen:`, open) // Debug
-    return open
-  })
+
+  const isOpen = useComputed$(() => context.value === item.id)
 
   return (
     <li class={liWrapper}>
+      {/* Utilise la balise img avec item.icon comme src */}
+
       <button
-        type="button"
+        type='button'
         class={liHeader}
         onClick$={() => item.toggleItem(item.id)}
         aria-expanded={!!isOpen.value}
         aria-controls={`accordion-content-${item.id}`}
       >
-        <h4
-          class={li_content.txt1}
-          style={assignInlineVars({ [myContent]: item.icon })}
-        >
-          {item.title}
-        </h4>
+        <img src={item.icon} alt={`Icône pour ${item.title}`} class='accordion-icon' />
+        <h4 class={li_content.txt1}>{item.title}</h4>
         <i
-          class={[
-            "notificationBaseCss",
-            isOpen.value ? "notificationOpenCss" : "notificationClosedCss",
-          ]}
-          aria-hidden="true"
+          class={['notificationBaseCss', isOpen.value ? 'notificationOpenCss' : 'notificationClosedCss']}
+          aria-hidden='true'
         />
       </button>
 
-      {/* Contenu conditionnel avec animation */}
       <div
-        class="description"
+        class='description'
         aria-hidden={!isOpen.value}
-        style={`--show-description: ${isOpen.value ? "true" : "false"}`}
+        style={`--show-description: ${isOpen.value ? 'true' : 'false'}`}
       >
-        <p class={isOpen.value ? "openDescription" : "closeDescription"}>
-          {item.description}
-        </p>
+        <p class={isOpen.value ? 'openDescription' : 'closeDescription'}>{item.description}</p>
       </div>
     </li>
-  );
+  )
 })
 
 // Composant réutilisable générique pour d'autres cas d'usage
@@ -123,11 +108,14 @@ export const GenericAccordion = component$<{
   items: ItemProps[]
 }>(({ items }) => {
   return (
-    <ul class={ul}>
-      {items.map(item => (
-        <AccordionItem key={item.id} item={item} />
-      ))}
-    </ul>
+    <div>
+      <div class='image-wrapper'></div>
+      <ul class={ul}>
+        {items.map(item => (
+          <AccordionItem key={item.id} item={item} />
+        ))}
+      </ul>
+    </div>
   )
 })
 
