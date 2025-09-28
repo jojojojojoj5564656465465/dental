@@ -1,4 +1,4 @@
-import { t as _renderer0 } from './chunks/server_CGRK2jti.mjs';
+import { t as _renderer0 } from './chunks/server_2Ao3gq5m.mjs';
 
 const renderers = [Object.assign({"name":"@qwikdev/astro","serverEntrypoint":"/mnt/data500/rr/DEV/dentistLanding/node_modules/@qwikdev/astro/server.ts"}, { ssr: _renderer0 }),];
 

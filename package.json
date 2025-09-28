@@ -26,7 +26,7 @@
     "astro": "latest",
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
-    "bun-types": "^1.2.22",
+    "bun-types": "^1.2.23",
     "tailwindcss": "latest",
     "typescript": "^5.9.2",
     "valibot": "^1.1.0"

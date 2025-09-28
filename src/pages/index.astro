@@ -1,11 +1,11 @@
 ---
 import Location from 'src/components/HOME/location/index.astro'
 import Van from 'src/components/HOME/vanityMetrics/card.tsx'
+import DentistListCards from 'src/components/Dentist-Card/index.tsx'
 import HERO from '@/components/HOME/1-HERO/Hero.astro'
 import ABOUTUS from '@/components/HOME/2-aboutUs/index.astro'
 import Specialisation from '@/components/HOME/3-Specialisation/index.astro'
 import Diagnostic from '@/components/HOME/Diagnosis/index.astro'
-
 import ImageFixed from '../components/HOME/4-imageFilter/image.astro'
 import Avis from '../components/HOME/Avis/index'
 
@@ -14,17 +14,16 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <div class="mx-auto">
-     <HERO />
-
+    <HERO />
+    
     <ABOUTUS />
-    <Specialisation />
-    <ImageFixed /> 
+    <Specialisation />J
+    <ImageFixed />
 
     <How3/>
     <Avis />
     <Van />
     <Diagnostic />
+    <DentistListCards />
     <Location /> 
-  </div>
 </Layout>
