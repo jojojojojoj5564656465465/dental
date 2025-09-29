@@ -1,46 +1,67 @@
 /** biome-ignore-all lint/a11y/noRedundantAlt: <explanation> */
-import { component$, type PropFunction, useStylesScoped$ } from '@builder.io/qwik'
+import { component$, useStylesScoped$ } from '@builder.io/qwik'
 import { containerGridMaxColumn } from '@recipe'
+
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import Couverture_doc1 from 'src/assets/Doctors/cov-doc1.webp?jsx'
+import Couverture_doc2 from 'src/assets/Doctors/cov-doc2.jpg?jsx'
+import Couverture_doc3 from 'src/assets/Doctors/cov-doc3.webp?jsx'
+
+import img_doc1 from 'src/assets/Doctors/doc1.jpg?jsx'
+import img_doc2 from 'src/assets/Doctors/doc2.jpg?jsx'
+import img_doc3 from 'src/assets/Doctors/doc3.webp?jsx'
+
+import { overlay } from 'src/components/HOME/4-imageFilter/image.css.ts'
+import { imgUrl, photoPortraitDoctor } from './index.css.ts'
 
 interface DentistCardProps {
   name: string
   specialty: string
   description: string
-  imageUrl: string
+  imageUrl: any
   appointmentLink: string
   buttonText?: string
+  imagePortrait: any
 }
 const dentists: DentistCardProps[] = [
   {
-    name: "Pierre Martin",
-    specialty: "Endodontiste",
+    name: 'Hawa TIMERA',
+    specialty: 'Endodontiste',
     description:
-      "Spécialiste des traitements de canal et de la préservation dentaire. Technologies de pointe pour votre confort.",
-    imageUrl: "public/men.jpg",
-    appointmentLink: "/contact?dentist=pierre-martin",
-    buttonText: "🔬 Consultation",
+      'Spécialiste des traitements de canal et de la préservation dentaire. Technologies de pointe pour votre confort.',
+    imageUrl: Couverture_doc1,
+    appointmentLink: 'https://www.doctolib.fr/dentiste/courbevoie/hawa-timera-paris',
+
+    imagePortrait: img_doc1,
   },
   {
-    name: "Claire Dubois",
-    specialty: "Dentiste Esthétique",
+    name: 'Alexandra Bartoli',
+    specialty: 'Dentiste Esthétique',
     description:
       "Passionnée par l'esthétique dentaire : facettes, blanchiment, smile design. Révélez votre plus beau sourire.",
-    imageUrl: "public/men.jpg",
-    appointmentLink: "/contact?dentist=claire-dubois",
-    buttonText: "✨ Transformation",
+    imageUrl: Couverture_doc2,
+    appointmentLink:
+      'https://www.doctolib.fr/dentiste/courbevoie/alexandra-bartoli?utm_campaign=google-maps&utm_content=courbevoie&utm_medium=organic&utm_source=google&utm_term=dentiste',
+
+    imagePortrait: img_doc2,
   },
   {
-    name: "Thomas Leroy",
-    specialty: "Dentiste Généraliste",
+    name: 'Stéphane Hayat',
+    specialty: 'Dentiste Généraliste',
     description:
-      "Soins dentaires complets pour toute la famille. Prévention, soins et urgences avec une approche bienveillante.",
-    imageUrl: "public/men.jpg",
-    appointmentLink: "/contact?dentist=thomas-leroy",
-    buttonText: "👨‍👩‍👧‍👦 Rendez-vous famille",
+      'Soins dentaires complets pour toute la famille. Prévention, soins et urgences avec une approche bienveillante.',
+    imageUrl: Couverture_doc3,
+    appointmentLink: 'https://www.doctolib.fr/dentiste/courbevoie/stephane-hayat',
+
+    imagePortrait: img_doc3,
   },
-];
+]
 const ItemDentistsCard = component$<DentistCardProps>(props => {
   useStylesScoped$(`
+    .overlays {
+  border-image: fill 0 linear-gradient(#0003,#000); 
+  }
+
     .clippy {
       clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
     }
@@ -51,7 +72,7 @@ const ItemDentistsCard = component$<DentistCardProps>(props => {
       right: 1.5rem;
       width: 4rem;
       height: 4rem;
-      background: #10b981;
+      
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -70,40 +91,46 @@ const ItemDentistsCard = component$<DentistCardProps>(props => {
   `)
 
   return (
-    <div class="rounded overflow-hidden shadow-lg font-sans h-full flex flex-col w-full ">
-      <div class="relative flex-shrink-0 bg-gradient-to-br from-bg-red-950 to-bg-green-800">
+    <div class={['rounded overflow-hidden shadow-lg font-sans h-full flex flex-col w-full ']}>
+      <div class='relative flex-shrink-0 '>
         <img
-          class="w-full clippy h-48 object-cover from-bg-red-600 from-bg-red-200 bg-gradient-to-tr"
+          class={[overlay, 'w-full clippy h-48 object-cover ']}
           src={props.imageUrl}
           alt={`Photo de ${props.name}`}
           width={400}
           height={300}
-          loading="lazy"
+          loading='lazy'
         />
-        <div class="clippy absolute inset-0   bg-opacity-10 p-4 text-white flex flex-col justify-end items-center">
+        <div class='clippy absolute inset-0   bg-opacity-10 p-4 text-white flex flex-col justify-end items-center'>
           {/* Zone pour un badge ou un texte personnalisé */}
         </div>
-        <div class="plus-button">+</div>
+        <div
+          class={[photoPortraitDoctor, 'plus-button']}
+          style={assignInlineVars({
+            [imgUrl]: `url(${props.imagePortrait})`,
+          })}
+        ></div>
       </div>
 
-      <div class="pt-3 pb-5 px-5 flex flex-col items-center flex-grow justify-between">
-        <div class="flex flex-col items-center text-center">
-          <p class="font-bold text-3xl">{props.name}</p>
-          <p class="text-gray-500 mb-8 pb-3 md:pb-9">{props.specialty}</p>
-          <p class="text-center mb-4 flex-grow">{props.description}</p>
+      <div class='pt-3 pb-5 px-5 flex flex-col items-center flex-grow justify-between'>
+        <div class='flex flex-col items-center text-center'>
+          <p class='font-bold text-3xl'>{props.name}</p>
+          <p class='text-gray-500 mb-8 pb-3 md:pb-9'>{props.specialty}</p>
+          <p class='text-center mb-4 flex-grow'>{props.description}</p>
         </div>
 
         {/* Bouton avec balise <a> standard */}
         <a
           href={props.appointmentLink}
-          class="my-5 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300 no-underline"
-          preventdefault:click
+          target='_blank'
+          rel='noopener noreferrer'
+          class='my-5 bg-green-900 hover:bg-green-500 text-white font-bold py-2 md:py-3 px-6 rounded-full transition duration-300 no-underline'
         >
-          {props.buttonText || "Prendre rendez-vous"}
+          Doctolib
         </a>
       </div>
     </div>
-  );
+  )
 })
 
 export default component$(() => {
@@ -114,19 +141,11 @@ export default component$(() => {
         maxColumn: 4,
         background: true,
         gap: 'sm',
-        paddingBlock:'md'
+        paddingBlock: 'md',
       })}
     >
       {dentists.map((dentist, index) => (
-        <ItemDentistsCard
-          key={index}
-          name={dentist.name}
-          specialty={dentist.specialty}
-          description={dentist.description}
-          imageUrl={dentist.imageUrl}
-          appointmentLink={dentist.appointmentLink}
-          buttonText={dentist.buttonText}
-        />
+        <ItemDentistsCard key={index} {...dentist} />
       ))}
     </section>
   )

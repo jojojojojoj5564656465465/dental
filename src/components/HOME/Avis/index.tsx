@@ -13,25 +13,25 @@ interface Testimonial {
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    quote:
-      "Un service exceptionnel et des soins de grande qualité. L'équipe est professionnelle et toujours prête à répondre à mes questions. Je recommande vivement ce cabinet.",
-    authorName: 'Thomas Linda',
-    authorTitle: 'Designer',
+    quote: 'Le docteur Bartoli est très gentille bienveillante et douce dans son travail merci au docteur Bartoli',
+    authorName: 'Corinne Delrieu',
+    authorTitle: 'AVIS GOOGLE',
     authorImage: 'https://i.pravatar.cc/50?img=1',
   },
   {
     id: 2,
-    quote: 'Une expérience remarquable. Le personnel est accueillant et l’environnement est très agréable.',
+    quote:
+      "Une expérience dentaire au top chez la Dr. Alexandra Bartoli ! Le détartrage était super bien fait, la prise de la panoramique dentaire s'est déroulée sans souci. Tout s'est passé sans accroc, avec une équipe sympa, y compris son assistante. Si vous cherchez une bonne adresse pour des soins dentaires, je recommande vivement le cabinet de la Dr. Bartoli. Efficace et sans chichis, une valeur sûre !",
     authorName: 'Jane Doe',
-    authorTitle: 'Responsable Marketing',
+    authorTitle: 'AVIS GOOGLE',
     authorImage: 'https://i.pravatar.cc/50?img=2',
   },
   {
     id: 3,
     quote:
-      'Professionnalisme et attention au patient. Je me suis senti à l’aise tout au long de ma visite. Je recommande sans hésiter !',
-    authorName: 'Peter Jones',
-    authorTitle: 'Développeur',
+      "Le Dr Bartoli est très professionnelle et soucieuse du bien-être de ses patients. Elle prend le temps d'expliquer les choses et elle prodigue les soins avec beaucoup de douceur. Le cabinet est moderne et propre et le rendez-vous se déroule en musique, ce qui est propice à plus de détente. Rien à redire, que du positif !",
+    authorName: 'Marie Dupont',
+    authorTitle: 'AVIS GOOGLE',
     authorImage: 'https://i.pravatar.cc/50?img=3',
   },
 ]

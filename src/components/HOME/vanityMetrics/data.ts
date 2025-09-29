@@ -7,7 +7,7 @@ interface CardQwkProps {
 
 const cardData: CardQwkProps[] = [
   {
-    title: 12,
+    title: 34,
     symbol: '~',
     subtitle: 'Années',
     text: 'Une expertise reconnue pour des soins de qualité.',
@@ -19,13 +19,13 @@ const cardData: CardQwkProps[] = [
     text: 'Des milliers de sourires transformés avec succès.',
   },
   {
-    title: 11,
+    title: 3,
     symbol: '~',
     subtitle: 'Professionnels',
     text: 'Une équipe à votre écoute pour votre confort et sécurité.',
   },
   {
-    title: 20,
+    title: 12,
     symbol: '+',
     subtitle: 'Mutuelles',
     text: "Une prise en charge simplifiée pour votre tranquillité d'esprit.",
