@@ -5,19 +5,23 @@ import { media } from '@styles/token'
 
 import { createVar, style } from '@vanilla-extract/css'
 import { calc } from '@vanilla-extract/css-utils'
-import { container, flex } from '@recipe'
+import { container } from '@recipe'
 
 const overlaping = createVar({
   syntax: '<length>',
   inherits: false,
   initialValue: '250px',
 })
+export const overlay = style({
+  backgroundImage: `linear-gradient(to bottom, ${color.variable.whiteBlue} ${overlaping}, ${color.variable.darkLight} ${overlaping})`,
+  borderImageSlice: 'fill 1',
+})
 export const sectionWrapper = style([
   container({ hover: false, theme: 'accent' }),
+  overlay,
   {
     blockSize: 600,
     aspectRatio: '21/9s',
-    backgroundImage: `linear-gradient(to bottom, ${color.variable.whiteBlue} ${overlaping}, ${color.variable.darkLight} ${overlaping})`,
     '@media': {
       [media.mobile]: {
         blockSize: '349px',
