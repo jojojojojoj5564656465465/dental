@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/a11y/noRedundantAlt: <explanation> */
 import { component$, useStylesScoped$ } from '@builder.io/qwik'
 import { containerGridMaxColumn } from '@recipe'
 
@@ -7,8 +6,8 @@ import Couverture_doc1 from 'src/assets/Doctors/cov-doc1.webp?jsx'
 import Couverture_doc2 from 'src/assets/Doctors/cov-doc2.jpg?jsx'
 import Couverture_doc3 from 'src/assets/Doctors/cov-doc3.webp?jsx'
 
-import img_doc1 from 'src/assets/Doctors/doc1.jpg?jsx'
-import img_doc2 from 'src/assets/Doctors/doc2.jpg?jsx'
+import img_doc1 from 'src/assets/Doctors/doc1.webp?jsx'
+import img_doc2 from 'src/assets/Doctors/doc2.webp?jsx'
 import img_doc3 from 'src/assets/Doctors/doc3.webp?jsx'
 
 import { overlay } from 'src/components/HOME/4-imageFilter/image.css.ts'
@@ -96,7 +95,7 @@ const ItemDentistsCard = component$<DentistCardProps>(props => {
         <img
           class={[overlay, 'w-full clippy h-48 object-cover ']}
           src={props.imageUrl}
-          alt={`Photo de ${props.name}`}
+          alt={`img de ${props.name}`}
           width={400}
           height={300}
           loading='lazy'
