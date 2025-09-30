@@ -10,6 +10,7 @@ import {
   useOnWindow,
   useSignal,
   useStore,
+  useTask$,
   useVisibleTask$,
 } from '@builder.io/qwik'
 
@@ -93,14 +94,14 @@ const ChevronIcon = component$<ChevronIconProps>(({ isOpen = false }) => (
   </svg>
 ))
 
-const MenuIcon = $(() => (
+const MenuIcon = component$(() => (
   <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
     <title>Ouvrir le menu</title>
     <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16' />
   </svg>
 ))
 
-const CloseIcon = $(() => (
+const CloseIcon = component$(() => (
   <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
     <title>Fermer le menu</title>
     <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12' />
@@ -121,7 +122,8 @@ export function useMobileMenuToggler(navBarId: string) {
   useVisibleTask$(() => {
     isMobileScreen.value = window.innerWidth < 768
   })
-  useComputed$(() => {
+  useTask$(({ track }) => {
+    track(() => isMobileScreen.value)
     if (!isMobileScreen.value) {
       isOpen.value = false
     }
@@ -184,7 +186,10 @@ export const DesktopSubmenuItem = component$<DesktopSubmenuItemProps>(props => {
   const activeSubmenuIndex = useContext(ActiveDesktopSubmenuContext)
   const itemRef = useSignal<HTMLLIElement>()
 
-  const isActive = useComputed$(() => activeSubmenuIndex.value === props.idx)
+  const isActive: Signal<boolean> = useComputed$(() => activeSubmenuIndex.value === props.idx)
+  useTask$(({ track }) => {
+    track(() => activeSubmenuIndex.value)
+  })
 
   return (
     <li
@@ -333,90 +338,88 @@ export default component$(() => {
   })
 
   return (
-    <>
-      <nav id={navBarId} class='bg-white shadow-lg sticky top-0 z-50'>
-        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div class='flex justify-between h-16'>
-            <a href='/' class='flex items-center' aria-label='DentaCare Homepage'>
-              <div class='flex-shrink-0 flex items-center'>
-                <div class='w-10 h-10 bg-gradient-to-br from-sky-500 to-blue-800 rounded-lg flex items-center justify-center'>
-                  <LogoIcon />
-                </div>
-                <span class='ml-3 text-xl font-bold text-blue-800'>DentaCare</span>
+    <nav id={navBarId} class='bg-white shadow-lg sticky top-0 z-50'>
+      <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div class='flex justify-between h-16'>
+          <a href='/' class='flex items-center' aria-label='DentaCare Homepage'>
+            <div class='flex-shrink-0 flex items-center'>
+              <div class='w-10 h-10 bg-gradient-to-br from-sky-500 to-blue-800 rounded-lg flex items-center justify-center'>
+                <LogoIcon />
               </div>
-            </a>
-
-            <ul class='hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-4'>
-              {menu.map((item, index) =>
-                item.type === 'link' ? (
-                  <DentalNavLink key={`${item.name}-${index}`} {...item} />
-                ) : (
-                  <DesktopSubmenuItem key={`${item.name}-${index}`} {...item} idx={index} />
-                ),
-              )}
-              <li>
-                <a
-                  href='/rdv'
-                  class='bg-gradient-to-r from-sky-500 to-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200 ml-4'
-                >
-                  Prendre RDV
-                </a>
-              </li>
-            </ul>
-
-            <div class='md:hidden flex items-center'>
-              <button
-                type='button'
-                onClick$={toggleMobileMenu}
-                class='text-gray-700 hover:text-sky-500 focus:outline-none focus:text-sky-500 transition-colors duration-200 p-2'
-                aria-label={isMobileMenuOpen.value ? 'Fermer le menu principal' : 'Ouvrir le menu principal'}
-                aria-expanded={isMobileMenuOpen.value}
-                aria-controls='mobile-menu-content'
-              >
-                {isMobileMenuOpen.value ? <CloseIcon /> : <MenuIcon />}
-              </button>
+              <span class='ml-3 text-xl font-bold text-blue-800'>DentaCare</span>
             </div>
-          </div>
-        </div>
+          </a>
 
-        <div
-          class={`md:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen.value ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          }`}
-          id='mobile-menu-content'
-        >
-          <ul class='px-2 pt-2 pb-3 space-y-1'>
+          <ul class='hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-4'>
             {menu.map((item, index) =>
               item.type === 'link' ? (
-                <DentalNavLink
-                  key={`${item.name}-${index}-mobile`}
-                  {...item}
-                  isMobile
-                  onClick$={closeMobileMenuAndSubmenus$}
-                />
+                <DentalNavLink key={`${item.name}-${index}`} {...item} />
               ) : (
-                <MobileSubmenuItem
-                  key={`${item.name}-${index}-mobile`}
-                  {...item}
-                  submenuName={item.name}
-                  openStore={mobileSubmenuOpenStates}
-                  toggleSubmenu$={toggleMobileSubmenu$}
-                  closeMobileMenu$={closeMobileMenuAndSubmenus$}
-                />
+                <DesktopSubmenuItem key={`${item.name}-${index}`} {...item} idx={index} />
               ),
             )}
-            <li class='pt-3'>
+            <li>
               <a
                 href='/rdv'
-                class='grid mx-4 my-2 bg-gradient-to-r from-sky-500 to-blue-800 text-white px-4 py-2 rounded-full text-center font-medium hover:shadow-lg transition-all duration-200'
-                onClick$={closeMobileMenuAndSubmenus$}
+                class='bg-gradient-to-r from-sky-500 to-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200 ml-4'
               >
                 Prendre RDV
               </a>
             </li>
           </ul>
+
+          <div class='md:hidden flex items-center'>
+            <button
+              type='button'
+              onClick$={toggleMobileMenu}
+              class='text-gray-700 hover:text-sky-500 focus:outline-none focus:text-sky-500 transition-colors duration-200 p-2'
+              aria-label={isMobileMenuOpen.value ? 'Fermer le menu principal' : 'Ouvrir le menu principal'}
+              aria-expanded={isMobileMenuOpen.value}
+              aria-controls='mobile-menu-content'
+            >
+              {isMobileMenuOpen.value ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
-      </nav>
-    </>
+      </div>
+
+      <div
+        class={`md:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen.value ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        id='mobile-menu-content'
+      >
+        <ul class='px-2 pt-2 pb-3 space-y-1'>
+          {menu.map((item, index) =>
+            item.type === 'link' ? (
+              <DentalNavLink
+                key={`${item.name}-${index}-mobile`}
+                {...item}
+                isMobile
+                onClick$={closeMobileMenuAndSubmenus$}
+              />
+            ) : (
+              <MobileSubmenuItem
+                key={`${item.name}-${index}-mobile`}
+                {...item}
+                submenuName={item.name}
+                openStore={mobileSubmenuOpenStates}
+                toggleSubmenu$={toggleMobileSubmenu$}
+                closeMobileMenu$={closeMobileMenuAndSubmenus$}
+              />
+            ),
+          )}
+          <li class='pt-3'>
+            <a
+              href='/rdv'
+              class='grid mx-4 my-2 bg-gradient-to-r from-sky-500 to-blue-800 text-white px-4 py-2 rounded-full text-center font-medium hover:shadow-lg transition-all duration-200'
+              onClick$={closeMobileMenuAndSubmenus$}
+            >
+              Prendre RDV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 })
